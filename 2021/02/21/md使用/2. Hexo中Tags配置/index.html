@@ -20,28 +20,57 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的Hexo中Tags配置，有更直观的阅读体验。 Hexo编写文本时采用的是markdown格式，就会导致有些功能实现起来不太方便，如调整文字颜色、内容切换、图片组合等，这时就可以通过tags标签插件来实现，同时也可以根据个人需求，编辑自己想要的插件。这里以Next主题为例，介绍一下Next主题中通过配置标签插件来实现文本编辑的多样性。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的Hexo中Tags配置，有更直观的阅读体验。 Hexo编写文本时采用的是markdown格式，就会导致有些功能实现起来不太方便，如调整文字颜色、内容切换、图片组合等，这时就可以通过tags标签插件来实现，同时也可以根据个人需求，编辑自己想要的插件。这里以Next主题为例，介绍一下Next主题中通过配置标签插件来实现文本编辑的多样性。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-b9b18db2bfdc23ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/692/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-c20dbb317e2f1f39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-693727f95c5b9d4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/660/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-f875d6f0fbc1084a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/666/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-1611f43c41c83647.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-d0f4c51815536ff4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/657/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-6dfca314f98162a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/660/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-4046cd5a49497d5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/665/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-27651ad3338fe319.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-00a9b00a69d4dc48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-88185b7ef15698fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-75c16708230cab78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/597/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-008a3e5fe3f392ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/585/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-ae338aada639ba01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/693/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-e33c5969d5bc0258.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/658/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-da9d5c8ecdd03b24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-b80aa659891395a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/661/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-afac133ff095603e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/663/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-b6ee4f922283893d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-fbbaee1861e8b9e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/661/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-275a2e6db4640306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/667/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-c72521ae8aa1ad1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-b43560086ad99319.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/763395-3038fb84272ab3e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/799/format/webp">
+<meta property="article:published_time" content="2021-02-21T05:51:52.377Z">
+<meta property="article:modified_time" content="2021-02-21T05:54:17.626Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/763395-b9b18db2bfdc23ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/692/format/webp">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -135,9 +164,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -153,10 +183,9 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -180,7 +209,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://sunfove.xyz/archives/6389b888.html">Hexo中Tags配置</a>，有更直观的阅读体验。</p>
+        <p>由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://sunfove.xyz/archives/6389b888.html">Hexo中Tags配置</a>，有更直观的阅读体验。</p>
 <p>Hexo编写文本时采用的是markdown格式，就会导致有些功能实现起来不太方便，如调整文字颜色、内容切换、图片组合等，这时就可以通过tags标签插件来实现，同时也可以根据个人需求，编辑自己想要的插件。这里以Next主题为例，介绍一下Next主题中通过配置标签插件来实现文本编辑的多样性。</p>
 <h3 id="1-Center-quote"><a href="#1-Center-quote" class="headerlink" title="1. Center-quote"></a>1. Center-quote</h3><h4 id="1-1-Center-quote-简介"><a href="#1-1-Center-quote-简介" class="headerlink" title="1.1 Center-quote 简介"></a>1.1 Center-quote 简介</h4><p>center-quote插件可以实现引用效果，在目标文本前后插入引号，建议用在单个文本中。</p>
 <h4 id="1-2-Center-quote-用法"><a href="#1-2-Center-quote-用法" class="headerlink" title="1.2 Center-quote 用法"></a>1.2 Center-quote 用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">center-quote.js</span><br><span class="line">&#123;% centerquote %&#125;Quote1&#123;% endcenterquote %&#125;</span><br><span class="line">&#123;% cq %&#125;Quote2&#123;% endcq %&#125; </span><br></pre></td></tr></table></figure>
@@ -281,279 +310,30 @@
 <h4 id="9-3-Group-pictures案例"><a href="#9-3-Group-pictures案例" class="headerlink" title="9.3 Group-pictures案例"></a>9.3 Group-pictures案例</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% grouppicture <span class="number">7</span><span class="number">-5</span>%&#125;</span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160720_192243_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160817_185254_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160818_190040_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20180123_131106.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20170712_154515.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20161127_161939_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20190523_191951.jpg)</span></span><br><span class="line">&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://upload-images.jianshu.io/upload_images/763395-3038fb84272ab3e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/799/format/webp" alt="img"></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-21 11:26:57 / Modified: 11:30:07" itemprop="dateCreated datePublished" datetime="2021-02-21T11:26:57+08:00">2021-02-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显示文字位于输入框中</span></span><br><span class="line">`context`</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图片</span></span><br><span class="line"><span class="comment">// 个人博客图片需要使用网络资源或者自己建文件服务器</span></span><br><span class="line">![图片描述](图片url)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用代码框    </span></span><br><span class="line">​````java</span><br></pre></td></tr></table></figure>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/hello-world%20-%20%E5%89%AF%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/21/hello-world%20-%20%E5%89%AF%E6%9C%AC/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-21 11:18:39 / Modified: 11:25:15" itemprop="dateCreated datePublished" datetime="2021-02-21T11:18:39+08:00">2021-02-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3258409020,3419166358&fm=26&gp=0.jpg" alt="图片"></p>
-<p><img src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3258409020,3419166358&fm=26&gp=0.jpg" alt="创建仓库"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/19/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/19/My-New-Post/" class="post-title-link" itemprop="url">My New Post</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-19 13:46:15" itemprop="dateCreated datePublished" datetime="2021-01-19T13:46:15+08:00">2021-01-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/19/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-19 11:10:54" itemprop="dateCreated datePublished" datetime="2021-01-19T11:10:54+08:00">2021-01-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 14:02:42" itemprop="dateModified" datetime="2021-02-21T14:02:42+08:00">2021-02-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -606,6 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Center-quote"><span class="nav-number">1.</span> <span class="nav-text">1. Center-quote</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Center-quote-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Center-quote 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Center-quote-%E7%94%A8%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Center-quote 用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-Center-quote-%E6%A1%88%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Center-quote 案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Note"><span class="nav-number">2.</span> <span class="nav-text">2. Note</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Note%E7%AE%80%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Note简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Note%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Note配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Note%E7%94%A8%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Note用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-Note%E6%A1%88%E4%BE%8B"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 Note案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Tabs"><span class="nav-number">3.</span> <span class="nav-text">3.Tabs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Tabs%E7%AE%80%E4%BB%8B"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Tabs简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Tabs%E7%94%A8%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Tabs用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Tabs%E6%A1%88%E4%BE%8B"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Tabs案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-PDF"><span class="nav-number">4.</span> <span class="nav-text">4. PDF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-PDF%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 PDF简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-PDF%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 PDF配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E7%94%A8%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-PDF%E6%A1%88%E4%BE%8B"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 PDF案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Mermaid"><span class="nav-number">5.</span> <span class="nav-text">5.Mermaid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-Mermaid%E7%AE%80%E4%BB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 Mermaid简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Mermaid%E9%85%8D%E7%BD%AE"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Mermaid配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-Mermaid%E7%94%A8%E6%B3%95"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 Mermaid用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-Mermaid%E6%A1%88%E4%BE%8B"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 Mermaid案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Label"><span class="nav-number">6.</span> <span class="nav-text">6. Label</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-Label%E7%AE%80%E4%BB%8B"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 Label简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-Label%E7%94%A8%E6%B3%95"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 Label用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-Label%E6%A1%88%E4%BE%8B"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 Label案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Video"><span class="nav-number">7.</span> <span class="nav-text">7. Video</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-Video%E7%AE%80%E4%BB%8B"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 Video简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Video%E7%94%A8%E6%B3%95"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 Video用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-Video%E6%A1%88%E4%BE%8B"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 Video案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Button"><span class="nav-number">8.</span> <span class="nav-text">8. Button</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-Button%E7%AE%80%E4%BB%8B"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 Button简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-Button%E7%94%A8%E6%B3%95"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 Button用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-Button%E6%A1%88%E4%BE%8B"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 Button案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Group-pictures"><span class="nav-number">9.</span> <span class="nav-text">9. Group-pictures</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-Group-pictures%E7%AE%80%E4%BB%8B"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 Group-pictures简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-2-Group-pictures%E7%94%A8%E6%B3%95"><span class="nav-number">9.1.1.</span> <span class="nav-text">9.2 Group-pictures用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-Group-pictures%E6%A1%88%E4%BE%8B"><span class="nav-number">9.2.</span> <span class="nav-text">9.3 Group-pictures案例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
