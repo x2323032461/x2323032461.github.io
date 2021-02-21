@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -24,7 +24,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -37,7 +37,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -110,12 +110,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -140,8 +140,8 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/4.%20Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -155,7 +155,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/4.%20Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -163,10 +163,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2021-02-21 13:51:52 / Modified: 13:54:17" itemprop="dateCreated datePublished" datetime="2021-02-21T13:51:52+08:00">2021-02-21</time>
+              <time title="创建时间：2021-02-21 14:19:00 / 修改时间：15:01:28" itemprop="dateCreated datePublished" datetime="2021-02-21T14:19:00+08:00">2021-02-21</time>
             </span>
 
           
@@ -180,107 +180,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://sunfove.xyz/archives/6389b888.html">Hexo中Tags配置</a>，有更直观的阅读体验。</p>
-<p>Hexo编写文本时采用的是markdown格式，就会导致有些功能实现起来不太方便，如调整文字颜色、内容切换、图片组合等，这时就可以通过tags标签插件来实现，同时也可以根据个人需求，编辑自己想要的插件。这里以Next主题为例，介绍一下Next主题中通过配置标签插件来实现文本编辑的多样性。</p>
-<h3 id="1-Center-quote"><a href="#1-Center-quote" class="headerlink" title="1. Center-quote"></a>1. Center-quote</h3><h4 id="1-1-Center-quote-简介"><a href="#1-1-Center-quote-简介" class="headerlink" title="1.1 Center-quote 简介"></a>1.1 Center-quote 简介</h4><p>center-quote插件可以实现引用效果，在目标文本前后插入引号，建议用在单个文本中。</p>
-<h4 id="1-2-Center-quote-用法"><a href="#1-2-Center-quote-用法" class="headerlink" title="1.2 Center-quote 用法"></a>1.2 Center-quote 用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">center-quote.js</span><br><span class="line">&#123;% centerquote %&#125;Quote1&#123;% endcenterquote %&#125;</span><br><span class="line">&#123;% cq %&#125;Quote2&#123;% endcq %&#125; </span><br></pre></td></tr></table></figure>
-<h4 id="1-3-Center-quote-案例"><a href="#1-3-Center-quote-案例" class="headerlink" title="1.3 Center-quote 案例"></a>1.3 Center-quote 案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% cq %&#125;Elegant in code, simple in core&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-b9b18db2bfdc23ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/692/format/webp" alt="img"></p>
-<h3 id="2-Note"><a href="#2-Note" class="headerlink" title="2. Note"></a>2. Note</h3><h4 id="2-1-Note简介"><a href="#2-1-Note简介" class="headerlink" title="2.1 Note简介"></a>2.1 Note简介</h4><p>Note标签通过在左边界使用特殊颜色划线，实现提醒功能。</p>
-<h4 id="2-2-Note配置"><a href="#2-2-Note配置" class="headerlink" title="2.2 Note配置"></a>2.2 Note配置</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">next</span>/_config.yml</span><br><span class="line"><span class="symbol">note:</span></span><br><span class="line">  <span class="comment"># Note tag style values:</span></span><br><span class="line">  <span class="comment">#  - simple    bs-callout old alert style. Default.</span></span><br><span class="line">  <span class="comment">#  - modern    bs-callout new (v2-v3) alert style.</span></span><br><span class="line">  <span class="comment">#  - flat      flat callout style with background, like on Mozilla or StackOverflow.</span></span><br><span class="line">  <span class="comment">#  - disabled  disable all CSS styles import of note tag.</span></span><br><span class="line">  <span class="symbol">style:</span> simple</span><br><span class="line">  <span class="symbol">icons:</span> <span class="literal">true</span> <span class="comment">#false时PC端不显示图标，但移动端仍会显示，故需要在标签语句中手动no-icon进行标注</span></span><br><span class="line">  <span class="symbol">border_radius:</span> <span class="number">3</span></span><br><span class="line">  <span class="comment"># Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).</span></span><br><span class="line">  <span class="comment"># Offset also applied to label tag variables. This option can work with disabled note tag.</span></span><br><span class="line">  <span class="symbol">light_bg_offset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-3-Note用法"><a href="#2-3-Note用法" class="headerlink" title="2.3 Note用法"></a>2.3 Note用法</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">note.js</span><br><span class="line">&#123;% note [<span class="class"><span class="keyword">class</span>] [<span class="title">no</span>-<span class="title">icon</span>] %&#125;</span></span><br><span class="line">Any content (support <span class="keyword">inline</span> tags too.io).</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">[<span class="class"><span class="keyword">class</span>]   : <span class="type">default | primary | success | info | warning | danger.</span></span></span><br><span class="line">[no-icon] : Disable icon <span class="keyword">in</span> note.</span><br><span class="line">All parameters are optional.</span><br></pre></td></tr></table></figure>
-<h4 id="2-4-Note案例"><a href="#2-4-Note案例" class="headerlink" title="2.4 Note案例"></a>2.4 Note案例</h4><p>None：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">&lt;b&gt;Header&lt;/b&gt;</span><br><span class="line">(without define <span class="class"><span class="keyword">class</span> <span class="title">style</span>)</span></span><br><span class="line"><span class="class"></span>&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-c20dbb317e2f1f39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654/format/webp" alt="img"></p>
-<p>Default ：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note <span class="literal">default</span> %&#125;</span><br><span class="line"><span class="meta">#### Default Header</span></span><br><span class="line">Welcome to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-693727f95c5b9d4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/660/format/webp" alt="img"></p>
-<p>Primary</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line"><span class="meta">#### Primary Header</span></span><br><span class="line">**Welcome** to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-f875d6f0fbc1084a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/666/format/webp" alt="img"></p>
-<p>Info ：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line"><span class="meta">### Info Header</span></span><br><span class="line">**Welcome** to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-1611f43c41c83647.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp" alt="img"></p>
-<p>Success ：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line"><span class="meta">#### Success Header</span></span><br><span class="line">**Welcome** to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-d0f4c51815536ff4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/657/format/webp" alt="img"></p>
-<p>Warning ：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line"><span class="meta">#### Warning Header</span></span><br><span class="line">**Welcome** to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-6dfca314f98162a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/660/format/webp" alt="img"></p>
-<p>Danger：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line"><span class="meta">#### Danger Header</span></span><br><span class="line">**Welcome** to [Hexo!](https:<span class="comment">//hexo.io)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-4046cd5a49497d5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/665/format/webp" alt="img"></p>
-<p>No-icon ：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line"><span class="comment">#### No icon note</span></span><br><span class="line">Note **without** <span class="symbol">icon:</span> <span class="string">`note info no-icon`</span></span><br><span class="line">note info, note info, note info</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-27651ad3338fe319.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp" alt="img"></p>
-<h3 id="3-Tabs"><a href="#3-Tabs" class="headerlink" title="3.Tabs"></a>3.Tabs</h3><h4 id="3-1-Tabs简介"><a href="#3-1-Tabs简介" class="headerlink" title="3.1 Tabs简介"></a>3.1 Tabs简介</h4><p>Tabs标签用于多个内容之间的切换，默认情况下只显示其中一个结果或不展开显示，使文章更有条理。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">next/_config.yml</span><br><span class="line">tabs:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  transition:</span><br><span class="line">    tabs: <span class="literal">false</span></span><br><span class="line">    labels: <span class="literal">true</span></span><br><span class="line">  border_radius: 0</span><br></pre></td></tr></table></figure>
-<h4 id="3-2-Tabs用法"><a href="#3-2-Tabs用法" class="headerlink" title="3.2 Tabs用法"></a>3.2 Tabs用法</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs Unique name, [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption] [@icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name of tabs block tag without comma.</span><br><span class="line">                Will be used in #id&#x27;s as prefix for each tab with their index numbers.</span><br><span class="line">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span><br><span class="line">                Only for current url of post/page must be unique!</span><br><span class="line">[index]       : Index number of active tab.</span><br><span class="line">                If not specified, first tab (1) will be selected.</span><br><span class="line">                If index is -1, no tab will be selected. It&#x27;s will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption of current tab.</span><br><span class="line">                If not caption specified, unique name with tab index suffix will be used as caption of tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (without &#x27;fa-&#x27; at the begining).</span><br><span class="line">                Can be specified with or without space; e.g. &#x27;Tab caption @icon&#x27; similar to &#x27;Tab caption@icon&#x27;.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></table></figure>
-<h4 id="3-3-Tabs案例"><a href="#3-3-Tabs案例" class="headerlink" title="3.3 Tabs案例"></a>3.3 Tabs案例</h4><p>一般形式：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs First unique name %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 1.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 2.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 3.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-00a9b00a69d4dc48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp" alt="img"></p>
-<p>不展开：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs Third unique name, -1 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 1.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 2.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">**This is Tab 3.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-88185b7ef15698fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602/format/webp" alt="img"></p>
-<p>符号：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- tab @amazon --&gt;</span></span><br><span class="line">**This is Tab 2.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- tab @bold --&gt;</span></span><br><span class="line">**This is Tab 3.**</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-75c16708230cab78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/597/format/webp" alt="img"></p>
-<h3 id="4-PDF"><a href="#4-PDF" class="headerlink" title="4. PDF"></a>4. PDF</h3><h4 id="4-1-PDF简介"><a href="#4-1-PDF简介" class="headerlink" title="4.1 PDF简介"></a>4.1 PDF简介</h4><p>PDF标签用于插入一个页面用于显示pdf文件。</p>
-<h4 id="4-2-PDF配置"><a href="#4-2-PDF配置" class="headerlink" title="4.2 PDF配置"></a>4.2 PDF配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">next/_config.yml</span><br><span class="line">pdf:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Default height</span></span><br><span class="line">  height: 500px</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-用法"><a href="#4-3-用法" class="headerlink" title="4.3 用法"></a>4.3 用法</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pdf.js</span><br><span class="line">&#123;% pdf url [height] %&#125;</span><br><span class="line">[<span class="meta">url</span>]    : Relative path to PDF file.</span><br><span class="line">[<span class="meta">height</span>] : Optional. Height of the PDF display element, e.g. <span class="number">800</span>px.</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-PDF案例"><a href="#4-4-PDF案例" class="headerlink" title="4.4 PDF案例"></a>4.4 PDF案例</h4><p>在线PDF：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf https:<span class="comment">//example.com/sample.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
-<p>本地PDF：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf &#x2F;path&#x2F;to&#x2F;your&#x2F;file.pdf 600px %&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5-Mermaid"><a href="#5-Mermaid" class="headerlink" title="5.Mermaid"></a>5.Mermaid</h3><h4 id="5-1-Mermaid简介"><a href="#5-1-Mermaid简介" class="headerlink" title="5.1 Mermaid简介"></a>5.1 Mermaid简介</h4><p>Mermaid标签用于创建树状分支图。</p>
-<h4 id="5-2-Mermaid配置"><a href="#5-2-Mermaid配置" class="headerlink" title="5.2 Mermaid配置"></a>5.2 Mermaid配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">next/_config.yml</span><br><span class="line"><span class="comment"># Mermaid tag</span></span><br><span class="line">mermaid:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Available themes: default | dark | forest | neutral</span></span><br><span class="line">  theme: forest</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-Mermaid用法"><a href="#5-3-Mermaid用法" class="headerlink" title="5.3 Mermaid用法"></a>5.3 Mermaid用法</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mermaid.js</span><br><span class="line">&#123;% mermaid <span class="keyword">type</span> %&#125;</span><br><span class="line">&#123;% endmermaid %&#125;</span><br><span class="line"><span class="keyword">type</span> : <span class="keyword">type</span> of the mermaid chart, visit https:<span class="comment">//github.com/knsv/mermaid for more information.</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-4-Mermaid案例"><a href="#5-4-Mermaid案例" class="headerlink" title="5.4 Mermaid案例"></a>5.4 Mermaid案例</h4><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% mermaid graph TD %&#125;</span><br><span class="line">A[Christmas] --&gt;|Get money| B(Go shopping)</span><br><span class="line">B --&gt; C&#123;Let me thinksssss&lt;br/&gt;ssssssssssssssssssssss&lt;br/&gt;sssssssssssssssssssssssssss&#125;</span><br><span class="line">C --&gt;|One| D[Laptop]</span><br><span class="line">C --&gt;|Two| E[iPhone]</span><br><span class="line">C --&gt;|Three| F[Car]</span><br><span class="line">&#123;% endmermaid %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-008a3e5fe3f392ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/585/format/webp" alt="img"></p>
-<h3 id="6-Label"><a href="#6-Label" class="headerlink" title="6. Label"></a>6. Label</h3><h4 id="6-1-Label简介"><a href="#6-1-Label简介" class="headerlink" title="6.1 Label简介"></a>6.1 Label简介</h4><p>Label标签可以为一段话添加颜色、划线等特殊标记。</p>
-<h4 id="6-2-Label用法"><a href="#6-2-Label用法" class="headerlink" title="6.2 Label用法"></a>6.2 Label用法</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label [<span class="class"><span class="keyword">class</span>]<span class="meta">@Text</span> %&#125;</span></span><br><span class="line">[<span class="class"><span class="keyword">class</span>] : <span class="type">default | primary | success | info | warning | danger.</span></span></span><br><span class="line">          <span class="string">&#x27;@Text&#x27;</span> can be specified with or without space</span><br><span class="line">          E.g. <span class="string">&#x27;success @text&#x27;</span> similar to <span class="string">&#x27;success@text&#x27;</span>.</span><br><span class="line">          If not specified, default <span class="class"><span class="keyword">class</span> <span class="title">will</span> <span class="title">be</span> <span class="title">selected</span>.</span></span><br></pre></td></tr></table></figure>
-<h4 id="6-3-Label案例"><a href="#6-3-Label案例" class="headerlink" title="6.3 Label案例"></a>6.3 Label案例</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Lorem &#123;% label <span class="meta">@ipsum</span> %&#125; &#123;% label <span class="symbol">primary@</span>dolor sit %&#125; amet, consectetur &#123;% label <span class="symbol">success@</span>adipiscing elit, %&#125; sed &#123;% label <span class="symbol">info@</span><span class="keyword">do</span> eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.</span><br><span class="line"></span><br><span class="line">Ut enim *&#123;% label warning <span class="meta">@ad</span> %&#125;* minim veniam, quis **&#123;% label <span class="symbol">danger@</span>nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span><br><span class="line"></span><br><span class="line">Duis aute irure dolor <span class="keyword">in</span> reprehenderit <span class="keyword">in</span> voluptate ~~&#123;% label default <span class="meta">@velit</span> %&#125;~~ &lt;mark&gt;esse&lt;/mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt <span class="keyword">in</span> culpa qui officia deserunt mollit anim id est laborum.</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-ae338aada639ba01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/693/format/webp" alt="img"></p>
-<h3 id="7-Video"><a href="#7-Video" class="headerlink" title="7. Video"></a>7. Video</h3><h4 id="7-1-Video简介"><a href="#7-1-Video简介" class="headerlink" title="7.1 Video简介"></a>7.1 Video简介</h4><p>Video标签用于添加视频。</p>
-<h4 id="7-2-Video用法"><a href="#7-2-Video用法" class="headerlink" title="7.2 Video用法"></a>7.2 Video用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">video.js</span><br><span class="line">&#123;% video url %&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="7-3-Video案例"><a href="#7-3-Video案例" class="headerlink" title="7.3 Video案例"></a>7.3 Video案例</h4><p>在线视频：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% video https:<span class="comment">//example.com/sample.mp4 %&#125;</span></span><br></pre></td></tr></table></figure>
-<p>本地视频：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% video &#x2F;path&#x2F;to&#x2F;your&#x2F;video.mp4 %&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8-Button"><a href="#8-Button" class="headerlink" title="8. Button"></a>8. Button</h3><h4 id="8-1-Button简介"><a href="#8-1-Button简介" class="headerlink" title="8.1 Button简介"></a>8.1 Button简介</h4><p>Button标签可以添加带有链接的标签。</p>
-<h4 id="8-2-Button用法"><a href="#8-2-Button用法" class="headerlink" title="8.2 Button用法"></a>8.2 Button用法</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">button.js</span><br><span class="line">&#123;% button url, text, icon [<span class="class"><span class="keyword">class</span>], <span class="type">[title] %&#125;</span></span></span><br><span class="line">&lt;!-- Tag Alias --&gt;</span><br><span class="line">&#123;% btn url, text, icon [<span class="class"><span class="keyword">class</span>], <span class="type">[title] %&#125;</span></span></span><br><span class="line"></span><br><span class="line">url     : Absolute or relative path to URL.</span><br><span class="line">text    : Button text. Required <span class="keyword">if</span> no icon specified.</span><br><span class="line">icon    : FontAwesome icon name (without <span class="string">&#x27;fa-&#x27;</span> at the begining). Required <span class="keyword">if</span> no text specified.</span><br><span class="line">[<span class="class"><span class="keyword">class</span>] : <span class="type">FontAwesome class</span></span>(es): fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5x</span><br><span class="line">          Optional parameter.</span><br><span class="line">[title] : Tooltip at mouseover.</span><br><span class="line">          Optional parameter.</span><br></pre></td></tr></table></figure>
-<h4 id="8-3-Button案例"><a href="#8-3-Button案例" class="headerlink" title="8.3 Button案例"></a>8.3 Button案例</h4><p>基本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% button <span class="comment">#, Text %&#125;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-e33c5969d5bc0258.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/658/format/webp" alt="img"></p>
-<p>标题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn <span class="comment">#, Text %&#125;</span></span><br><span class="line">&#123;% btn <span class="comment">#, Text &amp; Title,, Title %&#125;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-da9d5c8ecdd03b24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp" alt="img"></p>
-<p>图标：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;% btn #,, home fa-5x %&#125;&#123;% btn #,, home fa-5x %&#125;&#123;% btn #,, home fa-5x %&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-b80aa659891395a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/661/format/webp" alt="img"></p>
-<p>文字：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;% btn #, Text &amp; Icon (buggy), home %&#125;</span><br><span class="line">&#123;% btn #, Text &amp; Icon (fixed width), home fa-fw %&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-afac133ff095603e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/663/format/webp" alt="img"></p>
-<p>段落：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem &#123;% btn <span class="comment">#, Lorem, home fa-fw fa-lg %&#125; ipsum dolor sit amet</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-b6ee4f922283893d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/664/format/webp" alt="img"></p>
-<p>嵌套：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">&#123;% btn <span class="meta">#, Text &amp; Icon, home fa-fw %&#125;</span></span><br><span class="line"></span><br><span class="line">&#123;% btn <span class="meta">#,, home, Title %&#125;&#123;% btn #, Text %&#125;</span></span><br><span class="line">[<span class="meta">Link</span>](<span class="meta">#)</span></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-fbbaee1861e8b9e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/661/format/webp" alt="img"></p>
-<p>间距：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;text-center&quot;</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, header %&#125;&#123;% btn #,, edge %&#125;&#123;% btn #,, times %&#125;&#123;% btn #,, circle-o %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div&gt;&#123;% btn #,, italic %&#125;&#123;% btn #,, scribd %&#125;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;&#123;% btn #,, google %&#125;&#123;% btn #,, chrome %&#125;&#123;% btn #,, opera %&#125;&#123;% btn #,, diamond fa-rotate-270 %&#125;&lt;/div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-275a2e6db4640306.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/667/format/webp" alt="img"></p>
-<p>相对链接：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">&quot;text-center&quot;</span>&gt;&#123;% btn <span class="meta">#, Previous Chapter, arrow-left fa-fw fa-lg, Previous Chapter (Full Image) %&#125; &#123;% btn #, Next Chapter, arrow-right fa-fw fa-lg, Next Chapter (Label) %&#125;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-c72521ae8aa1ad1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp" alt="img"></p>
-<p>绝对链接：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">&quot;text-center&quot;</span>&gt;&#123;% btn https:<span class="comment">//github.com/theme-next/hexo-theme-next, NexT, github fa-fw fa-lg, NexT source code %&#125;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-b43560086ad99319.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/662/format/webp" alt="img"></p>
-<h3 id="9-Group-pictures"><a href="#9-Group-pictures" class="headerlink" title="9. Group-pictures"></a>9. Group-pictures</h3><h4 id="9-1-Group-pictures简介"><a href="#9-1-Group-pictures简介" class="headerlink" title="9.1 Group-pictures简介"></a>9.1 Group-pictures简介</h4><p>Group-pictures标签用于显示多个图片。</p>
-<h5 id="9-2-Group-pictures用法"><a href="#9-2-Group-pictures用法" class="headerlink" title="9.2 Group-pictures用法"></a>9.2 Group-pictures用法</h5><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">group</span>-pictures.js</span><br><span class="line">&#123;% grouppicture [<span class="keyword">group</span>]-[layout] %&#125;&#123;% endgrouppicture %&#125;</span><br><span class="line">&#123;% gp [<span class="keyword">group</span>]-[layout] %&#125;&#123;% endgp %&#125;</span><br><span class="line">[<span class="meta">group</span>]  : Total number of pictures to <span class="keyword">add</span> <span class="keyword">in</span> the <span class="keyword">group</span>.</span><br><span class="line">[<span class="meta">layout</span>] : Default picture under the <span class="keyword">group</span> to show.</span><br></pre></td></tr></table></figure>
-<h4 id="9-3-Group-pictures案例"><a href="#9-3-Group-pictures案例" class="headerlink" title="9.3 Group-pictures案例"></a>9.3 Group-pictures案例</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% grouppicture <span class="number">7</span><span class="number">-5</span>%&#125;</span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160720_192243_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160817_185254_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20160818_190040_AO_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20180123_131106.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20170712_154515.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20161127_161939_HDR.jpg)</span></span><br><span class="line">  ![](https:<span class="comment">//suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/%E6%89%8B%E6%9C%BA/IMG_20190523_191951.jpg)</span></span><br><span class="line">&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/763395-3038fb84272ab3e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/799/format/webp" alt="img"></p>
-
+          <h3 id="1-可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#1-可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="1. 可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>1. 可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/21/md%E4%BD%BF%E7%94%A8/4.%20Hexo%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -298,7 +206,76 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-21 13:51:52 / 修改时间：14:17:01" itemprop="dateCreated datePublished" datetime="2021-02-21T13:51:52+08:00">2021-02-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于简书的编辑器不支持这里介绍的tags功能，建议移步个人网站中的<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://sunfove.xyz/archives/6389b888.html">Hexo中Tags配置</a>，有更直观的阅读体验。</p>
+<p>Hexo编写文本时采用的是markdown格式，就会导致有些功能实现起来不太方便，如调整文字颜色、内容切换、图片组合等，这时就可以通过tags标签插件来实现，同时也可以根据个人需求，编辑自己想要的插件。这里以Next主题为例，介绍一下Next主题中通过配置标签插件来实现文本编辑的多样性。</p>
+<h3 id="1-Center-quote"><a href="#1-Center-quote" class="headerlink" title="1. Center-quote"></a>1. Center-quote</h3><h4 id="1-1-Center-quote-简介"><a href="#1-1-Center-quote-简介" class="headerlink" title="1.1 Center-quote 简介"></a>1.1 Center-quote 简介</h4><p>center-quote插件可以实现引用效果，在目标文本前后插入引号，建议用在单个文本中。</p>
+<h4 id="1-2-Center-quote-用法"><a href="#1-2-Center-quote-用法" class="headerlink" title="1.2 Center-quote 用法"></a>1.2 Center-quote 用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">center-quote.js</span><br><span class="line">&#123;% centerquote %&#125;Quote1&#123;% endcenterquote %&#125;</span><br><span class="line">&#123;% cq %&#125;Quote2&#123;% endcq %&#125; </span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/21/md%E4%BD%BF%E7%94%A8/2.%20Hexo%E4%B8%ADTags%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -313,7 +290,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/21/md%E4%BD%BF%E7%94%A8/1.%20md%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -321,10 +298,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2021-02-21 11:26:57 / Modified: 11:30:07" itemprop="dateCreated datePublished" datetime="2021-02-21T11:26:57+08:00">2021-02-21</time>
+              <time title="创建时间：2021-02-21 11:26:57 / 修改时间：11:30:07" itemprop="dateCreated datePublished" datetime="2021-02-21T11:26:57+08:00">2021-02-21</time>
             </span>
 
           
@@ -357,124 +334,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/hello-world%20-%20%E5%89%AF%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/21/hello-world%20-%20%E5%89%AF%E6%9C%AC/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-21 11:18:39 / Modified: 11:25:15" itemprop="dateCreated datePublished" datetime="2021-02-21T11:18:39+08:00">2021-02-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3258409020,3419166358&fm=26&gp=0.jpg" alt="图片"></p>
-<p><img src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3258409020,3419166358&fm=26&gp=0.jpg" alt="创建仓库"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/19/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/19/My-New-Post/" class="post-title-link" itemprop="url">My New Post</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-19 13:46:15" itemprop="dateCreated datePublished" datetime="2021-01-19T13:46:15+08:00">2021-01-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/19/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,22 +357,22 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2021-01-19 11:10:54" itemprop="dateCreated datePublished" datetime="2021-01-19T11:10:54+08:00">2021-01-19</time>
+              <time title="创建时间：2021-01-19 11:10:54" itemprop="dateCreated datePublished" datetime="2021-01-19T11:10:54+08:00">2021-01-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-21 14:02:42" itemprop="dateModified" datetime="2021-02-21T14:02:42+08:00">2021-02-21</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-21 14:02:42" itemprop="dateModified" datetime="2021-02-21T14:02:42+08:00">2021-02-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
                 </span>
@@ -597,10 +457,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -619,13 +479,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span>
       </div>
   </nav>
 </div>
@@ -661,7 +521,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">John Doe</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
