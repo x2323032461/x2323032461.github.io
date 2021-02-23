@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>进度</title>
+    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
+    <content><![CDATA[<p>​    </p>
+<p>​    git    p8</p>
+]]></content>
+      <tags>
+        <tag>进度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文件结构</title>
     <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
@@ -165,13 +175,78 @@
       </tags>
   </entry>
   <entry>
-    <title>进度</title>
-    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
-    <content><![CDATA[<p>​    </p>
-<p>​    git    p7</p>
+    <title>git使用</title>
+    <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><p>![未命名文件 (1)](未命名文件 (1).png)</p>
+<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3>]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git概念</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
+<a id="more"></a>
+
+<p>​        <code>版本控制</code>( Revision control )是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录,备份以便恢复以前的版本的软件工程技术。<br>​    ●  实现跨区域多人协同开发<br>​    ●  追踪和记载一个或者多个文件的历史记录<br>​    ●  组织和保护你的源代码和文档<br>​    ●  统计工作量<br>​    ●  并行开发、提高开发效率<br>​    ●  跟踪记录整个软件的开发过程<br>​    ●  减轻开发人员的负担,节省时间,同时降低人为错误<br>简单说就是用于管理多人协同开发项目的技术。</p>
+<h4 id="手动控制版"><a href="#手动控制版" class="headerlink" title="手动控制版"></a>手动控制版</h4><p><img src="image-20210222092842985.png"></p>
+<h3 id="版本控制-1"><a href="#版本控制-1" class="headerlink" title="版本控制"></a>版本控制</h3><p>版本控制包括：检入检出控制、分支和合并、历史记录。</p>
+<p>1．检入检出控制<br>        软件开发人员对源文件的修改不能在软件配置管理库中进行，对源文件的修改依赖于基本的文件系统并在各自的工作空间下进行。为了方便软件开发，需要不同的软件开发人员组织各自的工作空间。一般说来，不同的工作空间由不同的目录表示，而对工作空间的访问，由文件系统提供的文件访问权限加以控制。访问控制需要管理各个人员存取或修改一个特定软件配置对象的权限。开发人员能够从库中取出对应项目的配置项进行修改，并检入到软件配置库中，对版本进行“升级”；配置管理人员可以确定多余配置项并删除。同步控制的实质是版本的检入检出控制。检入就是把软件配置项从用户的工作环境存入到软件配置库的过程，检出就是把软件配置项从软件配置库中取出的过程。检人是检出的逆过程。同步控制可用来确保由不同的人并发执行的修改不会产生混乱。</p>
+<p>2．分支和合并<br>        版本分支(以一个已有分支的特定版本为起点，但是独立发展的版本序列)的人工方法就是从主版本——称为主干上拷贝一份，并做上标记。在实行了版本控制后，版本的分支也是一份拷贝，这时的拷贝过程和标记动作由版本控制系统完成。版本合并(来自不同分支的两个版本合并为其中一个分支的新版本)有两种途径，一是将版本A的内容附加到版本B中；另一种是合并版本A和版本B的内容，形成新的版本C。</p>
+<p>3．历史记录<br>        版本的历史记录有助于对软件配置项进行审核，有助于追踪问题的来源。历史记录包括版本号、版本修改时间、版本修改者、版本修改描述等最基本的内容，还可以有其他一些辅助性内容，比如版本的文件大小和读写属性。</p>
+<h3 id="常见的版本控制工具"><a href="#常见的版本控制工具" class="headerlink" title="常见的版本控制工具"></a>常见的版本控制工具</h3><p>​    ●  Git<br>​    ●  SVN ( Subversion )<br>​    ●  CVS ( Concurrent Versions System )<br>​    ●  VSS ( Micorosoft Visual SourceSafe )<br>​    ●  TFS ( Team Foundation Server )<br>​    ●  Visual Studio Online</p>
+<h3 id="GIT与SVN的区别"><a href="#GIT与SVN的区别" class="headerlink" title="GIT与SVN的区别"></a>GIT与SVN的区别</h3><h4 id="本地版本控制-如RCS"><a href="#本地版本控制-如RCS" class="headerlink" title="本地版本控制(如RCS)"></a>本地版本控制(如RCS)</h4><p>​        记录每次更新，对每个版本做一个快照，如将每次更新做备份然后按日期排版仅适用于个人</p>
+<p><img src="image-20210222093134728.png"></p>
+<h4 id="集中版本控制-如-SVN"><a href="#集中版本控制-如-SVN" class="headerlink" title="集中版本控制(如 SVN)"></a>集中版本控制(如 SVN)</h4><p>​        所有的版本数据都保存在服务器上,协同开发者从服务器上同步更新或上传自己的修改所有的开发者都与该服务器做交互，若该服务器出现问题，则将无法上传及获取代码，一般解决方法为定期备份代码</p>
+<p><img src="image-20210222093238406.png"></p>
+<h4 id="分布式版本控制-如git"><a href="#分布式版本控制-如git" class="headerlink" title="分布式版本控制(如git)"></a>分布式版本控制(如git)</h4><p><img src="image-20210222093319633.png"></p>
+<h3 id="git基本理论-核心"><a href="#git基本理论-核心" class="headerlink" title="git基本理论(核心)"></a>git基本理论(核心)</h3><h4 id="分支内容存储在HEAD中"><a href="#分支内容存储在HEAD中" class="headerlink" title="分支内容存储在HEAD中"></a>分支内容存储在HEAD中</h4><p><img src="image-20210223180806311.png" alt="image-20210223180806311"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="工作区域"><a href="#工作区域" class="headerlink" title="工作区域"></a>工作区域</h4><p>​        git本地有三个工作区域，<code>工作目录(Working Directory)</code>、<code>暂存区(Stage Index)</code>、<code>资源库(Repository或Git Directory)</code>。如果在加上<code>远程的git仓库(Rermote Directory)</code>就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
+<p><img src="%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="未命名文件"></p>
+<ul>
+<li><p>Working Directory：工作区，就是平时存放项目代码的地方</p>
+</li>
+<li><p>Index / Stage ：暂存区,用于临时存放你的改动，事实上它只是一个文件,保存即将提交到文件列表信息</p>
+</li>
+<li><p>Repository: 仓库区(或本地仓库),就是安全存放数据的位置 ,这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</p>
+</li>
+<li><p>Remote : 远程仓库（github或gitee码云）,托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</p>
+</li>
+</ul>
+<p>其中开发者仅需管理Working Directory和Remote，暂存区和仓库区使用命令操作即可</p>
+<p>下图可理解为git管理的项目的示意图:</p>
+<p>​    Directory：整个项目</p>
+<p>​        WorkSpace：代码文件</p>
+<p>​        .git(隐藏文件夹)：其中包括Index暂存区及Head目录</p>
+<p><img src="image-20210223181645558.png" alt="image-20210223181645558"></p>
 ]]></content>
       <tags>
-        <tag>进度</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git安装及配置</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<a id="more"></a>
+
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
+<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -249,13 +324,24 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo-next主题添加"><a href="#Hexo-next主题添加" class="headerlink" title="Hexo next主题添加"></a>Hexo next主题添加</h2><h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
 
 
 <h4 id="2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true"><a href="#2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true" class="headerlink" title="2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索footer，在它底下添加counter，设值为true"></a>2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索<strong>footer</strong>，在它底下添加counter，设值为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 统计  </span><br><span class="line">counter: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 
 
 <h4 id="3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码"><a href="#3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码" class="headerlink" title="3. 来到themes\next\layout\_partials，找到footer.swig文件，打开编辑，在底下添加代码"></a>3. 来到themes\next\layout\_partials，找到<strong>footer.swig</strong>文件，打开编辑，在底下添加代码</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.counter %&#125;</span><br><span class="line">    &lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="Hexo-next主题添加搜索"><a href="#Hexo-next主题添加搜索" class="headerlink" title="Hexo next主题添加搜索"></a>Hexo next主题添加搜索</h3><h4 id="1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："><a href="#1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：" class="headerlink" title="1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："></a>1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-全局配置文件-config-yml，新增如下内容："><a href="#2-全局配置文件-config-yml，新增如下内容：" class="headerlink" title="2.全局配置文件_config.yml，新增如下内容："></a>2.全局配置文件_config.yml，新增如下内容：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 添加搜索</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true："><a href="#3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true：" class="headerlink" title="3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true："></a>3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/flashlab/hexo-generator-search</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -313,53 +399,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: - Hexo</span><br><span class="line">tags: - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git安装及配置</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<a id="more"></a>
-
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
-<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git概念</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
-<a id="more"></a>
-
-<p>​        <code>版本控制</code>( Revision control )是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录,备份以便恢复以前的版本的软件工程技术。<br>​    ●  实现跨区域多人协同开发<br>​    ●  追踪和记载一个或者多个文件的历史记录<br>​    ●  组织和保护你的源代码和文档<br>​    ●  统计工作量<br>​    ●  并行开发、提高开发效率<br>​    ●  跟踪记录整个软件的开发过程<br>​    ●  减轻开发人员的负担,节省时间,同时降低人为错误<br>简单说就是用于管理多人协同开发项目的技术。</p>
-<h4 id="手动控制版"><a href="#手动控制版" class="headerlink" title="手动控制版"></a>手动控制版</h4><p><img src="image-20210222092842985.png"></p>
-<h3 id="版本控制-1"><a href="#版本控制-1" class="headerlink" title="版本控制"></a>版本控制</h3><p>版本控制包括：检入检出控制、分支和合并、历史记录。</p>
-<p>1．检入检出控制<br>        软件开发人员对源文件的修改不能在软件配置管理库中进行，对源文件的修改依赖于基本的文件系统并在各自的工作空间下进行。为了方便软件开发，需要不同的软件开发人员组织各自的工作空间。一般说来，不同的工作空间由不同的目录表示，而对工作空间的访问，由文件系统提供的文件访问权限加以控制。访问控制需要管理各个人员存取或修改一个特定软件配置对象的权限。开发人员能够从库中取出对应项目的配置项进行修改，并检入到软件配置库中，对版本进行“升级”；配置管理人员可以确定多余配置项并删除。同步控制的实质是版本的检入检出控制。检入就是把软件配置项从用户的工作环境存入到软件配置库的过程，检出就是把软件配置项从软件配置库中取出的过程。检人是检出的逆过程。同步控制可用来确保由不同的人并发执行的修改不会产生混乱。</p>
-<p>2．分支和合并<br>        版本分支(以一个已有分支的特定版本为起点，但是独立发展的版本序列)的人工方法就是从主版本——称为主干上拷贝一份，并做上标记。在实行了版本控制后，版本的分支也是一份拷贝，这时的拷贝过程和标记动作由版本控制系统完成。版本合并(来自不同分支的两个版本合并为其中一个分支的新版本)有两种途径，一是将版本A的内容附加到版本B中；另一种是合并版本A和版本B的内容，形成新的版本C。</p>
-<p>3．历史记录<br>        版本的历史记录有助于对软件配置项进行审核，有助于追踪问题的来源。历史记录包括版本号、版本修改时间、版本修改者、版本修改描述等最基本的内容，还可以有其他一些辅助性内容，比如版本的文件大小和读写属性。</p>
-<h3 id="常见的版本控制工具"><a href="#常见的版本控制工具" class="headerlink" title="常见的版本控制工具"></a>常见的版本控制工具</h3><p>​    ●  Git<br>​    ●  SVN ( Subversion )<br>​    ●  CVS ( Concurrent Versions System )<br>​    ●  VSS ( Micorosoft Visual SourceSafe )<br>​    ●  TFS ( Team Foundation Server )<br>​    ●  Visual Studio Online</p>
-<h3 id="GIT与SVN的区别"><a href="#GIT与SVN的区别" class="headerlink" title="GIT与SVN的区别"></a>GIT与SVN的区别</h3><h4 id="本地版本控制-如RCS"><a href="#本地版本控制-如RCS" class="headerlink" title="本地版本控制(如RCS)"></a>本地版本控制(如RCS)</h4><p>​        记录每次更新，对每个版本做一个快照，如将每次更新做备份然后按日期排版仅适用于个人</p>
-<p><img src="image-20210222093134728.png"></p>
-<h4 id="集中版本控制-如-SVN"><a href="#集中版本控制-如-SVN" class="headerlink" title="集中版本控制(如 SVN)"></a>集中版本控制(如 SVN)</h4><p>​        所有的版本数据都保存在服务器上,协同开发者从服务器上同步更新或上传自己的修改所有的开发者都与该服务器做交互，若该服务器出现问题，则将无法上传及获取代码，一般解决方法为定期备份代码</p>
-<p><img src="image-20210222093238406.png"></p>
-<h4 id="分布式版本控制-如git"><a href="#分布式版本控制-如git" class="headerlink" title="分布式版本控制(如git)"></a>分布式版本控制(如git)</h4><p><img src="image-20210222093319633.png"></p>
-<h3 id="git基本理论-核心"><a href="#git基本理论-核心" class="headerlink" title="git基本理论(核心)"></a>git基本理论(核心)</h3><h4 id="工作区域"><a href="#工作区域" class="headerlink" title="工作区域"></a>工作区域</h4><p>​        git本地有三个工作区域，<code>工作目录(Working Directory)</code>、<code>暂存区(Stage Index)</code>、<code>资源库(Repository或Git Directory)</code>。如果在加上<code>远程的git仓库(Rermote Directory)</code>就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
-<p><img src="%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="未命名文件"></p>
-<p>Working Directory</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
