@@ -15,16 +15,6 @@
       </tags>
   </entry>
   <entry>
-    <title>进度</title>
-    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
-    <content><![CDATA[<p>​    </p>
-<p>​    git    p9</p>
-]]></content>
-      <tags>
-        <tag>进度</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端报错汇总</title>
     <url>/2021/02/22/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p><strong>net::ERR_CONNECTION_REFUSED</strong></p>
@@ -180,6 +170,16 @@
       </tags>
   </entry>
   <entry>
+    <title>进度</title>
+    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
+    <content><![CDATA[<p>​    </p>
+<p>​    git    p9</p>
+]]></content>
+      <tags>
+        <tag>进度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora使用</title>
     <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
@@ -226,26 +226,6 @@
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
 <p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
 <h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -330,6 +310,26 @@
 
 
 
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -459,17 +459,12 @@
   <entry>
     <title>generator函数</title>
     <url>/2021/02/24/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/generator%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
-<li><p>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。</p>
-</li>
-<li><p>yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</p>
-</li>
-<li><p>yield无法单独工作，需要配合generator(生成器)的其他函数，如next，懒汉式操作，展现强大的主动控制特性。</p>
-</li>
+    <content><![CDATA[<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
+<li>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。</li>
+<li>yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</li>
+<li>yield无法单独工作，需要配合generator(生成器)的其他函数，如next，懒汉式操作，展现强大的主动控制特性。</li>
 </ul>
-<p>​    </p>
+<p>​    <a id="more"></a></p>
 <h2 id="generator使用"><a href="#generator使用" class="headerlink" title="generator使用"></a>generator使用</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; list.length; index++) </span><br><span class="line">        <span class="keyword">yield</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取generator对象</span></span><br><span class="line"><span class="keyword">let</span> gen = generator();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行next()方法获取迭代结果和是否完成</span></span><br><span class="line"><span class="comment">// 结果： &#123;value: 1, done: false&#125;</span></span><br><span class="line">gen.next();</span><br></pre></td></tr></table></figure>
 
 
@@ -490,13 +485,15 @@
 </li>
 <li><p>如果yield在其他表达式中，需要用()单独括起来</p>
 </li>
-<li><p>yield表达式本身没有返回值，或者说总是返回undefined(由next返回) [^注]</p>
+<li><p>yield表达式本身没有返回值，或者说总是返回undefined(由next返回) <code>注</code></p>
 </li>
 </ul>
 <ul>
 <li>next()可无限调用，但既定循环完成之后总是返回undeinded</li>
 </ul>
-<p>[^注]:   当yield在赋值表达式的右边，比如 var result = yield 4，yield语句本身没有返回值，或者说返回值是undefined，但是当我们调用next(param)传参的时候，param不但作为next返回对象的value值，它还作为上一条yield 的返回值，所以result 才会被成功赋值。</p>
+<blockquote>
+<p>注：当yield在赋值表达式的右边，比如 var result = yield 4，yield语句本身没有返回值，或者说返回值是undefined，但是当我们调用next(param)传参的时候，param不但作为next返回对象的value值，它还作为上一条yield 的返回值，所以result 才会被成功赋值。</p>
+</blockquote>
 <h2 id="next-函数及参数"><a href="#next-函数及参数" class="headerlink" title="next()函数及参数"></a>next()函数及参数</h2><ol>
 <li> 在js中，虽然借鉴了python的函数，但是也进行了自己的改造，由于没有send()函数，所以无法直接传递yield的值。</li>
 <li> next()可以带一个参数，该参数会被认为是上一个yield整体的返回值，稍后将在代码中展示。</li>
