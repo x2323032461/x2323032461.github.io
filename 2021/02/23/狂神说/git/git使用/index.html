@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="git项目搭建创建工作目录与常用指令![未命名文件 (1)](未命名文件 (1).png) 本地搭建仓库">
+  <meta name="description" content="git项目搭建创建工作目录与常用指令 本地搭建仓库1git init 提示初始化一个空的git库在G:&#x2F;test&#x2F;test&#x2F;.git&#x2F;  此时运行命令的位置会有  克隆远程仓库123# 克隆整个项目及其整个代码历史(版本信息)# https:&#x2F;&#x2F;gitee.com&#x2F;kuangstudy&#x2F;openclass.gitgit clone [url]   git文件操作文件4中状态 Untracked:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git使用">
 <meta property="og:url" content="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="黄焖鸡在逃米饭">
-<meta property="og:description" content="git项目搭建创建工作目录与常用指令![未命名文件 (1)](未命名文件 (1).png) 本地搭建仓库">
+<meta property="og:description" content="git项目搭建创建工作目录与常用指令 本地搭建仓库1git init 提示初始化一个空的git库在G:&#x2F;test&#x2F;test&#x2F;.git&#x2F;  此时运行命令的位置会有  克隆远程仓库123# 克隆整个项目及其整个代码历史(版本信息)# https:&#x2F;&#x2F;gitee.com&#x2F;kuangstudy&#x2F;openclass.gitgit clone [url]   git文件操作文件4中状态 Untracked:">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/image-liucheng.png">
+<meta property="og:image" content="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/image-20210224090517320.png">
+<meta property="og:image" content="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/image-20210224090651065.png">
 <meta property="article:published_time" content="2021-02-23T11:00:06.000Z">
-<meta property="article:modified_time" content="2021-02-23T11:24:56.185Z">
+<meta property="article:modified_time" content="2021-02-24T02:24:34.188Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/image-liucheng.png">
 
 <link rel="canonical" href="http://example.com/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/">
 
@@ -197,10 +201,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-23 19:00:06 / 修改时间：19:24:56" itemprop="dateCreated datePublished" datetime="2021-02-23T19:00:06+08:00">2021-02-23</time>
+              <time title="创建时间：2021-02-23 19:00:06" itemprop="dateCreated datePublished" datetime="2021-02-23T19:00:06+08:00">2021-02-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 10:24:34" itemprop="dateModified" datetime="2021-02-24T10:24:34+08:00">2021-02-24</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -220,8 +230,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><p>![未命名文件 (1)](未命名文件 (1).png)</p>
-<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3>
+        <h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><p><img src="image-liucheng.png" alt="未命名文件 (1)"></p>
+<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>提示初始化一个空的git库在<code>G:/test/test/.git/</code></p>
+<p><img src="image-20210224090517320.png" alt="image-20210224090517320"></p>
+<p>此时运行命令的位置会有</p>
+<p><img src="image-20210224090651065.png" alt="image-20210224090651065"></p>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 克隆整个项目及其整个代码历史(版本信息)</span><br><span class="line"># https:<span class="operator">/</span><span class="operator">/</span>gitee.com<span class="operator">/</span>kuangstudy<span class="operator">/</span>openclass.git</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><h3 id="文件4中状态"><a href="#文件4中状态" class="headerlink" title="文件4中状态"></a>文件4中状态</h3><ul>
+<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过<code>git add</code> 状态变为<code>Staged</code></li>
+<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为<code>Modified</code>. 如果使用<code>git rm</code>移出版本库, 则成为<code>Untracked</code>文件</li>
+<li><strong>Modified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过<code>git add</code>可进入暂存<code>staged</code>状态, 使用<code>git checkout</code> 则丢弃修改过, 返回到<code>unmodify</code>状态, 这个<code>git checkout</code>即从库中取出文件, 覆盖当前修改</li>
+<li><strong>Staged</strong>: 暂存状态. 执行<code>git commit</code>则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为<code>Unmodify</code>状态. 执行<code>git reset HEAD filename</code>取消暂存, 文件状态为<code>Modified</code></li>
+</ul>
+
     </div>
 
     
@@ -242,7 +266,10 @@
     <a href="/2021/02/23/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90Excel%E5%B9%B6%E4%B8%8B%E8%BD%BD/" rel="prev" title="前端生成Excel并下载">
       <i class="fa fa-chevron-left"></i> 前端生成Excel并下载
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/" rel="next" title="Typora使用">
+      Typora使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -301,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">git项目搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">创建工作目录与常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">本地搭建仓库</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">git项目搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">创建工作目录与常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">本地搭建仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.3.</span> <span class="nav-text">克隆远程仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">git文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B64%E4%B8%AD%E7%8A%B6%E6%80%81"><span class="nav-number">2.1.</span> <span class="nav-text">文件4中状态</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -315,13 +342,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
