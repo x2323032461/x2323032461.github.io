@@ -15,6 +15,16 @@
       </tags>
   </entry>
   <entry>
+    <title>进度</title>
+    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
+    <content><![CDATA[<p>​    </p>
+<p>​    git    p9</p>
+]]></content>
+      <tags>
+        <tag>进度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端报错汇总</title>
     <url>/2021/02/22/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p><strong>net::ERR_CONNECTION_REFUSED</strong></p>
@@ -170,16 +180,6 @@
       </tags>
   </entry>
   <entry>
-    <title>进度</title>
-    <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
-    <content><![CDATA[<p>​    </p>
-<p>​    git    p9</p>
-]]></content>
-      <tags>
-        <tag>进度</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Typora使用</title>
     <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
@@ -226,6 +226,26 @@
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
 <p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
 <h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -316,26 +336,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo添加分类及标签</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
@@ -412,6 +412,105 @@
       </tags>
   </entry>
   <entry>
+    <title>git概念</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
+<a id="more"></a>
+
+<p>​        <code>版本控制</code>( Revision control )是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录,备份以便恢复以前的版本的软件工程技术。<br>​    ●  实现跨区域多人协同开发<br>​    ●  追踪和记载一个或者多个文件的历史记录<br>​    ●  组织和保护你的源代码和文档<br>​    ●  统计工作量<br>​    ●  并行开发、提高开发效率<br>​    ●  跟踪记录整个软件的开发过程<br>​    ●  减轻开发人员的负担,节省时间,同时降低人为错误<br>简单说就是用于管理多人协同开发项目的技术。</p>
+<h4 id="手动控制版"><a href="#手动控制版" class="headerlink" title="手动控制版"></a>手动控制版</h4><p><img src="image-20210222092842985.png"></p>
+<h3 id="版本控制-1"><a href="#版本控制-1" class="headerlink" title="版本控制"></a>版本控制</h3><p>版本控制包括：检入检出控制、分支和合并、历史记录。</p>
+<p>1．检入检出控制<br>        软件开发人员对源文件的修改不能在软件配置管理库中进行，对源文件的修改依赖于基本的文件系统并在各自的工作空间下进行。为了方便软件开发，需要不同的软件开发人员组织各自的工作空间。一般说来，不同的工作空间由不同的目录表示，而对工作空间的访问，由文件系统提供的文件访问权限加以控制。访问控制需要管理各个人员存取或修改一个特定软件配置对象的权限。开发人员能够从库中取出对应项目的配置项进行修改，并检入到软件配置库中，对版本进行“升级”；配置管理人员可以确定多余配置项并删除。同步控制的实质是版本的检入检出控制。检入就是把软件配置项从用户的工作环境存入到软件配置库的过程，检出就是把软件配置项从软件配置库中取出的过程。检人是检出的逆过程。同步控制可用来确保由不同的人并发执行的修改不会产生混乱。</p>
+<p>2．分支和合并<br>        版本分支(以一个已有分支的特定版本为起点，但是独立发展的版本序列)的人工方法就是从主版本——称为主干上拷贝一份，并做上标记。在实行了版本控制后，版本的分支也是一份拷贝，这时的拷贝过程和标记动作由版本控制系统完成。版本合并(来自不同分支的两个版本合并为其中一个分支的新版本)有两种途径，一是将版本A的内容附加到版本B中；另一种是合并版本A和版本B的内容，形成新的版本C。</p>
+<p>3．历史记录<br>        版本的历史记录有助于对软件配置项进行审核，有助于追踪问题的来源。历史记录包括版本号、版本修改时间、版本修改者、版本修改描述等最基本的内容，还可以有其他一些辅助性内容，比如版本的文件大小和读写属性。</p>
+<h3 id="常见的版本控制工具"><a href="#常见的版本控制工具" class="headerlink" title="常见的版本控制工具"></a>常见的版本控制工具</h3><p>​    ●  Git<br>​    ●  SVN ( Subversion )<br>​    ●  CVS ( Concurrent Versions System )<br>​    ●  VSS ( Micorosoft Visual SourceSafe )<br>​    ●  TFS ( Team Foundation Server )<br>​    ●  Visual Studio Online</p>
+<h3 id="GIT与SVN的区别"><a href="#GIT与SVN的区别" class="headerlink" title="GIT与SVN的区别"></a>GIT与SVN的区别</h3><h4 id="本地版本控制-如RCS"><a href="#本地版本控制-如RCS" class="headerlink" title="本地版本控制(如RCS)"></a>本地版本控制(如RCS)</h4><p>​        记录每次更新，对每个版本做一个快照，如将每次更新做备份然后按日期排版仅适用于个人</p>
+<p><img src="image-20210222093134728.png"></p>
+<h4 id="集中版本控制-如-SVN"><a href="#集中版本控制-如-SVN" class="headerlink" title="集中版本控制(如 SVN)"></a>集中版本控制(如 SVN)</h4><p>​        所有的版本数据都保存在服务器上,协同开发者从服务器上同步更新或上传自己的修改所有的开发者都与该服务器做交互，若该服务器出现问题，则将无法上传及获取代码，一般解决方法为定期备份代码</p>
+<p><img src="image-20210222093238406.png"></p>
+<h4 id="分布式版本控制-如git"><a href="#分布式版本控制-如git" class="headerlink" title="分布式版本控制(如git)"></a>分布式版本控制(如git)</h4><p><img src="image-20210222093319633.png"></p>
+<h3 id="git基本理论-核心"><a href="#git基本理论-核心" class="headerlink" title="git基本理论(核心)"></a>git基本理论(核心)</h3><h4 id="分支内容存储在HEAD中"><a href="#分支内容存储在HEAD中" class="headerlink" title="分支内容存储在HEAD中"></a>分支内容存储在HEAD中</h4><p><img src="image-20210223180806311.png" alt="image-20210223180806311"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="工作区域"><a href="#工作区域" class="headerlink" title="工作区域"></a>工作区域</h4><p>​        git本地有三个工作区域，<code>工作目录(Working Directory)</code>、<code>暂存区(Stage Index)</code>、<code>资源库(Repository或Git Directory)</code>。如果在加上<code>远程的git仓库(Rermote Directory)</code>就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
+<p><img src="%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="未命名文件"></p>
+<ul>
+<li><p>Working Directory：工作区，就是平时存放项目代码的地方</p>
+</li>
+<li><p>Index / Stage ：暂存区,用于临时存放你的改动，事实上它只是一个文件,保存即将提交到文件列表信息</p>
+</li>
+<li><p>Repository: 仓库区(或本地仓库),就是安全存放数据的位置 ,这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</p>
+</li>
+<li><p>Remote : 远程仓库（github或gitee码云）,托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</p>
+</li>
+</ul>
+<p>其中开发者仅需管理Working Directory和Remote，暂存区和仓库区使用命令操作即可</p>
+<p>下图可理解为git管理的项目的示意图:</p>
+<p>​    Directory：整个项目</p>
+<p>​        WorkSpace：代码文件</p>
+<p>​        .git(隐藏文件夹)：其中包括Index暂存区及Head目录</p>
+<p><img src="image-20210223181645558.png" alt="image-20210223181645558"></p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>generator函数</title>
+    <url>/2021/02/24/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/generator%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
+<li><p>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。</p>
+</li>
+<li><p>yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</p>
+</li>
+<li><p>yield无法单独工作，需要配合generator(生成器)的其他函数，如next，懒汉式操作，展现强大的主动控制特性。</p>
+</li>
+</ul>
+<p>​    </p>
+<h2 id="generator使用"><a href="#generator使用" class="headerlink" title="generator使用"></a>generator使用</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; list.length; index++) </span><br><span class="line">        <span class="keyword">yield</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取generator对象</span></span><br><span class="line"><span class="keyword">let</span> gen = generator();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行next()方法获取迭代结果和是否完成</span></span><br><span class="line"><span class="comment">// 结果： &#123;value: 1, done: false&#125;</span></span><br><span class="line">gen.next();</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="懒汉式加载"><a href="#懒汉式加载" class="headerlink" title="懒汉式加载"></a>懒汉式加载</h3><blockquote>
+<p> 此处可以看出循环中的打印是在Generator对象调用next方法后产生的，由此可知打印代码为next方法调用后执行</p>
+</blockquote>
+<p><img src="image-20210224111746190.png" alt="image-20210224111746190"></p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><blockquote>
+<p>只要调用next方法，就会执行一次代码不论是在什么场景下(打印，判断)</p>
+</blockquote>
+<p><img src="image-20210224112336096.png" alt="image-20210224112336096"></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li><p>yield并不能直接生产值，而是产生一个等待输出的函数</p>
+</li>
+<li><p>除IE外，其他所有浏览器均可兼容（包括win10 的Edge）</p>
+</li>
+<li><p>某个函数包含了yield，意味着这个函数已经是一个Generator</p>
+</li>
+<li><p>如果yield在其他表达式中，需要用()单独括起来</p>
+</li>
+<li><p>yield表达式本身没有返回值，或者说总是返回undefined(由next返回) [^注]</p>
+</li>
+</ul>
+<ul>
+<li>next()可无限调用，但既定循环完成之后总是返回undeinded</li>
+</ul>
+<p>[^注]:   当yield在赋值表达式的右边，比如 var result = yield 4，yield语句本身没有返回值，或者说返回值是undefined，但是当我们调用next(param)传参的时候，param不但作为next返回对象的value值，它还作为上一条yield 的返回值，所以result 才会被成功赋值。</p>
+<h2 id="next-函数及参数"><a href="#next-函数及参数" class="headerlink" title="next()函数及参数"></a>next()函数及参数</h2><ol>
+<li> 在js中，虽然借鉴了python的函数，但是也进行了自己的改造，由于没有send()函数，所以无法直接传递yield的值。</li>
+<li> next()可以带一个参数，该参数会被认为是上一个yield整体的返回值，稍后将在代码中展示。</li>
+<li> 在某种程度上，next()可以直接当做send()使用</li>
+</ol>
+<p><strong>它的意义在于，可以在不同阶段从外部直接向内部注入不同的值来调整函数的行为(这一点是其他循环很难做到的，或要付出较大的代价才可以做到)</strong></p>
+<h2 id="目前项目中的可用性"><a href="#目前项目中的可用性" class="headerlink" title="目前项目中的可用性"></a>目前项目中的可用性</h2><p>在前端项目中，用的机会很少，完全可以忽略他的存在，但是在后台项目中，就显得比较重要了，因为其优越的可控性，可是极大的提升线程的效率。</p>
+<p>如果需要实例的话，可参考github上的一些python后端项目，调用方式稍有不同，由于js参考的python语言，他们又同为动态语言，所以原理都是相同的，用处也一样。</p>
+]]></content>
+      <tags>
+        <tag>前端-函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端判断</title>
     <url>/2021/02/23/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%88%A4%E6%96%AD/%E5%89%8D%E7%AB%AF%E5%88%A4%E6%96%AD/</url>
     <content><![CDATA[<h2 id="对象-Map集合"><a href="#对象-Map集合" class="headerlink" title="对象(Map集合)"></a>对象(Map集合)</h2><h3 id="判断是否为对象的几种方法"><a href="#判断是否为对象的几种方法" class="headerlink" title="判断是否为对象的几种方法"></a>判断是否为对象的几种方法</h3><a id="more"></a>
@@ -455,51 +554,6 @@
 ]]></content>
       <tags>
         <tag>前端-判断</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git概念</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
-<a id="more"></a>
-
-<p>​        <code>版本控制</code>( Revision control )是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录,备份以便恢复以前的版本的软件工程技术。<br>​    ●  实现跨区域多人协同开发<br>​    ●  追踪和记载一个或者多个文件的历史记录<br>​    ●  组织和保护你的源代码和文档<br>​    ●  统计工作量<br>​    ●  并行开发、提高开发效率<br>​    ●  跟踪记录整个软件的开发过程<br>​    ●  减轻开发人员的负担,节省时间,同时降低人为错误<br>简单说就是用于管理多人协同开发项目的技术。</p>
-<h4 id="手动控制版"><a href="#手动控制版" class="headerlink" title="手动控制版"></a>手动控制版</h4><p><img src="image-20210222092842985.png"></p>
-<h3 id="版本控制-1"><a href="#版本控制-1" class="headerlink" title="版本控制"></a>版本控制</h3><p>版本控制包括：检入检出控制、分支和合并、历史记录。</p>
-<p>1．检入检出控制<br>        软件开发人员对源文件的修改不能在软件配置管理库中进行，对源文件的修改依赖于基本的文件系统并在各自的工作空间下进行。为了方便软件开发，需要不同的软件开发人员组织各自的工作空间。一般说来，不同的工作空间由不同的目录表示，而对工作空间的访问，由文件系统提供的文件访问权限加以控制。访问控制需要管理各个人员存取或修改一个特定软件配置对象的权限。开发人员能够从库中取出对应项目的配置项进行修改，并检入到软件配置库中，对版本进行“升级”；配置管理人员可以确定多余配置项并删除。同步控制的实质是版本的检入检出控制。检入就是把软件配置项从用户的工作环境存入到软件配置库的过程，检出就是把软件配置项从软件配置库中取出的过程。检人是检出的逆过程。同步控制可用来确保由不同的人并发执行的修改不会产生混乱。</p>
-<p>2．分支和合并<br>        版本分支(以一个已有分支的特定版本为起点，但是独立发展的版本序列)的人工方法就是从主版本——称为主干上拷贝一份，并做上标记。在实行了版本控制后，版本的分支也是一份拷贝，这时的拷贝过程和标记动作由版本控制系统完成。版本合并(来自不同分支的两个版本合并为其中一个分支的新版本)有两种途径，一是将版本A的内容附加到版本B中；另一种是合并版本A和版本B的内容，形成新的版本C。</p>
-<p>3．历史记录<br>        版本的历史记录有助于对软件配置项进行审核，有助于追踪问题的来源。历史记录包括版本号、版本修改时间、版本修改者、版本修改描述等最基本的内容，还可以有其他一些辅助性内容，比如版本的文件大小和读写属性。</p>
-<h3 id="常见的版本控制工具"><a href="#常见的版本控制工具" class="headerlink" title="常见的版本控制工具"></a>常见的版本控制工具</h3><p>​    ●  Git<br>​    ●  SVN ( Subversion )<br>​    ●  CVS ( Concurrent Versions System )<br>​    ●  VSS ( Micorosoft Visual SourceSafe )<br>​    ●  TFS ( Team Foundation Server )<br>​    ●  Visual Studio Online</p>
-<h3 id="GIT与SVN的区别"><a href="#GIT与SVN的区别" class="headerlink" title="GIT与SVN的区别"></a>GIT与SVN的区别</h3><h4 id="本地版本控制-如RCS"><a href="#本地版本控制-如RCS" class="headerlink" title="本地版本控制(如RCS)"></a>本地版本控制(如RCS)</h4><p>​        记录每次更新，对每个版本做一个快照，如将每次更新做备份然后按日期排版仅适用于个人</p>
-<p><img src="image-20210222093134728.png"></p>
-<h4 id="集中版本控制-如-SVN"><a href="#集中版本控制-如-SVN" class="headerlink" title="集中版本控制(如 SVN)"></a>集中版本控制(如 SVN)</h4><p>​        所有的版本数据都保存在服务器上,协同开发者从服务器上同步更新或上传自己的修改所有的开发者都与该服务器做交互，若该服务器出现问题，则将无法上传及获取代码，一般解决方法为定期备份代码</p>
-<p><img src="image-20210222093238406.png"></p>
-<h4 id="分布式版本控制-如git"><a href="#分布式版本控制-如git" class="headerlink" title="分布式版本控制(如git)"></a>分布式版本控制(如git)</h4><p><img src="image-20210222093319633.png"></p>
-<h3 id="git基本理论-核心"><a href="#git基本理论-核心" class="headerlink" title="git基本理论(核心)"></a>git基本理论(核心)</h3><h4 id="分支内容存储在HEAD中"><a href="#分支内容存储在HEAD中" class="headerlink" title="分支内容存储在HEAD中"></a>分支内容存储在HEAD中</h4><p><img src="image-20210223180806311.png" alt="image-20210223180806311"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="工作区域"><a href="#工作区域" class="headerlink" title="工作区域"></a>工作区域</h4><p>​        git本地有三个工作区域，<code>工作目录(Working Directory)</code>、<code>暂存区(Stage Index)</code>、<code>资源库(Repository或Git Directory)</code>。如果在加上<code>远程的git仓库(Rermote Directory)</code>就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
-<p><img src="%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="未命名文件"></p>
-<ul>
-<li><p>Working Directory：工作区，就是平时存放项目代码的地方</p>
-</li>
-<li><p>Index / Stage ：暂存区,用于临时存放你的改动，事实上它只是一个文件,保存即将提交到文件列表信息</p>
-</li>
-<li><p>Repository: 仓库区(或本地仓库),就是安全存放数据的位置 ,这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</p>
-</li>
-<li><p>Remote : 远程仓库（github或gitee码云）,托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</p>
-</li>
-</ul>
-<p>其中开发者仅需管理Working Directory和Remote，暂存区和仓库区使用命令操作即可</p>
-<p>下图可理解为git管理的项目的示意图:</p>
-<p>​    Directory：整个项目</p>
-<p>​        WorkSpace：代码文件</p>
-<p>​        .git(隐藏文件夹)：其中包括Index暂存区及Head目录</p>
-<p><img src="image-20210223181645558.png" alt="image-20210223181645558"></p>
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>

@@ -169,6 +169,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/24/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/generator%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/24/%E6%95%B4%E4%BD%93/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/generator%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">generator函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-24 10:58:15 / 修改时间：13:33:58" itemprop="dateCreated datePublished" datetime="2021-02-24T10:58:15+08:00">2021-02-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+
+<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
+<li><p>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。</p>
+</li>
+<li><p>yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</p>
+</li>
+<li><p>yield无法单独工作，需要配合generator(生成器)的其他函数，如next，懒汉式操作，展现强大的主动控制特性。</p>
+</li>
+</ul>
+<p>​    </p>
+<h2 id="generator使用"><a href="#generator使用" class="headerlink" title="generator使用"></a>generator使用</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; list.length; index++) </span><br><span class="line">        <span class="keyword">yield</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取generator对象</span></span><br><span class="line"><span class="keyword">let</span> gen = generator();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行next()方法获取迭代结果和是否完成</span></span><br><span class="line"><span class="comment">// 结果： &#123;value: 1, done: false&#125;</span></span><br><span class="line">gen.next();</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="懒汉式加载"><a href="#懒汉式加载" class="headerlink" title="懒汉式加载"></a>懒汉式加载</h3><blockquote>
+<p> 此处可以看出循环中的打印是在Generator对象调用next方法后产生的，由此可知打印代码为next方法调用后执行</p>
+</blockquote>
+<p><img src="image-20210224111746190.png" alt="image-20210224111746190"></p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><blockquote>
+<p>只要调用next方法，就会执行一次代码不论是在什么场景下(打印，判断)</p>
+</blockquote>
+<p><img src="image-20210224112336096.png" alt="image-20210224112336096"></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li><p>yield并不能直接生产值，而是产生一个等待输出的函数</p>
+</li>
+<li><p>除IE外，其他所有浏览器均可兼容（包括win10 的Edge）</p>
+</li>
+<li><p>某个函数包含了yield，意味着这个函数已经是一个Generator</p>
+</li>
+<li><p>如果yield在其他表达式中，需要用()单独括起来</p>
+</li>
+<li><p>yield表达式本身没有返回值，或者说总是返回undefined(由next返回) [^注]</p>
+</li>
+</ul>
+<ul>
+<li>next()可无限调用，但既定循环完成之后总是返回undeinded</li>
+</ul>
+<p>[^注]:   当yield在赋值表达式的右边，比如 var result = yield 4，yield语句本身没有返回值，或者说返回值是undefined，但是当我们调用next(param)传参的时候，param不但作为next返回对象的value值，它还作为上一条yield 的返回值，所以result 才会被成功赋值。</p>
+<h2 id="next-函数及参数"><a href="#next-函数及参数" class="headerlink" title="next()函数及参数"></a>next()函数及参数</h2><ol>
+<li> 在js中，虽然借鉴了python的函数，但是也进行了自己的改造，由于没有send()函数，所以无法直接传递yield的值。</li>
+<li> next()可以带一个参数，该参数会被认为是上一个yield整体的返回值，稍后将在代码中展示。</li>
+<li> 在某种程度上，next()可以直接当做send()使用</li>
+</ol>
+<p><strong>它的意义在于，可以在不同阶段从外部直接向内部注入不同的值来调整函数的行为(这一点是其他循环很难做到的，或要付出较大的代价才可以做到)</strong></p>
+<h2 id="目前项目中的可用性"><a href="#目前项目中的可用性" class="headerlink" title="目前项目中的可用性"></a>目前项目中的可用性</h2><p>在前端项目中，用的机会很少，完全可以忽略他的存在，但是在后台项目中，就显得比较重要了，因为其优越的可控性，可是极大的提升线程的效率。</p>
+<p>如果需要实例的话，可参考github上的一些python后端项目，调用方式稍有不同，由于js参考的python语言，他们又同为动态语言，所以原理都是相同的，用处也一样。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -796,78 +900,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">hexo使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-21 18:10:00" itemprop="dateCreated datePublished" datetime="2021-02-21T18:10:00+08:00">2021-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-24 10:28:17" itemprop="dateModified" datetime="2021-02-24T10:28:17+08:00">2021-02-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -937,13 +969,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
