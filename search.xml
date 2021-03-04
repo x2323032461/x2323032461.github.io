@@ -9,31 +9,11 @@
 
 
 <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="md"><a href="#md" class="headerlink" title=".md"></a>.md</h3><p>用来标注Markdown文件</p>
+<h3 id="ios"><a href="#ios" class="headerlink" title=".ios"></a>.ios</h3><p>一种光盘（CD）上的文件系统格式。简单地说，就是数据在数据光盘上的组织形式</p>
+<p><img src="image-20210303093655987.png" alt="image-20210303093655987"></p>
 ]]></content>
       <tags>
         <tag>文件结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Navicat</title>
-    <url>/2021/02/25/%E8%BD%AF%E4%BB%B6/Navicat/</url>
-    <content><![CDATA[<h2 id="Navicat快捷键"><a href="#Navicat快捷键" class="headerlink" title="Navicat快捷键"></a>Navicat快捷键</h2><a id="more"></a>
-
-<blockquote>
-<h4 id="执行选中的sql语句-run"><a href="#执行选中的sql语句-run" class="headerlink" title="执行选中的sql语句  run"></a>执行选中的sql语句  run</h4></blockquote>
-<p>Ctrl + shift + R</p>
-<blockquote>
-<h4 id="执行窗口的sql语句"><a href="#执行窗口的sql语句" class="headerlink" title="执行窗口的sql语句"></a>执行窗口的sql语句</h4></blockquote>
-<p>Ctrl + R</p>
-<blockquote>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4></blockquote>
-<p>Ctrl + /</p>
-<blockquote>
-<h4 id="解除注释"><a href="#解除注释" class="headerlink" title="解除注释"></a>解除注释</h4></blockquote>
-<p>Ctrl + shift + /</p>
-]]></content>
-      <tags>
-        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
@@ -192,20 +172,183 @@
       </tags>
   </entry>
   <entry>
+    <title>前端问题</title>
+    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>-</p>
+<a id="more"></a>
+
+<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>前端问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Navicat</title>
+    <url>/2021/02/25/%E8%BD%AF%E4%BB%B6/Navicat/</url>
+    <content><![CDATA[<h2 id="Navicat快捷键"><a href="#Navicat快捷键" class="headerlink" title="Navicat快捷键"></a>Navicat快捷键</h2><a id="more"></a>
+
+<blockquote>
+<h4 id="执行选中的sql语句-run"><a href="#执行选中的sql语句-run" class="headerlink" title="执行选中的sql语句  run"></a>执行选中的sql语句  run</h4></blockquote>
+<p>Ctrl + shift + R</p>
+<blockquote>
+<h4 id="执行窗口的sql语句"><a href="#执行窗口的sql语句" class="headerlink" title="执行窗口的sql语句"></a>执行窗口的sql语句</h4></blockquote>
+<p>Ctrl + R</p>
+<blockquote>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4></blockquote>
+<p>Ctrl + /</p>
+<blockquote>
+<h4 id="解除注释"><a href="#解除注释" class="headerlink" title="解除注释"></a>解除注释</h4></blockquote>
+<p>Ctrl + shift + /</p>
+]]></content>
+      <tags>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进度</title>
     <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
     <content><![CDATA[<p>​    <del>——</del></p>
 <a id="more"></a>
 
 <p>​    <del>git    2021-03-01</del></p>
-<p>docker</p>
+<p>==docker   p7==</p>
 <p>kafka</p>
 <p>多线程详解</p>
 <p>注解和反射</p>
 <p>如何备战秋招</p>
+<p>k8s-Kubernetes</p>
 ]]></content>
       <tags>
         <tag>进度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis安装</title>
+    <url>/2021/03/03/java/%E6%95%B0%E6%8D%AE%E5%BA%93/redis%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="Linux安装redis"><a href="#Linux安装redis" class="headerlink" title="Linux安装redis"></a>Linux安装redis</h2><blockquote>
+<h3 id="下载网址"><a href="#下载网址" class="headerlink" title="下载网址"></a>下载网址</h3></blockquote>
+<p><a href="https://redis.io/download">https://redis.io/download</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>可选择下载好以后上传服务器，或直接使用命令：</p>
+<p><code>wget http://download.redis.io/releases/redis-5.0.7.tar.gz</code></p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p><code>tar -zvxf redis-5.0.7.tar.gz</code></p>
+<h4 id="移动redis目录"><a href="#移动redis目录" class="headerlink" title="移动redis目录"></a><strong>移动redis目录</strong></h4><p>一般都会将redis目录放置到 /usr/local/redis目录，所以这里输入下面命令将目前在/root目录下的redis-5.0.7文件夹更改目录，同时更改文件夹名称为redis。</p>
+<p><code>mv /root/redis-5.0.7 /usr/local/redis</code></p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a><strong>编译</strong></h4><p>cd到/usr/local/redis目录，输入命令make执行编译命令，接下来控制台会输出各种编译过程中输出的内容。</p>
+<p><code>make</code></p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a><strong>安装</strong></h4><p>输入以下命令</p>
+<p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+<h4 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a><strong>启动redis</strong></h4><p>根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis</p>
+<p><code>./bin/redis-server&amp; ./redis.conf</code></p>
+<p>上面的启动方式是采取后台进程方式，下面是采取显示启动方式(如在配置文件设置了daemonize属性为yes则跟后台进程方式启动其实一样)。</p>
+<p><code>./bin/redis-server ./redis.conf</code></p>
+<p>两种方式区别无非是有无带符号&amp;的区别。 redis-server 后面是配置文件，目的是根据该配置文件的配置启动redis服务。redis.conf配置文件允许自定义多个配置文件，通过启动时指定读取哪个即可。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>redis.conf配置文件</strong></p>
+<p>在目录/usr/local/redis下有一个redis.conf的配置文件。我们上面启动方式就是执行了该配置文件的配置运行的。我么可以通过cat、vim、less等Linux内置的读取命令读取该文件。</p>
+<p>也可以通过redis-cli命令进入redis控制台后通过CONFIG GET * 的方式读取所有配置项。 如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">CONFIG GET *</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210303102754615.png" alt="image-20210303102754615"></p>
+<p>回车确认后会将所有配置项读取出来，如下图</p>
+<p><img src="2-1639211591.png" alt="img"></p>
+<p>这里列举下比较重要的配置项</p>
+<table>
+<thead>
+<tr>
+<th>配置项名称</th>
+<th>配置项值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>daemonize</td>
+<td>yes、no</td>
+<td>yes表示启用守护进程，默认是no即不以守护进程方式运行。其中Windows系统下不支持启用守护进程方式运行</td>
+</tr>
+<tr>
+<td>port</td>
+<td></td>
+<td>指定 Redis 监听端口，默认端口为 6379</td>
+</tr>
+<tr>
+<td>bind</td>
+<td></td>
+<td>绑定的主机地址,如果需要设置远程访问则直接将这个属性备注下或者改为bind * 即可,这个属性和下面的protected-mode控制了是否可以远程访问 。</td>
+</tr>
+<tr>
+<td>protected-mode</td>
+<td>yes 、no</td>
+<td>保护模式，该模式控制外部网是否可以连接redis服务，默认是yes,所以默认我们外网是无法访问的，如需外网连接rendis服务则需要将此属性改为no。</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>300</td>
+<td>当客户端闲置多长时间后关闭连接，如果指定为 0，表示关闭该功能</td>
+</tr>
+<tr>
+<td>loglevel</td>
+<td>debug、verbose、notice、warning</td>
+<td>日志级别，默认为 notice</td>
+</tr>
+<tr>
+<td>databases</td>
+<td>16</td>
+<td>设置数据库的数量，默认的数据库是0。整个通过客户端工具可以看得到</td>
+</tr>
+<tr>
+<td>rdbcompression</td>
+<td>yes、no</td>
+<td>指定存储至本地数据库时是否压缩数据，默认为 yes，Redis 采用 LZF 压缩，如果为了节省 CPU 时间，可以关闭该选项，但会导致数据库文件变的巨大。</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>dump.rdb</td>
+<td>指定本地数据库文件名，默认值为 dump.rdb</td>
+</tr>
+<tr>
+<td>dir</td>
+<td></td>
+<td>指定本地数据库存放目录</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td></td>
+<td>设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</td>
+</tr>
+<tr>
+<td>maxclients</td>
+<td>0</td>
+<td>设置同一时间最大客户端连接数，默认无限制，Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会关闭新的连接并向客户端返回 max number of clients reached 错误信息。</td>
+</tr>
+<tr>
+<td>maxmemory</td>
+<td>XXX <bytes></td>
+<td>指定 Redis 最大内存限制，Redis 在启动时会把数据加载到内存中，达到最大内存后，Redis 会先尝试清除已到期或即将到期的 Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis 新的 vm 机制，会把 Key 存放内存，Value 会存放在 swap 区。配置项值范围列里XXX为数值。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里我要将daemonize改为yes，不然我每次启动都得在redis-server命令后面加符号&amp;，不这样操作则只要回到Linux控制台则redis服务会自动关闭，同时也将bind注释，将protected-mode设置为no。</p>
+<p>这样启动后我就可以在外网访问了。</p>
+</blockquote>
+<h3 id="查看Redis是否正在运行"><a href="#查看Redis是否正在运行" class="headerlink" title="查看Redis是否正在运行"></a><strong>查看Redis是否正在运行</strong></h3><h4 id="1、采取查看进程方式"><a href="#1、采取查看进程方式" class="headerlink" title="1、采取查看进程方式"></a><strong>1、采取查看进程方式</strong></h4><p><code>ps -aux | grep redis</code></p>
+<p>结果如下图：</p>
+<p><img src="0-1407665728.png" alt="img"></p>
+<h4 id="2、采取端口监听查看方式"><a href="#2、采取端口监听查看方式" class="headerlink" title="2、采取端口监听查看方式"></a><strong>2、采取端口监听查看方式</strong></h4><p><code>netstat -lanp | grep 6379</code></p>
+<p>结果如下图：</p>
+<p><img src="1-1025164897.png" alt="img"></p>
+<h3 id="redis-cli"><a href="#redis-cli" class="headerlink" title="redis-cli"></a><strong>redis-cli</strong></h3><p>redis-cli是连接本地redis服务的一个命令，通过该命令可以连接redis的脚本控制台。如下图</p>
+<p><img src="5-1345838995.png" alt="img"></p>
+<p>输入exit可以退出redis脚本控制台</p>
+<h4 id="关闭运行中的Redis服务"><a href="#关闭运行中的Redis服务" class="headerlink" title="关闭运行中的Redis服务"></a><strong>关闭运行中的Redis服务</strong></h4><p>输入redis-cli 进入控制台后输入命令shutdown即可关闭运行中的Redis服务了。如下图:</p>
+<p><img src="8-1051623110.png" alt="img"></p>
+<h4 id="远程连接不上问题"><a href="#远程连接不上问题" class="headerlink" title="远程连接不上问题"></a><strong>远程连接不上问题</strong></h4><p>如下图，已经开放了Redis服务的ip不为127.0.0.1,理论上远程客户端应该可以连接了，而且云服务器的端口号也在安全组里开放了。</p>
+<p><img src="57-703255053.png" alt="img"></p>
+<h2 id="Windows安装redis"><a href="#Windows安装redis" class="headerlink" title="Windows安装redis"></a>Windows安装redis</h2><h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3>]]></content>
+      <tags>
+        <tag>数据库-redis</tag>
       </tags>
   </entry>
   <entry>
@@ -466,6 +609,91 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker安装</title>
+    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="Docker的基本组成"><a href="#Docker的基本组成" class="headerlink" title="Docker的基本组成"></a>Docker的基本组成</h2><a id="more"></a>
+
+<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=793314303,480081697&fm=26&gp=0.jpg" alt="img"></p>
+<p><strong>镜像（image）：</strong></p>
+<p>docker镜像就好比是一个模板，可以通过这个模板来创建容器服务，tomcat镜像 ==&gt; run ==&gt; tomcat1容器（提供服务器），通过这个镜像可以创建多个容器（最终服务或者项目运行就是在容器中的）</p>
+<p><strong>容器（container）：</strong></p>
+<p>Docker利用容器技术，独立运行一个或者一组应用，通过镜像来创建的。</p>
+<p>可以将容器理解为一个简易的Linux系统</p>
+<p>基本命令：启动、停止、删除</p>
+<p><strong>仓库（repository）：</strong></p>
+<p>仓库就是存放镜像的地方</p>
+<p>仓库分为共有仓库和私有仓库</p>
+<p>Docker Hub (默认)</p>
+<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><blockquote>
+<h3 id="卸载旧的版本"><a href="#卸载旧的版本" class="headerlink" title="卸载旧的版本"></a>卸载旧的版本</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">            docker-client \</span><br><span class="line">            docker-client-latest \</span><br><span class="line">            docker-common \</span><br><span class="line">            docker-latest \</span><br><span class="line">            docker-latest-logrotate \</span><br><span class="line">            docker-logrotate \</span><br><span class="line">            docker-engine</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="需要的安装包"><a href="#需要的安装包" class="headerlink" title="需要的安装包"></a>需要的安装包</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要的安装包</span></span><br><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="设置镜像的仓库"><a href="#设置镜像的仓库" class="headerlink" title="设置镜像的仓库"></a>设置镜像的仓库</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo   # 国外镜像仓库</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 阿里镜像仓库</span></span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">	https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>更新yum软件包索引</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum makecache fast</span><br><span class="line">// centos8可能需要使用</span><br><span class="line">yum makecache timer</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<h3 id="安装docker相关的内容"><a href="#安装docker相关的内容" class="headerlink" title="安装docker相关的内容"></a>安装docker相关的内容</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker-ce 社区版本  ee企业版</span></span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>安装报错</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Error: </span><br><span class="line"> Problem: problem with installed package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line"></span><br><span class="line">  - package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package buildah-1.16.7-4.module_el8.3.0+699+d61d9c41.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - cannot install the best candidate for the job</span><br><span class="line">  - package runc-1.0.0-56.rc5.dev.git2abd837.module_el8.3.0+569+1bada2e4.x86_64 is filtered out by modular filtering</span><br><span class="line">  - package runc-1.0.0-64.rc10.module_el8.3.0+479+69e2ae26.x86_64 is filtered out by modular filtering</span><br><span class="line">    (try to add &#x27;--allowerasing&#x27; to command line to replace conflicting packages or &#x27;--skip-broken&#x27; to skip uninstallable packages or &#x27;--nobest&#x27; to use not only best candidate packages)</span><br></pre></td></tr></table></figure>
+
+
+<p>解决方法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装podman</span></span><br><span class="line">rpm -q podman</span><br><span class="line">podman-1.4.2-5.module_el8.1.0+237+63e26edc.x86_64</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除Podman</span></span><br><span class="line">dnf remove podman</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 未解决时</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入下面的命令继续安装：</span></span><br><span class="line">yum install --allowerasing docker-ce</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看docker是否启动成功(查看版本信息)</span></span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210304190851060.png" alt="image-20210304190851060"></p>
+<blockquote>
+<h3 id="运行hello-world"><a href="#运行hello-world" class="headerlink" title="运行hello-world"></a>运行hello-world</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker run hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 1. 提示未寻找到hello-world镜像</span></span><br><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 执行pull远程拉取官方library/hello-world镜像</span></span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 表示拉取成功</span></span><br><span class="line">0e03bdcc26d7: Pull complete </span><br><span class="line">Digest: sha256:7e02330c713f93b1d3e4c5003350d0dbe215ca269dd1d84a4abc577908344b30</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行hello-world表示docker安装成功</span></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="查看下载的hello-world镜像在不在"><a href="#查看下载的hello-world镜像在不在" class="headerlink" title="查看下载的hello-world镜像在不在"></a>查看下载的hello-world镜像在不在</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker images</span><br><span class="line">REPOSITORY    TAG       IMAGE ID       CREATED         SIZE</span><br><span class="line">hello-world   latest    bf756fb1ae65   14 months ago   13.3kB</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="卸载docker"><a href="#卸载docker" class="headerlink" title="卸载docker"></a>卸载docker</h3><p>docker默认工作路径： /var/lib/docker</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 卸载docker</span></span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除文件目录</span></span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加分类及标签</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
@@ -496,24 +724,109 @@
       </tags>
   </entry>
   <entry>
-    <title>git安装及配置</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<a id="more"></a>
+    <title>Docker概念</title>
+    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h2><a id="more"></a>
 
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
-<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
-
-
+<p>入门</p>
+<ul>
+<li><p>Docker概述</p>
+</li>
+<li><p>Docker安装</p>
+</li>
+<li><p>Docker命令</p>
+<ul>
+<li>镜像</li>
+<li>容器</li>
+<li>操作</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>==Docker镜像==</p>
+</li>
+<li><p>==容器数据卷==</p>
+</li>
+</ul>
+<p>构建镜像</p>
+<ul>
+<li>DockerFile</li>
+</ul>
+<p>基于网络</p>
+<ul>
+<li>Docker网络原理</li>
+<li>IDEA整合Docker</li>
+</ul>
+<p>集群</p>
+<ul>
+<li>Docker Compose</li>
+<li>Docker Swarm</li>
+</ul>
+<p>持续编程持续部署</p>
+<ul>
+<li>CI/CD Jenkins</li>
+</ul>
+<h2 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h2><blockquote>
+<h3 id="Docker为什么出现"><a href="#Docker为什么出现" class="headerlink" title="Docker为什么出现"></a>Docker为什么出现</h3></blockquote>
+<ol>
+<li>一款产品：开发 – 上线，应用环境，应用配置</li>
+<li>开发 – 运维。问题：我在我的电脑上可以运行！版本更新，导致服务不可用！对于运维来说，考验就十分大</li>
+<li>环境配置十分麻烦，每台机器都要部署环境(集群Redis、ES、Hadoop……)，费时费力</li>
+</ol>
+<p>​    发布项目时，将项目带着环境一起发布(jar + (Redis + Mysql + jdk + ES))，项目带上环境安装打包！</p>
+<p>​    </p>
+<p>​    java —- apk —- 发布（应用商店） —- 客户使用apk —- 安装即可使用</p>
+<p>​    java开发 —- jar + 环境 —- 打包项目带上环境 —- Docker仓库（类似于商店）—- 客户可直接下载发布的镜像 —- 直接运行即可</p>
+<p>​    Docker的思想来自于集装箱</p>
+<p>​    <img src="image-20210302155750048.png" alt="image-20210302155750048"></p>
+<p>​    </p>
+<p>​    多个应用使用的都是同一套环境可能存在端口冲突等问题</p>
+<p>​    ==隔离==：Docker核心思想，打包装箱，每个箱子都是互相隔离的，即每个应用使用各自的环境</p>
+<h2 id="Docker资源"><a href="#Docker资源" class="headerlink" title="Docker资源"></a>Docker资源</h2><p>官网：<a href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p><img src="image-20210302163351910.png" alt="image-20210302163351910"></p>
+<p>官方文档：<a href="https://docs.docker.com/">https://docs.docker.com/</a></p>
+<p>Docker hub(类似于github的仓库)：<a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<h2 id="Docker作用"><a href="#Docker作用" class="headerlink" title="Docker作用"></a>Docker作用</h2><blockquote>
+<p>在容器技术出现前，都是使用的虚拟机技术，虚拟机和Docker的容器技术都是==虚拟化技术==</p>
+</blockquote>
+<p>虚拟机技术：在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
+<p>容器技术：隔离，镜像，十分小巧，仅需运行镜像即可</p>
+<blockquote>
+<p>虚拟机技术</p>
+</blockquote>
+<p><img src="image-20210302172210980.png" alt="image-20210302172210980"></p>
+<p>在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
+<p>虚拟机技术缺点：</p>
+<ol>
+<li>资源占用十分多</li>
+<li>冗余步骤多</li>
+<li>启动慢</li>
+</ol>
+<blockquote>
+<p>容器化技术</p>
+</blockquote>
+<p>==容器化技术不是模拟一个完整的操作系统==</p>
+<p> <img src="image-20210302172812341.png" alt="image-20210302172812341">    </p>
+<p>与虚拟机技术比较：</p>
+<ul>
+<li>传统虚拟机，虚拟出一套硬件，运行一个完整的操作系统，然后在这个系统上安装和运行软件</li>
+<li>容器内的应用直接运行在宿主机的内核中，容器是没有自己的内核的，也没有虚拟硬件，所以就轻便了</li>
+<li>每个容器之间互相隔离，每个容器内都有一个属于自己的文件系统，互不影响。</li>
+</ul>
+<blockquote>
+<p>DevOps（开发、运维）</p>
+</blockquote>
+<p><strong>应用更快速的交付和部署</strong></p>
+<p>传统：一堆帮助文档，安装程序</p>
+<p>Docker：打包镜像发布测试，一键运行</p>
+<p><strong>更便捷的升级和扩缩容</strong></p>
+<p>项目打包成一个镜像后，若需要从服务器A 扩展到 服务器B，仅需要在服务器B上运行镜像文件即可</p>
+<p><strong>更简单的系统运维</strong></p>
+<p>在容器化之后，开发与测试环境都是高度一致的</p>
+<p><strong>更高效的计算资源利用</strong></p>
+<p>Docker是内核级别的虚拟化，可以在一个物理机上运行很多的容器实例，服务器性能可以被压榨极致。</p>
 ]]></content>
       <tags>
-        <tag>git</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -610,6 +923,27 @@
       </tags>
   </entry>
   <entry>
+    <title>git安装及配置</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<a id="more"></a>
+
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
+<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git概念</title>
     <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
@@ -652,6 +986,50 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
+
+<blockquote>
+<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>系统-Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装Linux</title>
+    <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
+    <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
+
+<h3 id="Section-packages-does-not-end-with-end"><a href="#Section-packages-does-not-end-with-end" class="headerlink" title="Section packages does not end with %end"></a>Section packages does not end with %end</h3><p>方法1 ： VM极简安装模式会自动生成一个autoinst.iso，自动索引镜像，将这个删掉就好了：</p>
+<p>先将这个centos虚拟机系统关机，然后从我的机算机清单中找到这个菜单，左键点击选中这个菜单，然后右键，会看到设置选项，进去就能看到一个CD/DVD(IDE) autoinst.iso，删掉，重新开启centos虚拟机系统，就能正常安装了</p>
+<p>方法2 ： 原因为虚拟机找不到镜像文件，设置方法：</p>
+<p><img src="image-20210303144902140.png" alt="image-20210303144902140"></p>
+<p><img src="image-20210303144932408.png" alt="image-20210303144932408"></p>
+<p>找到自身镜像文件位置即可</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>阿里镜像地址</p>
+</blockquote>
+<p><a href="https://mirrors.aliyun.com/centos/8/isos/x86_64/">https://mirrors.aliyun.com/centos/8/isos/x86_64/</a></p>
+<p>选择</p>
+<p><img src="image-20210303145132219.png" alt="image-20210303145132219"></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -700,18 +1078,6 @@
 <p><strong>它的意义在于，可以在不同阶段从外部直接向内部注入不同的值来调整函数的行为(这一点是其他循环很难做到的，或要付出较大的代价才可以做到)</strong></p>
 <h2 id="目前项目中的可用性"><a href="#目前项目中的可用性" class="headerlink" title="目前项目中的可用性"></a>目前项目中的可用性</h2><p>在前端项目中，用的机会很少，完全可以忽略他的存在，但是在后台项目中，就显得比较重要了，因为其优越的可控性，可是极大的提升线程的效率。</p>
 <p>如果需要实例的话，可参考github上的一些python后端项目，调用方式稍有不同，由于js参考的python语言，他们又同为动态语言，所以原理都是相同的，用处也一样。</p>
-]]></content>
-      <tags>
-        <tag>前端-函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>observer观察者</title>
-    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
-    <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
-<a id="more"></a>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建观察者对象</span></span><br><span class="line"><span class="keyword">let</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">    mutations.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(mutation)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置观察者选项</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    attributes: <span class="literal">true</span>,   <span class="comment">//检测属性变动</span></span><br><span class="line">    childList: <span class="literal">true</span>,    <span class="comment">//检测子节点变动</span></span><br><span class="line">    characterData: <span class="literal">true</span> <span class="comment">//节点内容或节点文本的变动。</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;addFeeConfigStartTime_div&quot;</span>)[<span class="number">0</span>], config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监测</span></span><br><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>前端-函数</tag>
@@ -788,9 +1154,312 @@
 <!-- mroe -->
 
 <h2 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.addInspectionListPoint&quot;</span>).css(&#123;</span><br><span class="line">    <span class="string">&quot;position&quot;</span>: <span class="string">&quot;relative&quot;</span>,</span><br><span class="line">    <span class="string">&quot;display&quot;</span>: <span class="string">&quot;inline-block&quot;</span>,</span><br><span class="line">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;#D0EEFF&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border&quot;</span>: <span class="string">&quot;1px solid #99D3F5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border-radius&quot;</span>: <span class="string">&quot;4px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;padding&quot;</span>: <span class="string">&quot;4px 12px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;overflow&quot;</span>: <span class="string">&quot;hidden&quot;</span>,</span><br><span class="line">    <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#1E88C7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-decoration&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-indent&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;line-height&quot;</span>: <span class="string">&quot;20px&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="遮罩层"><a href="#遮罩层" class="headerlink" title="遮罩层"></a>遮罩层</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 100%;</span><br><span class="line"><span class="selector-tag">height</span>: 100%;</span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">left</span>: 0;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">z-index</span>: 2;</span><br><span class="line"><span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span><br><span class="line"><span class="selector-tag">opacity</span>: 0.2;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
 ]]></content>
       <tags>
         <tag>前端-样式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>observer观察者</title>
+    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
+    <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建观察者对象</span></span><br><span class="line"><span class="keyword">let</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">    mutations.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(mutation)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置观察者选项</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    attributes: <span class="literal">true</span>,   <span class="comment">//检测属性变动</span></span><br><span class="line">    childList: <span class="literal">true</span>,    <span class="comment">//检测子节点变动</span></span><br><span class="line">    characterData: <span class="literal">true</span> <span class="comment">//节点内容或节点文本的变动。</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;addFeeConfigStartTime_div&quot;</span>)[<span class="number">0</span>], config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监测</span></span><br><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>前端-函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>碰撞</title>
+    <url>/2021/03/03/java/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E7%A2%B0%E6%92%9E/</url>
+    <content><![CDATA[<p>JavaScript 游戏开发：手把手实现碰撞物理引擎</p>
+<p>峰华前端工程师 2021-02-26 22:44:46  16500  收藏 532<br>分类专栏： 前端 文章标签： 游戏 javascript css html5 canvas<br>版权<br>目录<br>基础结构<br>绘制小球<br>移动小球<br>重构代码<br>碰撞检测<br>边界碰撞<br>向量的基本操作<br>碰撞处理<br>动量守恒定律<br>动能守恒定律<br>非弹性碰撞<br>重力<br>总结</p>
+<p>年前我看到合成大西瓜小游戏火了，想到之前从来没有研究过游戏方面的开发，这次就想趁着这个机会看看 JavaScript 游戏开发，从原生角度上如何实现游戏里的物理特性，例如运动、碰撞。虽然之前研究过物理相关的动画库，但是我打算试试不用框架编写一个简单的 JavaScript 物理引擎，实现小球的碰撞效果。<br>为什么不用现成的游戏库呢？因为我觉得在了解底层的实现原理之后，才能更有效的理解框架上的概念和使用方法，在解决 BUG 的时候能够更有效率，同时对自己的编码技能也是一种提升。在对 JavaScript 物理引擎的研究过程中，发现写代码是次要的，最主要的是理解相关的物理、数学公式和概念，虽然我是理科生，但是数学和物理从来不是我的强项，我不是把知识还给老师了，而是压根就没掌握过 o。过年期间花了有小半个月的时间在学习物理知识，现在仍然对某些概念和推导过程没有太大的自信，不过最后还算是做出了一个简单的、比较满意的结果，见下图。</p>
+<p>接下来看一下怎么实现这样的效果。</p>
+<p>基础结构<br>我们这里使用 canvas 来实现 JavaScript 物理引擎。首先准备项目的基础文件和样式，新建一个 index.html、index.js 和 style.css 文件，分别用于编写 canvas 的 html 结构、引擎代码和画布样式。</p>
+<p>在 index.html 的 <head /> 标签中引入样式文件：</p>
+<link rel="stylesheet" href="./style.css" />
+1
+在 <body /> 中，添加 canvas 元素、加载 index.js 文件：
+
+<main>
+  <canvas id="gameboard"></canvas>
+</main>
+<script src="./index.js"></script>
+1
+2
+3
+4
+这段代码定义了 id 为 gameboard 的 <canvas /> 元素，并放在了 <main /> 元素下， <main /> 元素主要是用来设置背景色和画布大小。在 <main/> 元素的下方引入 index.js 文件，这样可以在 DOM 加载完成之后再执行 JS 中的代码。
+
+<p>style.css 中的代码如下：</p>
+<ul>
+<li>{<br>box-sizing: border-box;<br>padding: 0;<br>margin: 0;<br>font-family: sans-serif;<br>}</li>
+</ul>
+<p>main {<br>  width: 100vw;<br>  height: 100vh;<br>  background: hsl(0deg, 0%, 10%);<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>样式很简单，去掉所有元素的外边距、内间距，并把 <main/> 元素的宽高设置为与浏览器可视区域相同，背景色为深灰色。</p>
+<p>hsl(hue, saturation, brightness) 为 css 颜色表示法之一，参数分别为色相，饱和度和亮度，可通过我之前出过的视频进行学习。</p>
+<p>绘制小球<br>接下来绘制小球，主要用到了 canvas 相关的 api。</p>
+<p>在 index.js 中，编写如下代码：</p>
+<p>const canvas = document.getElementById(“gameboard”);<br>const ctx = canvas.getContext(“2d”);</p>
+<p>canvas.width = window.innerWidth;<br>canvas.height = window.innerHeight;</p>
+<p>let width = canvas.width;<br>let height = canvas.height;</p>
+<p>ctx.fillStyle = “hsl(170, 100%, 50%)”;<br>ctx.beginPath();<br>ctx.arc(100, 100, 60, 0, 2 * Math.PI);<br>ctx.fill();<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>代码中主要利用了二维 context 进行绘图操作：</p>
+<p>通过 canvas 的 id 获取 canvas 元素对象。<br>通过 canvas 元素对象获取绘图 context， getContext() 需要一个参数，用于表明是绘制 2d 图像，还是使用 webgl 绘制 3d 图象，这里选择 2d。context 就类似是一支画笔，可以改变它的颜色和绘制基本的形状。<br>给 canvas 的宽高设置为浏览器可视区域的宽高，并保存到 width 和 height 变量中方便后续使用。<br>给 context 设置颜色，然后调用 beginPath() 开始绘图。<br>使用 arc() 方法绘制圆形，它接收 5 个参数，前两个为圆心的 x、y 坐标，第 3 个为半径长度， 第 4 个和第 5 个分别是起始角度和结束角度，因为 arc() 其实是用来绘制一段圆弧，这里让它画一段 0 到 360 度的圆弧，就形成了一个圆形。这里的角度是使用 radian 形式表示的，0 到 360 度可以用 0 到 2 * Math.PI 来表示。<br>最后使用 ctx.fill() 给圆形填上颜色。<br>这样就成功的绘制了一个圆形，我们在这把它当作一个小球：</p>
+<p>移动小球<br>不过，这个时候的小球还是静止的，如果想让它移动，那么得修改它的圆心坐标，具体修改的数值则与运动速度有关。在移动小球之前，先看一下 canvas 进行动画的原理：</p>
+<p>Canvas 进行动画的原理与传统的电影胶片类似，在一段时间内，绘制图像、更新图像位置或形状、清除画布，重新绘制图像，当在 1 秒内连续执行 60 次或以上这样的操作时，即以 60 帧的速度，就可以产生连续的画面。</p>
+<p>那么在 JavaScript 中，浏览器提供了 window.requestAnimationFrame() 方法，它接收一个回调函数作为参数，每一次执行回调函数就相当于 1 帧动画，我们需要通过递归或循环连续调用它，浏览器会尽可能的在 1 秒内执行 60 次回调函数。那么利用它，我们就可以对 canvas 进行重绘，以实现小球的移动效果。</p>
+<p>由于 window.requestAnimationFrame() 的调用基本是持续进行的，所以我们也可以把它称为游戏循环（Game loop）。</p>
+<p>接下来我们来看如何编写动画的基础结构：</p>
+<p>function process() {<br>  window.requestAnimationFrame(process);<br>}<br>window.requestAnimationFrame(process);<br>1<br>2<br>3<br>4<br>这里的 process() 函数就是 1 秒钟要执行 60 次的回调函数，每次执行完毕后继续调用 window.requestAnimationFrame(process)进行下一次循环。如果要移动小球，那么就需要把绘制小球和修改圆心 x、y 坐标的代码写到 process() 函数中。</p>
+<p>为了方便更新坐标，我们把小球的圆心坐标保存到变量中，以方便对它们进行修改，然后再定义两个新的变量，分别表示在 x 轴方向上的速度 vx，和 y 轴方向上的速度 vy，然后把 context 相关的绘图操作放到 process() 中：</p>
+<p>let x = 100;<br>let y = 100;<br>let vx = 12;<br>let vy = 25;</p>
+<p>function process() {<br>  ctx.fillStyle = “hsl(170, 100%, 50%)”;<br>  ctx.beginPath();<br>  ctx.arc(x, y, 60, 0, 2 * Math.PI);<br>  ctx.fill();<br>  window.requestAnimationFrame(process);<br>}<br>window.requestAnimationFrame(process);<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>要计算圆心坐标 x、y 的移动距离，我们需要速度和时间，速度这里有了， 那么时间要怎么获取呢？ window.requestAnimationFrame() 会把当前时间的毫秒数（即时间戳）传递给回调函数，我们可以把本次调用的时间戳保存起来，然后在下一次调用时计算出执行这 1 帧动画消耗了多少秒，然后根据这个秒数和 x、y 轴方向上的速度去计算移动距离，分别加到 x 和 y 上，以获得最新的位置。注意这里的时间是上一次函数调用和本次函数调用的时间间隔，并不是第 1 次函数调用到当前函数调用总共过去了多少秒，所以相当于是时间增量，需要在之前 x 和 y 的值的基础上进行相加，代码如下：</p>
+<p>let startTime;</p>
+<p>function process(now) {<br>  if (!startTime) {<br>    startTime = now;<br>  }<br>  let seconds = (now - startTime) / 1000;<br>  startTime = now;</p>
+<p>  // 更新位置<br>  x += vx * seconds;<br>  y += vy * seconds;</p>
+<p>  // 清除画布<br>  ctx.clearRect(0, 0, width, height);<br>  // 绘制小球<br>  ctx.fillStyle = “hsl(170, 100%, 50%)”;<br>  ctx.beginPath();<br>  ctx.arc(x, y, 60, 0, 2 * Math.PI);<br>  ctx.fill();</p>
+<p>  window.requestAnimationFrame(process);<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>process() 现在接收当前时间戳作为参数，然后做了下面这些操作：</p>
+<p>计算上次函数调用与本次函数调用的时间间隔，以秒计，记录本次调用的时间戳用于下一次计算。<br>根据 x、y 方向上的速度，和刚刚计算出来的时间，计算出移动距离。<br>调用 clearRect() 清除矩形区域画布，这里的参数，前两个是左上角坐标，后两个是宽高，把 canvas 的宽高传进去就会把整个画布清除。<br>重新绘制小球。<br>现在小球就可以移动了：</p>
+<p>重构代码<br>上边的代码适合只有一个小球的情况，如果有多个小球需要绘制，就得编写大量重复的代码，这时我们可以把小球抽象成一个类，里边有绘图、更新位置等操作，还有坐标、速度、半径等属性，重构后的代码如下：</p>
+<p>class Circle {<br>  constructor(context, x, y, r, vx, vy) {<br>    this.context = context;<br>    this.x = x;<br>    this.y = y;<br>    this.r = r;<br>    this.vx = vx;<br>    this.vy = vy;<br>  }</p>
+<pre><code>// 绘制小球</code></pre>
+<p>  draw() {<br>    this.context.fillStyle = “hsl(170, 100%, 50%)”;<br>    this.context.beginPath();<br>    this.context.arc(this.x, this.y, this.r, 0, 2 * Math.PI);<br>    this.context.fill();<br>  }</p>
+<p>  /**</p>
+<ul>
+<li><p>更新画布</p>
+</li>
+<li><p>@param {number} seconds<br> */</p>
+<p>update(seconds) {</p>
+<p>this.x += this.vx * seconds;<br>this.y += this.vy * seconds;<br>}<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>里边的代码跟之前的一样，这里就不再赘述了，需要注意的是，Circle 类的 context 画笔属性是通过构造函数传递进来的，更新位置的代码放到了 update() 方法中。</p>
+</li>
+</ul>
+<p>对于整个 canvas 的绘制过程，也可以抽象成一个类，当作是游戏或引擎控制器，例如把它放到一个叫 Gameboard 的类中：</p>
+<p>class Gameboard {<br>  constructor() {<br>    this.startTime;<br>    this.init();<br>  }</p>
+<p>  init() {<br>    this.circles = [<br>      new Circle(ctx, 100, 100, 60, 12, 25),<br>      new Circle(ctx, 180, 180, 30, 70, 45),<br>    ];<br>    window.requestAnimationFrame(this.process.bind(this));<br>  }</p>
+<p>  process(now) {<br>    if (!this.startTime) {<br>      this.startTime = now;<br>    }<br>    let seconds = (now - this.startTime) / 1000;<br>    this.startTime = now;</p>
+<pre><code>for (let i = 0; i &lt; this.circles.length; i++) &#123;
+  this.circles[i].update(seconds);
+&#125;
+ctx.clearRect(0, 0, width, height);
+
+for (let i = 0; i &lt; this.circles.length; i++) &#123;
+  this.circles[i].draw(ctx);
+&#125;
+window.requestAnimationFrame(this.process.bind(this));</code></pre>
+<p>  }<br>}</p>
+<p>new Gameboard();<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>在 Gameboard 类中：</p>
+<p>startTime 保存了上次函数执行的时间戳的属性，放到了构造函数中。<br>init() 方法创建了一个 circles 数组，里边放了两个示例的小球，这里先不涉及碰撞问题。然后调用 window.requestAnimationFrame() 开启动画。注意这里使用了 bind() 来把 Gameboard 的 this 绑定到回调函数中，以便于访问 Gameboard 中的方法和属性。<br>process() 方法也写到了这里边，每次执行时会遍历小球数组，对每个小球进行位置更新，然后清除画布，再重新绘制每个小球。<br>最后初始化 Gameboard 对象就可以开始执行动画了。<br>这个时候有两个小球在移动了。</p>
+<p>碰撞检测<br>为了实现仿真的物理特性，多个物体间碰撞会有相应的反应，第一步就是要先检测碰撞。我们先再多加几个小球，以便于碰撞的发生，在 Gameboard 类的 init() 方法中再添加几个小球：</p>
+<p>this.circles = [<br>  new Circle(ctx, 30, 50, 30, -100, 390),<br>  new Circle(ctx, 60, 180, 20, 180, -275),<br>  new Circle(ctx, 120, 100, 60, 120, 262),<br>  new Circle(ctx, 150, 180, 10, -130, 138),<br>  new Circle(ctx, 190, 210, 10, 138, -280),<br>  new Circle(ctx, 220, 240, 10, 142, 350),<br>  new Circle(ctx, 100, 260, 10, 135, -460),<br>  new Circle(ctx, 120, 285, 10, -165, 370),<br>  new Circle(ctx, 140, 290, 10, 125, 230),<br>  new Circle(ctx, 160, 380, 10, -175, -180),<br>  new Circle(ctx, 180, 310, 10, 115, 440),<br>  new Circle(ctx, 100, 310, 10, -195, -325),<br>  new Circle(ctx, 60, 150, 10, -138, 420),<br>  new Circle(ctx, 70, 430, 45, 135, -230),<br>  new Circle(ctx, 250, 290, 40, -140, 335),<br>];<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>然后给小球添加一个碰撞状态，在碰撞时，给两个小球设置为不同的颜色：</p>
+<p>class Circle {<br>  constructor(context, x, y, r, vx, vy) {<br>    // 其它代码<br>    this.colliding = false;<br>  }<br>  draw() {<br>    this.context.fillStyle = this.colliding<br>      ? “hsl(300, 100%, 70%)”<br>      : “hsl(170, 100%, 50%)”;<br>    // 其它代码<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>现在来判断小球之间是否发生了碰撞，这个条件很简单，判断两个小球圆心的距离是否小于两个小球的半径之和就可以了，如果小于等于则发生了碰撞，大于则没有发生碰撞。圆心的距离即计算两个坐标点的距离，可以用公式：</p>
+<p>( x 1 − x 2 ) 2 + ( y 1 − y 2 ) 2 \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}<br>(x<br>1</p>
+<p> −x<br>2</p>
+<p> )<br>2<br> +(y<br>1</p>
+<p> −y<br>2</p>
+<p> )<br>2</p>
+<p>​    </p>
+<p>x1、y1 和 x2、y2 分别两个小球的圆心坐标。在比较时，可以对半径和进行平方运算，进而省略对距离的开方运算，也就是可以用下方的公式进行比较：</p>
+<p>( x 1 − x 2 ) 2 + ( y 1 − y 2 ) 2 ≤ ( r 1 + r 2 ) 2 (x_1 - x_2)^2 + (y_1 - y_2)^2 \leq (r_1 + r_2)^2<br>(x<br>1</p>
+<p> −x<br>2</p>
+<p> )<br>2<br> +(y<br>1</p>
+<p> −y<br>2</p>
+<p> )<br>2<br> ≤(r<br>1</p>
+<p> +r<br>2</p>
+<p> )<br>2</p>
+<p>r1 和 r2 为两球的半径。</p>
+<p>在 Circle 类中，先添加一个isCircleCollided(other)方法，接收另一个小球对象作为参数，返回比较结果：</p>
+<p>isCircleCollided(other) {<br>  let squareDistance =<br>      (this.x - other.x) * (this.x - other.x) +<br>      (this.y - other.y) * (this.y - other.y);<br>  let squareRadius = (this.r + other.r) * (this.r + other.r);<br>  return squareDistance &lt;= squareRadius;<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>再添加 checkCollideWith(other) 方法，调用 isCircleCollided(other) 判断碰撞后，把两球的碰撞状态设置为 true：</p>
+<p>checkCollideWith(other) {<br>  if (this.isCircleCollided(other)) {<br>    this.colliding = true;<br>    other.colliding = true;<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>接着我们需要使用双循环两两比对小球是否发生了碰撞，由于小球数组存放在 Gameboard 对象中，我们给它添加一个 checkCollision() 方法来检测碰撞：</p>
+<p>checkCollision() {<br>  // 重置碰撞状态<br>  this.circles.forEach((circle) =&gt; (circle.colliding = false));</p>
+<p>  for (let i = 0; i &lt; this.circles.length; i++) {<br>    for (let j = i + 1; j &lt; this.circles.length; j++) {<br>      this.circles[i].checkCollideWith(this.circles[j]);<br>    }<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>因为小球在碰撞后就应立即弹开，所以我们一开始要把所有小球的碰撞状态设置为 false，之后在循环中，对每个小球进行检测。这里注意到内层循环是从 i + 1 开始的，这是因为在判断 1 球和 2 球是否碰撞后，就无须再判断 2 球 和 1 球了。</p>
+<p>之后在 process() 方法中，执行检测，注意检测应该发生在使用 for 循环更新小球位置的后边才准确：</p>
+<p>for (let i = 0; i &lt; this.circles.length; i++) {<br>  this.circles[i].update(seconds);<br>}<br>this.checkCollision();<br>1<br>2<br>3<br>4<br>现在，可以看到小球在碰撞时，会改变颜色了。</p>
+<p>边界碰撞<br>上边的代码在执行之后，小球都会穿过边界跑到外边去，那么我们先处理一下边界碰撞的问题。检测边界碰撞需要把四个面全部都处理到，根据圆心坐标和半径来判断是否和边界发生了碰撞。例如跟左边界发生碰撞时，圆心的 x 坐标是小于或等于半径长度的，而跟右边界发生碰撞时，圆心 x 坐标应该大于或等于画布最右侧坐标（即宽度值）减去半径的长度。上边界和下边界类似，只是使用圆心 y 坐标和画布的高度值。在水平方向上（即左右边界）发生碰撞时，小球的运动方向发生改变，只需要把垂直方向上的速度 vy 值取反即可，在垂直方向上碰撞则把 vx 取反。</p>
+<p>现在看一下代码的实现，在 Gameboard 类中添加一个 checkEdgeCollision() 方法，根据上边描述的规则编写如下代码：</p>
+<p>checkEdgeCollision() {<br>  this.circles.forEach((circle) =&gt; {<br>    // 左右墙壁碰撞<br>    if (circle.x &lt; circle.r) {<br>      circle.vx = -circle.vx;<br>      circle.x = circle.r;<br>    } else if (circle.x &gt; width - circle.r) {<br>      circle.vx = -circle.vx;<br>      circle.x = width - circle.r;<br>    }</p>
+<pre><code>// 上下墙壁碰撞
+if (circle.y &lt; circle.r) &#123;
+  circle.vy = -circle.vy;
+  circle.y = circle.r;
+&#125; else if (circle.y &gt; height - circle.r) &#123;
+  circle.vy = -circle.vy;
+  circle.y = height - circle.r;
+&#125;</code></pre>
+<p>  });<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>在代码中，碰撞时，除了对速度进行取反操作之外，还把小球的坐标修改为紧临边界，防止超出。接下来在 process() 中添加对边界碰撞的检测：</p>
+<p>this.checkEdgeCollision();<br>this.checkCollision();<br>1<br>2<br>这时候可以看到小球在碰到边界时，可以反弹了：</p>
+<p>但是小球间的碰撞还没有处理，在处理之前，先复习一下向量的基本操作，数学好的同学可以直接跳过，只看相关的代码。</p>
+<p>向量的基本操作<br>由于在碰撞时，需要对速度向量（或称为矢量）进行操作，向量是使用类似坐标的形式表示的，例如 &lt; 3, 5 &gt; (这里用 &lt;&gt; 表示向量)，它有长度和方向，对于它的运算有一定的规则，本教程中需要用到向量的加法、减法、乘法、点乘和标准化操作。</p>
+<p>向量相加只需要把两个向量的 x 坐标和 y 坐标相加即可，例如：&lt; 3 , 5 &gt; + &lt; 1 , 2 &gt; = &lt; 4 , 7 &gt; &lt;3, 5&gt; + &lt;1, 2&gt; = &lt;4, 7&gt;&lt;3,5&gt;+&lt;1,2&gt;=&lt;4,7&gt;<br>减法与加法类似，把 x 坐标和 y 坐标相减，例如：&lt; 3 , 5 &gt; − &lt; 1 , 2 &gt; = &lt; 2 , 3 &gt; &lt;3, 5&gt; - &lt;1, 2&gt; = &lt;2, 3&gt;&lt;3,5&gt;−&lt;1,2&gt;=&lt;2,3&gt;</p>
+<p>乘法，这里指的是向量和标量的乘法，标量指的就是普通的数字，结果是把 x 和 y 分别和标量相乘，例如：3 × &lt; 3 , 5 &gt; = &lt; 9 , 15 &gt; 3\times&lt;3, 5&gt; = &lt;9, 15&gt;3×&lt;3,5&gt;=&lt;9,15&gt;。</p>
+<p>点乘是两个向量相乘的一种方式，类似的还有叉乘，但是在本示例中用不到，点乘其实计算的是一个向量在另一个向量上的投影，它的计算方式为两个向量的 x 的积加上 y 的积，它返回的是一个标量，即第 1 个向量在第 2 个向量上投影的长度，例如：&lt; 3 , 5 &gt; ⋅ &lt; 1 , 2 &gt; = 3 × 1 + 5 × 2 = 13 &lt;3, 5&gt; \cdot &lt;1, 2&gt; = 3 \times 1 + 5 \times 2 = 13&lt;3,5&gt;⋅&lt;1,2&gt;=3×1+5×2=13</p>
+<p>标准化是除掉向量的长度，只剩下方向，这样的向量它的长度为 1，称为单位向量，标准化的过程是让 x 和 y 分别除以向量的长度，因为向量表示的是和原点(0, 0)的距离，所以可以直接使用 ( x 2 + y 2 ) \sqrt{(x^2 + y^2)}<br>(x<br>2<br> +y<br>2<br> )</p>
+<p>  计算长度，例如 &lt; 3, 4 &gt; 标准化后的结果为：&lt; 3 , 5 &gt; ⋅ &lt; 1 , 2 &gt; = 3 × 1 + 5 × 2 = 13 &lt;3, 5&gt; \cdot &lt;1, 2&gt; = 3 \times 1 + 5 \times 2 = 13&lt;3,5&gt;⋅&lt;1,2&gt;=3×1+5×2=13。</p>
+<p>了解了向量的基本运算后，我们来创建一个 Vector 工具类，来方便我们进行向量的运算，它的代码就是实现了这些运算规则：</p>
+<p>class Vector {<br>  constructor(x, y) {<br>    this.x = x;<br>    this.y = y;<br>  }</p>
+<p>  /**</p>
+<ul>
+<li><p>向量加法</p>
+</li>
+<li><p>@param {Vector} v<br> */</p>
+<p>add(v) {</p>
+<p>return new Vector(this.x + v.x, this.y + v.y);<br>}</p>
+<p>/**</p>
+</li>
+<li><p>向量减法</p>
+</li>
+<li><p>@param {Vector} v<br> */</p>
+<p>substract(v) {</p>
+<p>return new Vector(this.x - v.x, this.y - v.y);<br>}</p>
+<p>/**</p>
+</li>
+<li><p>向量与标量乘法</p>
+</li>
+<li><p>@param {Vector} s<br> */</p>
+<p>multiply(s) {</p>
+<p>return new Vector(this.x * s, this.y * s);<br>}</p>
+<p>/**</p>
+</li>
+<li><p>向量与向量点乘（投影）</p>
+</li>
+<li><p>@param {Vector} v<br> */</p>
+<p>dot(v) {</p>
+<p>return this.x * v.x + this.y * v.y;<br>}</p>
+<p>/**</p>
+</li>
+<li><p>向量标准化（除去长度）</p>
+</li>
+<li><p>@param {number} distance<br> */</p>
+<p>normalize() {</p>
+<p>let distance = Math.sqrt(this.x * this.x + this.y * this.y);<br>return new Vector(this.x / distance, this.y / distance);<br>}<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>代码中没有什么特殊的语法和操作，这里就不再赘述了，接下来我们看一下小球的碰撞问题。</p>
+</li>
+</ul>
+<p>碰撞处理<br>碰撞处理最主要的部分就是计算碰撞后的速度和方向。通常最简单的碰撞问题是在同一个水平面上的两个物体的碰撞，称为一维碰撞，因为此时只需要计算同一方向上的速度，而我们现在的程序小球是在一个二维平面内运动的，小球之间发生正面相碰（即在同一运动方向）的概率很小，大部分是斜碰（在不同运动方向上擦肩相碰），需要同时计算水平和垂直方向上的速度和方向，这就属于是二维碰撞问题。不过，其实小球之间的碰撞，只有在连心线（两个圆心的连线）上有作用力，而在碰撞接触的切线方向上没有作用力，那么我们只需要知道连心线方向的速度变化就可以了，这样就转换成了一维碰撞。</p>
+<p>计算碰撞后的速度时，遵守动量守恒定律和动能守恒定律，公式分别为：</p>
+<p>动量守恒定律<br>m 1 v 1 + m 2 v 2 = m 1 v 1 ′ + m 2 v 2 ′ m_1v_1 + m_2v_2 = m_1v_1’ + m_2v_2’<br>m<br>1</p>
+<p> v<br>1</p>
+<p> +m<br>2</p>
+<p> v<br>2</p>
+<p> =m<br>1</p>
+<p> v<br>1<br>′</p>
+<p> +m<br>2</p>
+<p> v<br>2<br>′</p>
+<p>动能守恒定律<br>1 2 m 1 v 1 2 + 1 2 m 2 v 2 2 = 1 2 m 1 v 1 ′ 2 + 1 2 m 2 v 2 ′ 2 \frac{1}{2}m_1v_1^2+\frac{1}{2}m_2v_2^2=\frac{1}{2}m_1v_1’^2+\frac{1}{2}m_2v_2’^2<br>2<br>1</p>
+<p> m<br>1</p>
+<p> v<br>1<br>2</p>
+<ul>
+<li>2<br>1</li>
+</ul>
+<p> m<br>2</p>
+<p> v<br>2<br>2</p>
+<p> =<br>2<br>1</p>
+<p> m<br>1</p>
+<p> v<br>1<br>′2</p>
+<ul>
+<li>2<br>1</li>
+</ul>
+<p> m<br>2</p>
+<p> v<br>2<br>′2</p>
+<p>m1、m2 分别为两小球的质量，v1 和 v2 为两小球碰撞前的速度向量，v1’ 和 v2’ 为碰撞后的速度向量。根据这两个公式可以推导出两小球碰撞后的速度公式：</p>
+<p>v 1 ′ = v 1 ( m 1 − m 2 ) + 2 m 2 v 2 m 1 + m 2 v_1’=\frac{v_1(m_1-m_2)+2m_2v_2}{m_1+m_2}<br>v<br>1<br>′</p>
+<p> =<br>m<br>1</p>
+<p> +m<br>2</p>
+<p>v<br>1</p>
+<p> (m<br>1</p>
+<p> −m<br>2</p>
+<p> )+2m<br>2</p>
+<p> v<br>2</p>
+<p>​    </p>
+<p>v 2 ′ = v 2 ( m 2 − m 1 ) + 2 m 1 v 1 m 1 + m 2 v_2’=\frac{v_2(m_2-m_1)+2m_1v_1}{m_1+m_2}<br>v<br>2<br>′</p>
+<p> =<br>m<br>1</p>
+<p> +m<br>2</p>
+<p>v<br>2</p>
+<p> (m<br>2</p>
+<p> −m<br>1</p>
+<p> )+2m<br>1</p>
+<p> v<br>1</p>
+<p>​    </p>
+<p>如果不考虑小球的质量，或质量相同，其实就是两小球速度互换，即：</p>
+<p>v 1 ′ = v 2 v_1’=v_2<br>v<br>1<br>′</p>
+<p> =v<br>2</p>
+<p>v 2 ′ = v 1 v_2’=v_1<br>v<br>2<br>′</p>
+<p> =v<br>1</p>
+<p>这里我们给小球加上质量，然后套用公式来计算小球碰撞后速度，先在 Circle 类中给小球加上质量 mass 属性：</p>
+<p>class Circle {<br>  constructor(context, x, y, r, vx, vy, mass = 1) {<br>    // 其它代码<br>    this.mass = mass;<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>然后在 Gameboard 类的初始化小球处，给每个小球添加质量：</p>
+<p>this.circles = [<br>  new Circle(ctx, 30, 50, 30, -100, 390, 30),<br>  new Circle(ctx, 60, 180, 20, 180, -275, 20),<br>  new Circle(ctx, 120, 100, 60, 120, 262, 100),<br>  new Circle(ctx, 150, 180, 10, -130, 138, 10),<br>  new Circle(ctx, 190, 210, 10, 138, -280, 10),<br>  new Circle(ctx, 220, 240, 10, 142, 350, 10),<br>  new Circle(ctx, 100, 260, 10, 135, -460, 10),<br>  new Circle(ctx, 120, 285, 10, -165, 370, 10),<br>  new Circle(ctx, 140, 290, 10, 125, 230, 10),<br>  new Circle(ctx, 160, 380, 10, -175, -180, 10),<br>  new Circle(ctx, 180, 310, 10, 115, 440, 10),<br>  new Circle(ctx, 100, 310, 10, -195, -325, 10),<br>  new Circle(ctx, 60, 150, 10, -138, 420, 10),<br>  new Circle(ctx, 70, 430, 45, 135, -230, 45),<br>  new Circle(ctx, 250, 290, 40, -140, 335, 40),<br>];<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>在 Circle 类中加上 changeVelocityAndDirection(other) 方法来计算碰撞后的速度，它接收另一个小球对象作为参数，同时计算这两个小球碰撞厚的速度和方向，这个是整个引擎的核心，我们一点一点的来看它是如何实现的。首先把两个小球的速度使用 Vector 向量来表示：</p>
+<p>  changeVelocityAndDirection(other) {<br>    // 创建两小球的速度向量<br>    let velocity1 = new Vector(this.vx, this.vy);<br>    let velocity2 = new Vector(other.vx, other.vy);<br>  }<br>1<br>2<br>3<br>4<br>5<br>因为我们本身就已经使用 vx 和 vy 来表示水平和垂直方向上的速度向量了，所以直接把它们传给 Vector 的构造函数就可以了。velocity1 和 velocity2 分别代表当前小球和碰撞小球的速度向量。</p>
+<p>接下来获取连心线方向的向量，也就是两个圆心坐标的差：</p>
+<p>let vNorm = new Vector(this.x - other.x, this.y - other.y);<br>1<br>接下来获取连心线方向的单位向量和切线方向上的单位向量，这些单位向量代表的是连心线和切线的方向：</p>
+<p>let unitVNorm = vNorm.normalize();<br>let unitVTan = new Vector(-unitVNorm.y, unitVNorm.x);<br>1<br>2<br>unitVNorm 是连心线方向单位向量，unitVTan 是切线方向单位向量，切线方向其实就是把连心线向量的 x、y 坐标互换，并把 y 坐标取反。根据这两个单位向量，使用点乘计算小球速度在这两个方向上的投影：</p>
+<p>let v1n = velocity1.dot(unitVNorm);<br>let v1t = velocity1.dot(unitVTan);</p>
+<p>let v2n = velocity2.dot(unitVNorm);<br>let v2t = velocity2.dot(unitVTan);<br>1<br>2<br>3<br>4<br>5<br>计算结果是一个标量，也就是没有方向的速度值。v1n 和 v1t 表示当前小球在连心线和切线方向的速度值，v2n 和 v2t 则表示的是碰撞小球 的速度值。在计算出两小球的速度值之后，我们就有了碰撞后的速度公式所需要的变量值了，直接用代码把公式套用进去：</p>
+<p>let v1nAfter = (v1n * (this.mass - other.mass) + 2 * other.mass * v2n) / (this.mass + other.mass);<br>let v2nAfter = (v2n * (other.mass - this.mass) + 2 * this.mass * v1n) / (this.mass + other.mass);<br>1<br>2<br>v1nAfter 和 v2nAfter 分别是两小球碰撞后的速度，现在可以先判断一下，如果 v1nAfter 小于 v2nAfter，那么第 1 个小球和第 2 个小球会越来越远，此时不用处理碰撞：</p>
+<p>if (v1nAfter &lt; v2nAfter) {<br>  return;<br>}<br>1<br>2<br>3<br>然后再给碰撞后的速度加上方向，计算在连心线方向和切线方向上的速度，只需要让速度标量跟连心线单位向量和切线单位向量相乘：</p>
+<p>let v1VectorNorm = unitVNorm.multiply(v1nAfter);<br>let v1VectorTan = unitVTan.multiply(v1t);</p>
+<p>let v2VectorNorm = unitVNorm.multiply(v2nAfter);<br>let v2VectorTan = unitVTan.multiply(v2t);<br>1<br>2<br>3<br>4<br>5<br>这样有了两个小球连心线上的新速度向量和切线方向上的新速度向量，最后把连心线上的速度向量和切线方向的速度向量进行加法操作，就能获得碰撞后小球的速度向量：</p>
+<p>let velocity1After = v1VectorNorm.add(v1VectorTan);<br>let velocity2After = v2VectorNorm.add(v2VectorTan);<br>1<br>2<br>之后我们把向量中的 x 和 y 分别还原到小球的 vx 和 vy 属性中：</p>
+<p>this.vx = velocity1After.x;<br>this.vy = velocity1After.y;</p>
+<p>other.vx = velocity2After.x;<br>other.vy = velocity2After.y;<br>1<br>2<br>3<br>4<br>5<br>最后在 checkCollideWith() 方法的 if 语句中调用此方法，即在检测到碰撞时：</p>
+<p>checkCollideWith(other) {<br>  if (this.isCircleCollided(other)) {<br>    this.colliding = true;<br>    other.colliding = true;<br>    this.changeVelocityAndDirection(other); // 在这里调用<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>这时，小球的碰撞效果就实现了。</p>
+<p>非弹性碰撞<br>现在小球之间的碰撞属于完全弹性碰撞，即碰撞之后不会有能量损失，这样小球永远不会停止运动，我们可以让小球在碰撞之后损失一点能量，来模拟更真实的物理效果。要让小球碰撞后有能量损失，可以使用恢复系数，它是一个取值范围为 0 到 1 的数值，每次碰撞后，乘以它就可以减慢速度，如果恢复系数为 1 则为完全弹性碰撞，为 0 则是完全非弹性碰撞，之间的数值为非弹性碰撞，现实生活中的碰撞都是非弹性碰撞。</p>
+<p>先看一下边界碰撞，这个比较简单，假设边界的恢复系数为 0.8，然后在每次对速度取反的时候乘以它就可以了，把 Gameboard checkEdgeCollision()方法作如下改动：</p>
+<p>  checkEdgeCollision() {<br>    const cor = 0.8;                  // 设置恢复系统<br>    this.circles.forEach((circle) =&gt; {<br>      // 左右墙壁碰撞<br>      if (circle.x &lt; circle.r) {<br>        circle.vx = -circle.vx * cor; // 加上恢复系数<br>        circle.x = circle.r;<br>      } else if (circle.x &gt; width - circle.r) {<br>        circle.vx = -circle.vx * cor; // 加上恢复系数<br>        circle.x = width - circle.r;<br>      }</p>
+<pre><code>  // 上下墙壁碰撞
+  if (circle.y &lt; circle.r) &#123;
+    circle.vy = -circle.vy * cor; // 加上恢复系数
+    circle.y = circle.r;
+  &#125; else if (circle.y &gt; height - circle.r) &#123;
+    circle.vy = -circle.vy * cor; // 加上恢复系数
+    circle.y = height - circle.r;
+  &#125;
+&#125;);</code></pre>
+<p>  }<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>接下来设置小球的恢复系数，给 Circle 类再加上一个恢复系数 cor 属性，每个小球可以设置不同的数值，来让它们有不同的弹性，然后在初始化小球时设置随意的恢复系数：</p>
+<p>class Circle {<br>  constructor(context, x, y, r, vx, vy, mass = 1, cor = 1) {<br>    // 其它代码<br>    this.cor = cor;<br>  }<br>}</p>
+<p>class Gameboard {<br>  init() {<br>   this.circles = [<br>      new Circle(ctx, 30, 50, 30, -100, 390, 30, 0.7),<br>      new Circle(ctx, 60, 180, 20, 180, -275, 20, 0.7),<br>      new Circle(ctx, 120, 100, 60, 120, 262, 100, 0.3),<br>      new Circle(ctx, 150, 180, 10, -130, 138, 10, 0.7),<br>      new Circle(ctx, 190, 210, 10, 138, -280, 10, 0.7),<br>      new Circle(ctx, 220, 240, 10, 142, 350, 10, 0.7),<br>      new Circle(ctx, 100, 260, 10, 135, -460, 10, 0.7),<br>      new Circle(ctx, 120, 285, 10, -165, 370, 10, 0.7),<br>      new Circle(ctx, 140, 290, 10, 125, 230, 10, 0.7),<br>      new Circle(ctx, 160, 380, 10, -175, -180, 10, 0.7),<br>      new Circle(ctx, 180, 310, 10, 115, 440, 10, 0.7),<br>      new Circle(ctx, 100, 310, 10, -195, -325, 10, 0.7),<br>      new Circle(ctx, 60, 150, 10, -138, 420, 10, 0.7),<br>      new Circle(ctx, 70, 430, 45, 135, -230, 45, 0.7),<br>      new Circle(ctx, 250, 290, 40, -140, 335, 40, 0.7),<br>    ];<br>  }<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>加上恢复系数之后，小球碰撞后的速度计算也需要改变一下，可以简单的让 v1nAfter 和 v2nAfter 乘以小球的恢复系数，也可以使用带有恢复系数的速度公式（这两种方式我暂时还不太清楚区别，有兴趣的小伙伴可以自己研究一下），公式如下：</p>
+<p>v 1 ′ = m 1 v 1 + m 2 v 2 + m 2 C R ( v 2 − v 1 ) m 1 + m 2 v_1’=\frac{m_1v_1+m_2v_2+m2C_R(v_2-v_1)}{m_1+m_2}<br>v<br>1<br>′</p>
+<p> =<br>m<br>1</p>
+<p> +m<br>2</p>
+<p>m<br>1</p>
+<p> v<br>1</p>
+<p> +m<br>2</p>
+<p> v<br>2</p>
+<p> +m2C<br>R</p>
+<p> (v<br>2</p>
+<p> −v<br>1</p>
+<p> )</p>
+<p>v 2 ′ = m 1 v 1 + m 2 v 2 + m 1 C R ( v 1 − v 2 ) m 1 + m 2 v_2’=\frac{m_1v_1+m_2v_2+m1C_R(v_1-v_2)}{m_1+m2}<br>v<br>2<br>′</p>
+<p> =<br>m<br>1</p>
+<p> +m2<br>m<br>1</p>
+<p> v<br>1</p>
+<p> +m<br>2</p>
+<p> v<br>2</p>
+<p> +m1C<br>R</p>
+<p> (v<br>1</p>
+<p> −v<br>2</p>
+<p> )</p>
+<p>接着把公式转换为代码，在 Circle 类的 changeVelocityAndDirection() 方法中，替换掉 v1nAfter 和 v2nAfter 的计算公式：</p>
+<p>let cor = Math.min(this.cor, other.cor);<br>let v1nAfter =<br>    (this.mass * v1n + other.mass * v2n + cor * other.mass * (v2n - v1n)) /<br>    (this.mass + other.mass);</p>
+<p>let v2nAfter =<br>    (this.mass * v1n + other.mass * v2n + cor * this.mass * (v1n - v2n)) /<br>    (this.mass + other.mass);<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>这里要注意的是两小球碰撞时的恢复系数应取两者的最小值，按照常识，弹性小的无论是去撞别人还是别人撞它，都会有同样的效果。现在小球碰撞后速度会有所减慢，不过还差一点，我们可以加上重力来让小球自然下落。</p>
+<p>重力<br>添加重力比较简单，先在全局定义重力加速度常量，然后在小球更新垂直方向上的速度时，累计重力加速度就可以了：</p>
+<p>const gravity = 980;</p>
+<p>class Circle {<br>  update(seconds) {<br>    this.vy += gravity * seconds; // 重力加速度<br>    this.x += this.vx * seconds;<br>    this.y += this.vy * seconds;<br>  }<br>}<br>重力加速度大约是 <code>9.8 m / s 2 9.8m/s^29.8m/s </code><br> ，但是由于我们的画布是以象素为单位的，所以使用 9.8 看起来会像是没有重力，或者像是从很远的地方观察小球，这时候可以把重力加速度放大一定倍数来达到更逼真的效果。</p>
+<p>总结<br>现在我们这个简单的 JavaScript 物理引擎就完成了，实现了物理引擎最基本的部分，可以有一个完整的掉落和碰撞的效果，要做一个更逼真的物理引擎还需要考虑更多的因素和更复杂的公式，例如考虑一下摩擦力、空气阻力、碰撞后的旋转角度等，并且这个 canvas 的帧率也会有一定的问题，如果有的小球速度过快，但是如果来不及执行下一次回调函数更新它的位置，那么它可能就直接穿过碰撞的小球到另一边了。</p>
+<p>来总结一下开发过程：</p>
+<p>使用 context 绘制小球。<br>搭建 Canvas 动画基础结构，主要使用 window.requestAnimationFrame方法反复执行回调函数。<br>移动小球，通过小球的速度和函数执行时的时间戳来计算移动距离。<br>碰撞检测，通过比对两个小球的距离和它们半径的和。<br>边界碰撞的检测和方向改变。<br>小球之间的碰撞，应用速度公式和向量操作计算出碰撞后的速度和方向。<br>利用恢复系数实现非弹性碰撞。<br>添加重力效果。<br>代码可以在以下地址中查看：</p>
+<p><a href="https://github.com/zxuqian/html-css-examples/tree/master/35-collision-physics">https://github.com/zxuqian/html-css-examples/tree/master/35-collision-physics</a></p>
+]]></content>
+      <tags>
+        <tag>前端-实现</tag>
       </tags>
   </entry>
 </search>
