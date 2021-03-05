@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>文件结构</title>
-    <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
-<a id="more"></a>
-
-
-
-<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="md"><a href="#md" class="headerlink" title=".md"></a>.md</h3><p>用来标注Markdown文件</p>
-<h3 id="ios"><a href="#ios" class="headerlink" title=".ios"></a>.ios</h3><p>一种光盘（CD）上的文件系统格式。简单地说，就是数据在数据光盘上的组织形式</p>
-<p><img src="image-20210303093655987.png" alt="image-20210303093655987"></p>
-]]></content>
-      <tags>
-        <tag>文件结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端问题</title>
-    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>-</p>
-<a id="more"></a>
-
-<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>前端问题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端报错汇总</title>
     <url>/2021/02/22/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p><strong>net::ERR_CONNECTION_REFUSED</strong></p>
@@ -185,6 +156,19 @@
       </tags>
   </entry>
   <entry>
+    <title>前端问题</title>
+    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>-</p>
+<a id="more"></a>
+
+<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>前端问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Navicat</title>
     <url>/2021/02/25/%E8%BD%AF%E4%BB%B6/Navicat/</url>
     <content><![CDATA[<h2 id="Navicat快捷键"><a href="#Navicat快捷键" class="headerlink" title="Navicat快捷键"></a>Navicat快捷键</h2><a id="more"></a>
@@ -224,6 +208,7 @@
 <p>generate        生成</p>
 <p>deploy        部署</p>
 <p>menu        菜单</p>
+<p>category    类别</p>
 <p>😱</p>
 <p>tag             标签</p>
 <p>destory        销毁</p>
@@ -311,9 +296,8 @@
 <p>splunk        si pu lan ke</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>javascript</category>
-        <category>面向对象编程</category>
+        <category>进度</category>
+        <category>单词</category>
       </categories>
       <tags>
         <tag>进度</tag>
@@ -334,9 +318,8 @@
 <p>k8s-Kubernetes</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>javascript</category>
-        <category>面向对象编程</category>
+        <category>进度</category>
+        <category>进度</category>
       </categories>
       <tags>
         <tag>进度</tag>
@@ -441,6 +424,40 @@
 ]]></content>
       <tags>
         <tag>定时器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora使用</title>
+    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
+<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
+<a id="more"></a>
+
+<p>会显示类似于浏览器的开发者模式窗口</p>
+<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
+<p>此时选择想要修改样式的内容</p>
+<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
+<p>修改完毕后右键Copy link address复制文件路径</p>
+<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
+<blockquote>
+<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
+<p>  一般文件会有带盘符的完整路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 有的文件则以typora:开头</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p>此时需要</p>
+<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
+<p>此时直接进入 typora://userData\themes 中</p>
+<blockquote>
+<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
+<p>根据行数及选择器名修改样式内容保存即可</p>
+]]></content>
+      <tags>
+        <tag>博客-Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -571,40 +588,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Typora使用</title>
-    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
-<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
-<a id="more"></a>
-
-<p>会显示类似于浏览器的开发者模式窗口</p>
-<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
-<p>此时选择想要修改样式的内容</p>
-<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
-<p>修改完毕后右键Copy link address复制文件路径</p>
-<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
-<blockquote>
-<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
-<p>  一般文件会有带盘符的完整路径</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 有的文件则以typora:开头</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p>此时需要</p>
-<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
-<p>此时直接进入 typora://userData\themes 中</p>
-<blockquote>
-<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
-<p>根据行数及选择器名修改样式内容保存即可</p>
-]]></content>
-      <tags>
-        <tag>博客-Typora</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo中添加图片</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<h3 id="下载插件"><a href="#下载插件" class="headerlink" title="下载插件"></a>下载插件</h3><p>在hexo根目录下执行如下命令</p>
@@ -617,104 +600,6 @@
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
 <p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
 <h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo使用</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
-<a id="more"></a>
-
-
-
-<h3 id="source-posts中的文件使用文件夹划分并不会达成分级的效果"><a href="#source-posts中的文件使用文件夹划分并不会达成分级的效果" class="headerlink" title="\source_posts中的文件使用文件夹划分并不会达成分级的效果"></a>\source_posts中的文件使用文件夹划分并不会达成分级的效果</h3><p>但可以依靠分包进行视觉上的区分</p>
-<h3 id="可以不用添加标号，上传后文章目录会自动添加"><a href="#可以不用添加标号，上传后文章目录会自动添加" class="headerlink" title="可以不用添加标号，上传后文章目录会自动添加"></a>可以不用添加标号，上传后文章目录会自动添加</h3><h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><h3 id="md头的作用"><a href="#md头的作用" class="headerlink" title="md头的作用"></a>md头的作用</h3><table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>title</code></td>
-<td align="left">网站标题</td>
-</tr>
-<tr>
-<td align="left"><code>subtitle</code></td>
-<td align="left">网站副标题</td>
-</tr>
-<tr>
-<td align="left"><code>description</code></td>
-<td align="left">网站描述</td>
-</tr>
-<tr>
-<td align="left"><code>keywords</code></td>
-<td align="left">网站的关键词。支援多个关键词。</td>
-</tr>
-<tr>
-<td align="left"><code>author</code></td>
-<td align="left">您的名字</td>
-</tr>
-<tr>
-<td align="left"><code>language</code></td>
-<td align="left">网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>。</td>
-</tr>
-<tr>
-<td align="left"><code>timezone</code></td>
-<td align="left">网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>。</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 分类  创建分类页 hexo new page categories</span></span><br><span class="line">categories: hexo</span><br><span class="line"><span class="comment">// 标签  创建标签页 hexo new page tags</span></span><br><span class="line">type: tags </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="hexo页面文章使用时间排序，最早的文章会放到最下边，"><a href="#hexo页面文章使用时间排序，最早的文章会放到最下边，" class="headerlink" title="hexo页面文章使用时间排序，最早的文章会放到最下边，"></a>hexo页面文章使用时间排序，最早的文章会放到最下边，</h3><p>所以可以通过修改头部的时间来对文章进行排序</p>
-<h3 id="文件名并没有用，页面中最大的标题为文件头中title后的内容"><a href="#文件名并没有用，页面中最大的标题为文件头中title后的内容" class="headerlink" title="文件名并没有用，页面中最大的标题为文件头中title后的内容"></a>文件名并没有用，页面中最大的标题为文件头中title后的内容</h3><h3 id="将Hexo设置成中文"><a href="#将Hexo设置成中文" class="headerlink" title="将Hexo设置成中文"></a>将Hexo设置成中文</h3><p>很多文档和博客都将language设置成zh-Hans，结果登录个人站一直不能显示中文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
-<p>找到next文件夹下的languages文件夹，看到zh-CN.yml，所以选择把languages设为zh-CN<br><img src="https://img-blog.csdnimg.cn/20201216200852675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUyMzE2OTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: RedeeMi的个人站</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
-<p>如果还没有显示为中文，clean后再登录即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Hexo-next主题添加"><a href="#Hexo-next主题添加" class="headerlink" title="Hexo next主题添加"></a>Hexo next主题添加</h2><h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true"><a href="#2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true" class="headerlink" title="2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索footer，在它底下添加counter，设值为true"></a>2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索<strong>footer</strong>，在它底下添加counter，设值为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 统计  </span><br><span class="line">counter: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码"><a href="#3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码" class="headerlink" title="3. 来到themes\next\layout\_partials，找到footer.swig文件，打开编辑，在底下添加代码"></a>3. 来到themes\next\layout\_partials，找到<strong>footer.swig</strong>文件，打开编辑，在底下添加代码</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.counter %&#125;</span><br><span class="line">    &lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="Hexo-next主题添加搜索"><a href="#Hexo-next主题添加搜索" class="headerlink" title="Hexo next主题添加搜索"></a>Hexo next主题添加搜索</h3><h4 id="1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："><a href="#1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：" class="headerlink" title="1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："></a>1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-全局配置文件-config-yml，新增如下内容："><a href="#2-全局配置文件-config-yml，新增如下内容：" class="headerlink" title="2.全局配置文件_config.yml，新增如下内容："></a>2.全局配置文件_config.yml，新增如下内容：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 添加搜索</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true："><a href="#3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true：" class="headerlink" title="3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true："></a>3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/flashlab/hexo-generator-search</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于"><a href="#Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于" class="headerlink" title="Hexo NexT主题下开启其他菜单项，比如分类、标签、关于"></a>Hexo NexT主题下开启其他菜单项，比如分类、标签、关于</h3><p>首先打开主题下的配置文件_config.yml，然后搜索menu找到如下配置项，将about、tags、categories前的#号去掉，就开启了关于、标签和分类标签，当然还有其他菜单项也可以开启</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Menu Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> When running the site <span class="keyword">in</span> a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Usage: `Key: /link/ || icon`</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Key is the name of menu item. If the translation <span class="keyword">for</span> this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value before `||` delimiter is the target link.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> External url should start with http:// or https://</span></span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line"><span class="meta">  #</span><span class="bash">schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<p>重新生成部署后，可以看到新增的菜单项，但是单击后会报如下错误</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Cannot GET /about/</span><br><span class="line">Cannot GET /tags/</span><br><span class="line">Cannot GET /categories/</span><br></pre></td></tr></table></figure>
-
-<p>这是因为你还需运行如下命令新建相关页面</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
-
-
-<p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page &quot;about&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\about\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;tags&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\tags\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;categories&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\categories\index.md</span><br></pre></td></tr></table></figure>
-
-
-<p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -859,6 +744,99 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用</title>
+    <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
+
+<p><img src="image-liucheng.png"></p>
+<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>提示初始化一个空的git库在<code>G:/test/test/.git/</code></p>
+<p><img src="image-20210224090517320.png" alt="image-20210224090517320"></p>
+<p>此时运行命令的位置会有</p>
+<p><img src="image-20210224090651065.png" alt="image-20210224090651065"></p>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 克隆整个项目及其整个代码历史(版本信息)</span><br><span class="line"># https:<span class="operator">/</span><span class="operator">/</span>gitee.com<span class="operator">/</span>kuangstudy<span class="operator">/</span>openclass.git</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><blockquote>
+<h3 id="文件4种状态"><a href="#文件4种状态" class="headerlink" title="文件4种状态"></a>文件4种状态</h3></blockquote>
+<ul>
+<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过<code>git add</code> 状态变为<code>Staged</code></li>
+<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为<code>Modified</code>. 如果使用<code>git rm</code>移出版本库, 则成为<code>Untracked</code>文件</li>
+<li><strong>Modified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过<code>git add</code>可进入暂存<code>staged</code>状态, 使用<code>git checkout</code> 则丢弃修改过, 返回到<code>unmodify</code>状态, 这个<code>git checkout</code>即从库中取出文件, 覆盖当前修改</li>
+<li><strong>Staged</strong>: 暂存状态. 执行<code>git commit</code>则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为<code>Unmodify</code>状态. 执行<code>git reset HEAD filename</code>取消暂存, 文件状态为<code>Modified</code></li>
+</ul>
+<blockquote>
+<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 提交所有文件到暂存区  </span><br><span class="line">git add . </span><br><span class="line">    </span><br><span class="line"># 提交暂存区的内容到本地仓库</span><br><span class="line">git commit -m <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用该命令查看本地新搭建的项目时，显示内容为："><a href="#使用该命令查看本地新搭建的项目时，显示内容为：" class="headerlink" title="使用该命令查看本地新搭建的项目时，显示内容为："></a>使用该命令查看本地新搭建的项目时，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当前在master分支</span></span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之前未进行提交</span></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前无任何内容需要提交</span></span><br><span class="line"><span class="function">nothing to <span class="title">commit</span> <span class="params">(create/copy files and use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<h4 id="新建文件hello-txt-再使用该命令查看，显示内容为："><a href="#新建文件hello-txt-再使用该命令查看，显示内容为：" class="headerlink" title="新建文件hello.txt 再使用该命令查看，显示内容为："></a>新建文件hello.txt 再使用该命令查看，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示未跟踪的文件</span></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        hello.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未添加任何提交但是目前有未跟踪的文件</span></span><br><span class="line"><span class="function">nothing added to commit but untracked files <span class="title">present</span> <span class="params">(use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="git-add-（提交所有文件到暂存区）"><a href="#git-add-（提交所有文件到暂存区）" class="headerlink" title="git add . （提交所有文件到暂存区）"></a>git add . （提交所有文件到暂存区）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要提交的更改</span></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">		<span class="comment">// 提示有新文件  hello.txt</span></span><br><span class="line">        <span class="keyword">new</span> file:   hello.txt</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="git-commit-m-（提交暂存区的内容到本地仓库）"><a href="#git-commit-m-（提交暂存区的内容到本地仓库）" class="headerlink" title="git commit -m （提交暂存区的内容到本地仓库）"></a>git commit -m （提交暂存区的内容到本地仓库）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有东西需要提交，工作树是干净的</span></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中,比如数据库文件,临时文件,设计文件等<br>在主目录下建立”.gitignore”文件,此文件有如下规则: </p>
+<ol>
+<li>忽略文件中的空行或以井号( # )开始的行将会被忽略。</li>
+<li>可以使用Linux通配符。例如:星号(* )代表任意多个字符,问号( ? )代表-个字符,方括号( [abc] )代表可选字符范围,<br>大括号( string1，string2，…. )代表可选的字符串等。</li>
+<li>如果名称的最前面有一个感叹号(!) , 表示例外规则,将不被忽略。</li>
+<li>如果名称的最前面是一个路径分隔符 (/) ,表示要忽略的文件在此目录下,而子目录中的文件不忽略。</li>
+<li>如果名称的最后面是一个路径分隔符(1) , 表示要忽略的是此目录下该名称的子目录,而非文件(默认文件或目录都忽略)。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">#为注释</span><br><span class="line">*.txt		#忽略所有. txt结尾的文件</span><br><span class="line">!lib.txt	#但lib.txt除外</span><br><span class="line">/temp 		#仅忽路项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/		#忽略bui1d/目录下的所有文件</span><br><span class="line">doc<span class="comment">/*.txt	#忽略 doc/notes.txt 但不包括doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2><blockquote>
+<h3 id="github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器"><a href="#github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器" class="headerlink" title="==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器"></a>==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器</h3></blockquote>
+<p>设置本机绑定SSH公钥，实现免密登录</p>
+<ol>
+<li>位于<code>C:\Users\Administrator\.ssh</code>目录下</li>
+</ol>
+<p><img src="image-20210226143025211.png" alt="image-20210226143025211"></p>
+<ol start="2">
+<li>生成公钥</li>
+</ol>
+<p>ssh-keygen -t rsa</p>
+<ol start="3">
+<li>生成后产生两个文件，<code>以pub结尾的为公钥，另外一个为私钥</code></li>
+</ol>
+<p><img src="image-20210226143143961.png" alt="image-20210226143143961"></p>
+<ol start="4">
+<li>将公钥粘如码云 设置 -&gt; 安全设置 -&gt; SSH公钥</li>
+</ol>
+<h2 id="idea集成git"><a href="#idea集成git" class="headerlink" title="idea集成git"></a>idea集成git</h2><blockquote>
+<h3 id="新项目中集成git"><a href="#新项目中集成git" class="headerlink" title="新项目中集成git"></a>新项目中集成git</h3></blockquote>
+<ol>
+<li><p>在码云中创建项目并拉到本地</p>
+</li>
+<li><p>新建项目</p>
+</li>
+<li><p>将码云中拉取得项目的内容全部复制到新建的项目中</p>
+<p><img src="image-20210226165218143.png" alt="image-20210226165218143"></p>
+</li>
+</ol>
+<blockquote>
+<h3 id="提交代码到远程"><a href="#提交代码到远程" class="headerlink" title="提交代码到远程"></a>提交代码到远程</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;修改&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交到远程  </span></span><br><span class="line"><span class="comment">// 提交到指定分支： git push origin master</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="GIT分支"><a href="#GIT分支" class="headerlink" title="GIT分支"></a>GIT分支</h2><p>多个分支并行执行(不重合)，代码就不冲突，也就是同时存在多个版本</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 列出所有远程分支</span><br><span class="line">git branch -r</span><br><span class="line">    </span><br><span class="line"># 新建分支</span><br><span class="line">git branch [branch-name]</span><br><span class="line">    </span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">git merge [branch]</span><br><span class="line">    </span><br><span class="line"># 删除分支</span><br><span class="line">git branch -d [branch]</span><br><span class="line">    </span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+
+
+<p>==master主分支应该非常稳定,用来发布新版本, 一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作,工作完后,比如: 要发布,或者说dev分支代码稳定后可以合并到主分支master上来。==</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker概念</title>
     <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h2 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h2><a id="more"></a>
@@ -985,117 +963,132 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用</title>
-    <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
-
-<p><img src="image-liucheng.png"></p>
-<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>提示初始化一个空的git库在<code>G:/test/test/.git/</code></p>
-<p><img src="image-20210224090517320.png" alt="image-20210224090517320"></p>
-<p>此时运行命令的位置会有</p>
-<p><img src="image-20210224090651065.png" alt="image-20210224090651065"></p>
-<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 克隆整个项目及其整个代码历史(版本信息)</span><br><span class="line"># https:<span class="operator">/</span><span class="operator">/</span>gitee.com<span class="operator">/</span>kuangstudy<span class="operator">/</span>openclass.git</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+    <title>hexo使用</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
+<a id="more"></a>
 
 
-<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><blockquote>
-<h3 id="文件4种状态"><a href="#文件4种状态" class="headerlink" title="文件4种状态"></a>文件4种状态</h3></blockquote>
-<ul>
-<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过<code>git add</code> 状态变为<code>Staged</code></li>
-<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为<code>Modified</code>. 如果使用<code>git rm</code>移出版本库, 则成为<code>Untracked</code>文件</li>
-<li><strong>Modified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过<code>git add</code>可进入暂存<code>staged</code>状态, 使用<code>git checkout</code> 则丢弃修改过, 返回到<code>unmodify</code>状态, 这个<code>git checkout</code>即从库中取出文件, 覆盖当前修改</li>
-<li><strong>Staged</strong>: 暂存状态. 执行<code>git commit</code>则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为<code>Unmodify</code>状态. 执行<code>git reset HEAD filename</code>取消暂存, 文件状态为<code>Modified</code></li>
-</ul>
-<blockquote>
-<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 提交所有文件到暂存区  </span><br><span class="line">git add . </span><br><span class="line">    </span><br><span class="line"># 提交暂存区的内容到本地仓库</span><br><span class="line">git commit -m <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="source-posts中的文件使用文件夹划分并不会达成分级的效果"><a href="#source-posts中的文件使用文件夹划分并不会达成分级的效果" class="headerlink" title="\source_posts中的文件使用文件夹划分并不会达成分级的效果"></a>\source_posts中的文件使用文件夹划分并不会达成分级的效果</h3><p>但可以依靠分包进行视觉上的区分</p>
+<h3 id="可以不用添加标号，上传后文章目录会自动添加"><a href="#可以不用添加标号，上传后文章目录会自动添加" class="headerlink" title="可以不用添加标号，上传后文章目录会自动添加"></a>可以不用添加标号，上传后文章目录会自动添加</h3><h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><h3 id="md头的作用"><a href="#md头的作用" class="headerlink" title="md头的作用"></a>md头的作用</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>title</code></td>
+<td align="left">网站标题</td>
+</tr>
+<tr>
+<td align="left"><code>subtitle</code></td>
+<td align="left">网站副标题</td>
+</tr>
+<tr>
+<td align="left"><code>description</code></td>
+<td align="left">网站描述</td>
+</tr>
+<tr>
+<td align="left"><code>keywords</code></td>
+<td align="left">网站的关键词。支援多个关键词。</td>
+</tr>
+<tr>
+<td align="left"><code>author</code></td>
+<td align="left">您的名字</td>
+</tr>
+<tr>
+<td align="left"><code>language</code></td>
+<td align="left">网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>timezone</code></td>
+<td align="left">网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>。</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 分类  创建分类页 hexo new page categories</span></span><br><span class="line">categories: hexo</span><br><span class="line"><span class="comment">// 标签  创建标签页 hexo new page tags</span></span><br><span class="line">type: tags </span><br></pre></td></tr></table></figure>
 
 
-<h4 id="使用该命令查看本地新搭建的项目时，显示内容为："><a href="#使用该命令查看本地新搭建的项目时，显示内容为：" class="headerlink" title="使用该命令查看本地新搭建的项目时，显示内容为："></a>使用该命令查看本地新搭建的项目时，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当前在master分支</span></span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之前未进行提交</span></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前无任何内容需要提交</span></span><br><span class="line"><span class="function">nothing to <span class="title">commit</span> <span class="params">(create/copy files and use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
-<p>​    </p>
-<h4 id="新建文件hello-txt-再使用该命令查看，显示内容为："><a href="#新建文件hello-txt-再使用该命令查看，显示内容为：" class="headerlink" title="新建文件hello.txt 再使用该命令查看，显示内容为："></a>新建文件hello.txt 再使用该命令查看，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示未跟踪的文件</span></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        hello.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未添加任何提交但是目前有未跟踪的文件</span></span><br><span class="line"><span class="function">nothing added to commit but untracked files <span class="title">present</span> <span class="params">(use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="hexo页面文章使用时间排序，最早的文章会放到最下边，"><a href="#hexo页面文章使用时间排序，最早的文章会放到最下边，" class="headerlink" title="hexo页面文章使用时间排序，最早的文章会放到最下边，"></a>hexo页面文章使用时间排序，最早的文章会放到最下边，</h3><p>所以可以通过修改头部的时间来对文章进行排序</p>
+<h3 id="文件名并没有用，页面中最大的标题为文件头中title后的内容"><a href="#文件名并没有用，页面中最大的标题为文件头中title后的内容" class="headerlink" title="文件名并没有用，页面中最大的标题为文件头中title后的内容"></a>文件名并没有用，页面中最大的标题为文件头中title后的内容</h3><h3 id="将Hexo设置成中文"><a href="#将Hexo设置成中文" class="headerlink" title="将Hexo设置成中文"></a>将Hexo设置成中文</h3><p>很多文档和博客都将language设置成zh-Hans，结果登录个人站一直不能显示中文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
+<p>找到next文件夹下的languages文件夹，看到zh-CN.yml，所以选择把languages设为zh-CN<br><img src="https://img-blog.csdnimg.cn/20201216200852675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUyMzE2OTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: RedeeMi的个人站</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
+<p>如果还没有显示为中文，clean后再登录即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="git-add-（提交所有文件到暂存区）"><a href="#git-add-（提交所有文件到暂存区）" class="headerlink" title="git add . （提交所有文件到暂存区）"></a>git add . （提交所有文件到暂存区）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要提交的更改</span></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">		<span class="comment">// 提示有新文件  hello.txt</span></span><br><span class="line">        <span class="keyword">new</span> file:   hello.txt</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo-next主题添加"><a href="#Hexo-next主题添加" class="headerlink" title="Hexo next主题添加"></a>Hexo next主题添加</h2><h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="git-commit-m-（提交暂存区的内容到本地仓库）"><a href="#git-commit-m-（提交暂存区的内容到本地仓库）" class="headerlink" title="git commit -m （提交暂存区的内容到本地仓库）"></a>git commit -m （提交暂存区的内容到本地仓库）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有东西需要提交，工作树是干净的</span></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+<h4 id="2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true"><a href="#2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true" class="headerlink" title="2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索footer，在它底下添加counter，设值为true"></a>2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索<strong>footer</strong>，在它底下添加counter，设值为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 统计  </span><br><span class="line">counter: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中,比如数据库文件,临时文件,设计文件等<br>在主目录下建立”.gitignore”文件,此文件有如下规则: </p>
-<ol>
-<li>忽略文件中的空行或以井号( # )开始的行将会被忽略。</li>
-<li>可以使用Linux通配符。例如:星号(* )代表任意多个字符,问号( ? )代表-个字符,方括号( [abc] )代表可选字符范围,<br>大括号( string1，string2，…. )代表可选的字符串等。</li>
-<li>如果名称的最前面有一个感叹号(!) , 表示例外规则,将不被忽略。</li>
-<li>如果名称的最前面是一个路径分隔符 (/) ,表示要忽略的文件在此目录下,而子目录中的文件不忽略。</li>
-<li>如果名称的最后面是一个路径分隔符(1) , 表示要忽略的是此目录下该名称的子目录,而非文件(默认文件或目录都忽略)。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">#为注释</span><br><span class="line">*.txt		#忽略所有. txt结尾的文件</span><br><span class="line">!lib.txt	#但lib.txt除外</span><br><span class="line">/temp 		#仅忽路项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/		#忽略bui1d/目录下的所有文件</span><br><span class="line">doc<span class="comment">/*.txt	#忽略 doc/notes.txt 但不包括doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码"><a href="#3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码" class="headerlink" title="3. 来到themes\next\layout\_partials，找到footer.swig文件，打开编辑，在底下添加代码"></a>3. 来到themes\next\layout\_partials，找到<strong>footer.swig</strong>文件，打开编辑，在底下添加代码</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.counter %&#125;</span><br><span class="line">    &lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2><blockquote>
-<h3 id="github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器"><a href="#github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器" class="headerlink" title="==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器"></a>==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器</h3></blockquote>
-<p>设置本机绑定SSH公钥，实现免密登录</p>
-<ol>
-<li>位于<code>C:\Users\Administrator\.ssh</code>目录下</li>
-</ol>
-<p><img src="image-20210226143025211.png" alt="image-20210226143025211"></p>
-<ol start="2">
-<li>生成公钥</li>
-</ol>
-<p>ssh-keygen -t rsa</p>
-<ol start="3">
-<li>生成后产生两个文件，<code>以pub结尾的为公钥，另外一个为私钥</code></li>
-</ol>
-<p><img src="image-20210226143143961.png" alt="image-20210226143143961"></p>
-<ol start="4">
-<li>将公钥粘如码云 设置 -&gt; 安全设置 -&gt; SSH公钥</li>
-</ol>
-<h2 id="idea集成git"><a href="#idea集成git" class="headerlink" title="idea集成git"></a>idea集成git</h2><blockquote>
-<h3 id="新项目中集成git"><a href="#新项目中集成git" class="headerlink" title="新项目中集成git"></a>新项目中集成git</h3></blockquote>
-<ol>
-<li><p>在码云中创建项目并拉到本地</p>
-</li>
-<li><p>新建项目</p>
-</li>
-<li><p>将码云中拉取得项目的内容全部复制到新建的项目中</p>
-<p><img src="image-20210226165218143.png" alt="image-20210226165218143"></p>
-</li>
-</ol>
-<blockquote>
-<h3 id="提交代码到远程"><a href="#提交代码到远程" class="headerlink" title="提交代码到远程"></a>提交代码到远程</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;修改&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交到远程  </span></span><br><span class="line"><span class="comment">// 提交到指定分支： git push origin master</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="GIT分支"><a href="#GIT分支" class="headerlink" title="GIT分支"></a>GIT分支</h2><p>多个分支并行执行(不重合)，代码就不冲突，也就是同时存在多个版本</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 列出所有远程分支</span><br><span class="line">git branch -r</span><br><span class="line">    </span><br><span class="line"># 新建分支</span><br><span class="line">git branch [branch-name]</span><br><span class="line">    </span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">git merge [branch]</span><br><span class="line">    </span><br><span class="line"># 删除分支</span><br><span class="line">git branch -d [branch]</span><br><span class="line">    </span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+<h3 id="Hexo-next主题添加搜索"><a href="#Hexo-next主题添加搜索" class="headerlink" title="Hexo next主题添加搜索"></a>Hexo next主题添加搜索</h3><h4 id="1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："><a href="#1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：" class="headerlink" title="1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："></a>1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 
 
-<p>==master主分支应该非常稳定,用来发布新版本, 一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作,工作完后,比如: 要发布,或者说dev分支代码稳定后可以合并到主分支master上来。==</p>
+<h4 id="2-全局配置文件-config-yml，新增如下内容："><a href="#2-全局配置文件-config-yml，新增如下内容：" class="headerlink" title="2.全局配置文件_config.yml，新增如下内容："></a>2.全局配置文件_config.yml，新增如下内容：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 添加搜索</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true："><a href="#3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true：" class="headerlink" title="3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true："></a>3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/flashlab/hexo-generator-search</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于"><a href="#Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于" class="headerlink" title="Hexo NexT主题下开启其他菜单项，比如分类、标签、关于"></a>Hexo NexT主题下开启其他菜单项，比如分类、标签、关于</h3><p>首先打开主题下的配置文件_config.yml，然后搜索menu找到如下配置项，将about、tags、categories前的#号去掉，就开启了关于、标签和分类标签，当然还有其他菜单项也可以开启</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Menu Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> When running the site <span class="keyword">in</span> a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Usage: `Key: /link/ || icon`</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Key is the name of menu item. If the translation <span class="keyword">for</span> this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value before `||` delimiter is the target link.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> External url should start with http:// or https://</span></span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line"><span class="meta">  #</span><span class="bash">schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>重新生成部署后，可以看到新增的菜单项，但是单击后会报如下错误</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Cannot GET /about/</span><br><span class="line">Cannot GET /tags/</span><br><span class="line">Cannot GET /categories/</span><br></pre></td></tr></table></figure>
+
+<p>这是因为你还需运行如下命令新建相关页面</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page &quot;about&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\about\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;tags&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\tags\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;categories&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\categories\index.md</span><br></pre></td></tr></table></figure>
+
+
+<p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Hexo-分类文章进行分级"><a href="#Hexo-分类文章进行分级" class="headerlink" title="Hexo 分类文章进行分级"></a>Hexo 分类文章进行分级</h3><p>添加分类页面成功后</p>
+<p>文章添加<code>categories: 分类1</code>即可添加分类</p>
+<p>添加</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">categories: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">category: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
+<p>即可进行分类分级</p>
 ]]></content>
       <tags>
-        <tag>git</tag>
+        <tag>博客-hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>git安装及配置</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<a id="more"></a>
+    <title>Linux命令</title>
+    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
 
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
-<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
 
 
-<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
-
-
+<blockquote>
+<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>git</tag>
+        <tag>系统-Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1144,28 +1137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux命令</title>
-    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
-
-<blockquote>
-<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
-<blockquote>
-<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>系统-Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>虚拟机安装Linux</title>
     <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
     <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
@@ -1188,368 +1159,24 @@
       </tags>
   </entry>
   <entry>
-    <title>generator函数</title>
-    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/generator%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h2><ul>
-<li>yield是ES6的新关键字，使生成器函数执行暂停，yield关键字后面的表达式的值返回给生成器的调用者。它可以被认为是一个基于生成器的版本的return关键字。</li>
-<li>yield关键字实际返回一个IteratorResult（迭代器）对象，它有两个属性，value和done，分别代表返回值和是否完成。</li>
-<li>yield无法单独工作，需要配合generator(生成器)的其他函数，如next，懒汉式操作，展现强大的主动控制特性。</li>
-</ul>
-<p>​    <a id="more"></a></p>
-<h2 id="generator使用"><a href="#generator使用" class="headerlink" title="generator使用"></a>generator使用</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generator</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; list.length; index++) </span><br><span class="line">        <span class="keyword">yield</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取generator对象</span></span><br><span class="line"><span class="keyword">let</span> gen = generator();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行next()方法获取迭代结果和是否完成</span></span><br><span class="line"><span class="comment">// 结果： &#123;value: 1, done: false&#125;</span></span><br><span class="line">gen.next();</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="懒汉式加载"><a href="#懒汉式加载" class="headerlink" title="懒汉式加载"></a>懒汉式加载</h3><blockquote>
-<p> 此处可以看出循环中的打印是在Generator对象调用next方法后产生的，由此可知打印代码为next方法调用后执行</p>
-</blockquote>
-<p><img src="image-20210224111746190.png" alt="image-20210224111746190"></p>
-<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><blockquote>
-<p>只要调用next方法，就会执行一次代码不论是在什么场景下(打印，判断)</p>
-</blockquote>
-<p><img src="image-20210224112336096.png" alt="image-20210224112336096"></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
-<li><p>yield并不能直接生产值，而是产生一个等待输出的函数</p>
-</li>
-<li><p>除IE外，其他所有浏览器均可兼容（包括win10 的Edge）</p>
-</li>
-<li><p>某个函数包含了yield，意味着这个函数已经是一个Generator</p>
-</li>
-<li><p>如果yield在其他表达式中，需要用()单独括起来</p>
-</li>
-<li><p>yield表达式本身没有返回值，或者说总是返回undefined(由next返回) <code>注</code></p>
-</li>
-</ul>
-<ul>
-<li>next()可无限调用，但既定循环完成之后总是返回undeinded</li>
-</ul>
-<blockquote>
-<p>注：当yield在赋值表达式的右边，比如 var result = yield 4，yield语句本身没有返回值，或者说返回值是undefined，但是当我们调用next(param)传参的时候，param不但作为next返回对象的value值，它还作为上一条yield 的返回值，所以result 才会被成功赋值。</p>
-</blockquote>
-<h2 id="next-函数及参数"><a href="#next-函数及参数" class="headerlink" title="next()函数及参数"></a>next()函数及参数</h2><ol>
-<li> 在js中，虽然借鉴了python的函数，但是也进行了自己的改造，由于没有send()函数，所以无法直接传递yield的值。</li>
-<li> next()可以带一个参数，该参数会被认为是上一个yield整体的返回值，稍后将在代码中展示。</li>
-<li> 在某种程度上，next()可以直接当做send()使用</li>
-</ol>
-<p><strong>它的意义在于，可以在不同阶段从外部直接向内部注入不同的值来调整函数的行为(这一点是其他循环很难做到的，或要付出较大的代价才可以做到)</strong></p>
-<h2 id="目前项目中的可用性"><a href="#目前项目中的可用性" class="headerlink" title="目前项目中的可用性"></a>目前项目中的可用性</h2><p>在前端项目中，用的机会很少，完全可以忽略他的存在，但是在后台项目中，就显得比较重要了，因为其优越的可控性，可是极大的提升线程的效率。</p>
-<p>如果需要实例的话，可参考github上的一些python后端项目，调用方式稍有不同，由于js参考的python语言，他们又同为动态语言，所以原理都是相同的，用处也一样。</p>
-]]></content>
-      <tags>
-        <tag>前端-函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>observer观察者</title>
-    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
-    <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
+    <title>git安装及配置</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
 <a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建观察者对象</span></span><br><span class="line"><span class="keyword">let</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">    mutations.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(mutation)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置观察者选项</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    attributes: <span class="literal">true</span>,   <span class="comment">//检测属性变动</span></span><br><span class="line">    childList: <span class="literal">true</span>,    <span class="comment">//检测子节点变动</span></span><br><span class="line">    characterData: <span class="literal">true</span> <span class="comment">//节点内容或节点文本的变动。</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;addFeeConfigStartTime_div&quot;</span>)[<span class="number">0</span>], config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监测</span></span><br><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>前端-函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端判断</title>
-    <url>/2021/02/23/java/%E5%89%8D%E7%AB%AF/%E5%88%A4%E6%96%AD/%E5%89%8D%E7%AB%AF%E5%88%A4%E6%96%AD/</url>
-    <content><![CDATA[<h2 id="对象-Map集合"><a href="#对象-Map集合" class="headerlink" title="对象(Map集合)"></a>对象(Map集合)</h2><h3 id="判断是否为对象的几种方法"><a href="#判断是否为对象的几种方法" class="headerlink" title="判断是否为对象的几种方法"></a>判断是否为对象的几种方法</h3><a id="more"></a>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// toString</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;) === <span class="string">&#x27;[object Object]&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断指定参数是否是一个纯粹的对象（所谓&quot;纯粹的对象&quot;，就是该对象是通过&quot;&#123;&#125;&quot;或&quot;new Object&quot;创建的。）</span></span><br><span class="line">$.isPlainObject(obj);</span><br></pre></td></tr></table></figure>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
+<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="判断对象中是否包含某个key"><a href="#判断对象中是否包含某个key" class="headerlink" title="判断对象中是否包含某个key"></a>判断对象中是否包含某个key</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = &#123;<span class="string">&quot;aa&quot;</span>, <span class="string">&quot;123&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// hasOwnProperty</span></span><br><span class="line">map.hasOwnProperty(<span class="string">&quot;aa&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Reflect</span></span><br><span class="line"><span class="built_in">Reflect</span>.has(map, <span class="string">&quot;aa&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="数组判断"><a href="#数组判断" class="headerlink" title="数组判断"></a>数组判断</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象是否为数组</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(list);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// constructor</span></span><br><span class="line">&#123;&#125;.constructor === <span class="built_in">Object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// instanceof</span></span><br><span class="line">&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// typeof  根据typeof判断对象也不太准确</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; === <span class="built_in">Object</span></span><br><span class="line"><span class="comment">// 表达式	                      返回值</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>	       <span class="string">&#x27;undefined&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>	               <span class="string">&#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>	               <span class="string">&#x27;boolean&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>	               <span class="string">&#x27;number&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&quot;abc&quot;</span>	           <span class="string">&#x27;string&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;	   <span class="string">&#x27;function&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;	               <span class="string">&#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> []	               <span class="string">&#x27;object&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
 
 
 ]]></content>
       <tags>
-        <tag>前端-判断</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端生成Excel并下载</title>
-    <url>/2021/02/23/java/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90Excel%E5%B9%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h3 id="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"><a href="#通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）" class="headerlink" title="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"></a>通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）</h3><a id="more"></a>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>titleMap 表头对象 &#123;&quot;userId&quot;:&quot;员工编号&quot;, &quot;userName&quot;:&quot;员工姓名&quot;&#125;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据list [&#123;&quot;userId&quot;:&quot;123&quot;, &quot;userName&quot;:&quot;张三&quot;&#125;, &#123;&quot;userId&quot;:&quot;456&quot;, &quot;userName&quot;:&quot;李四&quot;&#125;]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFront = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, titleMap, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(dataList) || <span class="built_in">Object</span>.prototype.toString.call(titleMap) !== <span class="string">&#x27;[object Object]&#x27;</span>)</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">&quot;数据list格式错误&quot;</span>);</span><br><span class="line">    <span class="comment">// 列标题，逗号隔开，每一个逗号就是隔开一个单元格</span></span><br><span class="line">    <span class="keyword">let</span> title = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">        title += titleMap[key] + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    title += <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; dataList.length ; i++ )&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">            title += <span class="string">`<span class="subst">$&#123;dataList[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>,`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        title+=<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// encodeURIComponent解决中文乱码</span></span><br><span class="line">    <span class="keyword">const</span> uri = <span class="string">&#x27;data:text/csv;charset=utf-8,\ufeff&#x27;</span> + <span class="built_in">encodeURIComponent</span>(title);</span><br><span class="line">    <span class="comment">// 通过创建a标签实现</span></span><br><span class="line">    <span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">    link.href = uri;</span><br><span class="line">    <span class="comment">// 对下载的文件命名</span></span><br><span class="line">    link.download =  fileName ? (fileName + <span class="string">&quot;.xls&quot;</span>) : <span class="string">&quot;下载.xls&quot;</span>;</span><br><span class="line">    link.click();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐"><a href="#将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐" class="headerlink" title="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)"></a>将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)</h3><p>这种方法的弊端在于输出的是伪excel，虽说生成xls为后缀的文件，但文件形式上还是html</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;p style=<span class="string">&quot;font-size: 20px;color: red;&quot;</span>&gt;使用table标签方式将json导出xls文件&lt;/p&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">&#x27;tableToExcel()&#x27;</span>&gt;导出&lt;/button&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;  </span><br><span class="line">    <span class="keyword">const</span> tableToExcel = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 要导出的json数据</span></span><br><span class="line">        <span class="keyword">const</span> jsonData = [</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;路人甲&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;炮灰乙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;土匪丙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;流氓丁&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">        <span class="comment">// 列标题</span></span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">&#x27;&lt;tr&gt;&lt;td&gt;姓名&lt;/td&gt;&lt;td&gt;电话&lt;/td&gt;&lt;td&gt;邮箱&lt;/td&gt;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        <span class="comment">// 循环遍历，每行加入tr标签，每个单元格加td标签</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; jsonData.length ; i++ )&#123;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">const</span> key <span class="keyword">in</span> jsonData[i])&#123;</span><br><span class="line">                <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">                str+=<span class="string">`&lt;td&gt;<span class="subst">$&#123; jsonData[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>&lt;/td&gt;`</span>;     </span><br><span class="line">            &#125;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Worksheet名</span></span><br><span class="line">        <span class="keyword">const</span> worksheet = <span class="string">&#x27;Sheet1&#x27;</span></span><br><span class="line">        <span class="keyword">const</span> uri = <span class="string">&#x27;data:application/vnd.ms-excel;base64,&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 下载的表格模板数据</span></span><br><span class="line">        <span class="keyword">const</span> template = <span class="string">`&lt;html xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot; </span></span><br><span class="line"><span class="string">        xmlns:x=&quot;urn:schemas-microsoft-com:office:excel&quot; </span></span><br><span class="line"><span class="string">        xmlns=&quot;http://www.w3.org/TR/REC-html40&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">		&lt;!-- 解决乱码问题 --&gt;</span></span><br><span class="line"><span class="string">		&lt;meta charset=&quot;utf-8&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;x:Name&gt;<span class="subst">$&#123;worksheet&#125;</span>&lt;/x:Name&gt;</span></span><br><span class="line"><span class="string">        &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">        &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt;</span></span><br><span class="line"><span class="string">        &lt;/head&gt;&lt;body&gt;&lt;table&gt;<span class="subst">$&#123;str&#125;</span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`</span>;</span><br><span class="line">        <span class="comment">// 下载模板</span></span><br><span class="line">        <span class="built_in">window</span>.location.href = uri + base64(template);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 输出base64编码</span></span><br><span class="line">    <span class="keyword">const</span> base64 = <span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">window</span>.btoa(<span class="built_in">unescape</span>(<span class="built_in">encodeURIComponent</span>(s)));</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="通过blob-推荐"><a href="#通过blob-推荐" class="headerlink" title="通过blob (推荐)"></a>通过blob (推荐)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据及表头list [[&quot;员工编号&quot;, &quot;员工姓名&quot;], [123, &quot;张三&quot;], [456, &quot;李四&quot;]]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFrontNew = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// csv转sheet对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">csv2sheet</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = &#123;&#125;; <span class="comment">// 将要生成的sheet</span></span><br><span class="line">        csv = csv.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">        csv.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">row, i</span>) </span>&#123;</span><br><span class="line">            row = row.split(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) sheet[<span class="string">&#x27;!ref&#x27;</span>] = <span class="string">&#x27;A1:&#x27;</span>+<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+row.length-<span class="number">1</span>)+(csv.length-<span class="number">1</span>);</span><br><span class="line">            row.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">col, j</span>) </span>&#123;</span><br><span class="line">                sheet[<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+j)+(i+<span class="number">1</span>)] = &#123;<span class="attr">v</span>: col&#125;;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> sheet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sheet2blob</span>(<span class="params">sheet, sheetName</span>) </span>&#123;</span><br><span class="line">        sheetName = sheetName || <span class="string">&#x27;sheet1&#x27;</span>;</span><br><span class="line">        <span class="keyword">let</span> workbook = &#123;</span><br><span class="line">            SheetNames: [sheetName],</span><br><span class="line">            Sheets: &#123;&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        workbook.Sheets[sheetName] = sheet;</span><br><span class="line">        <span class="comment">// 生成excel的配置项</span></span><br><span class="line">        <span class="keyword">let</span> wopts = &#123;</span><br><span class="line">            bookType: <span class="string">&#x27;xlsx&#x27;</span>, <span class="comment">// 要生成的文件类型</span></span><br><span class="line">            bookSST: <span class="literal">false</span>, <span class="comment">// 是否生成Shared String Table，官方解释是，如果开启生成速度会下降，但在低版本IOS设备上有更好的兼容性</span></span><br><span class="line">            type: <span class="string">&#x27;binary&#x27;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">let</span> wbout = XLSX.write(workbook, wopts);</span><br><span class="line">        <span class="keyword">let</span> blob = <span class="keyword">new</span> Blob([s2ab(wbout)], &#123;<span class="attr">type</span>:<span class="string">&quot;application/octet-stream&quot;</span>&#125;);</span><br><span class="line">        <span class="comment">// 字符串转ArrayBuffer</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">s2ab</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> buf = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(s.length);</span><br><span class="line">            <span class="keyword">let</span> view = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(buf);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i!=s.length; ++i) view[i] = s.charCodeAt(i) &amp; <span class="number">0xFF</span>;</span><br><span class="line">            <span class="keyword">return</span> buf;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> blob;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用的打开下载对话框方法，没有测试过具体兼容性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>url 下载地址，也可以是一个blob对象，必选</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>saveName 保存文件名，可选</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openDownloadDialog</span>(<span class="params">url, saveName</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> url == <span class="string">&#x27;object&#x27;</span> &amp;&amp; url <span class="keyword">instanceof</span> Blob) &#123;</span><br><span class="line">            url = URL.createObjectURL(url); <span class="comment">// 创建blob地址</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        aLink.href = url;</span><br><span class="line">        aLink.download = saveName || <span class="string">&#x27;&#x27;</span>; <span class="comment">// HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效</span></span><br><span class="line">        <span class="keyword">let</span> event;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.MouseEvent)</span><br><span class="line">            event = <span class="keyword">new</span> MouseEvent(<span class="string">&#x27;click&#x27;</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            event = <span class="built_in">document</span>.createEvent(<span class="string">&#x27;MouseEvents&#x27;</span>);</span><br><span class="line">            event.initMouseEvent(<span class="string">&#x27;click&#x27;</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="built_in">window</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        aLink.dispatchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 传入csv，执行后弹出下载框</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">exportExcel</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = csv2sheet(csv);</span><br><span class="line">        <span class="keyword">let</span> blob = sheet2blob(sheet);</span><br><span class="line">        openDownloadDialog(blob, <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// let aoa = [</span></span><br><span class="line">    <span class="comment">//     [&#x27;姓名&#x27;, &#x27;性别&#x27;, &#x27;年龄&#x27;, &#x27;注册时间&#x27;],</span></span><br><span class="line">    <span class="comment">//     [&#x27;张三&#x27;, &#x27;男&#x27;, 18, new Date()],</span></span><br><span class="line">    <span class="comment">//     [&#x27;李四&#x27;, &#x27;女&#x27;, 22, new Date()]</span></span><br><span class="line">    <span class="comment">// ];</span></span><br><span class="line">    <span class="keyword">let</span> sheet = XLSX.utils.aoa_to_sheet(dataList);</span><br><span class="line">    openDownloadDialog(sheet2blob(sheet), fileName ? (fileName + <span class="string">&quot;.xlsx&quot;</span>) : <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>前端-实现</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端样式</title>
-    <url>/2021/03/01/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E5%89%8D%E7%AB%AF%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<p>-</p>
-<!-- mroe -->
-
-<h2 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.addInspectionListPoint&quot;</span>).css(&#123;</span><br><span class="line">    <span class="string">&quot;position&quot;</span>: <span class="string">&quot;relative&quot;</span>,</span><br><span class="line">    <span class="string">&quot;display&quot;</span>: <span class="string">&quot;inline-block&quot;</span>,</span><br><span class="line">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;#D0EEFF&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border&quot;</span>: <span class="string">&quot;1px solid #99D3F5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border-radius&quot;</span>: <span class="string">&quot;4px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;padding&quot;</span>: <span class="string">&quot;4px 12px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;overflow&quot;</span>: <span class="string">&quot;hidden&quot;</span>,</span><br><span class="line">    <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#1E88C7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-decoration&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-indent&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;line-height&quot;</span>: <span class="string">&quot;20px&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="遮罩层"><a href="#遮罩层" class="headerlink" title="遮罩层"></a>遮罩层</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 100%;</span><br><span class="line"><span class="selector-tag">height</span>: 100%;</span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">left</span>: 0;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">z-index</span>: 2;</span><br><span class="line"><span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span><br><span class="line"><span class="selector-tag">opacity</span>: 0.2;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>前端-样式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>碰撞</title>
-    <url>/2021/03/03/java/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E7%A2%B0%E6%92%9E/</url>
-    <content><![CDATA[<h2 id="JavaScript-游戏开发：手把手实现碰撞物理引擎"><a href="#JavaScript-游戏开发：手把手实现碰撞物理引擎" class="headerlink" title="JavaScript 游戏开发：手把手实现碰撞物理引擎"></a>JavaScript 游戏开发：手把手实现碰撞物理引擎</h2><a id="more"></a>
-
-<p>转载自：<a href="https://blog.csdn.net/fengqiuzhihua/article/details/114156010">https://blog.csdn.net/fengqiuzhihua/article/details/114156010</a></p>
-<blockquote>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><p>基础结构<br>绘制小球<br>移动小球<br>重构代码<br>碰撞检测<br>边界碰撞<br>向量的基本操作<br>碰撞处理<br>动量守恒定律<br>动能守恒定律<br>非弹性碰撞<br>重力<br>总结</p>
-</blockquote>
-<h3 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h3><p>这里使用 canvas 来实现 JavaScript 物理引擎。首先准备项目的基础文件和样式，新建一个 index.html、index.js 和 style.css 文件，分别用于编写 canvas 的 html 结构、引擎代码和画布样式。</p>
-<p>在 index.html 的 <head /> 标签中引入样式文件：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;./style.css&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>在 <body /> 中，添加 canvas 元素、加载 index.js 文件：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;main&gt;</span><br><span class="line">  &lt;canvas id=<span class="string">&quot;gameboard&quot;</span>&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;/main&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;./index.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>这段代码定义了 id 为 gameboard 的 <canvas /> 元素，并放在了 <main /> 元素下， <main /> 元素主要是用来设置背景色和画布大小。在 <main/> 元素的下方引入 index.js 文件，这样可以在 DOM 加载完成之后再执行 JS 中的代码。</p>
-<p>style.css 中的代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: <span class="number">0</span>;</span><br><span class="line">  margin: <span class="number">0</span>;</span><br><span class="line">  font-family: sans-serif;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">main &#123;</span><br><span class="line">  width: 100vw;</span><br><span class="line">  height: 100vh;</span><br><span class="line">  background: hsl(0deg, <span class="number">0</span>%, <span class="number">10</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>样式很简单，去掉所有元素的外边距、内间距，并把 <main/> 元素的宽高设置为与浏览器可视区域相同，背景色为深灰色。</p>
-<blockquote>
-<p>hsl(hue, saturation, brightness) 为 css 颜色表示法之一，参数分别为色相，饱和度和亮度</p>
-</blockquote>
-<h3 id="绘制小球"><a href="#绘制小球" class="headerlink" title="绘制小球"></a>绘制小球</h3><p>接下来绘制小球，主要用到了 canvas 相关的 api。</p>
-<p>在 index.js 中，编写如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&quot;gameboard&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> width = canvas.width;</span><br><span class="line"><span class="keyword">let</span> height = canvas.height;</span><br><span class="line"></span><br><span class="line">ctx.fillStyle = <span class="string">&quot;hsl(170, 100%, 50%)&quot;</span>;</span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">ctx.fill();</span><br></pre></td></tr></table></figure>
-
-<p>代码中主要利用了二维 context 进行绘图操作：</p>
-<ul>
-<li>通过 canvas 的 id 获取 canvas 元素对象。</li>
-<li>通过 canvas 元素对象获取绘图 context， getContext() 需要一个参数，用于表明是绘制 2d 图像，还是使用 webgl 绘制 3d 图象，这里选择 2d。context 就类似是一支画笔，可以改变它的颜色和绘制基本的形状。</li>
-<li>给 canvas 的宽高设置为浏览器可视区域的宽高，并保存到 width 和 height 变量中方便后续使用。</li>
-<li>给 context 设置颜色，然后调用 beginPath() 开始绘图。</li>
-<li>使用 arc() 方法绘制圆形，它接收 5 个参数，前两个为圆心的 x、y 坐标，第 3 个为半径长度， 第 4 个和第 5 个分别是起始角度和结束角度，因为 arc() 其实是用来绘制一段圆弧，这里让它画一段 0 到 360 度的圆弧，就形成了一个圆形。这里的角度是使用 radian 形式表示的，0 到 360 度可以用 0 到 2 * Math.PI 来表示。</li>
-<li>最后使用 ctx.fill() 给圆形填上颜色。</li>
-</ul>
-<p>这样就成功的绘制了一个圆形，我们在这把它当作一个小球：</p>
-<h3 id="移动小球"><a href="#移动小球" class="headerlink" title="移动小球"></a>移动小球</h3><p>不过，这个时候的小球还是静止的，如果想让它移动，那么得修改它的圆心坐标，具体修改的数值则与运动速度有关。在移动小球之前，先看一下 canvas 进行动画的原理：</p>
-<p>Canvas 进行动画的原理与传统的电影胶片类似，在一段时间内，绘制图像、更新图像位置或形状、清除画布，重新绘制图像，当在 1 秒内连续执行 60 次或以上这样的操作时，即以 60 帧的速度，就可以产生连续的画面。</p>
-<p>那么在 JavaScript 中，浏览器提供了 window.requestAnimationFrame() 方法，它接收一个回调函数作为参数，每一次执行回调函数就相当于 1 帧动画，我们需要通过递归或循环连续调用它，浏览器会尽可能的在 1 秒内执行 60 次回调函数。那么利用它，我们就可以对 canvas 进行重绘，以实现小球的移动效果。</p>
-<blockquote>
-<p>由于 <code>window.requestAnimationFrame() </code>的调用基本是持续进行的，所以我们也可以把它称为游戏循环（Game loop）。</p>
-</blockquote>
-<p>接下来我们来看如何编写动画的基础结构：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.requestAnimationFrame(process);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(process);</span><br></pre></td></tr></table></figure>
-
-
-<p>这里的 <code>process()</code> 函数就是 1 秒钟要执行 60 次的回调函数，每次执行完毕后继续调用 <code>window.requestAnimationFrame(process)</code>进行下一次循环。如果要移动小球，那么就需要把绘制小球和修改圆心 x、y 坐标的代码写到 <code>process()</code> 函数中。</p>
-<p>为了方便更新坐标，我们把小球的圆心坐标保存到变量中，以方便对它们进行修改，然后再定义两个新的变量，分别表示在 x 轴方向上的速度 <code>vx</code>，和 y 轴方向上的速度<code> vy</code>，然后把 context 相关的绘图操作放到 <code>process()</code> 中：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> y = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> vx = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">let</span> vy = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ctx.fillStyle = <span class="string">&quot;hsl(170, 100%, 50%)&quot;</span>;</span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.arc(x, y, <span class="number">60</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">  ctx.fill();</span><br><span class="line">  <span class="built_in">window</span>.requestAnimationFrame(process);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(process);</span><br></pre></td></tr></table></figure>
-
-<p>要计算圆心坐标 x、y 的移动距离，我们需要速度和时间，速度这里有了， 那么时间要怎么获取呢？ <code>window.requestAnimationFrame() </code>会把当前时间的毫秒数（即时间戳）传递给回调函数，我们可以把本次调用的时间戳保存起来，然后在下一次调用时计算出执行这 1 帧动画消耗了多少秒，然后根据这个秒数和 x、y 轴方向上的速度去计算移动距离，分别加到 x 和 y 上，以获得最新的位置。注意这里的时间是上一次函数调用和本次函数调用的时间间隔，并不是第 1 次函数调用到当前函数调用总共过去了多少秒，所以相当于是时间增量，需要在之前 x 和 y 的值的基础上进行相加，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> startTime;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">now</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!startTime) &#123;</span><br><span class="line">    startTime = now;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> seconds = (now - startTime) / <span class="number">1000</span>;</span><br><span class="line">  startTime = now;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新位置</span></span><br><span class="line">  x += vx * seconds;</span><br><span class="line">  y += vy * seconds;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 清除画布</span></span><br><span class="line">  ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">  <span class="comment">// 绘制小球</span></span><br><span class="line">  ctx.fillStyle = <span class="string">&quot;hsl(170, 100%, 50%)&quot;</span>;</span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.arc(x, y, <span class="number">60</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">  ctx.fill();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">window</span>.requestAnimationFrame(process);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><code>process() </code>现在接收当前时间戳作为参数，然后做了下面这些操作：</p>
-<p>计算上次函数调用与本次函数调用的时间间隔，以秒计，记录本次调用的时间戳用于下一次计算。<br>根据 x、y 方向上的速度，和刚刚计算出来的时间，计算出移动距离。<br>调用<code> clearRect()</code> 清除矩形区域画布，这里的参数，前两个是左上角坐标，后两个是宽高，把 canvas 的宽高传进去就会把整个画布清除。<br>重新绘制小球。<br>现在小球就可以移动了!</p>
-<p>重构代码<br>上边的代码适合只有一个小球的情况，如果有多个小球需要绘制，就得编写大量重复的代码，这时我们可以把小球抽象成一个类，里边有绘图、更新位置等操作，还有坐标、速度、半径等属性，重构后的代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">context, x, y, r, vx, vy</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context = context;</span><br><span class="line">        <span class="built_in">this</span>.x = x;</span><br><span class="line">        <span class="built_in">this</span>.y = y;</span><br><span class="line">        <span class="built_in">this</span>.r = r;</span><br><span class="line">        <span class="built_in">this</span>.vx = vx;</span><br><span class="line">        <span class="built_in">this</span>.vy = vy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 绘制小球</span></span><br><span class="line">    <span class="function"><span class="title">draw</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context.fillStyle = <span class="string">&quot;hsl(170, 100%, 50%)&quot;</span>;</span><br><span class="line">        <span class="built_in">this</span>.context.beginPath();</span><br><span class="line">        <span class="built_in">this</span>.context.arc(<span class="built_in">this</span>.x, <span class="built_in">this</span>.y, <span class="built_in">this</span>.r, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line">        <span class="built_in">this</span>.context.fill();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 更新画布</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">seconds</span></span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="title">update</span>(<span class="params">seconds</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.x += <span class="built_in">this</span>.vx * seconds;</span><br><span class="line">        <span class="built_in">this</span>.y += <span class="built_in">this</span>.vy * seconds;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>里边的代码跟之前的一样，这里就不再赘述了，需要注意的是，Circle 类的 context 画笔属性是通过构造函数传递进来的，更新位置的代码放到了 <code>update() </code>方法中。</p>
-<p>对于整个 canvas 的绘制过程，也可以抽象成一个类，当作是游戏或引擎控制器，例如把它放到一个叫 Gameboard 的类中：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gameboard</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.startTime;</span><br><span class="line">        <span class="built_in">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">init</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.circles = [</span><br><span class="line">            <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">12</span>, <span class="number">25</span>),</span><br><span class="line">            <span class="keyword">new</span> Circle(ctx, <span class="number">180</span>, <span class="number">180</span>, <span class="number">30</span>, <span class="number">70</span>, <span class="number">45</span>),</span><br><span class="line">        ];</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame(<span class="built_in">this</span>.process.bind(<span class="built_in">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">process</span>(<span class="params">now</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.startTime) &#123;</span><br><span class="line">            <span class="built_in">this</span>.startTime = now;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> seconds = (now - <span class="built_in">this</span>.startTime) / <span class="number">1000</span>;</span><br><span class="line">        <span class="built_in">this</span>.startTime = now;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.circles.length; i++) &#123;</span><br><span class="line">            <span class="built_in">this</span>.circles[i].update(seconds);</span><br><span class="line">        &#125;</span><br><span class="line">        ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.circles.length; i++) &#123;</span><br><span class="line">            <span class="built_in">this</span>.circles[i].draw(ctx);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame(<span class="built_in">this</span>.process.bind(<span class="built_in">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Gameboard();</span><br></pre></td></tr></table></figure>
-
-<p>在 Gameboard 类中：</p>
-<ul>
-<li>startTime 保存了上次函数执行的时间戳的属性，放到了构造函数中。</li>
-<li>init() 方法创建了一个 circles 数组，里边放了两个示例的小球，这里先不涉及碰撞问题。然后调用 window.requestAnimationFrame() 开启动画。注意这里使用了 bind() 来把 Gameboard 的 this 绑定到回调函数中，以便于访问 Gameboard 中的方法和属性。</li>
-<li>process() 方法也写到了这里边，每次执行时会遍历小球数组，对每个小球进行位置更新，然后清除画布，再重新绘制每个小球。</li>
-<li>最后初始化 Gameboard 对象就可以开始执行动画了。</li>
-</ul>
-<p>这个时候有两个小球在移动了。</p>
-<p>碰撞检测<br>为了实现仿真的物理特性，多个物体间碰撞会有相应的反应，第一步就是要先检测碰撞。我们先再多加几个小球，以便于碰撞的发生，在 Gameboard 类的 init() 方法中再添加几个小球：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.circles = [</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">30</span>, <span class="number">50</span>, <span class="number">30</span>, -<span class="number">100</span>, <span class="number">390</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">180</span>, <span class="number">20</span>, <span class="number">180</span>, -<span class="number">275</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">120</span>, <span class="number">262</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">150</span>, <span class="number">180</span>, <span class="number">10</span>, -<span class="number">130</span>, <span class="number">138</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">190</span>, <span class="number">210</span>, <span class="number">10</span>, <span class="number">138</span>, -<span class="number">280</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">220</span>, <span class="number">240</span>, <span class="number">10</span>, <span class="number">142</span>, <span class="number">350</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">260</span>, <span class="number">10</span>, <span class="number">135</span>, -<span class="number">460</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">285</span>, <span class="number">10</span>, -<span class="number">165</span>, <span class="number">370</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">140</span>, <span class="number">290</span>, <span class="number">10</span>, <span class="number">125</span>, <span class="number">230</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">160</span>, <span class="number">380</span>, <span class="number">10</span>, -<span class="number">175</span>, -<span class="number">180</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">180</span>, <span class="number">310</span>, <span class="number">10</span>, <span class="number">115</span>, <span class="number">440</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">310</span>, <span class="number">10</span>, -<span class="number">195</span>, -<span class="number">325</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">150</span>, <span class="number">10</span>, -<span class="number">138</span>, <span class="number">420</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">70</span>, <span class="number">430</span>, <span class="number">45</span>, <span class="number">135</span>, -<span class="number">230</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">250</span>, <span class="number">290</span>, <span class="number">40</span>, -<span class="number">140</span>, <span class="number">335</span>),</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-
-<p>然后给小球添加一个碰撞状态，在碰撞时，给两个小球设置为不同的颜色：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">context, x, y, r, vx, vy</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 其它代码</span></span><br><span class="line">    <span class="built_in">this</span>.colliding = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">draw</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.context.fillStyle = <span class="built_in">this</span>.colliding</span><br><span class="line">      ? <span class="string">&quot;hsl(300, 100%, 70%)&quot;</span></span><br><span class="line">      : <span class="string">&quot;hsl(170, 100%, 50%)&quot;</span>;</span><br><span class="line">    <span class="comment">// 其它代码</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在来判断小球之间是否发生了碰撞，这个条件很简单，判断两个小球圆心的距离是否小于两个小球的半径之和就可以了，如果小于等于则发生了碰撞，大于则没有发生碰撞。圆心的距离即计算两个坐标点的距离，可以用公式：</p>
-<p><img src="image-20210305094325289.png" alt="image-20210305094325289"></p>
-<p>x1、y1 和 x2、y2 分别两个小球的圆心坐标。在比较时，可以对半径和进行平方运算，进而省略对距离的开方运算，也就是可以用下方的公式进行比较：</p>
-<p><img src="image-20210305094345815.png" alt="image-20210305094345815"></p>
-<p>r1 和 r2 为两球的半径。</p>
-<p>在 Circle 类中，先添加一个isCircleCollided(other)方法，接收另一个小球对象作为参数，返回比较结果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">isCircleCollided</span>(<span class="params">other</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> squareDistance =</span><br><span class="line">      (<span class="built_in">this</span>.x - other.x) * (<span class="built_in">this</span>.x - other.x) +</span><br><span class="line">      (<span class="built_in">this</span>.y - other.y) * (<span class="built_in">this</span>.y - other.y);</span><br><span class="line">  <span class="keyword">let</span> squareRadius = (<span class="built_in">this</span>.r + other.r) * (<span class="built_in">this</span>.r + other.r);</span><br><span class="line">  <span class="keyword">return</span> squareDistance &lt;= squareRadius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>再添加 checkCollideWith(other) 方法，调用 isCircleCollided(other) 判断碰撞后，把两球的碰撞状态设置为 true：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkCollideWith</span>(<span class="params">other</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.isCircleCollided(other)) &#123;</span><br><span class="line">    <span class="built_in">this</span>.colliding = <span class="literal">true</span>;</span><br><span class="line">    other.colliding = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接着我们需要使用双循环两两比对小球是否发生了碰撞，由于小球数组存放在 Gameboard 对象中，我们给它添加一个 checkCollision() 方法来检测碰撞：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkCollision</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="comment">// 重置碰撞状态</span></span><br><span class="line">  <span class="built_in">this</span>.circles.forEach(<span class="function">(<span class="params">circle</span>) =&gt;</span> (circle.colliding = <span class="literal">false</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.circles.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; <span class="built_in">this</span>.circles.length; j++) &#123;</span><br><span class="line">      <span class="built_in">this</span>.circles[i].checkCollideWith(<span class="built_in">this</span>.circles[j]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为小球在碰撞后就应立即弹开，所以我们一开始要把所有小球的碰撞状态设置为 false，之后在循环中，对每个小球进行检测。这里注意到内层循环是从 i + 1 开始的，这是因为在判断 1 球和 2 球是否碰撞后，就无须再判断 2 球 和 1 球了。</p>
-<p>之后在 process() 方法中，执行检测，注意检测应该发生在使用 for 循环更新小球位置的后边才准确：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.circles.length; i++) &#123;</span><br><span class="line">  <span class="built_in">this</span>.circles[i].update(seconds);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">this</span>.checkCollision();</span><br></pre></td></tr></table></figure>
-
-<p>现在，可以看到小球在碰撞时，会改变颜色了。</p>
-<h3 id="边界碰撞"><a href="#边界碰撞" class="headerlink" title="边界碰撞"></a>边界碰撞</h3><p>上边的代码在执行之后，小球都会穿过边界跑到外边去，那么我们先处理一下边界碰撞的问题。检测边界碰撞需要把四个面全部都处理到，根据圆心坐标和半径来判断是否和边界发生了碰撞。例如跟左边界发生碰撞时，圆心的 x 坐标是小于或等于半径长度的，而跟右边界发生碰撞时，圆心 x 坐标应该大于或等于画布最右侧坐标（即宽度值）减去半径的长度。上边界和下边界类似，只是使用圆心 y 坐标和画布的高度值。在水平方向上（即左右边界）发生碰撞时，小球的运动方向发生改变，只需要把垂直方向上的速度 vy 值取反即可，在垂直方向上碰撞则把 vx 取反。</p>
-<p><img src="image-20210305094746518.png" alt="image-20210305094746518"></p>
-<p>现在看一下代码的实现，在 Gameboard 类中添加一个 checkEdgeCollision() 方法，根据上边描述的规则编写如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkEdgeCollision</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.circles.forEach(<span class="function">(<span class="params">circle</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 左右墙壁碰撞</span></span><br><span class="line">        <span class="keyword">if</span> (circle.x &lt; circle.r) &#123;</span><br><span class="line">            circle.vx = -circle.vx;</span><br><span class="line">            circle.x = circle.r;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (circle.x &gt; width - circle.r) &#123;</span><br><span class="line">            circle.vx = -circle.vx;</span><br><span class="line">            circle.x = width - circle.r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 上下墙壁碰撞</span></span><br><span class="line">        <span class="keyword">if</span> (circle.y &lt; circle.r) &#123;</span><br><span class="line">            circle.vy = -circle.vy;</span><br><span class="line">            circle.y = circle.r;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (circle.y &gt; height - circle.r) &#123;</span><br><span class="line">            circle.vy = -circle.vy;</span><br><span class="line">            circle.y = height - circle.r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>在代码中，碰撞时，除了对速度进行取反操作之外，还把小球的坐标修改为紧临边界，防止超出。接下来在 process() 中添加对边界碰撞的检测：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.checkEdgeCollision();</span><br><span class="line"><span class="built_in">this</span>.checkCollision();</span><br></pre></td></tr></table></figure>
-
-
-<p>这时候可以看到小球在碰到边界时，可以反弹了</p>
-<p>但是小球间的碰撞还没有处理，在处理之前，先复习一下向量的基本操作，数学好的同学可以直接跳过，只看相关的代码。</p>
-<p>向量的基本操作<br>由于在碰撞时，需要对速度向量（或称为矢量）进行操作，向量是使用类似坐标的形式表示的，例如 &lt; 3, 5 &gt; (这里用 &lt;&gt; 表示向量)，它有长度和方向，对于它的运算有一定的规则，本教程中需要用到向量的加法、减法、乘法、点乘和标准化操作。</p>
-<p>向量相加只需要把两个向量的 x 坐标和 y 坐标相加即可，例如：<code>&lt; 3 , 5 &gt; + &lt; 1 , 2 &gt; = &lt; 4 , 7 &gt;</code><br>减法与加法类似，把 x 坐标和 y 坐标相减，例如：<code>&lt; 3 , 5 &gt; − &lt; 1 , 2 &gt; = &lt; 2 , 3 &gt;</code></p>
-<p>乘法，这里指的是向量和标量的乘法，标量指的就是普通的数字，结果是把 x 和 y 分别和标量相乘，例如：<code>3 × &lt; 3 , 5 &gt; = &lt; 9 , 15 &gt; </code></p>
-<p>点乘是两个向量相乘的一种方式，类似的还有叉乘，但是在本示例中用不到，点乘其实计算的是一个向量在另一个向量上的投影，它的计算方式为两个向量的 x 的积加上 y 的积，它返回的是一个标量，即第 1 个向量在第 2 个向量上投影的长度，例如：<code>&lt; 3 , 5 &gt; ⋅ &lt; 1 , 2 &gt; = 3 × 1 + 5 × 2 = 13 </code></p>
-<p>标准化是除掉向量的长度，只剩下方向，这样的向量它的长度为 1，称为单位向量，标准化的过程是让 x 和 y 分别除以向量的长度，因为向量表示的是和原点(0, 0)的距离，所以可以直接使用 </p>
-<p><img src="image-20210305095015781.png" alt="image-20210305095015781"><br>  计算长度，例如 &lt; 3, 4 &gt; 标准化后的结果为：<code>&lt; 3 , 5 &gt; ⋅ &lt; 1 , 2 &gt; = 3 × 1 + 5 × 2 = 13</code>。</p>
-<p>了解了向量的基本运算后，我们来创建一个 Vector 工具类，来方便我们进行向量的运算，它的代码就是实现了这些运算规则：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">x, y</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.x = x;</span><br><span class="line">        <span class="built_in">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 向量加法</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Vector&#125;</span> <span class="variable">v</span></span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">add</span>(<span class="params">v</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Vector(<span class="built_in">this</span>.x + v.x, <span class="built_in">this</span>.y + v.y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 向量减法</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Vector&#125;</span> <span class="variable">v</span></span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">substract</span>(<span class="params">v</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Vector(<span class="built_in">this</span>.x - v.x, <span class="built_in">this</span>.y - v.y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 向量与标量乘法</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Vector&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">multiply</span>(<span class="params">s</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Vector(<span class="built_in">this</span>.x * s, <span class="built_in">this</span>.y * s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 向量与向量点乘（投影）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;Vector&#125;</span> <span class="variable">v</span></span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">dot</span>(<span class="params">v</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.x * v.x + <span class="built_in">this</span>.y * v.y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 向量标准化（除去长度）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">distance</span></span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">normalize</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> distance = <span class="built_in">Math</span>.sqrt(<span class="built_in">this</span>.x * <span class="built_in">this</span>.x + <span class="built_in">this</span>.y * <span class="built_in">this</span>.y);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Vector(<span class="built_in">this</span>.x / distance, <span class="built_in">this</span>.y / distance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码中没有什么特殊的语法和操作，这里就不再赘述了，接下来我们看一下小球的碰撞问题。</p>
-<h3 id="碰撞处理"><a href="#碰撞处理" class="headerlink" title="碰撞处理"></a>碰撞处理</h3><p>碰撞处理最主要的部分就是计算碰撞后的速度和方向。通常最简单的碰撞问题是在同一个水平面上的两个物体的碰撞，称为一维碰撞，因为此时只需要计算同一方向上的速度，而我们现在的程序小球是在一个二维平面内运动的，小球之间发生正面相碰（即在同一运动方向）的概率很小，大部分是斜碰（在不同运动方向上擦肩相碰），需要同时计算水平和垂直方向上的速度和方向，这就属于是二维碰撞问题。不过，其实小球之间的碰撞，只有在连心线（两个圆心的连线）上有作用力，而在碰撞接触的切线方向上没有作用力，那么我们只需要知道连心线方向的速度变化就可以了，这样就转换成了一维碰撞。</p>
-<p><img src="image-20210305095122013.png" alt="image-20210305095122013"></p>
-<p>计算碰撞后的速度时，遵守动量守恒定律和动能守恒定律，公式分别为：</p>
-<h4 id="动量守恒定律"><a href="#动量守恒定律" class="headerlink" title="动量守恒定律"></a>动量守恒定律</h4><p><img src="image-20210305095144325.png" alt="image-20210305095144325"></p>
-<h4 id="动能守恒定律"><a href="#动能守恒定律" class="headerlink" title="动能守恒定律"></a>动能守恒定律</h4><p><img src="image-20210305095158664.png" alt="image-20210305095158664"></p>
-<p>m1、m2 分别为两小球的质量，v1 和 v2 为两小球碰撞前的速度向量，v1’ 和 v2’ 为碰撞后的速度向量。根据这两个公式可以推导出两小球碰撞后的速度公式：</p>
-<p><img src="image-20210305095226329.png" alt="image-20210305095226329"></p>
-<p>​    </p>
-<p>如果不考虑小球的质量，或质量相同，其实就是两小球速度互换，即：</p>
-<p><img src="image-20210305095244943.png" alt="image-20210305095244943"></p>
-<p>这里我们给小球加上质量，然后套用公式来计算小球碰撞后速度，先在 Circle 类中给小球加上质量 mass 属性：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">context, x, y, r, vx, vy, mass = <span class="number">1</span></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 其它代码</span></span><br><span class="line">    <span class="built_in">this</span>.mass = mass;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在 Gameboard 类的初始化小球处，给每个小球添加质量：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.circles = [</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">30</span>, <span class="number">50</span>, <span class="number">30</span>, -<span class="number">100</span>, <span class="number">390</span>, <span class="number">30</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">180</span>, <span class="number">20</span>, <span class="number">180</span>, -<span class="number">275</span>, <span class="number">20</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">120</span>, <span class="number">262</span>, <span class="number">100</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">150</span>, <span class="number">180</span>, <span class="number">10</span>, -<span class="number">130</span>, <span class="number">138</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">190</span>, <span class="number">210</span>, <span class="number">10</span>, <span class="number">138</span>, -<span class="number">280</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">220</span>, <span class="number">240</span>, <span class="number">10</span>, <span class="number">142</span>, <span class="number">350</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">260</span>, <span class="number">10</span>, <span class="number">135</span>, -<span class="number">460</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">285</span>, <span class="number">10</span>, -<span class="number">165</span>, <span class="number">370</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">140</span>, <span class="number">290</span>, <span class="number">10</span>, <span class="number">125</span>, <span class="number">230</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">160</span>, <span class="number">380</span>, <span class="number">10</span>, -<span class="number">175</span>, -<span class="number">180</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">180</span>, <span class="number">310</span>, <span class="number">10</span>, <span class="number">115</span>, <span class="number">440</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">310</span>, <span class="number">10</span>, -<span class="number">195</span>, -<span class="number">325</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">150</span>, <span class="number">10</span>, -<span class="number">138</span>, <span class="number">420</span>, <span class="number">10</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">70</span>, <span class="number">430</span>, <span class="number">45</span>, <span class="number">135</span>, -<span class="number">230</span>, <span class="number">45</span>),</span><br><span class="line">  <span class="keyword">new</span> Circle(ctx, <span class="number">250</span>, <span class="number">290</span>, <span class="number">40</span>, -<span class="number">140</span>, <span class="number">335</span>, <span class="number">40</span>),</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-
-<p>在 Circle 类中加上 <code>changeVelocityAndDirection(other)</code> 方法来计算碰撞后的速度，它接收另一个小球对象作为参数，同时计算这两个小球碰撞厚的速度和方向，这个是整个引擎的核心，我们一点一点的来看它是如何实现的。首先把两个小球的速度使用 Vector 向量来表示：</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">changeVelocityAndDirection</span>(<span class="params">other</span>)</span> &#123;</span><br><span class="line">   <span class="comment">// 创建两小球的速度向量</span></span><br><span class="line">   <span class="keyword">let</span> velocity1 = <span class="keyword">new</span> Vector(<span class="built_in">this</span>.vx, <span class="built_in">this</span>.vy);</span><br><span class="line">   <span class="keyword">let</span> velocity2 = <span class="keyword">new</span> Vector(other.vx, other.vy);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>因为我们本身就已经使用 vx 和 vy 来表示水平和垂直方向上的速度向量了，所以直接把它们传给 Vector 的构造函数就可以了。velocity1 和 velocity2 分别代表当前小球和碰撞小球的速度向量。</p>
-<p>接下来获取连心线方向的向量，也就是两个圆心坐标的差：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> vNorm = <span class="keyword">new</span> Vector(<span class="built_in">this</span>.x - other.x, <span class="built_in">this</span>.y - other.y);</span><br></pre></td></tr></table></figure>
-
-<p>接下来获取连心线方向的单位向量和切线方向上的单位向量，这些单位向量代表的是连心线和切线的方向：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> unitVNorm = vNorm.normalize();</span><br><span class="line"><span class="keyword">let</span> unitVTan = <span class="keyword">new</span> Vector(-unitVNorm.y, unitVNorm.x);</span><br></pre></td></tr></table></figure>
-
-
-<p>unitVNorm 是连心线方向单位向量，unitVTan 是切线方向单位向量，切线方向其实就是把连心线向量的 x、y 坐标互换，并把 y 坐标取反。根据这两个单位向量，使用点乘计算小球速度在这两个方向上的投影：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> v1n = velocity1.dot(unitVNorm);</span><br><span class="line"><span class="keyword">let</span> v1t = velocity1.dot(unitVTan);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v2n = velocity2.dot(unitVNorm);</span><br><span class="line"><span class="keyword">let</span> v2t = velocity2.dot(unitVTan);</span><br></pre></td></tr></table></figure>
-
-<p>计算结果是一个标量，也就是没有方向的速度值。v1n 和 v1t 表示当前小球在连心线和切线方向的速度值，v2n 和 v2t 则表示的是碰撞小球 的速度值。在计算出两小球的速度值之后，我们就有了碰撞后的速度公式所需要的变量值了，直接用代码把公式套用进去：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> v1nAfter = (v1n * (<span class="built_in">this</span>.mass - other.mass) + <span class="number">2</span> * other.mass * v2n) / (<span class="built_in">this</span>.mass + other.mass);</span><br><span class="line"><span class="keyword">let</span> v2nAfter = (v2n * (other.mass - <span class="built_in">this</span>.mass) + <span class="number">2</span> * <span class="built_in">this</span>.mass * v1n) / (<span class="built_in">this</span>.mass + other.mass);</span><br></pre></td></tr></table></figure>
-
-<p>v1nAfter 和 v2nAfter 分别是两小球碰撞后的速度，现在可以先判断一下，如果 v1nAfter 小于 v2nAfter，那么第 1 个小球和第 2 个小球会越来越远，此时不用处理碰撞：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (v1nAfter &lt; v2nAfter) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后再给碰撞后的速度加上方向，计算在连心线方向和切线方向上的速度，只需要让速度标量跟连心线单位向量和切线单位向量相乘：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> v1VectorNorm = unitVNorm.multiply(v1nAfter);</span><br><span class="line"><span class="keyword">let</span> v1VectorTan = unitVTan.multiply(v1t);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v2VectorNorm = unitVNorm.multiply(v2nAfter);</span><br><span class="line"><span class="keyword">let</span> v2VectorTan = unitVTan.multiply(v2t);</span><br></pre></td></tr></table></figure>
-
-<p>这样有了两个小球连心线上的新速度向量和切线方向上的新速度向量，最后把连心线上的速度向量和切线方向的速度向量进行加法操作，就能获得碰撞后小球的速度向量：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> velocity1After = v1VectorNorm.add(v1VectorTan);</span><br><span class="line"><span class="keyword">let</span> velocity2After = v2VectorNorm.add(v2VectorTan);</span><br></pre></td></tr></table></figure>
-
-<p>之后我们把向量中的 x 和 y 分别还原到小球的 vx 和 vy 属性中：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.vx = velocity1After.x;</span><br><span class="line"><span class="built_in">this</span>.vy = velocity1After.y;</span><br><span class="line"></span><br><span class="line">other.vx = velocity2After.x;</span><br><span class="line">other.vy = velocity2After.y;</span><br></pre></td></tr></table></figure>
-
-<p>最后在 checkCollideWith() 方法的 if 语句中调用此方法，即在检测到碰撞时：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkCollideWith</span>(<span class="params">other</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.isCircleCollided(other)) &#123;</span><br><span class="line">    <span class="built_in">this</span>.colliding = <span class="literal">true</span>;</span><br><span class="line">    other.colliding = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">this</span>.changeVelocityAndDirection(other); <span class="comment">// 在这里调用</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这时，小球的碰撞效果就实现了。</p>
-<h3 id="非弹性碰撞"><a href="#非弹性碰撞" class="headerlink" title="非弹性碰撞"></a>非弹性碰撞</h3><p>现在小球之间的碰撞属于完全弹性碰撞，即碰撞之后不会有能量损失，这样小球永远不会停止运动，我们可以让小球在碰撞之后损失一点能量，来模拟更真实的物理效果。要让小球碰撞后有能量损失，可以使用恢复系数，它是一个取值范围为 0 到 1 的数值，每次碰撞后，乘以它就可以减慢速度，如果恢复系数为 1 则为完全弹性碰撞，为 0 则是完全非弹性碰撞，之间的数值为非弹性碰撞，现实生活中的碰撞都是非弹性碰撞。</p>
-<p>先看一下边界碰撞，这个比较简单，假设边界的恢复系数为 0.8，然后在每次对速度取反的时候乘以它就可以了，把 Gameboard checkEdgeCollision()方法作如下改动：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkEdgeCollision</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> cor = <span class="number">0.8</span>;                  <span class="comment">// 设置恢复系统</span></span><br><span class="line">  <span class="built_in">this</span>.circles.forEach(<span class="function">(<span class="params">circle</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 左右墙壁碰撞</span></span><br><span class="line">    <span class="keyword">if</span> (circle.x &lt; circle.r) &#123;</span><br><span class="line">      circle.vx = -circle.vx * cor; <span class="comment">// 加上恢复系数</span></span><br><span class="line">      circle.x = circle.r;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (circle.x &gt; width - circle.r) &#123;</span><br><span class="line">      circle.vx = -circle.vx * cor; <span class="comment">// 加上恢复系数</span></span><br><span class="line">      circle.x = width - circle.r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 上下墙壁碰撞</span></span><br><span class="line">    <span class="keyword">if</span> (circle.y &lt; circle.r) &#123;</span><br><span class="line">      circle.vy = -circle.vy * cor; <span class="comment">// 加上恢复系数</span></span><br><span class="line">      circle.y = circle.r;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (circle.y &gt; height - circle.r) &#123;</span><br><span class="line">      circle.vy = -circle.vy * cor; <span class="comment">// 加上恢复系数</span></span><br><span class="line">      circle.y = height - circle.r;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来设置小球的恢复系数，给 Circle 类再加上一个恢复系数 cor 属性，每个小球可以设置不同的数值，来让它们有不同的弹性，然后在初始化小球时设置随意的恢复系数：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">context, x, y, r, vx, vy, mass = <span class="number">1</span>, cor = <span class="number">1</span></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 其它代码</span></span><br><span class="line">    <span class="built_in">this</span>.cor = cor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gameboard</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">init</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">   <span class="built_in">this</span>.circles = [</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">30</span>, <span class="number">50</span>, <span class="number">30</span>, -<span class="number">100</span>, <span class="number">390</span>, <span class="number">30</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">180</span>, <span class="number">20</span>, <span class="number">180</span>, -<span class="number">275</span>, <span class="number">20</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">120</span>, <span class="number">262</span>, <span class="number">100</span>, <span class="number">0.3</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">150</span>, <span class="number">180</span>, <span class="number">10</span>, -<span class="number">130</span>, <span class="number">138</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">190</span>, <span class="number">210</span>, <span class="number">10</span>, <span class="number">138</span>, -<span class="number">280</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">220</span>, <span class="number">240</span>, <span class="number">10</span>, <span class="number">142</span>, <span class="number">350</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">260</span>, <span class="number">10</span>, <span class="number">135</span>, -<span class="number">460</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">120</span>, <span class="number">285</span>, <span class="number">10</span>, -<span class="number">165</span>, <span class="number">370</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">140</span>, <span class="number">290</span>, <span class="number">10</span>, <span class="number">125</span>, <span class="number">230</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">160</span>, <span class="number">380</span>, <span class="number">10</span>, -<span class="number">175</span>, -<span class="number">180</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">180</span>, <span class="number">310</span>, <span class="number">10</span>, <span class="number">115</span>, <span class="number">440</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">100</span>, <span class="number">310</span>, <span class="number">10</span>, -<span class="number">195</span>, -<span class="number">325</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">60</span>, <span class="number">150</span>, <span class="number">10</span>, -<span class="number">138</span>, <span class="number">420</span>, <span class="number">10</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">70</span>, <span class="number">430</span>, <span class="number">45</span>, <span class="number">135</span>, -<span class="number">230</span>, <span class="number">45</span>, <span class="number">0.7</span>),</span><br><span class="line">      <span class="keyword">new</span> Circle(ctx, <span class="number">250</span>, <span class="number">290</span>, <span class="number">40</span>, -<span class="number">140</span>, <span class="number">335</span>, <span class="number">40</span>, <span class="number">0.7</span>),</span><br><span class="line">    ];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>加上恢复系数之后，小球碰撞后的速度计算也需要改变一下，可以简单的让 v1nAfter 和 v2nAfter 乘以小球的恢复系数，也可以使用带有恢复系数的速度公式（这两种方式我暂时还不太清楚区别，有兴趣的小伙伴可以自己研究一下），公式如下：</p>
-<p><img src="image-20210305095726505.png" alt="image-20210305095726505"></p>
-<p>接着把公式转换为代码，在 Circle 类的 changeVelocityAndDirection() 方法中，替换掉 v1nAfter 和 v2nAfter 的计算公式：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> cor = <span class="built_in">Math</span>.min(<span class="built_in">this</span>.cor, other.cor);</span><br><span class="line"><span class="keyword">let</span> v1nAfter =</span><br><span class="line">    (<span class="built_in">this</span>.mass * v1n + other.mass * v2n + cor * other.mass * (v2n - v1n)) /</span><br><span class="line">    (<span class="built_in">this</span>.mass + other.mass);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v2nAfter =</span><br><span class="line">    (<span class="built_in">this</span>.mass * v1n + other.mass * v2n + cor * <span class="built_in">this</span>.mass * (v1n - v2n)) /</span><br><span class="line">    (<span class="built_in">this</span>.mass + other.mass);</span><br></pre></td></tr></table></figure>
-
-
-<p>这里要注意的是两小球碰撞时的恢复系数应取两者的最小值，按照常识，弹性小的无论是去撞别人还是别人撞它，都会有同样的效果。现在小球碰撞后速度会有所减慢，不过还差一点，我们可以加上重力来让小球自然下落。</p>
-<h3 id="重力"><a href="#重力" class="headerlink" title="重力"></a>重力</h3><p>添加重力比较简单，先在全局定义重力加速度常量，然后在小球更新垂直方向上的速度时，累计重力加速度就可以了：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> gravity = <span class="number">980</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">update</span>(<span class="params">seconds</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.vy += gravity * seconds; <span class="comment">// 重力加速度</span></span><br><span class="line">    <span class="built_in">this</span>.x += <span class="built_in">this</span>.vx * seconds;</span><br><span class="line">    <span class="built_in">this</span>.y += <span class="built_in">this</span>.vy * seconds;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>重力加速度大约是 <code>9.8 m / s 2 9.8m/s^29.8m/s </code><br> ，但是由于我们的画布是以象素为单位的，所以使用 9.8 看起来会像是没有重力，或者像是从很远的地方观察小球，这时候可以把重力加速度放大一定倍数来达到更逼真的效果。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>现在我们这个简单的 JavaScript 物理引擎就完成了，实现了物理引擎最基本的部分，可以有一个完整的掉落和碰撞的效果，要做一个更逼真的物理引擎还需要考虑更多的因素和更复杂的公式，例如考虑一下摩擦力、空气阻力、碰撞后的旋转角度等，并且这个 canvas 的帧率也会有一定的问题，如果有的小球速度过快，但是如果来不及执行下一次回调函数更新它的位置，那么它可能就直接穿过碰撞的小球到另一边了。</p>
-<p>来总结一下开发过程：</p>
-<ul>
-<li><p>使用 context 绘制小球。</p>
-</li>
-<li><p>搭建 Canvas 动画基础结构，主要使用 window.requestAnimationFrame方法反复执行回调函数。</p>
-</li>
-<li><p>移动小球，通过小球的速度和函数执行时的时间戳来计算移动距离。</p>
-</li>
-<li><p>碰撞检测，通过比对两个小球的距离和它们半径的和。</p>
-</li>
-<li><p>边界碰撞的检测和方向改变。</p>
-</li>
-<li><p>小球之间的碰撞，应用速度公式和向量操作计算出碰撞后的速度和方向。</p>
-</li>
-<li><p>利用恢复系数实现非弹性碰撞。</p>
-</li>
-<li><p>添加重力效果。<br>代码可以在以下地址中查看：</p>
-<p><a href="https://github.com/zxuqian/html-css-examples/tree/master/35-collision-physics">https://github.com/zxuqian/html-css-examples/tree/master/35-collision-physics</a></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>前端-实现</tag>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
