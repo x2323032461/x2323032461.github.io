@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端问题</title>
-    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>-</p>
-<a id="more"></a>
-
-<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>前端问题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>文件结构</title>
     <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
@@ -182,6 +169,19 @@
 ]]></content>
       <tags>
         <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端问题</title>
+    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>-</p>
+<a id="more"></a>
+
+<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>前端问题</tag>
       </tags>
   </entry>
   <entry>
@@ -505,6 +505,26 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo使用</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
@@ -603,26 +623,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo添加分类及标签</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
@@ -653,6 +653,50 @@
       </categories>
       <tags>
         <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
+
+<blockquote>
+<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>系统-Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装Linux</title>
+    <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
+    <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
+
+<h3 id="Section-packages-does-not-end-with-end"><a href="#Section-packages-does-not-end-with-end" class="headerlink" title="Section packages does not end with %end"></a>Section packages does not end with %end</h3><p>方法1 ： VM极简安装模式会自动生成一个autoinst.iso，自动索引镜像，将这个删掉就好了：</p>
+<p>先将这个centos虚拟机系统关机，然后从我的机算机清单中找到这个菜单，左键点击选中这个菜单，然后右键，会看到设置选项，进去就能看到一个CD/DVD(IDE) autoinst.iso，删掉，重新开启centos虚拟机系统，就能正常安装了</p>
+<p>方法2 ： 原因为虚拟机找不到镜像文件，设置方法：</p>
+<p><img src="image-20210303144902140.png" alt="image-20210303144902140"></p>
+<p><img src="image-20210303144932408.png" alt="image-20210303144932408"></p>
+<p>找到自身镜像文件位置即可</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>阿里镜像地址</p>
+</blockquote>
+<p><a href="https://mirrors.aliyun.com/centos/8/isos/x86_64/">https://mirrors.aliyun.com/centos/8/isos/x86_64/</a></p>
+<p>选择</p>
+<p><img src="image-20210303145132219.png" alt="image-20210303145132219"></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -847,6 +891,26 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ol>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git使用</title>
     <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
@@ -961,26 +1025,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git概念</title>
     <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>什么是版本控制、版本迭代、版本管理器</p>
@@ -1023,50 +1067,6 @@
 ]]></content>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux命令</title>
-    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
-
-<blockquote>
-<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
-<blockquote>
-<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>系统-Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>虚拟机安装Linux</title>
-    <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
-    <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
-
-<h3 id="Section-packages-does-not-end-with-end"><a href="#Section-packages-does-not-end-with-end" class="headerlink" title="Section packages does not end with %end"></a>Section packages does not end with %end</h3><p>方法1 ： VM极简安装模式会自动生成一个autoinst.iso，自动索引镜像，将这个删掉就好了：</p>
-<p>先将这个centos虚拟机系统关机，然后从我的机算机清单中找到这个菜单，左键点击选中这个菜单，然后右键，会看到设置选项，进去就能看到一个CD/DVD(IDE) autoinst.iso，删掉，重新开启centos虚拟机系统，就能正常安装了</p>
-<p>方法2 ： 原因为虚拟机找不到镜像文件，设置方法：</p>
-<p><img src="image-20210303144902140.png" alt="image-20210303144902140"></p>
-<p><img src="image-20210303144932408.png" alt="image-20210303144932408"></p>
-<p>找到自身镜像文件位置即可</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
-<p>阿里镜像地址</p>
-</blockquote>
-<p><a href="https://mirrors.aliyun.com/centos/8/isos/x86_64/">https://mirrors.aliyun.com/centos/8/isos/x86_64/</a></p>
-<p>选择</p>
-<p><img src="image-20210303145132219.png" alt="image-20210303145132219"></p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
