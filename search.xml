@@ -210,6 +210,116 @@
       </tags>
   </entry>
   <entry>
+    <title>单词</title>
+    <url>/2021/03/05/%E8%BF%9B%E5%BA%A6/%E5%8D%95%E8%AF%8D/</url>
+    <content><![CDATA[<p>method        方法</p>
+<a id="more"></a>
+
+<p>field             字段</p>
+<p>parameter    参数</p>
+<p>constructor    构造方法</p>
+<p>local variable    局部变量</p>
+<p>annotation    注解</p>
+<p>package        包</p>
+<p>generate        生成</p>
+<p>deploy        部署</p>
+<p>menu        菜单</p>
+<p>😱</p>
+<p>tag             标签</p>
+<p>destory        销毁</p>
+<p>release         稳定版本  </p>
+<p>debug         内部测试版本</p>
+<p>exist          存在</p>
+<p>component    组件</p>
+<p>engine          引擎</p>
+<p>schema        计划的提纲</p>
+<p>studio             工作室</p>
+<p>operation    log    操作 日志</p>
+<p>middle          中部</p>
+<p>concurrent      并发</p>
+<p>arguments     论点</p>
+<p>empty         空的</p>
+<p>prototype      原型</p>
+<p>instance        例子、实例</p>
+<p>front         前面</p>
+<p>common        常见的</p>
+<p>community    社区</p>
+<p>Annotation    注释、注解</p>
+<p>configuration    配置</p>
+<p>Suppress     抑制；镇压；废止 </p>
+<p>Warnings        警告</p>
+<p>declared        公开的</p>
+<p>cycle        周期</p>
+<p>destroy        销毁</p>
+<p>tail            跟踪</p>
+<p>detail        详情</p>
+<p>Elastic         弹性</p>
+<p>Search        搜索</p>
+<p>stack        堆栈</p>
+<p>Ranking        排名</p>
+<p>addr            地址</p>
+<p>Beats        心跳</p>
+<p>kafka</p>
+<p>broker        经纪人(服务器)</p>
+<p>topic            主题</p>
+<p>partition        分隔、隔断、分区</p>
+<p>leader        领导</p>
+<p>follower        跟随者</p>
+<p>producer        生产者</p>
+<p>consumer    消费者</p>
+<p>cluster        集群</p>
+<p>software        软件</p>
+<p>unique        唯一</p>
+<p>upper respiratory infection    上呼吸道感染</p>
+<p>ELK</p>
+<p>shard        切片，碎片</p>
+<p>pretty        漂亮的，美观的</p>
+<p>bulk            大量的</p>
+<p>zookeeper</p>
+<p>event        事件</p>
+<p>access        访问</p>
+<p>scheme        方案</p>
+<p>valid            有效的</p>
+<p>authentication    身份验证</p>
+<p>await        等待</p>
+<p>expire        期满，超时</p>
+<p>cyclic        循环        sai ke lei ke </p>
+<p>barrier        屏障        bai rui er</p>
+<p>atomic        原子的</p>
+<p>grep            正则表达式</p>
+<p>transaction    事务</p>
+<p>acquire        获取</p>
+<p>release        释放</p>
+<p>core            核心</p>
+<p>current        现在的</p>
+<p>observer        观察者</p>
+<p>subject        主题</p>
+<p>register        登记</p>
+<p>notify        通知</p>
+<p>arguments     论据、论点</p>
+<p>site            网站</p>
+<p>apologize     道歉</p>
+<p>insult        侮辱</p>
+<p>truth            真理</p>
+<p>westerns        西部的  西方？</p>
+<p>difference     不同</p>
+<p>human rights    人权</p>
+<p>How dare they    他们怎么敢</p>
+<p>feel ashame    感到羞耻</p>
+<p>tax             税收</p>
+<p>technology    技术</p>
+<p>splunk        si pu lan ke</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>javascript</category>
+        <category>面向对象编程</category>
+      </categories>
+      <tags>
+        <tag>进度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进度</title>
     <url>/2021/02/23/%E8%BF%9B%E5%BA%A6/%E8%BF%9B%E5%BA%A6/</url>
     <content><![CDATA[<p>​    <del>——</del></p>
@@ -223,6 +333,11 @@
 <p>如何备战秋招</p>
 <p>k8s-Kubernetes</p>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>javascript</category>
+        <category>面向对象编程</category>
+      </categories>
       <tags>
         <tag>进度</tag>
       </tags>
@@ -508,26 +623,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo使用</title>
     <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
@@ -620,6 +715,26 @@
 
 <p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -850,6 +965,26 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ol>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git使用</title>
     <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
@@ -943,26 +1078,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git安装及配置</title>
     <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
@@ -1029,28 +1144,6 @@
       </tags>
   </entry>
   <entry>
-    <title>虚拟机安装Linux</title>
-    <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
-    <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
-
-<h3 id="Section-packages-does-not-end-with-end"><a href="#Section-packages-does-not-end-with-end" class="headerlink" title="Section packages does not end with %end"></a>Section packages does not end with %end</h3><p>方法1 ： VM极简安装模式会自动生成一个autoinst.iso，自动索引镜像，将这个删掉就好了：</p>
-<p>先将这个centos虚拟机系统关机，然后从我的机算机清单中找到这个菜单，左键点击选中这个菜单，然后右键，会看到设置选项，进去就能看到一个CD/DVD(IDE) autoinst.iso，删掉，重新开启centos虚拟机系统，就能正常安装了</p>
-<p>方法2 ： 原因为虚拟机找不到镜像文件，设置方法：</p>
-<p><img src="image-20210303144902140.png" alt="image-20210303144902140"></p>
-<p><img src="image-20210303144932408.png" alt="image-20210303144932408"></p>
-<p>找到自身镜像文件位置即可</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
-<p>阿里镜像地址</p>
-</blockquote>
-<p><a href="https://mirrors.aliyun.com/centos/8/isos/x86_64/">https://mirrors.aliyun.com/centos/8/isos/x86_64/</a></p>
-<p>选择</p>
-<p><img src="image-20210303145132219.png" alt="image-20210303145132219"></p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux命令</title>
     <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
@@ -1070,6 +1163,28 @@
 ]]></content>
       <tags>
         <tag>系统-Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装Linux</title>
+    <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
+    <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
+
+<h3 id="Section-packages-does-not-end-with-end"><a href="#Section-packages-does-not-end-with-end" class="headerlink" title="Section packages does not end with %end"></a>Section packages does not end with %end</h3><p>方法1 ： VM极简安装模式会自动生成一个autoinst.iso，自动索引镜像，将这个删掉就好了：</p>
+<p>先将这个centos虚拟机系统关机，然后从我的机算机清单中找到这个菜单，左键点击选中这个菜单，然后右键，会看到设置选项，进去就能看到一个CD/DVD(IDE) autoinst.iso，删掉，重新开启centos虚拟机系统，就能正常安装了</p>
+<p>方法2 ： 原因为虚拟机找不到镜像文件，设置方法：</p>
+<p><img src="image-20210303144902140.png" alt="image-20210303144902140"></p>
+<p><img src="image-20210303144932408.png" alt="image-20210303144932408"></p>
+<p>找到自身镜像文件位置即可</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>阿里镜像地址</p>
+</blockquote>
+<p><a href="https://mirrors.aliyun.com/centos/8/isos/x86_64/">https://mirrors.aliyun.com/centos/8/isos/x86_64/</a></p>
+<p>选择</p>
+<p><img src="image-20210303145132219.png" alt="image-20210303145132219"></p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
