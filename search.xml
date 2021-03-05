@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>前端问题</title>
+    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>-</p>
+<a id="more"></a>
+
+<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>前端问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文件结构</title>
     <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
@@ -169,19 +182,6 @@
 ]]></content>
       <tags>
         <tag>报错</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端问题</title>
-    <url>/2021/03/04/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>-</p>
-<a id="more"></a>
-
-<h2 id="前端页面跳转与异步"><a href="#前端页面跳转与异步" class="headerlink" title="前端页面跳转与异步"></a>前端页面跳转与异步</h2><p>当发送一个异步请求后，若该请求尚未返回就进行页面跳转，此时即使请求返回也不会执行then中的方法</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    url: <span class="string">&quot;localhost:8080/travle/news/list&quot;</span>,</span><br><span class="line">    data: &#123; <span class="attr">page</span>: $(<span class="string">&quot;#page&quot;</span>).val(), <span class="attr">limit</span>: <span class="number">5</span> &#125;,</span><br><span class="line">    dataType: <span class="string">&quot;JSON&quot;</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//  若页面跳转将不会进入then方法中</span></span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">window</span>.location.href = url;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>前端问题</tag>
       </tags>
   </entry>
   <entry>
