@@ -427,40 +427,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Typora使用</title>
-    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
-<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
-<a id="more"></a>
-
-<p>会显示类似于浏览器的开发者模式窗口</p>
-<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
-<p>此时选择想要修改样式的内容</p>
-<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
-<p>修改完毕后右键Copy link address复制文件路径</p>
-<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
-<blockquote>
-<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
-<p>  一般文件会有带盘符的完整路径</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 有的文件则以typora:开头</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p>此时需要</p>
-<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
-<p>此时直接进入 typora://userData\themes 中</p>
-<blockquote>
-<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
-<p>根据行数及选择器名修改样式内容保存即可</p>
-]]></content>
-      <tags>
-        <tag>博客-Typora</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>redis安装</title>
     <url>/2021/03/03/java/%E6%95%B0%E6%8D%AE%E5%BA%93/redis%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h2 id="Linux安装redis"><a href="#Linux安装redis" class="headerlink" title="Linux安装redis"></a>Linux安装redis</h2><blockquote>
@@ -606,360 +572,37 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+    <title>Typora使用</title>
+    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
+<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
 <a id="more"></a>
 
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
+<p>会显示类似于浏览器的开发者模式窗口</p>
+<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
+<p>此时选择想要修改样式的内容</p>
+<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
+<p>修改完毕后右键Copy link address复制文件路径</p>
+<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
+<blockquote>
+<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
+<p>  一般文件会有带盘符的完整路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 有的文件则以typora:开头</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p>此时需要</p>
+<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
+<p>此时直接进入 typora://userData\themes 中</p>
+<blockquote>
+<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
+<p>根据行数及选择器名修改样式内容保存即可</p>
 ]]></content>
       <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo添加分类及标签</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
-<a id="more"></a>
-
-<h4 id="1-创建“分类”选项"><a href="#1-创建“分类”选项" class="headerlink" title="1. 创建“分类”选项"></a>1. 创建“分类”选项</h4><p>生成“分类”页并添加tpye属性,进入博客目录。执行下方命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>categories文件夹下会有index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-22 14:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-24 15:30:30</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件。</p>
-<p>给文章添加“categories”属性</p>
-<p>打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
-<h4 id="2-创建“标签”选项"><a href="#2-创建“标签”选项" class="headerlink" title="2. 创建“标签”选项"></a>2. 创建“标签”选项</h4><p>生成“标签”页并添加tpye属性，<code>页面进入标签页默认找tags目录</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
-<p>在tags文件夹下，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-22 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>添加type: “tags”到内容中，添加后是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件。</p>
-<p>给文章添加“tags”属性,打开需要添加标签的文章，为其添加tags属性。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: - Hexo</span><br><span class="line">tags: - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker安装</title>
-    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h2 id="Docker的基本组成"><a href="#Docker的基本组成" class="headerlink" title="Docker的基本组成"></a>Docker的基本组成</h2><a id="more"></a>
-
-<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=793314303,480081697&fm=26&gp=0.jpg" alt="img"></p>
-<p><strong>镜像（image）：</strong></p>
-<p>docker镜像就好比是一个模板，可以通过这个模板来创建容器服务，tomcat镜像 ==&gt; run ==&gt; tomcat1容器（提供服务器），通过这个镜像可以创建多个容器（最终服务或者项目运行就是在容器中的）</p>
-<p><strong>容器（container）：</strong></p>
-<p>Docker利用容器技术，独立运行一个或者一组应用，通过镜像来创建的。</p>
-<p>可以将容器理解为一个简易的Linux系统</p>
-<p>基本命令：启动、停止、删除</p>
-<p><strong>仓库（repository）：</strong></p>
-<p>仓库就是存放镜像的地方</p>
-<p>仓库分为共有仓库和私有仓库</p>
-<p>Docker Hub (默认)</p>
-<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><blockquote>
-<h3 id="卸载旧的版本"><a href="#卸载旧的版本" class="headerlink" title="卸载旧的版本"></a>卸载旧的版本</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">            docker-client \</span><br><span class="line">            docker-client-latest \</span><br><span class="line">            docker-common \</span><br><span class="line">            docker-latest \</span><br><span class="line">            docker-latest-logrotate \</span><br><span class="line">            docker-logrotate \</span><br><span class="line">            docker-engine</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="需要的安装包"><a href="#需要的安装包" class="headerlink" title="需要的安装包"></a>需要的安装包</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要的安装包</span></span><br><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="设置镜像的仓库"><a href="#设置镜像的仓库" class="headerlink" title="设置镜像的仓库"></a>设置镜像的仓库</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo   # 国外镜像仓库</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 阿里镜像仓库</span></span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">	https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>更新yum软件包索引</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum makecache fast</span><br><span class="line">// centos8可能需要使用</span><br><span class="line">yum makecache timer</span><br></pre></td></tr></table></figure>
-
-
-
-
-<blockquote>
-<h3 id="安装docker相关的内容"><a href="#安装docker相关的内容" class="headerlink" title="安装docker相关的内容"></a>安装docker相关的内容</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker-ce 社区版本  ee企业版</span></span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>安装报错</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Error: </span><br><span class="line"> Problem: problem with installed package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line"></span><br><span class="line">  - package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package buildah-1.16.7-4.module_el8.3.0+699+d61d9c41.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - cannot install the best candidate for the job</span><br><span class="line">  - package runc-1.0.0-56.rc5.dev.git2abd837.module_el8.3.0+569+1bada2e4.x86_64 is filtered out by modular filtering</span><br><span class="line">  - package runc-1.0.0-64.rc10.module_el8.3.0+479+69e2ae26.x86_64 is filtered out by modular filtering</span><br><span class="line">    (try to add &#x27;--allowerasing&#x27; to command line to replace conflicting packages or &#x27;--skip-broken&#x27; to skip uninstallable packages or &#x27;--nobest&#x27; to use not only best candidate packages)</span><br></pre></td></tr></table></figure>
-
-
-<p>解决方法</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装podman</span></span><br><span class="line">rpm -q podman</span><br><span class="line">podman-1.4.2-5.module_el8.1.0+237+63e26edc.x86_64</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除Podman</span></span><br><span class="line">dnf remove podman</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 未解决时</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入下面的命令继续安装：</span></span><br><span class="line">yum install --allowerasing docker-ce</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看docker是否启动成功(查看版本信息)</span></span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
-<p><img src="image-20210304190851060.png" alt="image-20210304190851060"></p>
-<blockquote>
-<h3 id="运行hello-world"><a href="#运行hello-world" class="headerlink" title="运行hello-world"></a>运行hello-world</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker run hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 1. 提示未寻找到hello-world镜像</span></span><br><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 执行pull远程拉取官方library/hello-world镜像</span></span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 表示拉取成功</span></span><br><span class="line">0e03bdcc26d7: Pull complete </span><br><span class="line">Digest: sha256:7e02330c713f93b1d3e4c5003350d0dbe215ca269dd1d84a4abc577908344b30</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行hello-world表示docker安装成功</span></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="查看下载的hello-world镜像在不在"><a href="#查看下载的hello-world镜像在不在" class="headerlink" title="查看下载的hello-world镜像在不在"></a>查看下载的hello-world镜像在不在</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker images</span><br><span class="line">REPOSITORY    TAG       IMAGE ID       CREATED         SIZE</span><br><span class="line">hello-world   latest    bf756fb1ae65   14 months ago   13.3kB</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="卸载docker"><a href="#卸载docker" class="headerlink" title="卸载docker"></a>卸载docker</h3><p>docker默认工作路径： /var/lib/docker</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 卸载docker</span></span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除文件目录</span></span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用</title>
-    <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
-
-<p><img src="image-liucheng.png"></p>
-<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>提示初始化一个空的git库在<code>G:/test/test/.git/</code></p>
-<p><img src="image-20210224090517320.png" alt="image-20210224090517320"></p>
-<p>此时运行命令的位置会有</p>
-<p><img src="image-20210224090651065.png" alt="image-20210224090651065"></p>
-<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 克隆整个项目及其整个代码历史(版本信息)</span><br><span class="line"># https:<span class="operator">/</span><span class="operator">/</span>gitee.com<span class="operator">/</span>kuangstudy<span class="operator">/</span>openclass.git</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><blockquote>
-<h3 id="文件4种状态"><a href="#文件4种状态" class="headerlink" title="文件4种状态"></a>文件4种状态</h3></blockquote>
-<ul>
-<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过<code>git add</code> 状态变为<code>Staged</code></li>
-<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为<code>Modified</code>. 如果使用<code>git rm</code>移出版本库, 则成为<code>Untracked</code>文件</li>
-<li><strong>Modified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过<code>git add</code>可进入暂存<code>staged</code>状态, 使用<code>git checkout</code> 则丢弃修改过, 返回到<code>unmodify</code>状态, 这个<code>git checkout</code>即从库中取出文件, 覆盖当前修改</li>
-<li><strong>Staged</strong>: 暂存状态. 执行<code>git commit</code>则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为<code>Unmodify</code>状态. 执行<code>git reset HEAD filename</code>取消暂存, 文件状态为<code>Modified</code></li>
-</ul>
-<blockquote>
-<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 提交所有文件到暂存区  </span><br><span class="line">git add . </span><br><span class="line">    </span><br><span class="line"># 提交暂存区的内容到本地仓库</span><br><span class="line">git commit -m <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="使用该命令查看本地新搭建的项目时，显示内容为："><a href="#使用该命令查看本地新搭建的项目时，显示内容为：" class="headerlink" title="使用该命令查看本地新搭建的项目时，显示内容为："></a>使用该命令查看本地新搭建的项目时，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当前在master分支</span></span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之前未进行提交</span></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前无任何内容需要提交</span></span><br><span class="line"><span class="function">nothing to <span class="title">commit</span> <span class="params">(create/copy files and use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
-<p>​    </p>
-<h4 id="新建文件hello-txt-再使用该命令查看，显示内容为："><a href="#新建文件hello-txt-再使用该命令查看，显示内容为：" class="headerlink" title="新建文件hello.txt 再使用该命令查看，显示内容为："></a>新建文件hello.txt 再使用该命令查看，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示未跟踪的文件</span></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        hello.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未添加任何提交但是目前有未跟踪的文件</span></span><br><span class="line"><span class="function">nothing added to commit but untracked files <span class="title">present</span> <span class="params">(use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="git-add-（提交所有文件到暂存区）"><a href="#git-add-（提交所有文件到暂存区）" class="headerlink" title="git add . （提交所有文件到暂存区）"></a>git add . （提交所有文件到暂存区）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要提交的更改</span></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">		<span class="comment">// 提示有新文件  hello.txt</span></span><br><span class="line">        <span class="keyword">new</span> file:   hello.txt</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="git-commit-m-（提交暂存区的内容到本地仓库）"><a href="#git-commit-m-（提交暂存区的内容到本地仓库）" class="headerlink" title="git commit -m （提交暂存区的内容到本地仓库）"></a>git commit -m （提交暂存区的内容到本地仓库）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有东西需要提交，工作树是干净的</span></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中,比如数据库文件,临时文件,设计文件等<br>在主目录下建立”.gitignore”文件,此文件有如下规则: </p>
-<ol>
-<li>忽略文件中的空行或以井号( # )开始的行将会被忽略。</li>
-<li>可以使用Linux通配符。例如:星号(* )代表任意多个字符,问号( ? )代表-个字符,方括号( [abc] )代表可选字符范围,<br>大括号( string1，string2，…. )代表可选的字符串等。</li>
-<li>如果名称的最前面有一个感叹号(!) , 表示例外规则,将不被忽略。</li>
-<li>如果名称的最前面是一个路径分隔符 (/) ,表示要忽略的文件在此目录下,而子目录中的文件不忽略。</li>
-<li>如果名称的最后面是一个路径分隔符(1) , 表示要忽略的是此目录下该名称的子目录,而非文件(默认文件或目录都忽略)。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">#为注释</span><br><span class="line">*.txt		#忽略所有. txt结尾的文件</span><br><span class="line">!lib.txt	#但lib.txt除外</span><br><span class="line">/temp 		#仅忽路项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/		#忽略bui1d/目录下的所有文件</span><br><span class="line">doc<span class="comment">/*.txt	#忽略 doc/notes.txt 但不包括doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2><blockquote>
-<h3 id="github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器"><a href="#github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器" class="headerlink" title="==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器"></a>==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器</h3></blockquote>
-<p>设置本机绑定SSH公钥，实现免密登录</p>
-<ol>
-<li>位于<code>C:\Users\Administrator\.ssh</code>目录下</li>
-</ol>
-<p><img src="image-20210226143025211.png" alt="image-20210226143025211"></p>
-<ol start="2">
-<li>生成公钥</li>
-</ol>
-<p>ssh-keygen -t rsa</p>
-<ol start="3">
-<li>生成后产生两个文件，<code>以pub结尾的为公钥，另外一个为私钥</code></li>
-</ol>
-<p><img src="image-20210226143143961.png" alt="image-20210226143143961"></p>
-<ol start="4">
-<li>将公钥粘如码云 设置 -&gt; 安全设置 -&gt; SSH公钥</li>
-</ol>
-<h2 id="idea集成git"><a href="#idea集成git" class="headerlink" title="idea集成git"></a>idea集成git</h2><blockquote>
-<h3 id="新项目中集成git"><a href="#新项目中集成git" class="headerlink" title="新项目中集成git"></a>新项目中集成git</h3></blockquote>
-<ol>
-<li><p>在码云中创建项目并拉到本地</p>
-</li>
-<li><p>新建项目</p>
-</li>
-<li><p>将码云中拉取得项目的内容全部复制到新建的项目中</p>
-<p><img src="image-20210226165218143.png" alt="image-20210226165218143"></p>
-</li>
-</ol>
-<blockquote>
-<h3 id="提交代码到远程"><a href="#提交代码到远程" class="headerlink" title="提交代码到远程"></a>提交代码到远程</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;修改&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交到远程  </span></span><br><span class="line"><span class="comment">// 提交到指定分支： git push origin master</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="GIT分支"><a href="#GIT分支" class="headerlink" title="GIT分支"></a>GIT分支</h2><p>多个分支并行执行(不重合)，代码就不冲突，也就是同时存在多个版本</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 列出所有远程分支</span><br><span class="line">git branch -r</span><br><span class="line">    </span><br><span class="line"># 新建分支</span><br><span class="line">git branch [branch-name]</span><br><span class="line">    </span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">git merge [branch]</span><br><span class="line">    </span><br><span class="line"># 删除分支</span><br><span class="line">git branch -d [branch]</span><br><span class="line">    </span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
-
-
-<p>==master主分支应该非常稳定,用来发布新版本, 一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作,工作完后,比如: 要发布,或者说dev分支代码稳定后可以合并到主分支master上来。==</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker概念</title>
-    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<h2 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h2><a id="more"></a>
-
-<p>入门</p>
-<ul>
-<li><p>Docker概述</p>
-</li>
-<li><p>Docker安装</p>
-</li>
-<li><p>Docker命令</p>
-<ul>
-<li>镜像</li>
-<li>容器</li>
-<li>操作</li>
-<li>……</li>
-</ul>
-</li>
-<li><p>==Docker镜像==</p>
-</li>
-<li><p>==容器数据卷==</p>
-</li>
-</ul>
-<p>构建镜像</p>
-<ul>
-<li>DockerFile</li>
-</ul>
-<p>基于网络</p>
-<ul>
-<li>Docker网络原理</li>
-<li>IDEA整合Docker</li>
-</ul>
-<p>集群</p>
-<ul>
-<li>Docker Compose</li>
-<li>Docker Swarm</li>
-</ul>
-<p>持续编程持续部署</p>
-<ul>
-<li>CI/CD Jenkins</li>
-</ul>
-<h2 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h2><blockquote>
-<h3 id="Docker为什么出现"><a href="#Docker为什么出现" class="headerlink" title="Docker为什么出现"></a>Docker为什么出现</h3></blockquote>
-<ol>
-<li>一款产品：开发 – 上线，应用环境，应用配置</li>
-<li>开发 – 运维。问题：我在我的电脑上可以运行！版本更新，导致服务不可用！对于运维来说，考验就十分大</li>
-<li>环境配置十分麻烦，每台机器都要部署环境(集群Redis、ES、Hadoop……)，费时费力</li>
-</ol>
-<p>​    发布项目时，将项目带着环境一起发布(jar + (Redis + Mysql + jdk + ES))，项目带上环境安装打包！</p>
-<p>​    </p>
-<p>​    java —- apk —- 发布（应用商店） —- 客户使用apk —- 安装即可使用</p>
-<p>​    java开发 —- jar + 环境 —- 打包项目带上环境 —- Docker仓库（类似于商店）—- 客户可直接下载发布的镜像 —- 直接运行即可</p>
-<p>​    Docker的思想来自于集装箱</p>
-<p>​    <img src="image-20210302155750048.png" alt="image-20210302155750048"></p>
-<p>​    </p>
-<p>​    多个应用使用的都是同一套环境可能存在端口冲突等问题</p>
-<p>​    ==隔离==：Docker核心思想，打包装箱，每个箱子都是互相隔离的，即每个应用使用各自的环境</p>
-<h2 id="Docker资源"><a href="#Docker资源" class="headerlink" title="Docker资源"></a>Docker资源</h2><p>官网：<a href="https://www.docker.com/">https://www.docker.com/</a></p>
-<p><img src="image-20210302163351910.png" alt="image-20210302163351910"></p>
-<p>官方文档：<a href="https://docs.docker.com/">https://docs.docker.com/</a></p>
-<p>Docker hub(类似于github的仓库)：<a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
-<h2 id="Docker作用"><a href="#Docker作用" class="headerlink" title="Docker作用"></a>Docker作用</h2><blockquote>
-<p>在容器技术出现前，都是使用的虚拟机技术，虚拟机和Docker的容器技术都是==虚拟化技术==</p>
-</blockquote>
-<p>虚拟机技术：在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
-<p>容器技术：隔离，镜像，十分小巧，仅需运行镜像即可</p>
-<blockquote>
-<p>虚拟机技术</p>
-</blockquote>
-<p><img src="image-20210302172210980.png" alt="image-20210302172210980"></p>
-<p>在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
-<p>虚拟机技术缺点：</p>
-<ol>
-<li>资源占用十分多</li>
-<li>冗余步骤多</li>
-<li>启动慢</li>
-</ol>
-<blockquote>
-<p>容器化技术</p>
-</blockquote>
-<p>==容器化技术不是模拟一个完整的操作系统==</p>
-<p> <img src="image-20210302172812341.png" alt="image-20210302172812341">    </p>
-<p>与虚拟机技术比较：</p>
-<ul>
-<li>传统虚拟机，虚拟出一套硬件，运行一个完整的操作系统，然后在这个系统上安装和运行软件</li>
-<li>容器内的应用直接运行在宿主机的内核中，容器是没有自己的内核的，也没有虚拟硬件，所以就轻便了</li>
-<li>每个容器之间互相隔离，每个容器内都有一个属于自己的文件系统，互不影响。</li>
-</ul>
-<blockquote>
-<p>DevOps（开发、运维）</p>
-</blockquote>
-<p><strong>应用更快速的交付和部署</strong></p>
-<p>传统：一堆帮助文档，安装程序</p>
-<p>Docker：打包镜像发布测试，一键运行</p>
-<p><strong>更便捷的升级和扩缩容</strong></p>
-<p>项目打包成一个镜像后，若需要从服务器A 扩展到 服务器B，仅需要在服务器B上运行镜像文件即可</p>
-<p><strong>更简单的系统运维</strong></p>
-<p>在容器化之后，开发与测试环境都是高度一致的</p>
-<p><strong>更高效的计算资源利用</strong></p>
-<p>Docker是内核级别的虚拟化，可以在一个物理机上运行很多的容器实例，服务器性能可以被压榨极致。</p>
-]]></content>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>git</tag>
+        <tag>博客-Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -1070,25 +713,190 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux命令</title>
-    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
 
-<blockquote>
-<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
-<blockquote>
-<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
-</blockquote>
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
-        <tag>系统-Linux</tag>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo添加分类及标签</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
+<a id="more"></a>
+
+<h4 id="1-创建“分类”选项"><a href="#1-创建“分类”选项" class="headerlink" title="1. 创建“分类”选项"></a>1. 创建“分类”选项</h4><p>生成“分类”页并添加tpye属性,进入博客目录。执行下方命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>categories文件夹下会有index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-22 14:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>添加type: “categories”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-24 15:30:30</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<p>给文章添加“categories”属性</p>
+<p>打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h4 id="2-创建“标签”选项"><a href="#2-创建“标签”选项" class="headerlink" title="2. 创建“标签”选项"></a>2. 创建“标签”选项</h4><p>生成“标签”页并添加tpye属性，<code>页面进入标签页默认找tags目录</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>在tags文件夹下，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-22 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>添加type: “tags”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<p>给文章添加“tags”属性,打开需要添加标签的文章，为其添加tags属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: - Hexo</span><br><span class="line">tags: - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用</title>
+    <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
+
+<p><img src="image-liucheng.png"></p>
+<h3 id="本地搭建仓库"><a href="#本地搭建仓库" class="headerlink" title="本地搭建仓库"></a>本地搭建仓库</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>提示初始化一个空的git库在<code>G:/test/test/.git/</code></p>
+<p><img src="image-20210224090517320.png" alt="image-20210224090517320"></p>
+<p>此时运行命令的位置会有</p>
+<p><img src="image-20210224090651065.png" alt="image-20210224090651065"></p>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 克隆整个项目及其整个代码历史(版本信息)</span><br><span class="line"># https:<span class="operator">/</span><span class="operator">/</span>gitee.com<span class="operator">/</span>kuangstudy<span class="operator">/</span>openclass.git</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><blockquote>
+<h3 id="文件4种状态"><a href="#文件4种状态" class="headerlink" title="文件4种状态"></a>文件4种状态</h3></blockquote>
+<ul>
+<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过<code>git add</code> 状态变为<code>Staged</code></li>
+<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为<code>Modified</code>. 如果使用<code>git rm</code>移出版本库, 则成为<code>Untracked</code>文件</li>
+<li><strong>Modified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过<code>git add</code>可进入暂存<code>staged</code>状态, 使用<code>git checkout</code> 则丢弃修改过, 返回到<code>unmodify</code>状态, 这个<code>git checkout</code>即从库中取出文件, 覆盖当前修改</li>
+<li><strong>Staged</strong>: 暂存状态. 执行<code>git commit</code>则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为<code>Unmodify</code>状态. 执行<code>git reset HEAD filename</code>取消暂存, 文件状态为<code>Modified</code></li>
+</ul>
+<blockquote>
+<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 提交所有文件到暂存区  </span><br><span class="line">git add . </span><br><span class="line">    </span><br><span class="line"># 提交暂存区的内容到本地仓库</span><br><span class="line">git commit -m <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用该命令查看本地新搭建的项目时，显示内容为："><a href="#使用该命令查看本地新搭建的项目时，显示内容为：" class="headerlink" title="使用该命令查看本地新搭建的项目时，显示内容为："></a>使用该命令查看本地新搭建的项目时，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当前在master分支</span></span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之前未进行提交</span></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前无任何内容需要提交</span></span><br><span class="line"><span class="function">nothing to <span class="title">commit</span> <span class="params">(create/copy files and use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<h4 id="新建文件hello-txt-再使用该命令查看，显示内容为："><a href="#新建文件hello-txt-再使用该命令查看，显示内容为：" class="headerlink" title="新建文件hello.txt 再使用该命令查看，显示内容为："></a>新建文件hello.txt 再使用该命令查看，显示内容为：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示未跟踪的文件</span></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        hello.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未添加任何提交但是目前有未跟踪的文件</span></span><br><span class="line"><span class="function">nothing added to commit but untracked files <span class="title">present</span> <span class="params">(use <span class="string">&quot;git add&quot;</span> to track)</span></span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="git-add-（提交所有文件到暂存区）"><a href="#git-add-（提交所有文件到暂存区）" class="headerlink" title="git add . （提交所有文件到暂存区）"></a>git add . （提交所有文件到暂存区）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要提交的更改</span></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">		<span class="comment">// 提示有新文件  hello.txt</span></span><br><span class="line">        <span class="keyword">new</span> file:   hello.txt</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="git-commit-m-（提交暂存区的内容到本地仓库）"><a href="#git-commit-m-（提交暂存区的内容到本地仓库）" class="headerlink" title="git commit -m （提交暂存区的内容到本地仓库）"></a>git commit -m （提交暂存区的内容到本地仓库）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有东西需要提交，工作树是干净的</span></span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中,比如数据库文件,临时文件,设计文件等<br>在主目录下建立”.gitignore”文件,此文件有如下规则: </p>
+<ol>
+<li>忽略文件中的空行或以井号( # )开始的行将会被忽略。</li>
+<li>可以使用Linux通配符。例如:星号(* )代表任意多个字符,问号( ? )代表-个字符,方括号( [abc] )代表可选字符范围,<br>大括号( string1，string2，…. )代表可选的字符串等。</li>
+<li>如果名称的最前面有一个感叹号(!) , 表示例外规则,将不被忽略。</li>
+<li>如果名称的最前面是一个路径分隔符 (/) ,表示要忽略的文件在此目录下,而子目录中的文件不忽略。</li>
+<li>如果名称的最后面是一个路径分隔符(1) , 表示要忽略的是此目录下该名称的子目录,而非文件(默认文件或目录都忽略)。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">#为注释</span><br><span class="line">*.txt		#忽略所有. txt结尾的文件</span><br><span class="line">!lib.txt	#但lib.txt除外</span><br><span class="line">/temp 		#仅忽路项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/		#忽略bui1d/目录下的所有文件</span><br><span class="line">doc<span class="comment">/*.txt	#忽略 doc/notes.txt 但不包括doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2><blockquote>
+<h3 id="github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器"><a href="#github-是有墙的，比较慢，在国内的话一般使用-gitee-，公司中有时候会搭建自己的-gitlib-服务器" class="headerlink" title="==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器"></a>==github==是有墙的，比较慢，在国内的话一般使用==gitee==，公司中有时候会搭建自己的==gitlib==服务器</h3></blockquote>
+<p>设置本机绑定SSH公钥，实现免密登录</p>
+<ol>
+<li>位于<code>C:\Users\Administrator\.ssh</code>目录下</li>
+</ol>
+<p><img src="image-20210226143025211.png" alt="image-20210226143025211"></p>
+<ol start="2">
+<li>生成公钥</li>
+</ol>
+<p>ssh-keygen -t rsa</p>
+<ol start="3">
+<li>生成后产生两个文件，<code>以pub结尾的为公钥，另外一个为私钥</code></li>
+</ol>
+<p><img src="image-20210226143143961.png" alt="image-20210226143143961"></p>
+<ol start="4">
+<li>将公钥粘如码云 设置 -&gt; 安全设置 -&gt; SSH公钥</li>
+</ol>
+<h2 id="idea集成git"><a href="#idea集成git" class="headerlink" title="idea集成git"></a>idea集成git</h2><blockquote>
+<h3 id="新项目中集成git"><a href="#新项目中集成git" class="headerlink" title="新项目中集成git"></a>新项目中集成git</h3></blockquote>
+<ol>
+<li><p>在码云中创建项目并拉到本地</p>
+</li>
+<li><p>新建项目</p>
+</li>
+<li><p>将码云中拉取得项目的内容全部复制到新建的项目中</p>
+<p><img src="image-20210226165218143.png" alt="image-20210226165218143"></p>
+</li>
+</ol>
+<blockquote>
+<h3 id="提交代码到远程"><a href="#提交代码到远程" class="headerlink" title="提交代码到远程"></a>提交代码到远程</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;修改&quot;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 提交到远程  </span></span><br><span class="line"><span class="comment">// 提交到指定分支： git push origin master</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="GIT分支"><a href="#GIT分支" class="headerlink" title="GIT分支"></a>GIT分支</h2><p>多个分支并行执行(不重合)，代码就不冲突，也就是同时存在多个版本</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 列出所有本地分支</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"># 列出所有远程分支</span><br><span class="line">git branch -r</span><br><span class="line">    </span><br><span class="line"># 新建分支</span><br><span class="line">git branch [branch-name]</span><br><span class="line">    </span><br><span class="line"># 合并指定分支到当前分支</span><br><span class="line">git merge [branch]</span><br><span class="line">    </span><br><span class="line"># 删除分支</span><br><span class="line">git branch -d [branch]</span><br><span class="line">    </span><br><span class="line"># 删除远程分支</span><br><span class="line">git push origin --delete [branch-name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+
+
+<p>==master主分支应该非常稳定,用来发布新版本, 一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作,工作完后,比如: 要发布,或者说dev分支代码稳定后可以合并到主分支master上来。==</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ol>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git安装及配置</title>
+    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<a id="more"></a>
+
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
+<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -1137,6 +945,219 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker安装</title>
+    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="Docker的基本组成"><a href="#Docker的基本组成" class="headerlink" title="Docker的基本组成"></a>Docker的基本组成</h2><a id="more"></a>
+
+<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=793314303,480081697&fm=26&gp=0.jpg" alt="img"></p>
+<p><strong>镜像（image）：</strong></p>
+<p>docker镜像就好比是一个模板，可以通过这个模板来创建容器服务，tomcat镜像 ==&gt; run ==&gt; tomcat1容器（提供服务器），通过这个镜像可以创建多个容器（最终服务或者项目运行就是在容器中的）</p>
+<p><strong>容器（container）：</strong></p>
+<p>Docker利用容器技术，独立运行一个或者一组应用，通过镜像来创建的。</p>
+<p>可以将容器理解为一个简易的Linux系统</p>
+<p>基本命令：启动、停止、删除</p>
+<p><strong>仓库（repository）：</strong></p>
+<p>仓库就是存放镜像的地方</p>
+<p>仓库分为共有仓库和私有仓库</p>
+<p>Docker Hub (默认)</p>
+<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><blockquote>
+<h3 id="卸载旧的版本"><a href="#卸载旧的版本" class="headerlink" title="卸载旧的版本"></a>卸载旧的版本</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">            docker-client \</span><br><span class="line">            docker-client-latest \</span><br><span class="line">            docker-common \</span><br><span class="line">            docker-latest \</span><br><span class="line">            docker-latest-logrotate \</span><br><span class="line">            docker-logrotate \</span><br><span class="line">            docker-engine</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="需要的安装包"><a href="#需要的安装包" class="headerlink" title="需要的安装包"></a>需要的安装包</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要的安装包</span></span><br><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="设置镜像的仓库"><a href="#设置镜像的仓库" class="headerlink" title="设置镜像的仓库"></a>设置镜像的仓库</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo   # 国外镜像仓库</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 阿里镜像仓库</span></span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">	https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>更新yum软件包索引</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum makecache fast</span><br><span class="line">// centos8可能需要使用</span><br><span class="line">yum makecache timer</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<h3 id="安装docker相关的内容"><a href="#安装docker相关的内容" class="headerlink" title="安装docker相关的内容"></a>安装docker相关的内容</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker-ce 社区版本  ee企业版</span></span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>安装报错</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Error: </span><br><span class="line"> Problem: problem with installed package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line"></span><br><span class="line">  - package buildah-1.15.1-2.module_el8.3.0+475+c50ce30b.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package buildah-1.16.7-4.module_el8.3.0+699+d61d9c41.x86_64 requires runc &gt;= 1.0.0-26, but none of the providers can be installed</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-68.rc92.module_el8.3.0+475+c50ce30b.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 conflicts with runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - package containerd.io-1.4.3-3.1.el8.x86_64 obsoletes runc provided by runc-1.0.0-70.rc92.module_el8.3.0+699+d61d9c41.x86_64</span><br><span class="line">  - cannot install the best candidate for the job</span><br><span class="line">  - package runc-1.0.0-56.rc5.dev.git2abd837.module_el8.3.0+569+1bada2e4.x86_64 is filtered out by modular filtering</span><br><span class="line">  - package runc-1.0.0-64.rc10.module_el8.3.0+479+69e2ae26.x86_64 is filtered out by modular filtering</span><br><span class="line">    (try to add &#x27;--allowerasing&#x27; to command line to replace conflicting packages or &#x27;--skip-broken&#x27; to skip uninstallable packages or &#x27;--nobest&#x27; to use not only best candidate packages)</span><br></pre></td></tr></table></figure>
+
+
+<p>解决方法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装podman</span></span><br><span class="line">rpm -q podman</span><br><span class="line">podman-1.4.2-5.module_el8.1.0+237+63e26edc.x86_64</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除Podman</span></span><br><span class="line">dnf remove podman</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 未解决时</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入下面的命令继续安装：</span></span><br><span class="line">yum install --allowerasing docker-ce</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看docker是否启动成功(查看版本信息)</span></span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210304190851060.png" alt="image-20210304190851060"></p>
+<blockquote>
+<h3 id="运行hello-world"><a href="#运行hello-world" class="headerlink" title="运行hello-world"></a>运行hello-world</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker run hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 1. 提示未寻找到hello-world镜像</span></span><br><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 执行pull远程拉取官方library/hello-world镜像</span></span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash"> 表示拉取成功</span></span><br><span class="line">0e03bdcc26d7: Pull complete </span><br><span class="line">Digest: sha256:7e02330c713f93b1d3e4c5003350d0dbe215ca269dd1d84a4abc577908344b30</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行hello-world表示docker安装成功</span></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta"> $</span><span class="bash"> docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="查看下载的hello-world镜像在不在"><a href="#查看下载的hello-world镜像在不在" class="headerlink" title="查看下载的hello-world镜像在不在"></a>查看下载的hello-world镜像在不在</h3></blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# docker images</span><br><span class="line">REPOSITORY    TAG       IMAGE ID       CREATED         SIZE</span><br><span class="line">hello-world   latest    bf756fb1ae65   14 months ago   13.3kB</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="卸载docker"><a href="#卸载docker" class="headerlink" title="卸载docker"></a>卸载docker</h3><p>docker默认工作路径： /var/lib/docker</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 卸载docker</span></span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除文件目录</span></span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker概念</title>
+    <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h2 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h2><a id="more"></a>
+
+<p>入门</p>
+<ul>
+<li><p>Docker概述</p>
+</li>
+<li><p>Docker安装</p>
+</li>
+<li><p>Docker命令</p>
+<ul>
+<li>镜像</li>
+<li>容器</li>
+<li>操作</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>==Docker镜像==</p>
+</li>
+<li><p>==容器数据卷==</p>
+</li>
+</ul>
+<p>构建镜像</p>
+<ul>
+<li>DockerFile</li>
+</ul>
+<p>基于网络</p>
+<ul>
+<li>Docker网络原理</li>
+<li>IDEA整合Docker</li>
+</ul>
+<p>集群</p>
+<ul>
+<li>Docker Compose</li>
+<li>Docker Swarm</li>
+</ul>
+<p>持续编程持续部署</p>
+<ul>
+<li>CI/CD Jenkins</li>
+</ul>
+<h2 id="Docker概述"><a href="#Docker概述" class="headerlink" title="Docker概述"></a>Docker概述</h2><blockquote>
+<h3 id="Docker为什么出现"><a href="#Docker为什么出现" class="headerlink" title="Docker为什么出现"></a>Docker为什么出现</h3></blockquote>
+<ol>
+<li>一款产品：开发 – 上线，应用环境，应用配置</li>
+<li>开发 – 运维。问题：我在我的电脑上可以运行！版本更新，导致服务不可用！对于运维来说，考验就十分大</li>
+<li>环境配置十分麻烦，每台机器都要部署环境(集群Redis、ES、Hadoop……)，费时费力</li>
+</ol>
+<p>​    发布项目时，将项目带着环境一起发布(jar + (Redis + Mysql + jdk + ES))，项目带上环境安装打包！</p>
+<p>​    </p>
+<p>​    java —- apk —- 发布（应用商店） —- 客户使用apk —- 安装即可使用</p>
+<p>​    java开发 —- jar + 环境 —- 打包项目带上环境 —- Docker仓库（类似于商店）—- 客户可直接下载发布的镜像 —- 直接运行即可</p>
+<p>​    Docker的思想来自于集装箱</p>
+<p>​    <img src="image-20210302155750048.png" alt="image-20210302155750048"></p>
+<p>​    </p>
+<p>​    多个应用使用的都是同一套环境可能存在端口冲突等问题</p>
+<p>​    ==隔离==：Docker核心思想，打包装箱，每个箱子都是互相隔离的，即每个应用使用各自的环境</p>
+<h2 id="Docker资源"><a href="#Docker资源" class="headerlink" title="Docker资源"></a>Docker资源</h2><p>官网：<a href="https://www.docker.com/">https://www.docker.com/</a></p>
+<p><img src="image-20210302163351910.png" alt="image-20210302163351910"></p>
+<p>官方文档：<a href="https://docs.docker.com/">https://docs.docker.com/</a></p>
+<p>Docker hub(类似于github的仓库)：<a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<h2 id="Docker作用"><a href="#Docker作用" class="headerlink" title="Docker作用"></a>Docker作用</h2><blockquote>
+<p>在容器技术出现前，都是使用的虚拟机技术，虚拟机和Docker的容器技术都是==虚拟化技术==</p>
+</blockquote>
+<p>虚拟机技术：在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
+<p>容器技术：隔离，镜像，十分小巧，仅需运行镜像即可</p>
+<blockquote>
+<p>虚拟机技术</p>
+</blockquote>
+<p><img src="image-20210302172210980.png" alt="image-20210302172210980"></p>
+<p>在windows中装一个VMware，通过这个软件虚拟出来一台或多台电脑(特点：笨重，与真实的电脑是一样的)</p>
+<p>虚拟机技术缺点：</p>
+<ol>
+<li>资源占用十分多</li>
+<li>冗余步骤多</li>
+<li>启动慢</li>
+</ol>
+<blockquote>
+<p>容器化技术</p>
+</blockquote>
+<p>==容器化技术不是模拟一个完整的操作系统==</p>
+<p> <img src="image-20210302172812341.png" alt="image-20210302172812341">    </p>
+<p>与虚拟机技术比较：</p>
+<ul>
+<li>传统虚拟机，虚拟出一套硬件，运行一个完整的操作系统，然后在这个系统上安装和运行软件</li>
+<li>容器内的应用直接运行在宿主机的内核中，容器是没有自己的内核的，也没有虚拟硬件，所以就轻便了</li>
+<li>每个容器之间互相隔离，每个容器内都有一个属于自己的文件系统，互不影响。</li>
+</ul>
+<blockquote>
+<p>DevOps（开发、运维）</p>
+</blockquote>
+<p><strong>应用更快速的交付和部署</strong></p>
+<p>传统：一堆帮助文档，安装程序</p>
+<p>Docker：打包镜像发布测试，一键运行</p>
+<p><strong>更便捷的升级和扩缩容</strong></p>
+<p>项目打包成一个镜像后，若需要从服务器A 扩展到 服务器B，仅需要在服务器B上运行镜像文件即可</p>
+<p><strong>更简单的系统运维</strong></p>
+<p>在容器化之后，开发与测试环境都是高度一致的</p>
+<p><strong>更高效的计算资源利用</strong></p>
+<p>Docker是内核级别的虚拟化，可以在一个物理机上运行很多的容器实例，服务器性能可以被压榨极致。</p>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
+
+<blockquote>
+<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>系统-Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>虚拟机安装Linux</title>
     <url>/2021/03/03/%E7%B3%BB%E7%BB%9F/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux/</url>
     <content><![CDATA[<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><a id="more"></a>
@@ -1156,27 +1177,6 @@
 ]]></content>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git安装及配置</title>
-    <url>/2021/02/22/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<a id="more"></a>
-
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>需要先清理环境变量，再删除文件</p>
-<h3 id="查看git配置"><a href="#查看git配置" class="headerlink" title="查看git配置"></a>查看git配置</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关于git所有的配置</span></span><br><span class="line">git config -l</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统配置</span></span><br><span class="line">git config --system --list</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 用户自身的配置   其中用户名和邮箱是必须配置的</span></span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="所有的配置文件，其实都保存在本地"><a href="#所有的配置文件，其实都保存在本地" class="headerlink" title="所有的配置文件，其实都保存在本地"></a><code>所有的配置文件，其实都保存在本地</code></h4><h4 id="设置用户名和邮箱-用户标识，必要"><a href="#设置用户名和邮箱-用户标识，必要" class="headerlink" title="设置用户名和邮箱(用户标识，必要)"></a>设置用户名和邮箱(用户标识，必要)</h4><h5 id="本地git配置文件位置"><a href="#本地git配置文件位置" class="headerlink" title="本地git配置文件位置"></a>本地git配置文件位置</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --system 系统级 旧版位置   </span></span><br><span class="line"><span class="comment">// 新版为位于 Git\mingw64\etc\gitconfig</span></span><br><span class="line">Git\mingw64\etc\gitconfig</span><br><span class="line">    </span><br><span class="line"><span class="comment">// --global 用户配置</span></span><br><span class="line">C:\Users\Administrator\.gitconfig</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置用户名</span></span><br><span class="line">git config --global user.name <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">// 配置邮箱</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&quot;</span>    </span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
 </search>
