@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="javascript表示小数的方法 IEEE754标准表示方法： ​    单精度 ​    双精度(64位) ​    延伸单精度 ​    延伸双精度 ​    &#x3D;&#x3D;javascript 采用的是IEEE754的 双精度(64位)&#x3D;&#x3D; ​    64位意思为由0或1组成这64位 ​    IEEE754将这64位分为三个部分  ​     ​    &#x3D;&#x3D;科学计数法：&#x3D;&#x3D; 123666 可表示为">
+  <meta name="description" content="javascript表示小数的方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js小数精度问题">
 <meta property="og:url" content="http://example.com/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="黄焖鸡在逃米饭">
-<meta property="og:description" content="javascript表示小数的方法 IEEE754标准表示方法： ​    单精度 ​    双精度(64位) ​    延伸单精度 ​    延伸双精度 ​    &#x3D;&#x3D;javascript 采用的是IEEE754的 双精度(64位)&#x3D;&#x3D; ​    64位意思为由0或1组成这64位 ​    IEEE754将这64位分为三个部分  ​     ​    &#x3D;&#x3D;科学计数法：&#x3D;&#x3D; 123666 可表示为">
+<meta property="og:description" content="javascript表示小数的方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/image-20210308142017517.png">
 <meta property="og:image" content="http://example.com/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/image-20210308142504637.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/image-20210308152532758.png">
 <meta property="og:image" content="http://example.com/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/image-20210308152740791.png">
 <meta property="article:published_time" content="2021-03-08T06:05:50.000Z">
-<meta property="article:modified_time" content="2021-03-08T07:39:04.281Z">
+<meta property="article:modified_time" content="2021-03-08T08:21:26.235Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="小数">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-08 14:05:50 / 修改时间：15:39:04" itemprop="dateCreated datePublished" datetime="2021-03-08T14:05:50+08:00">2021-03-08</time>
+              <time title="创建时间：2021-03-08 14:05:50 / 修改时间：16:21:26" itemprop="dateCreated datePublished" datetime="2021-03-08T14:05:50+08:00">2021-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,7 +254,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="javascript表示小数的方法"><a href="#javascript表示小数的方法" class="headerlink" title="javascript表示小数的方法"></a>javascript表示小数的方法</h2><blockquote>
+        <h2 id="javascript表示小数的方法"><a href="#javascript表示小数的方法" class="headerlink" title="javascript表示小数的方法"></a>javascript表示小数的方法</h2><a id="more"></a>
+
+<blockquote>
 <h3 id="IEEE754标准表示方法："><a href="#IEEE754标准表示方法：" class="headerlink" title="IEEE754标准表示方法："></a>IEEE754标准表示方法：</h3></blockquote>
 <p>​    单精度</p>
 <p>​    双精度(64位)</p>

@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-08 16:11:20 / 修改时间：16:16:46" itemprop="dateCreated datePublished" datetime="2021-03-08T16:11:20+08:00">2021-03-08</time>
+              <time title="创建时间：2021-03-08 16:11:20 / 修改时间：16:20:49" itemprop="dateCreated datePublished" datetime="2021-03-08T16:11:20+08:00">2021-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,24 +235,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>let arra = [{name:123},{name:456},{name:789}];</p>
-<p>let obj = arra.find(item =&gt; {return item[“name”] == 456})</p>
-<p>.</p>
-<p>得到{name: 456}</p>
-<p>find 返回首个符合标准的</p>
-<p>filter返回集合</p>
-<p><img src="clipboard.png" alt="img"></p>
-<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><p>splice  插入和删除</p>
-<p>list.splice(开始的下标, 删除几个, 插入的元素)</p>
-<h3 id="replace-js替换所有匹配项"><a href="#replace-js替换所有匹配项" class="headerlink" title="replace  js替换所有匹配项"></a>replace  js替换所有匹配项</h3><p>let list = [1,2,3,4]</p>
-<p>let json = JSON.stringify(list)</p>
-<p>let regex = new RegExp(“,”, “g”)</p>
-<p>json.replace(regex,”;”)</p>
-<p>或</p>
-<p>let list = [1,2,3,4]</p>
-<p>let json = JSON.stringify(list)</p>
-<p>json.replace(/,/g, “;”)</p>
-
+          <h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -462,7 +453,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-08 14:05:50 / 修改时间：15:39:04" itemprop="dateCreated datePublished" datetime="2021-03-08T14:05:50+08:00">2021-03-08</time>
+              <time title="创建时间：2021-03-08 14:05:50 / 修改时间：16:21:26" itemprop="dateCreated datePublished" datetime="2021-03-08T14:05:50+08:00">2021-03-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -493,67 +484,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="javascript表示小数的方法"><a href="#javascript表示小数的方法" class="headerlink" title="javascript表示小数的方法"></a>javascript表示小数的方法</h2><blockquote>
-<h3 id="IEEE754标准表示方法："><a href="#IEEE754标准表示方法：" class="headerlink" title="IEEE754标准表示方法："></a>IEEE754标准表示方法：</h3></blockquote>
-<p>​    单精度</p>
-<p>​    双精度(64位)</p>
-<p>​    延伸单精度</p>
-<p>​    延伸双精度</p>
-<p>​    ==javascript 采用的是IEEE754的 双精度(64位)==</p>
-<p>​    64位意思为由0或1组成这64位</p>
-<p>​    IEEE754将这64位分为三个部分</p>
-<p><img src="image-20210308142017517.png" alt="image-20210308142017517"></p>
-<p>​    </p>
-<p>​    ==科学计数法：==</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">666</span> 可表示为 <span class="number">6.66</span> * <span class="number">10</span>^<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">666000</span> 可表示为 <span class="number">6.66</span> * <span class="number">10</span>^<span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>​    </p>
-<p>​    当数字越大的时候使用科学计数法可以节省更多的空间和时间，计算机也采用这种方式</p>
-<p>​    使用计算机的科学计数法来表示24时，可以表示为：</p>
-<p><img src="image-20210308142504637.png" alt="image-20210308142504637"></p>
-<p>​    再结合IEEE754双精度（64位）</p>
-<p><img src="image-20210308142838551.png" alt="image-20210308142838551"></p>
-<p>​    </p>
-<blockquote>
-<h3 id="使用计算机的科学计数法表示小数"><a href="#使用计算机的科学计数法表示小数" class="headerlink" title="使用计算机的科学计数法表示小数"></a>使用计算机的科学计数法表示小数</h3><p>==十进制转为二进制采用乘2取正法==</p>
-</blockquote>
-<p>==十进制  0.125==</p>
-<p>0.125 * 2 = ==0==.25 整数部分为0</p>
-<p>0.25 * 2 = ==0==.5 整数部分为0</p>
-<p>0.5 * 2 = ==1== 整数部分为1</p>
-<p>==转化为二进制为 0.001==</p>
-<blockquote>
-<h3 id="为什么JavaScript中0-1-0-2-不等于0-3"><a href="#为什么JavaScript中0-1-0-2-不等于0-3" class="headerlink" title="==为什么JavaScript中0.1 + 0.2 不等于0.3=="></a>==为什么JavaScript中0.1 + 0.2 不等于0.3==</h3></blockquote>
-<p>十进制  0.1</p>
-<p>0.1 * 2 = ==0==.2 整数部分为0</p>
-<p>0.2 * 2 = ==0==.4 整数部分为0</p>
-<p>0.8 * 2 = ==1==.6 整数部分为1</p>
-<p>0.6 * 2 = ==1==.2 整数部分为1</p>
-<p>0.2 * 2 = ==0==.4 整数部分为0</p>
-<p>……</p>
-<p>转化为二进制为 0.0001100110</p>
-<p>==0.1 使用计算机科学计数法表示为 1.10011 * 2^-4==</p>
-<p>十进制  0.2</p>
-<p>0.2 * 2 = ==0==.4 整数部分为0</p>
-<p>0.4 * 2 = ==0==.8 整数部分为0</p>
-<p>0.8 * 2 = ==1==.6 整数部分为1</p>
-<p>0.6 * 2 = ==1==.2 整数部分为1</p>
-<p>0.2 * 2 = ==0==.4 整数部分为0</p>
-<p>0.4 * 2 = ==0==.8 整数部分为0</p>
-<p>……</p>
-<p>转化为二进制为 0.001100110</p>
-<p>==0.2 使用计算机科学计数法表示为 1.10011 * 2^-3==</p>
-<p><strong>即0.1与0.2使用计算机科学计数法表示时都是无限长的</strong></p>
-<p><strong>而使用IEEE754的双精度(64位)来表示数字的话肯定会出现后续位置无法存储进去，因为指数位只有11位，有效数只有52位，有效位肯定无法存储这个无限长度的二进制数，这样就迫使计算机取一个近似的数字</strong></p>
-<p>==<strong>因此0.1 + 0.2之后在转化为十进制时就已经不是纯正的0.3了</strong>==</p>
-<blockquote>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3></blockquote>
-<p>不准确的数出现时会与得到的数字之间相隔很多个0</p>
-<p><img src="image-20210308145541542.png" alt="image-20210308145541542"></p>
-<p>因此可以使用四舍五入法</p>
-<p>首先使用toFixed保留几位小数，然后使用parentFloat将其转化为小数</p>
-<p><img src="image-20210308152532758.png" alt="image-20210308152532758"></p>
-<p><img src="image-20210308152740791.png" alt="image-20210308152740791"></p>
-
+          <h2 id="javascript表示小数的方法"><a href="#javascript表示小数的方法" class="headerlink" title="javascript表示小数的方法"></a>javascript表示小数的方法</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%BA%95%E5%B1%82/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -736,10 +675,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-05 17:51:34 / 修改时间：18:24:46" itemprop="dateCreated datePublished" datetime="2021-03-05T17:51:34+08:00">2021-03-05</time>
+              <time title="创建时间：2021-03-05 17:51:34" itemprop="dateCreated datePublished" datetime="2021-03-05T17:51:34+08:00">2021-03-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-08 16:22:01" itemprop="dateModified" datetime="2021-03-08T16:22:01+08:00">2021-03-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -765,19 +710,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Docker的常用命令"><a href="#Docker的常用命令" class="headerlink" title="Docker的常用命令"></a>Docker的常用命令</h2><blockquote>
-<h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3></blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示docker版本信息</span></span><br><span class="line">docker version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示docker更加详细的信息</span></span><br><span class="line">docker info</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 帮助命令  或者docker <span class="built_in">help</span></span></span><br><span class="line">docker 命令 --help</span><br></pre></td></tr></table></figure>
-
-
-<p>官网命令文档</p>
-<p>网址：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/build/">https://docs.docker.com/engine/reference/commandline/build/</a></p>
-<p><img src="image-20210305181538559.png" alt="image-20210305181538559"></p>
-<blockquote>
-<h3 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h3></blockquote>
-<blockquote>
-<h3 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h3></blockquote>
-
+          <h2 id="Docker的常用命令"><a href="#Docker的常用命令" class="headerlink" title="Docker的常用命令"></a>Docker的常用命令</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -819,10 +760,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-05 16:23:39 / 修改时间：17:50:15" itemprop="dateCreated datePublished" datetime="2021-03-05T16:23:39+08:00">2021-03-05</time>
+              <time title="创建时间：2021-03-05 16:23:39" itemprop="dateCreated datePublished" datetime="2021-03-05T16:23:39+08:00">2021-03-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-08 16:22:25" itemprop="dateModified" datetime="2021-03-08T16:22:25+08:00">2021-03-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -852,9 +799,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="选择最后一个对象"><a href="#选择最后一个对象" class="headerlink" title="选择最后一个对象"></a>选择最后一个对象</h2><p>#div a:last-child {</p>
-<p>}</p>
-
+          <h2 id="选择最后一个对象"><a href="#选择最后一个对象" class="headerlink" title="选择最后一个对象"></a>选择最后一个对象</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/05/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E9%80%89%E6%8B%A9%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
