@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>文件结构</title>
-    <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
-<a id="more"></a>
-
-
-
-<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="md"><a href="#md" class="headerlink" title=".md"></a>.md</h3><p>用来标注Markdown文件</p>
-<h3 id="ios"><a href="#ios" class="headerlink" title=".ios"></a>.ios</h3><p>一种光盘（CD）上的文件系统格式。简单地说，就是数据在数据光盘上的组织形式</p>
-<p><img src="image-20210303093655987.png" alt="image-20210303093655987"></p>
-<h2 id="系统结构"><a href="#系统结构" class="headerlink" title="系统结构"></a>系统结构</h2><h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server（服务器-客户机）</p>
-<p><img src="20151230125752551.png" alt="img"></p>
-<h3 id="B-S"><a href="#B-S" class="headerlink" title="B/S"></a>B/S</h3><p>Browser-Server，B/S结构即浏览器和服务器结构。</p>
-<p><img src="20151230125834981.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>etc</category>
-      </categories>
-      <tags>
-        <tag>文件结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端报错汇总</title>
     <url>/2021/02/22/%E6%8A%A5%E9%94%99/%E5%89%8D%E7%AB%AF%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p><strong>net::ERR_CONNECTION_REFUSED</strong></p>
@@ -192,6 +169,29 @@
       </tags>
   </entry>
   <entry>
+    <title>文件结构</title>
+    <url>/2021/02/23/etc/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="文件夹"><a href="#文件夹" class="headerlink" title="文件夹"></a>文件夹</h2><h3 id="etc-其他"><a href="#etc-其他" class="headerlink" title="etc  其他"></a>etc  其他</h3><p>一般用来存放配置文件</p>
+<a id="more"></a>
+
+
+
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="md"><a href="#md" class="headerlink" title=".md"></a>.md</h3><p>用来标注Markdown文件</p>
+<h3 id="ios"><a href="#ios" class="headerlink" title=".ios"></a>.ios</h3><p>一种光盘（CD）上的文件系统格式。简单地说，就是数据在数据光盘上的组织形式</p>
+<p><img src="image-20210303093655987.png" alt="image-20210303093655987"></p>
+<h2 id="系统结构"><a href="#系统结构" class="headerlink" title="系统结构"></a>系统结构</h2><h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server（服务器-客户机）</p>
+<p><img src="20151230125752551.png" alt="img"></p>
+<h3 id="B-S"><a href="#B-S" class="headerlink" title="B/S"></a>B/S</h3><p>Browser-Server，B/S结构即浏览器和服务器结构。</p>
+<p><img src="20151230125834981.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>etc</category>
+      </categories>
+      <tags>
+        <tag>文件结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Navicat</title>
     <url>/2021/02/25/%E8%BD%AF%E4%BB%B6/Navicat/</url>
     <content><![CDATA[<h2 id="Navicat快捷键"><a href="#Navicat快捷键" class="headerlink" title="Navicat快捷键"></a>Navicat快捷键</h2><a id="more"></a>
@@ -223,6 +223,7 @@
 <a id="more"></a>
 
 <p>js宏观任务和微观任务</p>
+<p>线性代数和数据结构算法</p>
 ]]></content>
   </entry>
   <entry>
@@ -366,243 +367,28 @@
 <p>面向对象会拆出人和洗衣机两个对象:</p>
 <p>人: 打开洗衣机、放衣服、放洗衣粉</p>
 <p>洗衣机: 清洗、烘干</p>
-<p>从以上例子能看出，面向过程比较直接高效,而面向对象更易于复用、扩展和维护</p>
-]]></content>
+<p>从以上例子能看出，==面向过程比较直接高效==,而==面向对象更易于复用、扩展和维护==</p>
+<blockquote>
+<h3 id="面向对象三大特性"><a href="#面向对象三大特性" class="headerlink" title="面向对象三大特性"></a>面向对象三大特性</h3></blockquote>
+<p>==封装==：封装的意义，在于明确标识出允许外部使用的所有成员函数和数据项<br>外部调用无需修改或者关心内部实现</p>
+<ol>
+<li><code>javabean</code>的属性私有，提供get\set对外访问， 因为属性的赋值或者获取逻辑只能由<code>javabean</code>本身决定。而不能<br>由外部胡乱修改</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 该类name属性有自身的命名规范，明显不能由外部直接赋值</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">&quot;姓_&quot;</span> + name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>orm框架</p>
+<p>操作数据库时，操作者不需要关心链接如何建立，sql如何执行，只需引入mybatis，调用方法即可</p>
+</li>
+</ol>
+<p>==继承==：继承基类的方法，并做出自己的改变或扩展</p>
+<p>子类共性的方法或者属性直接使用父类的,而不需要自己再定义，只需扩展自己个性化的</p>
+<p>==多态==：基于对象所属类的不同,外部对同一个方法的调用,实际执行的逻辑不同。</p>
+<h2 id="JDK、JRE、JVM"><a href="#JDK、JRE、JVM" class="headerlink" title="JDK、JRE、JVM"></a>JDK、JRE、JVM</h2>]]></content>
       <categories>
         <category>进度</category>
       </categories>
       <tags>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cron表达式</title>
-    <url>/2021/02/25/java/%E5%89%8D%E5%90%8E%E7%AB%AF/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p>　　<strong>一、结构</strong></p>
-<p>　　corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份</p>
-<p>​    <a id="more"></a></p>
-<p>　　<strong>二、各字段的含义</strong></p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>允许值</th>
-<th>允许的特殊字符</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>秒（Seconds）</td>
-<td>0~59的整数</td>
-<td>, - * /   四个字符</td>
-</tr>
-<tr>
-<td>分（<em>Minutes</em>）</td>
-<td>0~59的整数</td>
-<td>, - * /   四个字符</td>
-</tr>
-<tr>
-<td>小时（<em>Hours</em>）</td>
-<td>0~23的整数</td>
-<td>, - * /   四个字符</td>
-</tr>
-<tr>
-<td>日期（<em>DayofMonth</em>）</td>
-<td>1~31的整数（但是你需要考虑你月的天数）</td>
-<td>,- * ? / L W C   八个字符</td>
-</tr>
-<tr>
-<td>月份（<em>Month</em>）</td>
-<td>1~12的整数或者 JAN-DEC</td>
-<td>, - * /   四个字符</td>
-</tr>
-<tr>
-<td>星期（<em>DayofWeek</em>）</td>
-<td>1~7的整数或者 SUN-SAT （1=SUN）</td>
-<td>, - * ? / L C #   八个字符</td>
-</tr>
-<tr>
-<td>年(可选，留空)（<em>Year</em>）</td>
-<td>1970~2099</td>
-<td>, - * /   四个字符</td>
-</tr>
-</tbody></table>
-<p>　　<strong>注意事项：</strong></p>
-<p>　　每一个域都使用数字，但还可以出现如下特殊字符，它们的含义是：</p>
-<p>　　（1）<em>：表示匹配该域的任意值。假如在Minutes域使用</em>, 即表示每分钟都会触发事件。</p>
-<p>　　（2）?：只能用在DayofMonth和DayofWeek两个域。它也匹配域的任意值，但实际不会。因为DayofMonth和DayofWeek会相互影响。例如想在每月的20日触发调度，不管20日到底是星期几，则只能使用如下写法： 13 13 15 20 * ?, 其中最后一位只能用？，而不能使用<em>，如果使用</em>表示不管星期几都会触发，实际上并不是这样。</p>
-<p>　　（3）-：表示范围。例如在Minutes域使用5-20，表示从5分到20分钟每分钟触发一次 </p>
-<p>　　（4）/：表示起始时间开始触发，然后每隔固定时间触发一次。例如在Minutes域使用5/20,则意味着5分钟触发一次，而25，45等分别触发一次. </p>
-<p>　　（5）,：表示列出枚举值。例如：在Minutes域使用5,20，则意味着在5和20分每分钟触发一次。 </p>
-<p>　　（6）L：表示最后，只能出现在DayofWeek和DayofMonth域。如果在DayofWeek域使用5L,意味着在最后的一个星期四触发。 </p>
-<p>　　（7）W:表示有效工作日(周一到周五),只能出现在DayofMonth域，系统将在离指定日期的最近的有效工作日触发事件。例如：在 DayofMonth使用5W，如果5日是星期六，则将在最近的工作日：星期五，即4日触发。如果5日是星期天，则在6日(周一)触发；如果5日在星期一到星期五中的一天，则就在5日触发。另外一点，W的最近寻找不会跨过月份 。</p>
-<p>　　（8）LW:这两个字符可以连用，表示在某个月最后一个工作日，即最后一个星期五。 </p>
-<p>　　（9）#:用于确定每个月第几个星期几，只能出现在DayofMonth域。例如在4#2，表示某月的第二个星期三。</p>
-<p>　　<strong>三、常用表达式例子</strong></p>
-<p>　　（1）<strong>0 0 2 1 * ? *</strong>  表示在每月的1日的凌晨2点调整任务</p>
-<p>　　（2）<strong>0 15 10 ? * MON-FRI</strong>  表示周一到周五每天上午10:15执行作业</p>
-<p>　　（3）<strong>0 15 10 ? 6L 2002-2006</strong>  表示2002-2006年的每个月的最后一个星期五上午10:15执行作</p>
-<p>　　（4）<strong>0 0 10,14,16 * * ?</strong>  每天上午10点，下午2点，4点 </p>
-<p>　　（5）<strong>0 0/30 9-17 * * ?</strong>  朝九晚五工作时间内每半小时 </p>
-<p>　　（6）<strong>0 0 12 ? * WED</strong>   表示每个星期三中午12点 </p>
-<p>　　（7）<strong>0 0 12 * * ?</strong>  每天中午12点触发 </p>
-<p>　　（8）<strong>0 15 10 ? * *</strong>   每天上午10:15触发 </p>
-<p>　　（9）<strong>0 15 10 * * ?</strong>   每天上午10:15触发 </p>
-<p>　　（10）<strong>0 15 10 * * ? *</strong>   每天上午10:15触发 </p>
-<p>　　（11）<strong>0 15 10 * * ? 2005</strong>   2005年的每天上午10:15触发 </p>
-<p>　　（12）<strong>0 * 14 * * ?</strong>   在每天下午2点到下午2:59期间的每1分钟触发 </p>
-<p>　　（13）<strong>0 0/5 14 * * ?</strong>   在每天下午2点到下午2:55期间的每5分钟触发 </p>
-<p>　　（14）<strong>0 0/5 14,18 * * ?</strong>   在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 </p>
-<p>　　（15）<strong>0 0-5 14 * * ?</strong>   在每天下午2点到下午2:05期间的每1分钟触发 </p>
-<p>　　（16）<strong>0 10,44 14 ? 3 WED</strong>   每年三月的星期三的下午2:10和2:44触发 </p>
-<p>　　（17）<strong>0 15 10 ? * MON-FRI</strong>   周一至周五的上午10:15触发 </p>
-<p>　　（18）<strong>0 15 10 15 * ?</strong>   每月15日上午10:15触发 </p>
-<p>　　（19）<strong>0 15 10 L * ?</strong>   每月最后一日的上午10:15触发 </p>
-<p>　　（20）<strong>0 15 10 ? * 6L</strong>   每月的最后一个星期五上午10:15触发 </p>
-<p>　　（21）<strong>0 15 10 ? * 6L 2002-2005</strong>  2002年至2005年的每月的最后一个星期五上午10:15触发 </p>
-<p>　　（22）<strong>0 15 10 ? * 6#3</strong>  每月的第三个星期五上午10:15触发</p>
-<p>　　</p>
-<p>　　<strong>注：</strong></p>
-<p>　　（1）有些子表达式能包含一些范围或列表</p>
-<p>　　例如：子表达式（天（星期））可以为 “MON-FRI”，“MON，WED，FRI”，“MON-WED,SAT”</p>
-<p>“*”字符代表所有可能的值</p>
-<p>　　因此，“<em>”在子表达式（月）里表示每个月的含义，“</em>”在子表达式（天（星期））表示星期的每一天</p>
-<p>　　“/”字符用来指定数值的增量<br>　　例如：在子表达式（分钟）里的“0/15”表示从第0分钟开始，每15分钟<br>在子表达式（分钟）里的“3/20”表示从第3分钟开始，每20分钟（它和“3，23，43”）的含义一样</p>
-<p>　　“？”字符仅被用于天（月）和天（星期）两个子表达式，表示不指定值<br>　　当2个子表达式其中之一被指定了值以后，为了避免冲突，需要将另一个子表达式的值设为“？”</p>
-<p>　　“L” 字符仅被用于天（月）和天（星期）两个子表达式，它是单词“last”的缩写<br>　　但是它在两个子表达式里的含义是不同的。<br>　　在天（月）子表达式中，“L”表示一个月的最后一天<br>　　在天（星期）自表达式中，“L”表示一个星期的最后一天，也就是SAT</p>
-<p>　　如果在“L”前有具体的内容，它就具有其他的含义了</p>
-<p>　　例如：“6L”表示这个月的倒数第６天，“FRIL”表示这个月的最一个星期五<br>　　注意：在使用“L”参数时，不要指定列表或范围，因为这会导致问题</p>
-]]></content>
-      <tags>
-        <tag>定时器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>redis安装</title>
-    <url>/2021/03/03/java/%E6%95%B0%E6%8D%AE%E5%BA%93/redis%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h2 id="Linux安装redis"><a href="#Linux安装redis" class="headerlink" title="Linux安装redis"></a>Linux安装redis</h2><a id="more"></a>
-
-<blockquote>
-<h3 id="下载网址"><a href="#下载网址" class="headerlink" title="下载网址"></a>下载网址</h3></blockquote>
-<p><a href="https://redis.io/download">https://redis.io/download</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>可选择下载好以后上传服务器，或直接使用命令：</p>
-<p><code>wget http://download.redis.io/releases/redis-5.0.7.tar.gz</code></p>
-<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p><code>tar -zvxf redis-5.0.7.tar.gz</code></p>
-<h4 id="移动redis目录"><a href="#移动redis目录" class="headerlink" title="移动redis目录"></a><strong>移动redis目录</strong></h4><p>一般都会将redis目录放置到 /usr/local/redis目录，所以这里输入下面命令将目前在/root目录下的redis-5.0.7文件夹更改目录，同时更改文件夹名称为redis。</p>
-<p><code>mv /root/redis-5.0.7 /usr/local/redis</code></p>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a><strong>编译</strong></h4><p>cd到/usr/local/redis目录，输入命令make执行编译命令，接下来控制台会输出各种编译过程中输出的内容。</p>
-<p><code>make</code></p>
-<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a><strong>安装</strong></h4><p>输入以下命令</p>
-<p><code>make PREFIX=/usr/local/redis install</code></p>
-<blockquote>
-<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
-</blockquote>
-<h4 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a><strong>启动redis</strong></h4><p>根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis</p>
-<p><code>./bin/redis-server&amp; ./redis.conf</code></p>
-<p>上面的启动方式是采取后台进程方式，下面是采取显示启动方式(如在配置文件设置了daemonize属性为yes则跟后台进程方式启动其实一样)。</p>
-<p><code>./bin/redis-server ./redis.conf</code></p>
-<p>两种方式区别无非是有无带符号&amp;的区别。 redis-server 后面是配置文件，目的是根据该配置文件的配置启动redis服务。redis.conf配置文件允许自定义多个配置文件，通过启动时指定读取哪个即可。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>redis.conf配置文件</strong></p>
-<p>在目录/usr/local/redis下有一个redis.conf的配置文件。我们上面启动方式就是执行了该配置文件的配置运行的。我么可以通过cat、vim、less等Linux内置的读取命令读取该文件。</p>
-<p>也可以通过redis-cli命令进入redis控制台后通过CONFIG GET * 的方式读取所有配置项。 如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">CONFIG GET *</span><br></pre></td></tr></table></figure>
-<p><img src="image-20210303102754615.png" alt="image-20210303102754615"></p>
-<p>回车确认后会将所有配置项读取出来，如下图</p>
-<p><img src="2-1639211591.png" alt="img"></p>
-<p>这里列举下比较重要的配置项</p>
-<table>
-<thead>
-<tr>
-<th>配置项名称</th>
-<th>配置项值范围</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>daemonize</td>
-<td>yes、no</td>
-<td>yes表示启用守护进程，默认是no即不以守护进程方式运行。其中Windows系统下不支持启用守护进程方式运行</td>
-</tr>
-<tr>
-<td>port</td>
-<td></td>
-<td>指定 Redis 监听端口，默认端口为 6379</td>
-</tr>
-<tr>
-<td>bind</td>
-<td></td>
-<td>绑定的主机地址,如果需要设置远程访问则直接将这个属性备注下或者改为bind * 即可,这个属性和下面的protected-mode控制了是否可以远程访问 。</td>
-</tr>
-<tr>
-<td>protected-mode</td>
-<td>yes 、no</td>
-<td>保护模式，该模式控制外部网是否可以连接redis服务，默认是yes,所以默认我们外网是无法访问的，如需外网连接rendis服务则需要将此属性改为no。</td>
-</tr>
-<tr>
-<td>timeout</td>
-<td>300</td>
-<td>当客户端闲置多长时间后关闭连接，如果指定为 0，表示关闭该功能</td>
-</tr>
-<tr>
-<td>loglevel</td>
-<td>debug、verbose、notice、warning</td>
-<td>日志级别，默认为 notice</td>
-</tr>
-<tr>
-<td>databases</td>
-<td>16</td>
-<td>设置数据库的数量，默认的数据库是0。整个通过客户端工具可以看得到</td>
-</tr>
-<tr>
-<td>rdbcompression</td>
-<td>yes、no</td>
-<td>指定存储至本地数据库时是否压缩数据，默认为 yes，Redis 采用 LZF 压缩，如果为了节省 CPU 时间，可以关闭该选项，但会导致数据库文件变的巨大。</td>
-</tr>
-<tr>
-<td>dbfilename</td>
-<td>dump.rdb</td>
-<td>指定本地数据库文件名，默认值为 dump.rdb</td>
-</tr>
-<tr>
-<td>dir</td>
-<td></td>
-<td>指定本地数据库存放目录</td>
-</tr>
-<tr>
-<td>requirepass</td>
-<td></td>
-<td>设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</td>
-</tr>
-<tr>
-<td>maxclients</td>
-<td>0</td>
-<td>设置同一时间最大客户端连接数，默认无限制，Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会关闭新的连接并向客户端返回 max number of clients reached 错误信息。</td>
-</tr>
-<tr>
-<td>maxmemory</td>
-<td>XXX <bytes></td>
-<td>指定 Redis 最大内存限制，Redis 在启动时会把数据加载到内存中，达到最大内存后，Redis 会先尝试清除已到期或即将到期的 Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis 新的 vm 机制，会把 Key 存放内存，Value 会存放在 swap 区。配置项值范围列里XXX为数值。</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>这里我要将daemonize改为yes，不然我每次启动都得在redis-server命令后面加符号&amp;，不这样操作则只要回到Linux控制台则redis服务会自动关闭，同时也将bind注释，将protected-mode设置为no。</p>
-<p>这样启动后我就可以在外网访问了。</p>
-</blockquote>
-<h3 id="查看Redis是否正在运行"><a href="#查看Redis是否正在运行" class="headerlink" title="查看Redis是否正在运行"></a><strong>查看Redis是否正在运行</strong></h3><h4 id="1、采取查看进程方式"><a href="#1、采取查看进程方式" class="headerlink" title="1、采取查看进程方式"></a><strong>1、采取查看进程方式</strong></h4><p><code>ps -aux | grep redis</code></p>
-<p>结果如下图：</p>
-<p><img src="0-1407665728.png" alt="img"></p>
-<h4 id="2、采取端口监听查看方式"><a href="#2、采取端口监听查看方式" class="headerlink" title="2、采取端口监听查看方式"></a><strong>2、采取端口监听查看方式</strong></h4><p><code>netstat -lanp | grep 6379</code></p>
-<p>结果如下图：</p>
-<p><img src="1-1025164897.png" alt="img"></p>
-<h3 id="redis-cli"><a href="#redis-cli" class="headerlink" title="redis-cli"></a><strong>redis-cli</strong></h3><p>redis-cli是连接本地redis服务的一个命令，通过该命令可以连接redis的脚本控制台。如下图</p>
-<p><img src="5-1345838995.png" alt="img"></p>
-<p>输入exit可以退出redis脚本控制台</p>
-<h4 id="关闭运行中的Redis服务"><a href="#关闭运行中的Redis服务" class="headerlink" title="关闭运行中的Redis服务"></a><strong>关闭运行中的Redis服务</strong></h4><p>输入redis-cli 进入控制台后输入命令shutdown即可关闭运行中的Redis服务了。如下图:</p>
-<p><img src="8-1051623110.png" alt="img"></p>
-<h4 id="远程连接不上问题"><a href="#远程连接不上问题" class="headerlink" title="远程连接不上问题"></a><strong>远程连接不上问题</strong></h4><p>如下图，已经开放了Redis服务的ip不为127.0.0.1,理论上远程客户端应该可以连接了，而且云服务器的端口号也在安全组里开放了。</p>
-<p><img src="57-703255053.png" alt="img"></p>
-<h2 id="Windows安装redis"><a href="#Windows安装redis" class="headerlink" title="Windows安装redis"></a>Windows安装redis</h2><h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3>]]></content>
-      <tags>
-        <tag>数据库-redis</tag>
       </tags>
   </entry>
   <entry>
@@ -652,26 +438,6 @@
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
 <p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
 <h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -779,6 +545,26 @@
 <p>或</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">category: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
 <p>即可进行分类分级</p>
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
 ]]></content>
       <tags>
         <tag>博客-hexo</tag>
@@ -949,6 +735,177 @@
       </tags>
   </entry>
   <entry>
+    <title>cron表达式</title>
+    <url>/2021/02/25/java/%E5%89%8D%E5%90%8E%E7%AB%AF/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>　　<strong>一、结构</strong></p>
+<p>　　corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份</p>
+<p>​    <a id="more"></a></p>
+<p>　　<strong>二、各字段的含义</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>允许值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒（Seconds）</td>
+<td>0~59的整数</td>
+<td>, - * /   四个字符</td>
+</tr>
+<tr>
+<td>分（<em>Minutes</em>）</td>
+<td>0~59的整数</td>
+<td>, - * /   四个字符</td>
+</tr>
+<tr>
+<td>小时（<em>Hours</em>）</td>
+<td>0~23的整数</td>
+<td>, - * /   四个字符</td>
+</tr>
+<tr>
+<td>日期（<em>DayofMonth</em>）</td>
+<td>1~31的整数（但是你需要考虑你月的天数）</td>
+<td>,- * ? / L W C   八个字符</td>
+</tr>
+<tr>
+<td>月份（<em>Month</em>）</td>
+<td>1~12的整数或者 JAN-DEC</td>
+<td>, - * /   四个字符</td>
+</tr>
+<tr>
+<td>星期（<em>DayofWeek</em>）</td>
+<td>1~7的整数或者 SUN-SAT （1=SUN）</td>
+<td>, - * ? / L C #   八个字符</td>
+</tr>
+<tr>
+<td>年(可选，留空)（<em>Year</em>）</td>
+<td>1970~2099</td>
+<td>, - * /   四个字符</td>
+</tr>
+</tbody></table>
+<p>　　<strong>注意事项：</strong></p>
+<p>　　每一个域都使用数字，但还可以出现如下特殊字符，它们的含义是：</p>
+<p>　　（1）<em>：表示匹配该域的任意值。假如在Minutes域使用</em>, 即表示每分钟都会触发事件。</p>
+<p>　　（2）?：只能用在DayofMonth和DayofWeek两个域。它也匹配域的任意值，但实际不会。因为DayofMonth和DayofWeek会相互影响。例如想在每月的20日触发调度，不管20日到底是星期几，则只能使用如下写法： 13 13 15 20 * ?, 其中最后一位只能用？，而不能使用<em>，如果使用</em>表示不管星期几都会触发，实际上并不是这样。</p>
+<p>　　（3）-：表示范围。例如在Minutes域使用5-20，表示从5分到20分钟每分钟触发一次 </p>
+<p>　　（4）/：表示起始时间开始触发，然后每隔固定时间触发一次。例如在Minutes域使用5/20,则意味着5分钟触发一次，而25，45等分别触发一次. </p>
+<p>　　（5）,：表示列出枚举值。例如：在Minutes域使用5,20，则意味着在5和20分每分钟触发一次。 </p>
+<p>　　（6）L：表示最后，只能出现在DayofWeek和DayofMonth域。如果在DayofWeek域使用5L,意味着在最后的一个星期四触发。 </p>
+<p>　　（7）W:表示有效工作日(周一到周五),只能出现在DayofMonth域，系统将在离指定日期的最近的有效工作日触发事件。例如：在 DayofMonth使用5W，如果5日是星期六，则将在最近的工作日：星期五，即4日触发。如果5日是星期天，则在6日(周一)触发；如果5日在星期一到星期五中的一天，则就在5日触发。另外一点，W的最近寻找不会跨过月份 。</p>
+<p>　　（8）LW:这两个字符可以连用，表示在某个月最后一个工作日，即最后一个星期五。 </p>
+<p>　　（9）#:用于确定每个月第几个星期几，只能出现在DayofMonth域。例如在4#2，表示某月的第二个星期三。</p>
+<p>　　<strong>三、常用表达式例子</strong></p>
+<p>　　（1）<strong>0 0 2 1 * ? *</strong>  表示在每月的1日的凌晨2点调整任务</p>
+<p>　　（2）<strong>0 15 10 ? * MON-FRI</strong>  表示周一到周五每天上午10:15执行作业</p>
+<p>　　（3）<strong>0 15 10 ? 6L 2002-2006</strong>  表示2002-2006年的每个月的最后一个星期五上午10:15执行作</p>
+<p>　　（4）<strong>0 0 10,14,16 * * ?</strong>  每天上午10点，下午2点，4点 </p>
+<p>　　（5）<strong>0 0/30 9-17 * * ?</strong>  朝九晚五工作时间内每半小时 </p>
+<p>　　（6）<strong>0 0 12 ? * WED</strong>   表示每个星期三中午12点 </p>
+<p>　　（7）<strong>0 0 12 * * ?</strong>  每天中午12点触发 </p>
+<p>　　（8）<strong>0 15 10 ? * *</strong>   每天上午10:15触发 </p>
+<p>　　（9）<strong>0 15 10 * * ?</strong>   每天上午10:15触发 </p>
+<p>　　（10）<strong>0 15 10 * * ? *</strong>   每天上午10:15触发 </p>
+<p>　　（11）<strong>0 15 10 * * ? 2005</strong>   2005年的每天上午10:15触发 </p>
+<p>　　（12）<strong>0 * 14 * * ?</strong>   在每天下午2点到下午2:59期间的每1分钟触发 </p>
+<p>　　（13）<strong>0 0/5 14 * * ?</strong>   在每天下午2点到下午2:55期间的每5分钟触发 </p>
+<p>　　（14）<strong>0 0/5 14,18 * * ?</strong>   在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 </p>
+<p>　　（15）<strong>0 0-5 14 * * ?</strong>   在每天下午2点到下午2:05期间的每1分钟触发 </p>
+<p>　　（16）<strong>0 10,44 14 ? 3 WED</strong>   每年三月的星期三的下午2:10和2:44触发 </p>
+<p>　　（17）<strong>0 15 10 ? * MON-FRI</strong>   周一至周五的上午10:15触发 </p>
+<p>　　（18）<strong>0 15 10 15 * ?</strong>   每月15日上午10:15触发 </p>
+<p>　　（19）<strong>0 15 10 L * ?</strong>   每月最后一日的上午10:15触发 </p>
+<p>　　（20）<strong>0 15 10 ? * 6L</strong>   每月的最后一个星期五上午10:15触发 </p>
+<p>　　（21）<strong>0 15 10 ? * 6L 2002-2005</strong>  2002年至2005年的每月的最后一个星期五上午10:15触发 </p>
+<p>　　（22）<strong>0 15 10 ? * 6#3</strong>  每月的第三个星期五上午10:15触发</p>
+<p>　　</p>
+<p>　　<strong>注：</strong></p>
+<p>　　（1）有些子表达式能包含一些范围或列表</p>
+<p>　　例如：子表达式（天（星期））可以为 “MON-FRI”，“MON，WED，FRI”，“MON-WED,SAT”</p>
+<p>“*”字符代表所有可能的值</p>
+<p>　　因此，“<em>”在子表达式（月）里表示每个月的含义，“</em>”在子表达式（天（星期））表示星期的每一天</p>
+<p>　　“/”字符用来指定数值的增量<br>　　例如：在子表达式（分钟）里的“0/15”表示从第0分钟开始，每15分钟<br>在子表达式（分钟）里的“3/20”表示从第3分钟开始，每20分钟（它和“3，23，43”）的含义一样</p>
+<p>　　“？”字符仅被用于天（月）和天（星期）两个子表达式，表示不指定值<br>　　当2个子表达式其中之一被指定了值以后，为了避免冲突，需要将另一个子表达式的值设为“？”</p>
+<p>　　“L” 字符仅被用于天（月）和天（星期）两个子表达式，它是单词“last”的缩写<br>　　但是它在两个子表达式里的含义是不同的。<br>　　在天（月）子表达式中，“L”表示一个月的最后一天<br>　　在天（星期）自表达式中，“L”表示一个星期的最后一天，也就是SAT</p>
+<p>　　如果在“L”前有具体的内容，它就具有其他的含义了</p>
+<p>　　例如：“6L”表示这个月的倒数第６天，“FRIL”表示这个月的最一个星期五<br>　　注意：在使用“L”参数时，不要指定列表或范围，因为这会导致问题</p>
+]]></content>
+      <tags>
+        <tag>定时器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jvm介绍</title>
+    <url>/2021/03/08/%E7%8B%82%E7%A5%9E%E8%AF%B4/JVM/jvm%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="JVM探究"><a href="#JVM探究" class="headerlink" title="JVM探究"></a>JVM探究</h2><ul>
+<li>对<code>JVM</code>的理解，<code>java8</code>虚拟机和之前的变化更新</li>
+<li>什么是<code>OOM</code>，什么是栈溢出<code>StackOverFlowError</code>？怎么分析？</li>
+<li><code>JVM</code>常用的调优参数</li>
+<li>内存快照如何抓取，怎么分析<code>Dump</code>文件</li>
+<li>谈谈<code>JVM</code>中，类加载器的认识</li>
+</ul>
+<ol>
+<li><p>JVM位置</p>
+<p>  java虚拟机 位于操作系统上</p>
+</li>
+</ol>
+<p><img src="image-20210309093518232.png" alt="image-20210309093518232"></p>
+<ol>
+<li>JVM的体系结构</li>
+<li>类加载器</li>
+<li>双亲委派机制</li>
+<li>沙箱安全机制</li>
+<li>Native</li>
+<li>PC寄存器</li>
+<li>方法区</li>
+<li>堆、栈</li>
+<li>三种JVM</li>
+<li>新生区、老年区</li>
+<li>永久区</li>
+<li>堆内存调优</li>
+<li>GC<ol>
+<li>常用算法</li>
+</ol>
+</li>
+<li>JMM</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>jvm</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
+
+<blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ol>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker概念</title>
     <url>/2021/03/02/%E7%8B%82%E7%A5%9E%E8%AF%B4/Docker/Docker%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h2 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h2><a id="more"></a>
@@ -1059,28 +1016,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
-
-<blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git使用</title>
     <url>/2021/02/23/%E7%8B%82%E7%A5%9E%E8%AF%B4/git/git%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
@@ -1169,6 +1104,10 @@
 
 <p>==master主分支应该非常稳定,用来发布新版本, 一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作,工作完后,比如: 要发布,或者说dev分支代码稳定后可以合并到主分支master上来。==</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>git</category>
+      </categories>
       <tags>
         <tag>git</tag>
       </tags>
@@ -1190,8 +1129,34 @@
 
 
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>git</category>
+      </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
+
+<blockquote>
+<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>系统-Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1235,30 +1200,12 @@
 <p>​        .git(隐藏文件夹)：其中包括Index暂存区及Head目录</p>
 <p><img src="image-20210223181645558.png" alt="image-20210223181645558"></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>git</category>
+      </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux命令</title>
-    <url>/2021/03/02/%E7%B3%BB%E7%BB%9F/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2><a id="more"></a>
-
-<blockquote>
-<h3 id="系统信息查看"><a href="#系统信息查看" class="headerlink" title="系统信息查看"></a>系统信息查看</h3></blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 系统内核</span><br><span class="line">uname -r</span><br><span class="line">-- <span class="number">2.6</span><span class="number">.32</span>-<span class="number">431.</span>el6.x86_64</span><br><span class="line">    </span><br><span class="line"># 系统版本</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<h3 id="安装编译"><a href="#安装编译" class="headerlink" title="安装编译"></a>安装编译</h3></blockquote>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p><code>make</code></p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>make PREFIX=/usr/local/redis install</code></p>
-<blockquote>
-<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>系统-Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1386,6 +1333,46 @@
       </tags>
   </entry>
   <entry>
+    <title>observer观察者</title>
+    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
+    <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建观察者对象</span></span><br><span class="line"><span class="keyword">let</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">    mutations.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(mutation)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置观察者选项</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    attributes: <span class="literal">true</span>,   <span class="comment">//检测属性变动</span></span><br><span class="line">    childList: <span class="literal">true</span>,    <span class="comment">//检测子节点变动</span></span><br><span class="line">    characterData: <span class="literal">true</span> <span class="comment">//节点内容或节点文本的变动。</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;addFeeConfigStartTime_div&quot;</span>)[<span class="number">0</span>], config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监测</span></span><br><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>函数</category>
+      </categories>
+      <tags>
+        <tag>前端-函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端生成Excel并下载</title>
+    <url>/2021/02/23/java/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90Excel%E5%B9%B6%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<h3 id="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"><a href="#通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）" class="headerlink" title="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"></a>通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）</h3><a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>titleMap 表头对象 &#123;&quot;userId&quot;:&quot;员工编号&quot;, &quot;userName&quot;:&quot;员工姓名&quot;&#125;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据list [&#123;&quot;userId&quot;:&quot;123&quot;, &quot;userName&quot;:&quot;张三&quot;&#125;, &#123;&quot;userId&quot;:&quot;456&quot;, &quot;userName&quot;:&quot;李四&quot;&#125;]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFront = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, titleMap, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(dataList) || <span class="built_in">Object</span>.prototype.toString.call(titleMap) !== <span class="string">&#x27;[object Object]&#x27;</span>)</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">&quot;数据list格式错误&quot;</span>);</span><br><span class="line">    <span class="comment">// 列标题，逗号隔开，每一个逗号就是隔开一个单元格</span></span><br><span class="line">    <span class="keyword">let</span> title = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">        title += titleMap[key] + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    title += <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; dataList.length ; i++ )&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">            title += <span class="string">`<span class="subst">$&#123;dataList[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>,`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        title+=<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// encodeURIComponent解决中文乱码</span></span><br><span class="line">    <span class="keyword">const</span> uri = <span class="string">&#x27;data:text/csv;charset=utf-8,\ufeff&#x27;</span> + <span class="built_in">encodeURIComponent</span>(title);</span><br><span class="line">    <span class="comment">// 通过创建a标签实现</span></span><br><span class="line">    <span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">    link.href = uri;</span><br><span class="line">    <span class="comment">// 对下载的文件命名</span></span><br><span class="line">    link.download =  fileName ? (fileName + <span class="string">&quot;.xls&quot;</span>) : <span class="string">&quot;下载.xls&quot;</span>;</span><br><span class="line">    link.click();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐"><a href="#将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐" class="headerlink" title="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)"></a>将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)</h3><p>这种方法的弊端在于输出的是伪excel，虽说生成xls为后缀的文件，但文件形式上还是html</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;p style=<span class="string">&quot;font-size: 20px;color: red;&quot;</span>&gt;使用table标签方式将json导出xls文件&lt;/p&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">&#x27;tableToExcel()&#x27;</span>&gt;导出&lt;/button&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;  </span><br><span class="line">    <span class="keyword">const</span> tableToExcel = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 要导出的json数据</span></span><br><span class="line">        <span class="keyword">const</span> jsonData = [</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;路人甲&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;炮灰乙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;土匪丙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;流氓丁&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">        <span class="comment">// 列标题</span></span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">&#x27;&lt;tr&gt;&lt;td&gt;姓名&lt;/td&gt;&lt;td&gt;电话&lt;/td&gt;&lt;td&gt;邮箱&lt;/td&gt;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        <span class="comment">// 循环遍历，每行加入tr标签，每个单元格加td标签</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; jsonData.length ; i++ )&#123;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">const</span> key <span class="keyword">in</span> jsonData[i])&#123;</span><br><span class="line">                <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">                str+=<span class="string">`&lt;td&gt;<span class="subst">$&#123; jsonData[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>&lt;/td&gt;`</span>;     </span><br><span class="line">            &#125;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Worksheet名</span></span><br><span class="line">        <span class="keyword">const</span> worksheet = <span class="string">&#x27;Sheet1&#x27;</span></span><br><span class="line">        <span class="keyword">const</span> uri = <span class="string">&#x27;data:application/vnd.ms-excel;base64,&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 下载的表格模板数据</span></span><br><span class="line">        <span class="keyword">const</span> template = <span class="string">`&lt;html xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot; </span></span><br><span class="line"><span class="string">        xmlns:x=&quot;urn:schemas-microsoft-com:office:excel&quot; </span></span><br><span class="line"><span class="string">        xmlns=&quot;http://www.w3.org/TR/REC-html40&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">		&lt;!-- 解决乱码问题 --&gt;</span></span><br><span class="line"><span class="string">		&lt;meta charset=&quot;utf-8&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;x:Name&gt;<span class="subst">$&#123;worksheet&#125;</span>&lt;/x:Name&gt;</span></span><br><span class="line"><span class="string">        &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">        &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt;</span></span><br><span class="line"><span class="string">        &lt;/head&gt;&lt;body&gt;&lt;table&gt;<span class="subst">$&#123;str&#125;</span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`</span>;</span><br><span class="line">        <span class="comment">// 下载模板</span></span><br><span class="line">        <span class="built_in">window</span>.location.href = uri + base64(template);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 输出base64编码</span></span><br><span class="line">    <span class="keyword">const</span> base64 = <span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">window</span>.btoa(<span class="built_in">unescape</span>(<span class="built_in">encodeURIComponent</span>(s)));</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="通过blob-推荐"><a href="#通过blob-推荐" class="headerlink" title="通过blob (推荐)"></a>通过blob (推荐)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据及表头list [[&quot;员工编号&quot;, &quot;员工姓名&quot;], [123, &quot;张三&quot;], [456, &quot;李四&quot;]]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFrontNew = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// csv转sheet对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">csv2sheet</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = &#123;&#125;; <span class="comment">// 将要生成的sheet</span></span><br><span class="line">        csv = csv.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">        csv.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">row, i</span>) </span>&#123;</span><br><span class="line">            row = row.split(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) sheet[<span class="string">&#x27;!ref&#x27;</span>] = <span class="string">&#x27;A1:&#x27;</span>+<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+row.length-<span class="number">1</span>)+(csv.length-<span class="number">1</span>);</span><br><span class="line">            row.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">col, j</span>) </span>&#123;</span><br><span class="line">                sheet[<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+j)+(i+<span class="number">1</span>)] = &#123;<span class="attr">v</span>: col&#125;;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> sheet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sheet2blob</span>(<span class="params">sheet, sheetName</span>) </span>&#123;</span><br><span class="line">        sheetName = sheetName || <span class="string">&#x27;sheet1&#x27;</span>;</span><br><span class="line">        <span class="keyword">let</span> workbook = &#123;</span><br><span class="line">            SheetNames: [sheetName],</span><br><span class="line">            Sheets: &#123;&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        workbook.Sheets[sheetName] = sheet;</span><br><span class="line">        <span class="comment">// 生成excel的配置项</span></span><br><span class="line">        <span class="keyword">let</span> wopts = &#123;</span><br><span class="line">            bookType: <span class="string">&#x27;xlsx&#x27;</span>, <span class="comment">// 要生成的文件类型</span></span><br><span class="line">            bookSST: <span class="literal">false</span>, <span class="comment">// 是否生成Shared String Table，官方解释是，如果开启生成速度会下降，但在低版本IOS设备上有更好的兼容性</span></span><br><span class="line">            type: <span class="string">&#x27;binary&#x27;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">let</span> wbout = XLSX.write(workbook, wopts);</span><br><span class="line">        <span class="keyword">let</span> blob = <span class="keyword">new</span> Blob([s2ab(wbout)], &#123;<span class="attr">type</span>:<span class="string">&quot;application/octet-stream&quot;</span>&#125;);</span><br><span class="line">        <span class="comment">// 字符串转ArrayBuffer</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">s2ab</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> buf = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(s.length);</span><br><span class="line">            <span class="keyword">let</span> view = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(buf);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i!=s.length; ++i) view[i] = s.charCodeAt(i) &amp; <span class="number">0xFF</span>;</span><br><span class="line">            <span class="keyword">return</span> buf;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> blob;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用的打开下载对话框方法，没有测试过具体兼容性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>url 下载地址，也可以是一个blob对象，必选</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>saveName 保存文件名，可选</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openDownloadDialog</span>(<span class="params">url, saveName</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> url == <span class="string">&#x27;object&#x27;</span> &amp;&amp; url <span class="keyword">instanceof</span> Blob) &#123;</span><br><span class="line">            url = URL.createObjectURL(url); <span class="comment">// 创建blob地址</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        aLink.href = url;</span><br><span class="line">        aLink.download = saveName || <span class="string">&#x27;&#x27;</span>; <span class="comment">// HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效</span></span><br><span class="line">        <span class="keyword">let</span> event;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.MouseEvent)</span><br><span class="line">            event = <span class="keyword">new</span> MouseEvent(<span class="string">&#x27;click&#x27;</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            event = <span class="built_in">document</span>.createEvent(<span class="string">&#x27;MouseEvents&#x27;</span>);</span><br><span class="line">            event.initMouseEvent(<span class="string">&#x27;click&#x27;</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="built_in">window</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        aLink.dispatchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 传入csv，执行后弹出下载框</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">exportExcel</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = csv2sheet(csv);</span><br><span class="line">        <span class="keyword">let</span> blob = sheet2blob(sheet);</span><br><span class="line">        openDownloadDialog(blob, <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// let aoa = [</span></span><br><span class="line">    <span class="comment">//     [&#x27;姓名&#x27;, &#x27;性别&#x27;, &#x27;年龄&#x27;, &#x27;注册时间&#x27;],</span></span><br><span class="line">    <span class="comment">//     [&#x27;张三&#x27;, &#x27;男&#x27;, 18, new Date()],</span></span><br><span class="line">    <span class="comment">//     [&#x27;李四&#x27;, &#x27;女&#x27;, 22, new Date()]</span></span><br><span class="line">    <span class="comment">// ];</span></span><br><span class="line">    <span class="keyword">let</span> sheet = XLSX.utils.aoa_to_sheet(dataList);</span><br><span class="line">    openDownloadDialog(sheet2blob(sheet), fileName ? (fileName + <span class="string">&quot;.xlsx&quot;</span>) : <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>实现</category>
+      </categories>
+      <tags>
+        <tag>前端-实现</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>其他函数</title>
     <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><a id="more"></a>
@@ -1418,20 +1405,27 @@
       </tags>
   </entry>
   <entry>
-    <title>observer观察者</title>
-    <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
-    <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
-<a id="more"></a>
+    <title>mysql使用问题</title>
+    <url>/2021/03/09/java/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/mysql%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="字符串类型字段排序问题"><a href="#字符串类型字段排序问题" class="headerlink" title="字符串类型字段排序问题"></a>字符串类型字段排序问题</h2><a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建观察者对象</span></span><br><span class="line"><span class="keyword">let</span> observer = <span class="keyword">new</span> MutationObserver(<span class="function"><span class="keyword">function</span> (<span class="params">mutations</span>) </span>&#123;</span><br><span class="line">    mutations.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mutation</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(mutation)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//配置观察者选项</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    attributes: <span class="literal">true</span>,   <span class="comment">//检测属性变动</span></span><br><span class="line">    childList: <span class="literal">true</span>,    <span class="comment">//检测子节点变动</span></span><br><span class="line">    characterData: <span class="literal">true</span> <span class="comment">//节点内容或节点文本的变动。</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入目标节点和观察选项</span></span><br><span class="line">observer.observe(<span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;addFeeConfigStartTime_div&quot;</span>)[<span class="number">0</span>], config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监测</span></span><br><span class="line">observer.disconnect();</span><br></pre></td></tr></table></figure>
+<p>当使用类型为字符串的字段进行排序时</p>
+<p><img src="image-20210309110431796.png" alt="image-20210309110431796"></p>
+<p>会出现以较小数开头的大数排在较大数开头的小数前，如1999 和 2，1999排在2前</p>
+<p><img src="image-20210309110605344.png" alt="image-20210309110605344"></p>
+<p>原因为字符串类型字段进行比较时使用同一位的数字进行比较而不是转换成数字然后进行比较</p>
+<p>==解决方法==</p>
+<p>排序的字段后边加0，将字符串类型转换为数字类型再进行比较（ps：如此汉字的顺序可能会排到数字前边）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SELECT * FROM floor ORDER BY floor_num + 0</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210309111032990.png" alt="image-20210309111032990"></p>
 ]]></content>
       <categories>
         <category>java</category>
-        <category>前端</category>
-        <category>函数</category>
+        <category>数据库</category>
+        <category>mysql</category>
       </categories>
       <tags>
-        <tag>前端-函数</tag>
+        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -1486,26 +1480,137 @@
       </tags>
   </entry>
   <entry>
-    <title>前端生成Excel并下载</title>
-    <url>/2021/02/23/java/%E5%89%8D%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%89%8D%E7%AB%AF%E7%94%9F%E6%88%90Excel%E5%B9%B6%E4%B8%8B%E8%BD%BD/</url>
-    <content><![CDATA[<h3 id="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"><a href="#通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）" class="headerlink" title="通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）"></a>通过将json遍历进行字符串拼接，将字符串输出到csv文件（不推荐）</h3><a id="more"></a>
+    <title>redis安装</title>
+    <url>/2021/03/03/java/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/redis%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="Linux安装redis"><a href="#Linux安装redis" class="headerlink" title="Linux安装redis"></a>Linux安装redis</h2><a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>titleMap 表头对象 &#123;&quot;userId&quot;:&quot;员工编号&quot;, &quot;userName&quot;:&quot;员工姓名&quot;&#125;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据list [&#123;&quot;userId&quot;:&quot;123&quot;, &quot;userName&quot;:&quot;张三&quot;&#125;, &#123;&quot;userId&quot;:&quot;456&quot;, &quot;userName&quot;:&quot;李四&quot;&#125;]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFront = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, titleMap, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(dataList) || <span class="built_in">Object</span>.prototype.toString.call(titleMap) !== <span class="string">&#x27;[object Object]&#x27;</span>)</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">&quot;数据list格式错误&quot;</span>);</span><br><span class="line">    <span class="comment">// 列标题，逗号隔开，每一个逗号就是隔开一个单元格</span></span><br><span class="line">    <span class="keyword">let</span> title = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">        title += titleMap[key] + <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    title += <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; dataList.length ; i++ )&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> titleMap) &#123;</span><br><span class="line">            title += <span class="string">`<span class="subst">$&#123;dataList[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>,`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        title+=<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// encodeURIComponent解决中文乱码</span></span><br><span class="line">    <span class="keyword">const</span> uri = <span class="string">&#x27;data:text/csv;charset=utf-8,\ufeff&#x27;</span> + <span class="built_in">encodeURIComponent</span>(title);</span><br><span class="line">    <span class="comment">// 通过创建a标签实现</span></span><br><span class="line">    <span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">    link.href = uri;</span><br><span class="line">    <span class="comment">// 对下载的文件命名</span></span><br><span class="line">    link.download =  fileName ? (fileName + <span class="string">&quot;.xls&quot;</span>) : <span class="string">&quot;下载.xls&quot;</span>;</span><br><span class="line">    link.click();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐"><a href="#将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现-不推荐" class="headerlink" title="将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)"></a>将table标签，包括tr、td等对json数据进行拼接，将table输出到表格上实现(不推荐)</h3><p>这种方法的弊端在于输出的是伪excel，虽说生成xls为后缀的文件，但文件形式上还是html</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;p style=<span class="string">&quot;font-size: 20px;color: red;&quot;</span>&gt;使用table标签方式将json导出xls文件&lt;/p&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">&#x27;tableToExcel()&#x27;</span>&gt;导出&lt;/button&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;  </span><br><span class="line">    <span class="keyword">const</span> tableToExcel = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 要导出的json数据</span></span><br><span class="line">        <span class="keyword">const</span> jsonData = [</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;路人甲&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;炮灰乙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;土匪丙&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:<span class="string">&#x27;流氓丁&#x27;</span>,</span><br><span class="line">                phone:<span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">                email:<span class="string">&#x27;123@123456.com&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">        <span class="comment">// 列标题</span></span><br><span class="line">        <span class="keyword">let</span> str = <span class="string">&#x27;&lt;tr&gt;&lt;td&gt;姓名&lt;/td&gt;&lt;td&gt;电话&lt;/td&gt;&lt;td&gt;邮箱&lt;/td&gt;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        <span class="comment">// 循环遍历，每行加入tr标签，每个单元格加td标签</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; jsonData.length ; i++ )&#123;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">const</span> key <span class="keyword">in</span> jsonData[i])&#123;</span><br><span class="line">                <span class="comment">// 增加\t为了不让表格显示科学计数法或者其他格式</span></span><br><span class="line">                str+=<span class="string">`&lt;td&gt;<span class="subst">$&#123; jsonData[i][key] + <span class="string">&#x27;\t&#x27;</span>&#125;</span>&lt;/td&gt;`</span>;     </span><br><span class="line">            &#125;</span><br><span class="line">            str+=<span class="string">&#x27;&lt;/tr&gt;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Worksheet名</span></span><br><span class="line">        <span class="keyword">const</span> worksheet = <span class="string">&#x27;Sheet1&#x27;</span></span><br><span class="line">        <span class="keyword">const</span> uri = <span class="string">&#x27;data:application/vnd.ms-excel;base64,&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 下载的表格模板数据</span></span><br><span class="line">        <span class="keyword">const</span> template = <span class="string">`&lt;html xmlns:o=&quot;urn:schemas-microsoft-com:office:office&quot; </span></span><br><span class="line"><span class="string">        xmlns:x=&quot;urn:schemas-microsoft-com:office:excel&quot; </span></span><br><span class="line"><span class="string">        xmlns=&quot;http://www.w3.org/TR/REC-html40&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;&lt;x:ExcelWorkbook&gt;&lt;x:ExcelWorksheets&gt;&lt;x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">		&lt;!-- 解决乱码问题 --&gt;</span></span><br><span class="line"><span class="string">		&lt;meta charset=&quot;utf-8&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;x:Name&gt;<span class="subst">$&#123;worksheet&#125;</span>&lt;/x:Name&gt;</span></span><br><span class="line"><span class="string">        &lt;x:WorksheetOptions&gt;&lt;x:DisplayGridlines/&gt;&lt;/x:WorksheetOptions&gt;&lt;/x:ExcelWorksheet&gt;</span></span><br><span class="line"><span class="string">        &lt;/x:ExcelWorksheets&gt;&lt;/x:ExcelWorkbook&gt;&lt;/xml&gt;&lt;![endif]--&gt;</span></span><br><span class="line"><span class="string">        &lt;/head&gt;&lt;body&gt;&lt;table&gt;<span class="subst">$&#123;str&#125;</span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;`</span>;</span><br><span class="line">        <span class="comment">// 下载模板</span></span><br><span class="line">        <span class="built_in">window</span>.location.href = uri + base64(template);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 输出base64编码</span></span><br><span class="line">    <span class="keyword">const</span> base64 = <span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">window</span>.btoa(<span class="built_in">unescape</span>(<span class="built_in">encodeURIComponent</span>(s)));</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="通过blob-推荐"><a href="#通过blob-推荐" class="headerlink" title="通过blob (推荐)"></a>通过blob (推荐)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 前端生成Excel表格并下载</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>fileName 文件名称(如：费用表)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>dataList 数据及表头list [[&quot;员工编号&quot;, &quot;员工姓名&quot;], [123, &quot;张三&quot;], [456, &quot;李四&quot;]]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">vc.createExcelByFrontNew = <span class="function"><span class="keyword">function</span> (<span class="params">fileName, dataList</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// csv转sheet对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">csv2sheet</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = &#123;&#125;; <span class="comment">// 将要生成的sheet</span></span><br><span class="line">        csv = csv.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">        csv.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">row, i</span>) </span>&#123;</span><br><span class="line">            row = row.split(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) sheet[<span class="string">&#x27;!ref&#x27;</span>] = <span class="string">&#x27;A1:&#x27;</span>+<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+row.length-<span class="number">1</span>)+(csv.length-<span class="number">1</span>);</span><br><span class="line">            row.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">col, j</span>) </span>&#123;</span><br><span class="line">                sheet[<span class="built_in">String</span>.fromCharCode(<span class="number">65</span>+j)+(i+<span class="number">1</span>)] = &#123;<span class="attr">v</span>: col&#125;;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> sheet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sheet2blob</span>(<span class="params">sheet, sheetName</span>) </span>&#123;</span><br><span class="line">        sheetName = sheetName || <span class="string">&#x27;sheet1&#x27;</span>;</span><br><span class="line">        <span class="keyword">let</span> workbook = &#123;</span><br><span class="line">            SheetNames: [sheetName],</span><br><span class="line">            Sheets: &#123;&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        workbook.Sheets[sheetName] = sheet;</span><br><span class="line">        <span class="comment">// 生成excel的配置项</span></span><br><span class="line">        <span class="keyword">let</span> wopts = &#123;</span><br><span class="line">            bookType: <span class="string">&#x27;xlsx&#x27;</span>, <span class="comment">// 要生成的文件类型</span></span><br><span class="line">            bookSST: <span class="literal">false</span>, <span class="comment">// 是否生成Shared String Table，官方解释是，如果开启生成速度会下降，但在低版本IOS设备上有更好的兼容性</span></span><br><span class="line">            type: <span class="string">&#x27;binary&#x27;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">let</span> wbout = XLSX.write(workbook, wopts);</span><br><span class="line">        <span class="keyword">let</span> blob = <span class="keyword">new</span> Blob([s2ab(wbout)], &#123;<span class="attr">type</span>:<span class="string">&quot;application/octet-stream&quot;</span>&#125;);</span><br><span class="line">        <span class="comment">// 字符串转ArrayBuffer</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">s2ab</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> buf = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(s.length);</span><br><span class="line">            <span class="keyword">let</span> view = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(buf);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i!=s.length; ++i) view[i] = s.charCodeAt(i) &amp; <span class="number">0xFF</span>;</span><br><span class="line">            <span class="keyword">return</span> buf;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> blob;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用的打开下载对话框方法，没有测试过具体兼容性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>url 下载地址，也可以是一个blob对象，必选</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param </span>saveName 保存文件名，可选</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openDownloadDialog</span>(<span class="params">url, saveName</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> url == <span class="string">&#x27;object&#x27;</span> &amp;&amp; url <span class="keyword">instanceof</span> Blob) &#123;</span><br><span class="line">            url = URL.createObjectURL(url); <span class="comment">// 创建blob地址</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        aLink.href = url;</span><br><span class="line">        aLink.download = saveName || <span class="string">&#x27;&#x27;</span>; <span class="comment">// HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效</span></span><br><span class="line">        <span class="keyword">let</span> event;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.MouseEvent)</span><br><span class="line">            event = <span class="keyword">new</span> MouseEvent(<span class="string">&#x27;click&#x27;</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            event = <span class="built_in">document</span>.createEvent(<span class="string">&#x27;MouseEvents&#x27;</span>);</span><br><span class="line">            event.initMouseEvent(<span class="string">&#x27;click&#x27;</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="built_in">window</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        aLink.dispatchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 传入csv，执行后弹出下载框</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">exportExcel</span>(<span class="params">csv</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> sheet = csv2sheet(csv);</span><br><span class="line">        <span class="keyword">let</span> blob = sheet2blob(sheet);</span><br><span class="line">        openDownloadDialog(blob, <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// let aoa = [</span></span><br><span class="line">    <span class="comment">//     [&#x27;姓名&#x27;, &#x27;性别&#x27;, &#x27;年龄&#x27;, &#x27;注册时间&#x27;],</span></span><br><span class="line">    <span class="comment">//     [&#x27;张三&#x27;, &#x27;男&#x27;, 18, new Date()],</span></span><br><span class="line">    <span class="comment">//     [&#x27;李四&#x27;, &#x27;女&#x27;, 22, new Date()]</span></span><br><span class="line">    <span class="comment">// ];</span></span><br><span class="line">    <span class="keyword">let</span> sheet = XLSX.utils.aoa_to_sheet(dataList);</span><br><span class="line">    openDownloadDialog(sheet2blob(sheet), fileName ? (fileName + <span class="string">&quot;.xlsx&quot;</span>) : <span class="string">&#x27;导出.xlsx&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
+<blockquote>
+<h3 id="下载网址"><a href="#下载网址" class="headerlink" title="下载网址"></a>下载网址</h3></blockquote>
+<p><a href="https://redis.io/download">https://redis.io/download</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>可选择下载好以后上传服务器，或直接使用命令：</p>
+<p><code>wget http://download.redis.io/releases/redis-5.0.7.tar.gz</code></p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><p><code>tar -zvxf redis-5.0.7.tar.gz</code></p>
+<h4 id="移动redis目录"><a href="#移动redis目录" class="headerlink" title="移动redis目录"></a><strong>移动redis目录</strong></h4><p>一般都会将redis目录放置到 /usr/local/redis目录，所以这里输入下面命令将目前在/root目录下的redis-5.0.7文件夹更改目录，同时更改文件夹名称为redis。</p>
+<p><code>mv /root/redis-5.0.7 /usr/local/redis</code></p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a><strong>编译</strong></h4><p>cd到/usr/local/redis目录，输入命令make执行编译命令，接下来控制台会输出各种编译过程中输出的内容。</p>
+<p><code>make</code></p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a><strong>安装</strong></h4><p>输入以下命令</p>
+<p><code>make PREFIX=/usr/local/redis install</code></p>
+<blockquote>
+<p>这里多了一个关键字 <strong>PREFIX=</strong> 这个关键字的作用是编译的时候用于指定程序存放的路径。比如我们现在就是指定了redis必须存放在/usr/local/redis目录。假设不添加该关键字Linux会将可执行文件存放在/usr/local/bin目录，库文件会存放在/usr/local/lib目录。配置文件会存放在/usr/local/etc目录。其他的资源文件会存放在usr/local/share目录。这里指定号目录也方便后续的卸载，后续直接rm -rf /usr/local/redis 即可删除redis。</p>
+</blockquote>
+<h4 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a><strong>启动redis</strong></h4><p>根据上面的操作已经将redis安装完成了。在目录/usr/local/redis 输入下面命令启动redis</p>
+<p><code>./bin/redis-server&amp; ./redis.conf</code></p>
+<p>上面的启动方式是采取后台进程方式，下面是采取显示启动方式(如在配置文件设置了daemonize属性为yes则跟后台进程方式启动其实一样)。</p>
+<p><code>./bin/redis-server ./redis.conf</code></p>
+<p>两种方式区别无非是有无带符号&amp;的区别。 redis-server 后面是配置文件，目的是根据该配置文件的配置启动redis服务。redis.conf配置文件允许自定义多个配置文件，通过启动时指定读取哪个即可。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>redis.conf配置文件</strong></p>
+<p>在目录/usr/local/redis下有一个redis.conf的配置文件。我们上面启动方式就是执行了该配置文件的配置运行的。我么可以通过cat、vim、less等Linux内置的读取命令读取该文件。</p>
+<p>也可以通过redis-cli命令进入redis控制台后通过CONFIG GET * 的方式读取所有配置项。 如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">CONFIG GET *</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210303102754615.png" alt="image-20210303102754615"></p>
+<p>回车确认后会将所有配置项读取出来，如下图</p>
+<p><img src="2-1639211591.png" alt="img"></p>
+<p>这里列举下比较重要的配置项</p>
+<table>
+<thead>
+<tr>
+<th>配置项名称</th>
+<th>配置项值范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>daemonize</td>
+<td>yes、no</td>
+<td>yes表示启用守护进程，默认是no即不以守护进程方式运行。其中Windows系统下不支持启用守护进程方式运行</td>
+</tr>
+<tr>
+<td>port</td>
+<td></td>
+<td>指定 Redis 监听端口，默认端口为 6379</td>
+</tr>
+<tr>
+<td>bind</td>
+<td></td>
+<td>绑定的主机地址,如果需要设置远程访问则直接将这个属性备注下或者改为bind * 即可,这个属性和下面的protected-mode控制了是否可以远程访问 。</td>
+</tr>
+<tr>
+<td>protected-mode</td>
+<td>yes 、no</td>
+<td>保护模式，该模式控制外部网是否可以连接redis服务，默认是yes,所以默认我们外网是无法访问的，如需外网连接rendis服务则需要将此属性改为no。</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>300</td>
+<td>当客户端闲置多长时间后关闭连接，如果指定为 0，表示关闭该功能</td>
+</tr>
+<tr>
+<td>loglevel</td>
+<td>debug、verbose、notice、warning</td>
+<td>日志级别，默认为 notice</td>
+</tr>
+<tr>
+<td>databases</td>
+<td>16</td>
+<td>设置数据库的数量，默认的数据库是0。整个通过客户端工具可以看得到</td>
+</tr>
+<tr>
+<td>rdbcompression</td>
+<td>yes、no</td>
+<td>指定存储至本地数据库时是否压缩数据，默认为 yes，Redis 采用 LZF 压缩，如果为了节省 CPU 时间，可以关闭该选项，但会导致数据库文件变的巨大。</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>dump.rdb</td>
+<td>指定本地数据库文件名，默认值为 dump.rdb</td>
+</tr>
+<tr>
+<td>dir</td>
+<td></td>
+<td>指定本地数据库存放目录</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td></td>
+<td>设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</td>
+</tr>
+<tr>
+<td>maxclients</td>
+<td>0</td>
+<td>设置同一时间最大客户端连接数，默认无限制，Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会关闭新的连接并向客户端返回 max number of clients reached 错误信息。</td>
+</tr>
+<tr>
+<td>maxmemory</td>
+<td>XXX <bytes></td>
+<td>指定 Redis 最大内存限制，Redis 在启动时会把数据加载到内存中，达到最大内存后，Redis 会先尝试清除已到期或即将到期的 Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis 新的 vm 机制，会把 Key 存放内存，Value 会存放在 swap 区。配置项值范围列里XXX为数值。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里我要将daemonize改为yes，不然我每次启动都得在redis-server命令后面加符号&amp;，不这样操作则只要回到Linux控制台则redis服务会自动关闭，同时也将bind注释，将protected-mode设置为no。</p>
+<p>这样启动后我就可以在外网访问了。</p>
+</blockquote>
+<h3 id="查看Redis是否正在运行"><a href="#查看Redis是否正在运行" class="headerlink" title="查看Redis是否正在运行"></a><strong>查看Redis是否正在运行</strong></h3><h4 id="1、采取查看进程方式"><a href="#1、采取查看进程方式" class="headerlink" title="1、采取查看进程方式"></a><strong>1、采取查看进程方式</strong></h4><p><code>ps -aux | grep redis</code></p>
+<p>结果如下图：</p>
+<p><img src="0-1407665728.png" alt="img"></p>
+<h4 id="2、采取端口监听查看方式"><a href="#2、采取端口监听查看方式" class="headerlink" title="2、采取端口监听查看方式"></a><strong>2、采取端口监听查看方式</strong></h4><p><code>netstat -lanp | grep 6379</code></p>
+<p>结果如下图：</p>
+<p><img src="1-1025164897.png" alt="img"></p>
+<h3 id="redis-cli"><a href="#redis-cli" class="headerlink" title="redis-cli"></a><strong>redis-cli</strong></h3><p>redis-cli是连接本地redis服务的一个命令，通过该命令可以连接redis的脚本控制台。如下图</p>
+<p><img src="5-1345838995.png" alt="img"></p>
+<p>输入exit可以退出redis脚本控制台</p>
+<h4 id="关闭运行中的Redis服务"><a href="#关闭运行中的Redis服务" class="headerlink" title="关闭运行中的Redis服务"></a><strong>关闭运行中的Redis服务</strong></h4><p>输入redis-cli 进入控制台后输入命令shutdown即可关闭运行中的Redis服务了。如下图:</p>
+<p><img src="8-1051623110.png" alt="img"></p>
+<h4 id="远程连接不上问题"><a href="#远程连接不上问题" class="headerlink" title="远程连接不上问题"></a><strong>远程连接不上问题</strong></h4><p>如下图，已经开放了Redis服务的ip不为127.0.0.1,理论上远程客户端应该可以连接了，而且云服务器的端口号也在安全组里开放了。</p>
+<p><img src="57-703255053.png" alt="img"></p>
+<h2 id="Windows安装redis"><a href="#Windows安装redis" class="headerlink" title="Windows安装redis"></a>Windows安装redis</h2><h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3>]]></content>
       <categories>
         <category>java</category>
-        <category>前端</category>
-        <category>实现</category>
+        <category>数据库</category>
+        <category>redis</category>
       </categories>
       <tags>
-        <tag>前端-实现</tag>
+        <tag>数据库-redis</tag>
       </tags>
   </entry>
   <entry>
