@@ -282,18 +282,6 @@
       </tags>
   </entry>
   <entry>
-    <title>树</title>
-    <url>/2021/03/18/%E7%AE%97%E6%B3%95/%E6%A0%91/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>算法</category>
-        <category>树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>复杂度</title>
     <url>/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
     <content><![CDATA[<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><a id="more"></a>
@@ -379,20 +367,32 @@
       </tags>
   </entry>
   <entry>
+    <title>树</title>
+    <url>/2021/03/18/%E7%AE%97%E6%B3%95/%E6%A0%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+        <category>树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>scp文件传输</title>
     <url>/2021/03/23/%E7%B3%BB%E7%BB%9F/scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/</url>
     <content><![CDATA[<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><a id="more"></a>
 
 <p>上传文件</p>
 <p>//使用方法：scp 源文件路径 账户@地址:目的路径</p>
-<p>scp C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#x6c;&#x75;&#99;&#x61;&#x73;&#x40;&#x31;&#57;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#49;&#46;&#49;&#x35;&#x30;">&#x6c;&#x75;&#99;&#x61;&#x73;&#x40;&#x31;&#57;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#49;&#46;&#49;&#x35;&#x30;</a>:/home/lucas/</p>
+<p>scp C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#x6c;&#x75;&#99;&#97;&#x73;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x31;&#x31;&#x2e;&#49;&#53;&#48;">&#x6c;&#x75;&#99;&#97;&#x73;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x31;&#x31;&#x2e;&#49;&#53;&#48;</a>:/home/lucas/</p>
 <p>然后输入密码即可</p>
 <p>下载文件</p>
-<p>scp <a href="mailto:&#108;&#117;&#99;&#x61;&#x73;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#x31;&#48;&#46;&#49;&#50;&#x38;">&#108;&#117;&#99;&#x61;&#x73;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#x31;&#48;&#46;&#49;&#50;&#x38;</a>:/home/lucas/world.txt C:\Users\zbh\Desktop\</p>
+<p>scp <a href="mailto:&#x6c;&#x75;&#99;&#x61;&#x73;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#49;&#49;&#x30;&#46;&#49;&#50;&#x38;">&#x6c;&#x75;&#99;&#x61;&#x73;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#49;&#49;&#x30;&#46;&#49;&#50;&#x38;</a>:/home/lucas/world.txt C:\Users\zbh\Desktop\</p>
 <p>上传文件夹</p>
-<p>scp -r C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x31;&#x2e;&#x31;&#x35;&#x30;">&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x31;&#x2e;&#x31;&#x35;&#x30;</a>:/home/lucas/</p>
+<p>scp -r C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#108;&#117;&#99;&#97;&#x73;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x31;&#x2e;&#49;&#53;&#x30;">&#108;&#117;&#99;&#97;&#x73;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x31;&#x2e;&#49;&#53;&#x30;</a>:/home/lucas/</p>
 <p>上传本目录下所有文件</p>
-<p>scp -r *  <a href="mailto:&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#56;&#46;&#x31;&#49;&#46;&#49;&#x35;&#48;">&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#56;&#46;&#x31;&#49;&#46;&#49;&#x35;&#48;</a>:/home/lucas/</p>
+<p>scp -r *  <a href="mailto:&#108;&#117;&#99;&#97;&#115;&#64;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#49;&#x31;&#46;&#x31;&#53;&#x30;">&#108;&#117;&#99;&#97;&#115;&#64;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#49;&#x31;&#46;&#x31;&#53;&#x30;</a>:/home/lucas/</p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="win7可能不存在OpenSSH，需要安装"><a href="#win7可能不存在OpenSSH，需要安装" class="headerlink" title="win7可能不存在OpenSSH，需要安装"></a>win7可能不存在OpenSSH，需要安装</h2><p><strong>下载openSSH</strong></p>
 <p>下载，那当然需要去权威的地方下载，这里提供github发布版</p>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH/releases">openSSH-Win64.zip</a></p>
@@ -463,6 +463,16 @@
       </tags>
   </entry>
   <entry>
+    <title>其他</title>
+    <url>/2021/03/08/%E8%BF%9B%E5%BA%A6/%E5%85%B6%E4%BB%96/</url>
+    <content><![CDATA[<p>脱敏处理</p>
+<a id="more"></a>
+
+<p>js宏观任务和微观任务</p>
+<p>线性代数和数据结构算法</p>
+]]></content>
+  </entry>
+  <entry>
     <title>idea</title>
     <url>/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/</url>
     <content><![CDATA[<h2 id="代码自动缩进行-格式整理"><a href="#代码自动缩进行-格式整理" class="headerlink" title="代码自动缩进行(格式整理)"></a>代码自动缩进行(格式整理)</h2><a id="more"></a>
@@ -488,16 +498,6 @@
       <tags>
         <tag>软件</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>其他</title>
-    <url>/2021/03/08/%E8%BF%9B%E5%BA%A6/%E5%85%B6%E4%BB%96/</url>
-    <content><![CDATA[<p>脱敏处理</p>
-<a id="more"></a>
-
-<p>js宏观任务和微观任务</p>
-<p>线性代数和数据结构算法</p>
-]]></content>
   </entry>
   <entry>
     <title>单词</title>
@@ -765,218 +765,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Typora使用</title>
-    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
-<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
-<a id="more"></a>
-
-<p>会显示类似于浏览器的开发者模式窗口</p>
-<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
-<p>此时选择想要修改样式的内容</p>
-<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
-<p>修改完毕后右键Copy link address复制文件路径</p>
-<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
-<blockquote>
-<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
-<p>  一般文件会有带盘符的完整路径</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 有的文件则以typora:开头</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p>此时需要</p>
-<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
-<p>此时直接进入 typora://userData\themes 中</p>
-<blockquote>
-<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
-<p>根据行数及选择器名修改样式内容保存即可</p>
-]]></content>
-      <tags>
-        <tag>博客-Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中添加图片</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<h3 id="下载插件"><a href="#下载插件" class="headerlink" title="下载插件"></a>下载插件</h3><p>在hexo根目录下执行如下命令</p>
-<a id="more"></a>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-asset-image</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开在hexo根目录下的 _config.yml 配置文件，找到 post_asset_folder 属性，默认为 false 改为 true</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
-<p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
-<h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo使用</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
-<a id="more"></a>
-
-
-
-<h3 id="source-posts中的文件使用文件夹划分并不会达成分级的效果"><a href="#source-posts中的文件使用文件夹划分并不会达成分级的效果" class="headerlink" title="\source_posts中的文件使用文件夹划分并不会达成分级的效果"></a>\source_posts中的文件使用文件夹划分并不会达成分级的效果</h3><p>但可以依靠分包进行视觉上的区分</p>
-<h3 id="可以不用添加标号，上传后文章目录会自动添加"><a href="#可以不用添加标号，上传后文章目录会自动添加" class="headerlink" title="可以不用添加标号，上传后文章目录会自动添加"></a>可以不用添加标号，上传后文章目录会自动添加</h3><h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><h3 id="md头的作用"><a href="#md头的作用" class="headerlink" title="md头的作用"></a>md头的作用</h3><table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>title</code></td>
-<td align="left">网站标题</td>
-</tr>
-<tr>
-<td align="left"><code>subtitle</code></td>
-<td align="left">网站副标题</td>
-</tr>
-<tr>
-<td align="left"><code>description</code></td>
-<td align="left">网站描述</td>
-</tr>
-<tr>
-<td align="left"><code>keywords</code></td>
-<td align="left">网站的关键词。支援多个关键词。</td>
-</tr>
-<tr>
-<td align="left"><code>author</code></td>
-<td align="left">您的名字</td>
-</tr>
-<tr>
-<td align="left"><code>language</code></td>
-<td align="left">网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>。</td>
-</tr>
-<tr>
-<td align="left"><code>timezone</code></td>
-<td align="left">网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>。</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 分类  创建分类页 hexo new page categories</span></span><br><span class="line">categories: hexo</span><br><span class="line"><span class="comment">// 标签  创建标签页 hexo new page tags</span></span><br><span class="line">type: tags </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="hexo页面文章使用时间排序，最早的文章会放到最下边，"><a href="#hexo页面文章使用时间排序，最早的文章会放到最下边，" class="headerlink" title="hexo页面文章使用时间排序，最早的文章会放到最下边，"></a>hexo页面文章使用时间排序，最早的文章会放到最下边，</h3><p>所以可以通过修改头部的时间来对文章进行排序</p>
-<h3 id="文件名并没有用，页面中最大的标题为文件头中title后的内容"><a href="#文件名并没有用，页面中最大的标题为文件头中title后的内容" class="headerlink" title="文件名并没有用，页面中最大的标题为文件头中title后的内容"></a>文件名并没有用，页面中最大的标题为文件头中title后的内容</h3><h3 id="将Hexo设置成中文"><a href="#将Hexo设置成中文" class="headerlink" title="将Hexo设置成中文"></a>将Hexo设置成中文</h3><p>很多文档和博客都将language设置成zh-Hans，结果登录个人站一直不能显示中文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
-<p>找到next文件夹下的languages文件夹，看到zh-CN.yml，所以选择把languages设为zh-CN<br><img src="https://img-blog.csdnimg.cn/20201216200852675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUyMzE2OTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: RedeeMi的个人站</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
-<p>如果还没有显示为中文，clean后再登录即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Hexo-next主题添加"><a href="#Hexo-next主题添加" class="headerlink" title="Hexo next主题添加"></a>Hexo next主题添加</h2><h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true"><a href="#2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true" class="headerlink" title="2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索footer，在它底下添加counter，设值为true"></a>2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索<strong>footer</strong>，在它底下添加counter，设值为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 统计  </span><br><span class="line">counter: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码"><a href="#3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码" class="headerlink" title="3. 来到themes\next\layout\_partials，找到footer.swig文件，打开编辑，在底下添加代码"></a>3. 来到themes\next\layout\_partials，找到<strong>footer.swig</strong>文件，打开编辑，在底下添加代码</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.counter %&#125;</span><br><span class="line">    &lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="Hexo-next主题添加搜索"><a href="#Hexo-next主题添加搜索" class="headerlink" title="Hexo next主题添加搜索"></a>Hexo next主题添加搜索</h3><h4 id="1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："><a href="#1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：" class="headerlink" title="1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："></a>1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-全局配置文件-config-yml，新增如下内容："><a href="#2-全局配置文件-config-yml，新增如下内容：" class="headerlink" title="2.全局配置文件_config.yml，新增如下内容："></a>2.全局配置文件_config.yml，新增如下内容：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 添加搜索</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true："><a href="#3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true：" class="headerlink" title="3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true："></a>3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/flashlab/hexo-generator-search</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于"><a href="#Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于" class="headerlink" title="Hexo NexT主题下开启其他菜单项，比如分类、标签、关于"></a>Hexo NexT主题下开启其他菜单项，比如分类、标签、关于</h3><p>首先打开主题下的配置文件_config.yml，然后搜索menu找到如下配置项，将about、tags、categories前的#号去掉，就开启了关于、标签和分类标签，当然还有其他菜单项也可以开启</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Menu Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> When running the site <span class="keyword">in</span> a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Usage: `Key: /link/ || icon`</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Key is the name of menu item. If the translation <span class="keyword">for</span> this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value before `||` delimiter is the target link.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> External url should start with http:// or https://</span></span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line"><span class="meta">  #</span><span class="bash">schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<p>重新生成部署后，可以看到新增的菜单项，但是单击后会报如下错误</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Cannot GET /about/</span><br><span class="line">Cannot GET /tags/</span><br><span class="line">Cannot GET /categories/</span><br></pre></td></tr></table></figure>
-
-<p>这是因为你还需运行如下命令新建相关页面</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
-
-
-<p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page &quot;about&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\about\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;tags&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\tags\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;categories&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\categories\index.md</span><br></pre></td></tr></table></figure>
-
-
-<p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Hexo-分类文章进行分级"><a href="#Hexo-分类文章进行分级" class="headerlink" title="Hexo 分类文章进行分级"></a>Hexo 分类文章进行分级</h3><p>添加分类页面成功后</p>
-<p>文章添加<code>categories: 分类1</code>即可添加分类</p>
-<p>添加</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">categories: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">category: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
-<p>即可进行分类分级</p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo指令</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>​    </p>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
-<a id="more"></a>
-
-<p>​    或</p>
-<p>​    hexo n “文章名称”</p>
-<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
-<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
-<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
-<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
-<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
-<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
-]]></content>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo添加分类及标签</title>
-    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
-<a id="more"></a>
-
-<h4 id="1-创建“分类”选项"><a href="#1-创建“分类”选项" class="headerlink" title="1. 创建“分类”选项"></a>1. 创建“分类”选项</h4><p>生成“分类”页并添加tpye属性,进入博客目录。执行下方命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>categories文件夹下会有index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-22 14:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-24 15:30:30</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件。</p>
-<p>给文章添加“categories”属性</p>
-<p>打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
-<h4 id="2-创建“标签”选项"><a href="#2-创建“标签”选项" class="headerlink" title="2. 创建“标签”选项"></a>2. 创建“标签”选项</h4><p>生成“标签”页并添加tpye属性，<code>页面进入标签页默认找tags目录</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
-<p>在tags文件夹下，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-22 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>添加type: “tags”到内容中，添加后是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>保存并关闭文件。</p>
-<p>给文章添加“tags”属性,打开需要添加标签的文章，为其添加tags属性。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: - Hexo</span><br><span class="line">tags: - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客-hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker使用</title>
     <url>/2021/03/05/%E6%8A%80%E6%9C%AF/Docker/Docker%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="Docker的常用命令"><a href="#Docker的常用命令" class="headerlink" title="Docker的常用命令"></a>Docker的常用命令</h2><a id="more"></a>
@@ -1218,6 +1006,61 @@
       </tags>
   </entry>
   <entry>
+    <title>jvm介绍</title>
+    <url>/2021/03/08/%E6%8A%80%E6%9C%AF/JVM/jvm%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="JVM探究"><a href="#JVM探究" class="headerlink" title="JVM探究"></a>JVM探究</h2><a id="more"></a>
+
+<ul>
+<li>对<code>JVM</code>的理解，<code>java8</code>虚拟机和之前的变化更新</li>
+<li>什么是<code>OOM</code>，什么是栈溢出<code>StackOverFlowError</code>？怎么分析？</li>
+<li><code>JVM</code>常用的调优参数</li>
+<li>内存快照如何抓取，怎么分析<code>Dump</code>文件</li>
+<li>谈谈<code>JVM</code>中，类加载器的认识</li>
+</ul>
+<h3 id="JVM位置"><a href="#JVM位置" class="headerlink" title="JVM位置"></a>JVM位置</h3><p>java虚拟机 位于操作系统上</p>
+<p><img src="image-20210309093518232.png" alt="image-20210309093518232"></p>
+<h3 id="JVM的体系结构"><a href="#JVM的体系结构" class="headerlink" title="JVM的体系结构"></a>JVM的体系结构</h3><p><img src="image-20210310152333062.png" alt="image-20210310152333062"></p>
+<p>​    </p>
+<ol>
+<li><p>垃圾集中区域： 主要是在堆里面，方法区占少量</p>
+</li>
+<li><p>所谓的<code>JVM调优</code>其实99%都是在<code>方法区及堆</code>中，而其中的99%则是在<code>堆</code>中</p>
+</li>
+<li><p>栈中绝对不能有垃圾，栈中的东西用完就弹出去了，栈中有垃圾代表程序崩了，Main方法首先进栈，其余方法之后入栈，执行万一个弹出一个，若栈中有垃圾则影响方法弹出</p>
+</li>
+<li><p>方法区是一个特殊的堆</p>
+</li>
+</ol>
+<p>​    </p>
+<p>​    </p>
+<ol>
+<li>类加载器</li>
+<li>双亲委派机制</li>
+<li>沙箱安全机制</li>
+<li>Native</li>
+<li>PC寄存器</li>
+<li>方法区</li>
+<li>堆、栈</li>
+<li>三种JVM</li>
+<li>新生区、老年区</li>
+<li>永久区</li>
+<li>堆内存调优</li>
+<li>GC<ol>
+<li>常用算法</li>
+</ol>
+</li>
+<li>JMM</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>jvm</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ELK-stack说明</title>
     <url>/2021/03/17/%E6%8A%80%E6%9C%AF/ELK%20stack/0.%20ELK-stack%E8%AF%B4%E6%98%8E/</url>
     <content><![CDATA[<h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><a id="more"></a>
@@ -1385,58 +1228,29 @@
       </tags>
   </entry>
   <entry>
-    <title>jvm介绍</title>
-    <url>/2021/03/08/%E6%8A%80%E6%9C%AF/JVM/jvm%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h2 id="JVM探究"><a href="#JVM探究" class="headerlink" title="JVM探究"></a>JVM探究</h2><a id="more"></a>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E6%8A%80%E6%9C%AF/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
 
-<ul>
-<li>对<code>JVM</code>的理解，<code>java8</code>虚拟机和之前的变化更新</li>
-<li>什么是<code>OOM</code>，什么是栈溢出<code>StackOverFlowError</code>？怎么分析？</li>
-<li><code>JVM</code>常用的调优参数</li>
-<li>内存快照如何抓取，怎么分析<code>Dump</code>文件</li>
-<li>谈谈<code>JVM</code>中，类加载器的认识</li>
-</ul>
-<h3 id="JVM位置"><a href="#JVM位置" class="headerlink" title="JVM位置"></a>JVM位置</h3><p>java虚拟机 位于操作系统上</p>
-<p><img src="image-20210309093518232.png" alt="image-20210309093518232"></p>
-<h3 id="JVM的体系结构"><a href="#JVM的体系结构" class="headerlink" title="JVM的体系结构"></a>JVM的体系结构</h3><p><img src="image-20210310152333062.png" alt="image-20210310152333062"></p>
-<p>​    </p>
+<blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
 <ol>
-<li><p>垃圾集中区域： 主要是在堆里面，方法区占少量</p>
-</li>
-<li><p>所谓的<code>JVM调优</code>其实99%都是在<code>方法区及堆</code>中，而其中的99%则是在<code>堆</code>中</p>
-</li>
-<li><p>栈中绝对不能有垃圾，栈中的东西用完就弹出去了，栈中有垃圾代表程序崩了，Main方法首先进栈，其余方法之后入栈，执行万一个弹出一个，若栈中有垃圾则影响方法弹出</p>
-</li>
-<li><p>方法区是一个特殊的堆</p>
-</li>
-</ol>
-<p>​    </p>
-<p>​    </p>
-<ol>
-<li>类加载器</li>
-<li>双亲委派机制</li>
-<li>沙箱安全机制</li>
-<li>Native</li>
-<li>PC寄存器</li>
-<li>方法区</li>
-<li>堆、栈</li>
-<li>三种JVM</li>
-<li>新生区、老年区</li>
-<li>永久区</li>
-<li>堆内存调优</li>
-<li>GC<ol>
-<li>常用算法</li>
-</ol>
-</li>
-<li>JMM</li>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
 </ol>
 ]]></content>
       <categories>
         <category>技术</category>
-        <category>jvm</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>jvm</tag>
+        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -1537,32 +1351,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E6%8A%80%E6%9C%AF/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
-
-<blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>问题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git安装及配置</title>
     <url>/2021/02/22/%E6%8A%80%E6%9C%AF/git/git%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="淘宝镜像安装地址"><a href="#淘宝镜像安装地址" class="headerlink" title="淘宝镜像安装地址"></a>淘宝镜像安装地址</h3><p><a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
@@ -1635,6 +1423,76 @@
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>nginx</title>
+    <url>/2021/03/22/%E6%8A%80%E6%9C%AF/nginx/1.%20nginx/</url>
+    <content><![CDATA[<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><a id="more"></a>
+
+<p>项目部署到线上时，用户使用少，并发量小，仅使用tomcat返回内容给用户，项目只需一个jar包就够了</p>
+<p>当访问人数越来越多，并发量慢慢增大，一台服务器已经不能满足需求</p>
+<p>于是可以增加服务器，讲项目启动在不同的服务器上，用户访问代理服务器，代理服务器帮助我们转发和处理请求</p>
+<p>因此代理服务器需要具有以下特点：</p>
+<ol>
+<li>负载均衡（给性能强的服务器增加权重，使请求更多的访问到该服务器上）</li>
+<li>反向代理</li>
+</ol>
+<p><img src="image-20210322174144218.png" alt="image-20210322174144218"></p>
+<p>我们希望这个代理服务器可以帮助我们接收用户的请求。然后将用户的请求按照规则帮我们转发到不同的服务器节点之上。这个过程用户是无感知的。用户并不知道是哪个服务器返回的结果，我们还希望他可以按照服务器的性能提供不同的权重选择。保证最佳体验!</p>
+<h1 id="什么是Nginx"><a href="#什么是Nginx" class="headerlink" title="什么是Nginx"></a>什么是Nginx</h1><p>Nginx (engine x)是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是 由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点开发的,第一个公开版本0.1.0发布于2004年10月4日。2011年6月1日, nginx 1.0.4发布。</p>
+<p>其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有:百度、京东、新浪、网易、腾讯、淘宝等。在全球活跃的网站中有12.18%的使用比率，大约为2220万个网站。<br>Nginx是-个安装非常的简单、配置文件非常简洁(还能够支持perl语法)、Bug非常少的服务。Nginx启动特别容易，并且几乎可以做到7*24不问断运行，即使运行数个月也不需要重新启动。你还能够不间断服务的情况下进行软件版本的升级。<br>Nginx代码完全用C语言从头写成。官方数据测试表明能够支持高达50,000个并发连接数的响应。</p>
+<h1 id="Nginx作用"><a href="#Nginx作用" class="headerlink" title="Nginx作用"></a>Nginx作用</h1><blockquote>
+<p>Http代理，反向代理</p>
+</blockquote>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p><code>代理客户端</code></p>
+<p>如：VPN，国内存在防火墙，客户端无法访问国外网站，而客户端使用VPM先可以访问代理服务器，代理服务器访问外国网站，此类代理即为正向代理</p>
+<p><img src="image-20210322175141813.png" alt="image-20210322175141813"></p>
+<h3 id="反向代理-1"><a href="#反向代理-1" class="headerlink" title="反向代理"></a>反向代理</h3><p><code>代理服务器端</code></p>
+<p>如：访问百度网址，百度存在多台服务器，用户仅需通过<a href="http://www.baidu.com访问代理服务器即可,无法感知自身访问的到底是哪台服务器/">www.baidu.com访问代理服务器即可，无法感知自身访问的到底是哪台服务器</a></p>
+<p><img src="image-20210322175500931.png" alt="image-20210322175500931"></p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="轮询"><a href="#轮询" class="headerlink" title="轮询"></a>轮询</h3><p><img src="image-20210322175956175.png" alt="image-20210322175956175"></p>
+<h3 id="加权轮询"><a href="#加权轮询" class="headerlink" title="加权轮询"></a>加权轮询</h3><p>保证服务器性能最大化</p>
+<p><img src="image-20210322180033474.png" alt="image-20210322180033474"></p>
+<h3 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h3><p>iphash对客户端请求的ip进行hash操作。然后根据hash结果将同一个客户端ip的请求分发给同- -台服务器进行处理，可以解决session不共享的问题。</p>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的(如: css、 html. jpog. js等等文件)，这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来， 动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p>
+<p><img src="image-20210322190527587.png" alt="image-20210322190527587"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx安装</title>
+    <url>/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h1><a id="more"></a>
+
+<h2 id="下载稳定版本"><a href="#下载稳定版本" class="headerlink" title="下载稳定版本"></a>下载稳定版本</h2><p><img src="image-20210323091817433.png" alt="image-20210323091817433"></p>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p><img src="image-20210323092114038.png" alt="image-20210323092114038"></p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ol>
+<li>直接双击nginx.exe启动（点击后闪下就会关闭，不推荐）</li>
+<li>dos命令启动</li>
+</ol>
+<p><img src="image-20210323092439446.png" alt="image-20210323092439446"></p>
+<h2 id="验证是否启动成功"><a href="#验证是否启动成功" class="headerlink" title="验证是否启动成功"></a>验证是否启动成功</h2><p>浏览器中访问<code>localhost:80</code></p>
+<p><img src="image-20210323092600657.png" alt="image-20210323092600657"></p>
+<h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><p><img src="image-20210323092751749.png" alt="image-20210323092751749"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kafka安装</title>
+    <url>/2021/03/22/%E6%8A%80%E6%9C%AF/kafka/2.%20kafka%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>kafka</title>
@@ -1719,71 +1577,215 @@
       </tags>
   </entry>
   <entry>
-    <title>kafka安装</title>
-    <url>/2021/03/22/%E6%8A%80%E6%9C%AF/kafka/2.%20kafka%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>nginx</title>
-    <url>/2021/03/22/%E6%8A%80%E6%9C%AF/nginx/1.%20nginx/</url>
-    <content><![CDATA[<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><a id="more"></a>
+    <title>hexo中添加图片</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h3 id="下载插件"><a href="#下载插件" class="headerlink" title="下载插件"></a>下载插件</h3><p>在hexo根目录下执行如下命令</p>
+<a id="more"></a>
 
-<p>项目部署到线上时，用户使用少，并发量小，仅使用tomcat返回内容给用户，项目只需一个jar包就够了</p>
-<p>当访问人数越来越多，并发量慢慢增大，一台服务器已经不能满足需求</p>
-<p>于是可以增加服务器，讲项目启动在不同的服务器上，用户访问代理服务器，代理服务器帮助我们转发和处理请求</p>
-<p>因此代理服务器需要具有以下特点：</p>
-<ol>
-<li>负载均衡（给性能强的服务器增加权重，使请求更多的访问到该服务器上）</li>
-<li>反向代理</li>
-</ol>
-<p><img src="image-20210322174144218.png" alt="image-20210322174144218"></p>
-<p>我们希望这个代理服务器可以帮助我们接收用户的请求。然后将用户的请求按照规则帮我们转发到不同的服务器节点之上。这个过程用户是无感知的。用户并不知道是哪个服务器返回的结果，我们还希望他可以按照服务器的性能提供不同的权重选择。保证最佳体验!</p>
-<h1 id="什么是Nginx"><a href="#什么是Nginx" class="headerlink" title="什么是Nginx"></a>什么是Nginx</h1><p>Nginx (engine x)是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是 由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点开发的,第一个公开版本0.1.0发布于2004年10月4日。2011年6月1日, nginx 1.0.4发布。</p>
-<p>其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有:百度、京东、新浪、网易、腾讯、淘宝等。在全球活跃的网站中有12.18%的使用比率，大约为2220万个网站。<br>Nginx是-个安装非常的简单、配置文件非常简洁(还能够支持perl语法)、Bug非常少的服务。Nginx启动特别容易，并且几乎可以做到7*24不问断运行，即使运行数个月也不需要重新启动。你还能够不间断服务的情况下进行软件版本的升级。<br>Nginx代码完全用C语言从头写成。官方数据测试表明能够支持高达50,000个并发连接数的响应。</p>
-<h1 id="Nginx作用"><a href="#Nginx作用" class="headerlink" title="Nginx作用"></a>Nginx作用</h1><blockquote>
-<p>Http代理，反向代理</p>
-</blockquote>
-<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p><code>代理客户端</code></p>
-<p>如：VPN，国内存在防火墙，客户端无法访问国外网站，而客户端使用VPM先可以访问代理服务器，代理服务器访问外国网站，此类代理即为正向代理</p>
-<p><img src="image-20210322175141813.png" alt="image-20210322175141813"></p>
-<h3 id="反向代理-1"><a href="#反向代理-1" class="headerlink" title="反向代理"></a>反向代理</h3><p><code>代理服务器端</code></p>
-<p>如：访问百度网址，百度存在多台服务器，用户仅需通过<a href="http://www.baidu.com访问代理服务器即可,无法感知自身访问的到底是哪台服务器/">www.baidu.com访问代理服务器即可，无法感知自身访问的到底是哪台服务器</a></p>
-<p><img src="image-20210322175500931.png" alt="image-20210322175500931"></p>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="轮询"><a href="#轮询" class="headerlink" title="轮询"></a>轮询</h3><p><img src="image-20210322175956175.png" alt="image-20210322175956175"></p>
-<h3 id="加权轮询"><a href="#加权轮询" class="headerlink" title="加权轮询"></a>加权轮询</h3><p>保证服务器性能最大化</p>
-<p><img src="image-20210322180033474.png" alt="image-20210322180033474"></p>
-<h3 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h3><p>iphash对客户端请求的ip进行hash操作。然后根据hash结果将同一个客户端ip的请求分发给同- -台服务器进行处理，可以解决session不共享的问题。</p>
-<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的(如: css、 html. jpog. js等等文件)，这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来， 动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p>
-<p><img src="image-20210322190527587.png" alt="image-20210322190527587"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-asset-image</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开在hexo根目录下的 _config.yml 配置文件，找到 post_asset_folder 属性，默认为 false 改为 true</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>此时再执行命令 <code>hexo n test</code> 创建新的文章，</p>
+<p>在 <code>source/_posts</code> 中会生成文章 <code>test.md</code> 和同名文件夹 <code>test</code>我们将文章中所使用到的将图片资源均放在 <code>test</code> 中，这时就可以在文章中使用相对路径引用图片资源了<br> <code>[img_name](img_name.jpg)  #文章中的图片资源路径格式</code></p>
+<h5 id="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"><a href="#创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类" class="headerlink" title="创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类"></a>创建后再将生成的文件及用来存放图片的文件夹移动到文件夹中，图片依旧可以加载，可以此进行视觉分类</h5><h5 id="首次进行图片上传可能会失败，原因未知"><a href="#首次进行图片上传可能会失败，原因未知" class="headerlink" title="首次进行图片上传可能会失败，原因未知"></a>首次进行图片上传可能会失败，原因未知</h5><p><img src="image-20210221172514240.png"></p>
 ]]></content>
-      <categories>
-        <category>技术</category>
-        <category>nginx</category>
-      </categories>
       <tags>
-        <tag>nginx</tag>
+        <tag>博客-hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>nginx安装</title>
-    <url>/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h1><h2 id="下载稳定版本"><a href="#下载稳定版本" class="headerlink" title="下载稳定版本"></a>下载稳定版本</h2><p><img src="image-20210323091817433.png" alt="image-20210323091817433"></p>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p><img src="image-20210323092114038.png" alt="image-20210323092114038"></p>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ol>
-<li>直接双击nginx.exe启动（点击后闪下就会关闭，不推荐）</li>
-<li>dos命令启动</li>
-</ol>
-<p><img src="image-20210323092439446.png" alt="image-20210323092439446"></p>
-<h2 id="验证是否启动成功"><a href="#验证是否启动成功" class="headerlink" title="验证是否启动成功"></a>验证是否启动成功</h2><p>浏览器中访问<code>localhost:80</code></p>
-<p><img src="image-20210323092600657.png" alt="image-20210323092600657"></p>
-<h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><p><img src="image-20210323092751749.png" alt="image-20210323092751749"></p>
+    <title>hexo使用</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的"><a href="#可以在md文章中添加-lt-more-gt-标签达成折叠文章的目的" class="headerlink" title="可以在md文章中添加&lt;!--more--&gt;标签达成折叠文章的目的"></a>可以在md文章中添加<code>&lt;!--more--&gt;</code>标签达成折叠文章的目的</h3><p>​    标签不能放置在文章开头，否则会被无视</p>
+<a id="more"></a>
+
+
+
+<h3 id="source-posts中的文件使用文件夹划分并不会达成分级的效果"><a href="#source-posts中的文件使用文件夹划分并不会达成分级的效果" class="headerlink" title="\source_posts中的文件使用文件夹划分并不会达成分级的效果"></a>\source_posts中的文件使用文件夹划分并不会达成分级的效果</h3><p>但可以依靠分包进行视觉上的区分</p>
+<h3 id="可以不用添加标号，上传后文章目录会自动添加"><a href="#可以不用添加标号，上传后文章目录会自动添加" class="headerlink" title="可以不用添加标号，上传后文章目录会自动添加"></a>可以不用添加标号，上传后文章目录会自动添加</h3><h2 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h2><h3 id="md头的作用"><a href="#md头的作用" class="headerlink" title="md头的作用"></a>md头的作用</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>title</code></td>
+<td align="left">网站标题</td>
+</tr>
+<tr>
+<td align="left"><code>subtitle</code></td>
+<td align="left">网站副标题</td>
+</tr>
+<tr>
+<td align="left"><code>description</code></td>
+<td align="left">网站描述</td>
+</tr>
+<tr>
+<td align="left"><code>keywords</code></td>
+<td align="left">网站的关键词。支援多个关键词。</td>
+</tr>
+<tr>
+<td align="left"><code>author</code></td>
+<td align="left">您的名字</td>
+</tr>
+<tr>
+<td align="left"><code>language</code></td>
+<td align="left">网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>timezone</code></td>
+<td align="left">网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>。</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 分类  创建分类页 hexo new page categories</span></span><br><span class="line">categories: hexo</span><br><span class="line"><span class="comment">// 标签  创建标签页 hexo new page tags</span></span><br><span class="line">type: tags </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="hexo页面文章使用时间排序，最早的文章会放到最下边，"><a href="#hexo页面文章使用时间排序，最早的文章会放到最下边，" class="headerlink" title="hexo页面文章使用时间排序，最早的文章会放到最下边，"></a>hexo页面文章使用时间排序，最早的文章会放到最下边，</h3><p>所以可以通过修改头部的时间来对文章进行排序</p>
+<h3 id="文件名并没有用，页面中最大的标题为文件头中title后的内容"><a href="#文件名并没有用，页面中最大的标题为文件头中title后的内容" class="headerlink" title="文件名并没有用，页面中最大的标题为文件头中title后的内容"></a>文件名并没有用，页面中最大的标题为文件头中title后的内容</h3><h3 id="将Hexo设置成中文"><a href="#将Hexo设置成中文" class="headerlink" title="将Hexo设置成中文"></a>将Hexo设置成中文</h3><p>很多文档和博客都将language设置成zh-Hans，结果登录个人站一直不能显示中文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
+<p>找到next文件夹下的languages文件夹，看到zh-CN.yml，所以选择把languages设为zh-CN<br><img src="https://img-blog.csdnimg.cn/20201216200852675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUyMzE2OTEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: RedeeMi的个人站</span><br><span class="line">subtitle: Welcome</span><br><span class="line">description: you can enjoy a grander sight，if you climb to a greater height</span><br><span class="line">keywords:</span><br><span class="line">author: RedeeMi</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br><span class="line">1234567</span><br></pre></td></tr></table></figure>
+<p>如果还没有显示为中文，clean后再登录即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Hexo-next主题添加"><a href="#Hexo-next主题添加" class="headerlink" title="Hexo next主题添加"></a>Hexo next主题添加</h2><h3 id="Hexo-next主题添加访问统计"><a href="#Hexo-next主题添加访问统计" class="headerlink" title="Hexo next主题添加访问统计"></a>Hexo next主题添加访问统计</h3><h5 id="注：不同主题添加统计的方式不同"><a href="#注：不同主题添加统计的方式不同" class="headerlink" title="注：不同主题添加统计的方式不同"></a>注：不同主题添加统计的方式不同</h5><h4 id="1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true"><a href="#1-打开next主题配置文件-themes-next-config-yml，搜索找到busuanzi-count，把enable设置为true" class="headerlink" title="1. 打开next主题配置文件\themes\next\_config.yml，搜索找到busuanzi_count，把enable设置为true"></a>1. 打开next主题配置文件\themes\next\_config.yml，搜索找到<strong>busuanzi_count</strong>，把enable设置为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Show Views / Visitors of the website / page with busuanzi.#展示访问数</span><br><span class="line"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  total_visitors: true   #统计访客数</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true    #统计访问数</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true   #统计文章阅读数</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true"><a href="#2-同样是在next主题配置文件-themes-next-config-yml下，搜索footer，在它底下添加counter，设值为true" class="headerlink" title="2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索footer，在它底下添加counter，设值为true"></a>2. 同样是在next主题配置文件\themes\next\_config.yml下，搜索<strong>footer</strong>，在它底下添加counter，设值为true</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 统计  </span><br><span class="line">counter: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码"><a href="#3-来到themes-next-layout-partials，找到footer-swig文件，打开编辑，在底下添加代码" class="headerlink" title="3. 来到themes\next\layout\_partials，找到footer.swig文件，打开编辑，在底下添加代码"></a>3. 来到themes\next\layout\_partials，找到<strong>footer.swig</strong>文件，打开编辑，在底下添加代码</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.counter %&#125;</span><br><span class="line">    &lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="Hexo-next主题添加搜索"><a href="#Hexo-next主题添加搜索" class="headerlink" title="Hexo next主题添加搜索"></a>Hexo next主题添加搜索</h3><h4 id="1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："><a href="#1-安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：" class="headerlink" title="1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令："></a>1. 安装搜索：在Hexo的根目录下，打开命令可执行窗口，执行如下命令：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-全局配置文件-config-yml，新增如下内容："><a href="#2-全局配置文件-config-yml，新增如下内容：" class="headerlink" title="2.全局配置文件_config.yml，新增如下内容："></a>2.全局配置文件_config.yml，新增如下内容：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># 添加搜索</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true："><a href="#3-hexo主题配置文件（-themes-next-config-yml），修改local-search的enable为true：" class="headerlink" title="3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true："></a>3.hexo主题配置文件（\themes\next\_config.yml），修改local_search的enable为true：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/flashlab/hexo-generator-search</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="keyword">true</span></span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于"><a href="#Hexo-NexT主题下开启其他菜单项，比如分类、标签、关于" class="headerlink" title="Hexo NexT主题下开启其他菜单项，比如分类、标签、关于"></a>Hexo NexT主题下开启其他菜单项，比如分类、标签、关于</h3><p>首先打开主题下的配置文件_config.yml，然后搜索menu找到如下配置项，将about、tags、categories前的#号去掉，就开启了关于、标签和分类标签，当然还有其他菜单项也可以开启</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Menu Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> When running the site <span class="keyword">in</span> a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Usage: `Key: /link/ || icon`</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Key is the name of menu item. If the translation <span class="keyword">for</span> this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value before `||` delimiter is the target link.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Value after `||` delimiter is the name of FontAwesome icon. If icon (with or without delimiter) is not specified, question icon will be loaded.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> External url should start with http:// or https://</span></span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line"><span class="meta">  #</span><span class="bash">schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">  #</span><span class="bash">commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>重新生成部署后，可以看到新增的菜单项，但是单击后会报如下错误</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Cannot GET /about/</span><br><span class="line">Cannot GET /tags/</span><br><span class="line">Cannot GET /categories/</span><br></pre></td></tr></table></figure>
+
+<p>这是因为你还需运行如下命令新建相关页面</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>运行结果如下，会再source文件下创建about、tags、categories文件夹，每个文件夹下还会创建一个index.md文件表示关于、标签页分类页面，编辑这三个MarkDown文件可以自定义这三个页面的内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">D:\hexo\blog&gt;hexo new page &quot;about&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\about\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;tags&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\tags\index.md</span><br><span class="line"></span><br><span class="line">D:\hexo\blog&gt;hexo new page &quot;categories&quot;</span><br><span class="line">INFO  Created: D:\hexo\blog\source\categories\index.md</span><br></pre></td></tr></table></figure>
+
+
+<p>还差最后一步，打开各页面对应的index.md文件，编辑如下内容，title和date是默认生成的，增加type即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">title: about</span><br><span class="line">date: 2019-06-25 19:16:17</span><br><span class="line"></span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Hexo-分类文章进行分级"><a href="#Hexo-分类文章进行分级" class="headerlink" title="Hexo 分类文章进行分级"></a>Hexo 分类文章进行分级</h3><p>添加分类页面成功后</p>
+<p>文章添加<code>categories: 分类1</code>即可添加分类</p>
+<p>添加</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">categories: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">category: </span><br><span class="line">- 笔记</span><br><span class="line">- javascript</span><br><span class="line">- 面向对象编程</span><br></pre></td></tr></table></figure>
+<p>即可进行分类分级</p>
 ]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo指令</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>​    </p>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>​    hexo new “文章名称”</p>
+<a id="more"></a>
+
+<p>​    或</p>
+<p>​    hexo n “文章名称”</p>
+<h3 id="清理页面"><a href="#清理页面" class="headerlink" title="清理页面"></a>清理页面</h3><p>hexo clean</p>
+<h3 id="生成页面-generate"><a href="#生成页面-generate" class="headerlink" title="生成页面 (generate)"></a>生成页面 (generate)</h3><p>​    hexo g </p>
+<h3 id="本地预览页面（show）"><a href="#本地预览页面（show）" class="headerlink" title="本地预览页面（show）"></a>本地预览页面（show）</h3><p>​    hexo s </p>
+<h3 id="部署发布-deploy"><a href="#部署发布-deploy" class="headerlink" title="部署发布 (deploy)"></a>部署发布 (deploy)</h3><p>​    hexo d</p>
+<h3 id="生成标签页面-页面文章头部需要添加-type-tags"><a href="#生成标签页面-页面文章头部需要添加-type-tags" class="headerlink" title="生成标签页面  页面文章头部需要添加  type: tags"></a>生成标签页面  页面文章头部需要添加  type: tags</h3><h3 id="文章通过添加（tags-标签）来添加标签"><a href="#文章通过添加（tags-标签）来添加标签" class="headerlink" title="文章通过添加（tags: 标签）来添加标签"></a>文章通过添加（tags: 标签）来添加标签</h3><p>​    hexo new page 标签</p>
+<h3 id="生成分类页面-头部需要添加-type-categoriese"><a href="#生成分类页面-头部需要添加-type-categoriese" class="headerlink" title="生成分类页面  头部需要添加  type: categoriese"></a>生成分类页面  头部需要添加  type: categoriese</h3><h3 id="文章通过添加（categoriese-分类）来添加分类"><a href="#文章通过添加（categoriese-分类）来添加分类" class="headerlink" title="文章通过添加（categoriese: 分类）来添加分类"></a>文章通过添加（categoriese: 分类）来添加分类</h3><p>​    hexo new page 分类</p>
+]]></content>
+      <tags>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo添加分类及标签</title>
+    <url>/2021/02/21/%E5%8D%9A%E5%AE%A2/hexo/hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<h1 id="Hexo-添加分类及标签"><a href="#Hexo-添加分类及标签" class="headerlink" title="Hexo 添加分类及标签"></a>Hexo 添加分类及标签</h1><p>生成的新文件夹都在source下也就是和放文章的文件夹一块 以下所有命令都是在博客文件目录下执行</p>
+<a id="more"></a>
+
+<h4 id="1-创建“分类”选项"><a href="#1-创建“分类”选项" class="headerlink" title="1. 创建“分类”选项"></a>1. 创建“分类”选项</h4><p>生成“分类”页并添加tpye属性,进入博客目录。执行下方命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>categories文件夹下会有index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-22 14:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>添加type: “categories”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-24 15:30:30</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<p>给文章添加“categories”属性</p>
+<p>打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h4 id="2-创建“标签”选项"><a href="#2-创建“标签”选项" class="headerlink" title="2. 创建“标签”选项"></a>2. 创建“标签”选项</h4><p>生成“标签”页并添加tpye属性，<code>页面进入标签页默认找tags目录</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>在tags文件夹下，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-22 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>添加type: “tags”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<p>给文章添加“tags”属性,打开需要添加标签的文章，为其添加tags属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: - Hexo</span><br><span class="line">tags: - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>技术</category>
-        <category>nginx</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>nginx</tag>
+        <tag>博客-hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora使用</title>
+    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
+<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
+<a id="more"></a>
+
+<p>会显示类似于浏览器的开发者模式窗口</p>
+<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
+<p>此时选择想要修改样式的内容</p>
+<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
+<p>修改完毕后右键Copy link address复制文件路径</p>
+<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
+<blockquote>
+<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
+<p>  一般文件会有带盘符的完整路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 有的文件则以typora:开头</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p>此时需要</p>
+<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
+<p>此时直接进入 typora://userData\themes 中</p>
+<blockquote>
+<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
+<p>根据行数及选择器名修改样式内容保存即可</p>
+]]></content>
+      <tags>
+        <tag>博客-Typora</tag>
       </tags>
   </entry>
   <entry>
