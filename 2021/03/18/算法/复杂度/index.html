@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="时间复杂度代码执行次数调用一次函数fun1，内部一共执行2次语句 123456function fun1()&amp;#123;    &#x2F;&#x2F; 执行1次    console.log(&quot;打印&quot;);    &#x2F;&#x2F; 执行1次    return 0;&amp;#125;   调用一次函数fun2，内部一共执行3n+3次语句 123456function fun2(n) &amp;#123;    for (l">
+  <meta name="description" content="时间复杂度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="复杂度">
 <meta property="og:url" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="黄焖鸡在逃米饭">
-<meta property="og:description" content="时间复杂度代码执行次数调用一次函数fun1，内部一共执行2次语句 123456function fun1()&amp;#123;    &#x2F;&#x2F; 执行1次    console.log(&quot;打印&quot;);    &#x2F;&#x2F; 执行1次    return 0;&amp;#125;   调用一次函数fun2，内部一共执行3n+3次语句 123456function fun2(n) &amp;#123;    for (l">
+<meta property="og:description" content="时间复杂度">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210318150805260.png">
 <meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210318175253817.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210318180017029.png">
 <meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210318175727074.png">
 <meta property="article:published_time" content="2021-03-18T06:40:36.000Z">
-<meta property="article:modified_time" content="2021-03-18T10:00:43.710Z">
+<meta property="article:modified_time" content="2021-03-23T02:45:49.208Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -215,10 +215,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-18 14:40:36 / 修改时间：18:00:43" itemprop="dateCreated datePublished" datetime="2021-03-18T14:40:36+08:00">2021-03-18</time>
+              <time title="创建时间：2021-03-18 14:40:36" itemprop="dateCreated datePublished" datetime="2021-03-18T14:40:36+08:00">2021-03-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-23 10:45:49" itemprop="dateModified" datetime="2021-03-23T10:45:49+08:00">2021-03-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +257,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h3 id="代码执行次数"><a href="#代码执行次数" class="headerlink" title="代码执行次数"></a>代码执行次数</h3><p>调用一次函数fun1，内部一共执行<code>2</code>次语句</p>
+        <h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><a id="more"></a>
+
+<h3 id="代码执行次数"><a href="#代码执行次数" class="headerlink" title="代码执行次数"></a>代码执行次数</h3><p>调用一次函数fun1，内部一共执行<code>2</code>次语句</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 执行1次</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;打印&quot;</span>);</span><br><span class="line">    <span class="comment">// 执行1次</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
