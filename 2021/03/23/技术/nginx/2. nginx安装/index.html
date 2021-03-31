@@ -32,8 +32,11 @@
 <meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210323092439446.png">
 <meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210323092600657.png">
 <meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210323092751749.png">
+<meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210329175828337.png">
+<meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210329180122648.png">
+<meta property="og:image" content="http://example.com/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/image-20210330105903346.png">
 <meta property="article:published_time" content="2021-03-23T01:16:08.000Z">
-<meta property="article:modified_time" content="2021-03-23T02:50:43.378Z">
+<meta property="article:modified_time" content="2021-03-30T03:17:40.247Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
@@ -213,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-23 09:16:08 / 修改时间：10:50:43" itemprop="dateCreated datePublished" datetime="2021-03-23T09:16:08+08:00">2021-03-23</time>
+              <time title="创建时间：2021-03-23 09:16:08" itemprop="dateCreated datePublished" datetime="2021-03-23T09:16:08+08:00">2021-03-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-30 11:17:40" itemprop="dateModified" datetime="2021-03-30T11:17:40+08:00">2021-03-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,7 +260,7 @@
       
         <h1 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h1><a id="more"></a>
 
-<h2 id="下载稳定版本"><a href="#下载稳定版本" class="headerlink" title="下载稳定版本"></a>下载稳定版本</h2><p><img src="image-20210323091817433.png" alt="image-20210323091817433"></p>
+<h2 id="下载稳定版本"><a href="#下载稳定版本" class="headerlink" title="下载稳定版本"></a>下载稳定版本</h2><p><img src="image-20210323091817433.png" alt="stable-version"></p>
 <h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p><img src="image-20210323092114038.png" alt="image-20210323092114038"></p>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ol>
 <li>直接双击nginx.exe启动（点击后闪下就会关闭，不推荐）</li>
@@ -260,7 +269,29 @@
 <p><img src="image-20210323092439446.png" alt="image-20210323092439446"></p>
 <h2 id="验证是否启动成功"><a href="#验证是否启动成功" class="headerlink" title="验证是否启动成功"></a>验证是否启动成功</h2><p>浏览器中访问<code>localhost:80</code></p>
 <p><img src="image-20210323092600657.png" alt="image-20210323092600657"></p>
-<h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><p><img src="image-20210323092751749.png" alt="image-20210323092751749"></p>
+<h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><h2 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h2><p><img src="image-20210323092751749.png" alt="nginx-1.18.0"></p>
+<p>上传</p>
+<p>scp</p>
+<h2 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="执行configure"><a href="#执行configure" class="headerlink" title="执行configure"></a>执行configure</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行配置文件</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+
+<p>执行configure时可能报错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ./configure: error: C compiler cc is not found</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 原因为缺C编译器，解决方法：</span></span><br><span class="line">yum -y install gcc gcc-c++ autoconf automake make</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure: error: the HTTP rewrite module requires the PCRE library.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 缺少glibc-devel</span></span><br><span class="line">yum install glibc-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./configure: error: the HTTP gzip module requires the zlib library. You can either <span class="built_in">disable</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 缺少zlib-devel</span></span><br><span class="line">yum install -y zlib-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> nginx默认会安装到/usr/<span class="built_in">local</span>/nginx目录下</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 因此该路径被占用可能会有问题</span></span><br></pre></td></tr></table></figure>
+
+
+<p>安装成功会出现</p>
+<p><img src="image-20210329175828337.png" alt="image-20210329175828337"></p>
+<h2 id="验证是否安装成功"><a href="#验证是否安装成功" class="headerlink" title="验证是否安装成功"></a>验证是否安装成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210329180122648.png" alt="image-20210329180122648"></p>
+<h2 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入nginx目录找到sbin文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入sbin文件，运行，Linux中运行后无任何报错即表示运行成功</span></span><br><span class="line">./niginx</span><br></pre></td></tr></table></figure>
+
+
+<p>本机访问 localhost:80</p>
+<p><img src="image-20210330105903346.png" alt="image-20210330105903346"></p>
+<p>若本机访问可以访问，网络访问无法访问，原因可能为有防火墙</p>
 
     </div>
 
@@ -283,7 +314,7 @@
       <i class="fa fa-chevron-left"></i> nginx
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/03/23/%E7%B3%BB%E7%BB%9F/scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="next" title="scp文件传输">
+    <a href="/2021/03/23/%E7%B3%BB%E7%BB%9F/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="next" title="scp文件传输">
       scp文件传输 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -344,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#windows%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">windows安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">下载稳定版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F"><span class="nav-number">1.4.</span> <span class="nav-text">验证是否启动成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Linux安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.1.</span> <span class="nav-text">安装包下载</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#windows%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">windows安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">下载稳定版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F"><span class="nav-number">1.4.</span> <span class="nav-text">验证是否启动成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Linux安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.1.</span> <span class="nav-text">安装包下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">2.2.</span> <span class="nav-text">解压安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8Cconfigure"><span class="nav-number">2.3.</span> <span class="nav-text">执行configure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="nav-number">2.4.</span> <span class="nav-text">验证是否安装成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-1"><span class="nav-number">2.5.</span> <span class="nav-text">启动</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,20 +389,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
