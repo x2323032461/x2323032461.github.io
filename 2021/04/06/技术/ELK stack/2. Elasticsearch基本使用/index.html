@@ -28,8 +28,10 @@
 <meta property="og:description" content="基本概念">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/clipboard.png">
+<meta property="og:image" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/clipboard.png">
+<meta property="og:image" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/clipboard.png">
 <meta property="article:published_time" content="2021-04-06T05:23:15.000Z">
-<meta property="article:modified_time" content="2021-04-06T05:46:05.344Z">
+<meta property="article:modified_time" content="2021-04-06T05:58:28.182Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="Elasticsearch">
 <meta name="twitter:card" content="summary">
@@ -211,7 +213,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-06 13:23:15 / 修改时间：13:46:05" itemprop="dateCreated datePublished" datetime="2021-04-06T13:23:15+08:00">2021-04-06</time>
+              <time title="创建时间：2021-04-06 13:23:15 / 修改时间：13:58:28" itemprop="dateCreated datePublished" datetime="2021-04-06T13:23:15+08:00">2021-04-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,20 +270,20 @@
 
 <h2 id="向创建的索引库中插入数据"><a href="#向创建的索引库中插入数据" class="headerlink" title="向创建的索引库中插入数据"></a>向创建的索引库中插入数据</h2><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
 <h3 id="指定id"><a href="#指定id" class="headerlink" title="指定id"></a>指定id</h3><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1001,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;张三&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:20,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:1001,</span><br><span class="line">  &quot;name&quot;:&quot;张三&quot;,</span><br><span class="line">  &quot;age&quot;:20,</span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>查看数据</p>
-<p>![img](2. Elasticsearch使用/clipboard.png)</p>
+<p><img src="clipboard.png" alt="img"></p>
 <h3 id="不指定id"><a href="#不指定id" class="headerlink" title="不指定id"></a>不指定id</h3><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;</code></p>
 <p>若不指定 {id} 则会自动生成一个id并返回</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;李四&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:21,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line">  &quot;name&quot;:&quot;李四&quot;,</span><br><span class="line">  &quot;age&quot;:21,</span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<p>![img](2. Elasticsearch使用/clipboard.png)</p>
+<p><img src="clipboard.png" alt="img"></p>
 <h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><h3 id="全部更新"><a href="#全部更新" class="headerlink" title="全部更新"></a>全部更新</h3><p><code>删除原来的文档，插入新文档</code></p>
 <p><code>PUT     url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;张三1&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:25,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line">  &quot;name&quot;:&quot;张三1&quot;,</span><br><span class="line">  &quot;age&quot;:25,</span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="局部更新"><a href="#局部更新" class="headerlink" title="局部更新"></a>局部更新</h3><p><code>删除原来的文档，插入新文档</code></p>
@@ -300,7 +302,9 @@
 
 <h3 id="多条查询"><a href="#多条查询" class="headerlink" title="多条查询"></a>多条查询</h3><p><code>GET   url/&#123;索引&#125;/&#123;类型&#125;/_search</code></p>
 <p><code>仅能查询10条数据，多条时，需要进行分页</code></p>
-<p>192.168.88.128:9200/haoke/user/_search</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/_search</span><br></pre></td></tr></table></figure>
+
+
 <h3 id="关键字搜索"><a href="#关键字搜索" class="headerlink" title="关键字搜索"></a>关键字搜索</h3><p><code>GET   url/&#123;索引&#125;/&#123;类型&#125;/_search?q=字段名:数据</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/_search?q=age:21</span><br></pre></td></tr></table></figure>
 
@@ -318,183 +322,22 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;age&quot;: &#123;</span><br><span class="line">            &quot;gt&quot;: 22</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;must&quot;: &#123;</span><br><span class="line">        &quot;match&quot;: &#123;</span><br><span class="line">          &quot;sex&quot;: &quot;男&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="高亮显示"><a href="#高亮显示" class="headerlink" title="高亮显示"></a>高亮显示</h2><p><code>查询条件后面添加 heightlight 对象，其中fields中的字段表示高亮显示的内容</code></p>
-<blockquote>
-<p>{<br>  “query”: {<br>    “match”: {<br>      “name”: “kibana”<br>    }<br>  },<br>  <code>&quot;highlight&quot;: &#123;</code><br>    <code>&quot;fields&quot;: &#123;</code><br>      <code>&quot;name&quot;: &#123;&#125;</code><br>    <code>&#125;</code><br>  <code>&#125;</code><br>}</p>
-</blockquote>
-<p><code>查询结果中将会有特殊标记的字段，供前端做高亮处理</code></p>
-<blockquote>
-<p>{</p>
-<p>  “took”: 6,</p>
-<p>  “timed_out”: <strong>false</strong>,</p>
-<p>  “_shards”: {</p>
-<p>​    “total”: 2,</p>
-<p>​    “successful”: 2,</p>
-<p>​    “skipped”: 0,</p>
-<p>​    “failed”: 0</p>
-<p>  },</p>
-<p>  “hits”: {</p>
-<p>​    “total”: {</p>
-<p>​      “value”: 1,</p>
-<p>​      “relation”: “eq”</p>
-<p>​    },</p>
-<p>​    “max_score”: 1.1374959,</p>
-<p>​    “hits”: [</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “twPYQXcBYpuk6qbRaJeI”,</p>
-<p>​        “_score”: 1.1374959,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1006,</p>
-<p>​          “name”: “kibana-cc”,</p>
-<p>​          “age”: 50,</p>
-<p>​          “sex”: “女”</p>
-<p>​        },</p>
-<p>​        <code>&quot;highlight&quot;: &#123;</code></p>
-<p>​          <code>&quot;name&quot;: [</code></p>
-<p>​            <code>&quot;&lt;em&gt;kibana&lt;/em&gt;-cc&quot;</code></p>
-<p>​          <code>]</code></p>
-<p>​        <code>&#125;</code></p>
-<p>​      }</p>
-<p>​    ]</p>
-<p>  }</p>
-<p>}</p>
-</blockquote>
-<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>以提供字段为条件将数据分组返回每组的数量，类似于group by</p>
+<h2 id="高亮显示-highlight"><a href="#高亮显示-highlight" class="headerlink" title="高亮显示 highlight"></a>高亮显示 highlight</h2><p><code>查询条件后面添加 heightlight 对象，其中fields中的字段表示高亮显示的内容</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">     &quot;match&quot;: &#123;</span><br><span class="line">       &quot;name&quot;: &quot;kibana&quot;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    # 高亮字段</span><br><span class="line">    &quot;highlight&quot;: &#123;</span><br><span class="line">     &quot;fields&quot;: &#123;</span><br><span class="line">       &quot;name&quot;: &#123;&#125;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><code>查询结果中将会有特殊标记(&lt;em&gt;&lt;/em&gt;)的字段，供前端做高亮处理</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;took&quot;: 6,</span><br><span class="line">&quot;timed_out&quot;: false,</span><br><span class="line">&quot;_shards&quot;: &#123;</span><br><span class="line">    &quot;total&quot;: 2,</span><br><span class="line">    &quot;successful&quot;: 2,</span><br><span class="line">    &quot;skipped&quot;: 0,</span><br><span class="line">    &quot;failed&quot;: 0</span><br><span class="line">&#125;,</span><br><span class="line">&quot;hits&quot;: &#123;</span><br><span class="line">    &quot;total&quot;: &#123;</span><br><span class="line">      &quot;value&quot;: 1,</span><br><span class="line">      &quot;relation&quot;: &quot;eq&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;max_score&quot;: 1.1374959,</span><br><span class="line">    &quot;hits&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;_index&quot;: &quot;haoke&quot;,</span><br><span class="line">        &quot;_type&quot;: &quot;user&quot;,</span><br><span class="line">        &quot;_id&quot;: &quot;twPYQXcBYpuk6qbRaJeI&quot;,</span><br><span class="line">        &quot;_score&quot;: 1.1374959,</span><br><span class="line">        &quot;_source&quot;: &#123;</span><br><span class="line">          &quot;id&quot;: 1006,</span><br><span class="line">          &quot;name&quot;: &quot;kibana-cc&quot;,</span><br><span class="line">          &quot;age&quot;: 50,</span><br><span class="line">          &quot;sex&quot;: &quot;女&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;highlight&quot;: &#123;</span><br><span class="line">          &quot;name&quot;: [</span><br><span class="line">            &quot;&lt;em&gt;kibana&lt;/em&gt;-cc&quot;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="聚合（统计）-aggregations"><a href="#聚合（统计）-aggregations" class="headerlink" title="聚合（统计） aggregations"></a>聚合（统计） aggregations</h2><p>以提供字段为条件将数据分组返回每组的数量，类似于group by</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;aggs&quot;: &#123;</span><br><span class="line">    &quot;all_interests&quot;: &#123;</span><br><span class="line">      &quot;terms&quot;: &#123;</span><br><span class="line">        &quot;field&quot;: &quot;age&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>返回</p>
-<blockquote>
-<p>{</p>
-<p>  “took”: 101,</p>
-<p>  “timed_out”: <strong>false</strong>,</p>
-<p>  “_shards”: {</p>
-<p>​    “total”: 2,</p>
-<p>​    “successful”: 2,</p>
-<p>​    “skipped”: 0,</p>
-<p>​    “failed”: 0</p>
-<p>  },</p>
-<p>  “hits”: {</p>
-<p>​    “total”: {</p>
-<p>​      “value”: 7,</p>
-<p>​      “relation”: “eq”</p>
-<p>​    },</p>
-<p>​    “max_score”: 1.0,</p>
-<p>​    “hits”: [</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “swOsQXcBYpuk6qbR0pcc”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1002,</p>
-<p>​          “name”: “李四”,</p>
-<p>​          “age”: 21,</p>
-<p>​          “sex”: “男”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “tAPGQXcBYpuk6qbRY5f6”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1002,</p>
-<p>​          “name”: “李四”,</p>
-<p>​          “age”: 21,</p>
-<p>​          “sex”: “男”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “1004”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1004,</p>
-<p>​          “name”: “elasticsearch”,</p>
-<p>​          “age”: 25,</p>
-<p>​          “sex”: “女”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “twPYQXcBYpuk6qbRaJeI”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1006,</p>
-<p>​          “name”: “kibana-cc”,</p>
-<p>​          “age”: 50,</p>
-<p>​          “sex”: “女”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “1001”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1001,</p>
-<p>​          “name”: “法外狂徒 - 张三”,</p>
-<p>​          “age”: 21,</p>
-<p>​          “sex”: “男”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “1003”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1001,</p>
-<p>​          “name”: “甲乙丙丁午己庚辛壬癸”,</p>
-<p>​          “age”: 25,</p>
-<p>​          “sex”: “男”</p>
-<p>​        }</p>
-<p>​      },</p>
-<p>​      {</p>
-<p>​        “_index”: “haoke”,</p>
-<p>​        “_type”: “user”,</p>
-<p>​        “_id”: “tgPYQXcBYpuk6qbRQpeC”,</p>
-<p>​        “_score”: 1.0,</p>
-<p>​        “_source”: {</p>
-<p>​          “id”: 1004,</p>
-<p>​          “name”: “zookeeper”,</p>
-<p>​          “age”: 20,</p>
-<p>​          “sex”: “女”</p>
-<p>​        }</p>
-<p>​      }</p>
-<p>​    ]</p>
-<p>  },</p>
-<p>  <code>&quot;aggregations&quot;: &#123;</code></p>
-<p>​    <code>&quot;all_interests&quot;: &#123;</code></p>
-<p>​      <code>&quot;doc_count_error_upper_bound&quot;: 0,</code></p>
-<p>​      <code>&quot;sum_other_doc_count&quot;: 0,</code></p>
-<p>​      <code>&quot;buckets&quot;: [</code></p>
-<p>​        <code>&#123;</code></p>
-<p>​          <code>&quot;key&quot;: 21,</code></p>
-<p>​          <code>&quot;doc_count&quot;: 3</code></p>
-<p>​        <code>&#125;,</code></p>
-<p>​        <code>&#123;</code></p>
-<p>​          <code>&quot;key&quot;: 25,</code></p>
-<p>​          <code>&quot;doc_count&quot;: 2</code></p>
-<p>​       <code>&#125;,</code></p>
-<p>​        <code>&#123;</code></p>
-<p>​          <code>&quot;key&quot;: 20,</code></p>
-<p>​          <code>&quot;doc_count&quot;: 1</code></p>
-<p>​        <code>&#125;,</code></p>
-<p>​        <code>&#123;</code></p>
-<p>​          <code>&quot;key&quot;: 50,</code></p>
-<p>​          <code>&quot;doc_count&quot;: 1</code></p>
-<p>​        <code>&#125;</code></p>
-<p>​      <code>]</code></p>
-<p>​    <code>&#125;</code></p>
-<p>  <code>&#125;</code></p>
-<p>}</p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;took&quot;: 101,</span><br><span class="line">    &quot;timed_out&quot;: false,</span><br><span class="line">    &quot;_shards&quot;: &#123;</span><br><span class="line">        &quot;total&quot;: 2,</span><br><span class="line">        &quot;successful&quot;: 2,</span><br><span class="line">        &quot;skipped&quot;: 0,</span><br><span class="line">        &quot;failed&quot;: 0</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;hits&quot;: &#123;</span><br><span class="line">        &quot;total&quot;: &#123;</span><br><span class="line">          &quot;value&quot;: 7,</span><br><span class="line">          &quot;relation&quot;: &quot;eq&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;max_score&quot;: 1.0,</span><br><span class="line">        &quot;hits&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;_index&quot;: &quot;haoke&quot;,</span><br><span class="line">            &quot;_type&quot;: &quot;user&quot;,</span><br><span class="line">            &quot;_id&quot;: &quot;swOsQXcBYpuk6qbR0pcc&quot;,</span><br><span class="line">            &quot;_score&quot;: 1.0,</span><br><span class="line">            &quot;_source&quot;: &#123;</span><br><span class="line">              &quot;id&quot;: 1002,</span><br><span class="line">              &quot;name&quot;: &quot;李四&quot;,</span><br><span class="line">              &quot;age&quot;: 21,</span><br><span class="line">              &quot;sex&quot;: &quot;男&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          ...</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    // 聚合后统计的数据</span><br><span class="line">    &quot;aggregations&quot;: &#123;</span><br><span class="line">        &quot;all_interests&quot;: &#123;</span><br><span class="line">          &quot;doc_count_error_upper_bound&quot;: 0,</span><br><span class="line">          &quot;sum_other_doc_count&quot;: 0,</span><br><span class="line">          &quot;buckets&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;key&quot;: 21,</span><br><span class="line">              &quot;doc_count&quot;: 3</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;key&quot;: 25,</span><br><span class="line">              &quot;doc_count&quot;: 2</span><br><span class="line">           &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;key&quot;: 20,</span><br><span class="line">              &quot;doc_count&quot;: 1</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;key&quot;: 50,</span><br><span class="line">              &quot;doc_count&quot;: 1</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -575,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">1.1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文档类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RESTful-API"><span class="nav-number">2.</span> <span class="nav-text">RESTful API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E7%B4%A2%E5%BC%95-%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">创建非结构化的索引(创建删除索引库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E5%88%9B%E5%BB%BA%E7%9A%84%E7%B4%A2%E5%BC%95%E5%BA%93%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text">向创建的索引库中插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.1.</span> <span class="nav-text">指定id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.2.</span> <span class="nav-text">不指定id</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.</span> <span class="nav-text">更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">全部更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">局部更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">2.5.</span> <span class="nav-text">查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.1.</span> <span class="nav-text">单条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.2.</span> <span class="nav-text">多条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E6%90%9C%E7%B4%A2"><span class="nav-number">2.5.3.</span> <span class="nav-text">关键字搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DSL%E6%90%9C%E7%B4%A2"><span class="nav-number">2.6.</span> <span class="nav-text">DSL搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.1.</span> <span class="nav-text">单条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">多条件范围查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA"><span class="nav-number">2.7.</span> <span class="nav-text">高亮显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88"><span class="nav-number">2.8.</span> <span class="nav-text">聚合</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">1.1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文档类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RESTful-API"><span class="nav-number">2.</span> <span class="nav-text">RESTful API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E7%B4%A2%E5%BC%95-%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">创建非结构化的索引(创建删除索引库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E5%88%9B%E5%BB%BA%E7%9A%84%E7%B4%A2%E5%BC%95%E5%BA%93%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text">向创建的索引库中插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.1.</span> <span class="nav-text">指定id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.2.</span> <span class="nav-text">不指定id</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.</span> <span class="nav-text">更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">全部更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">局部更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">2.5.</span> <span class="nav-text">查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.1.</span> <span class="nav-text">单条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.2.</span> <span class="nav-text">多条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E6%90%9C%E7%B4%A2"><span class="nav-number">2.5.3.</span> <span class="nav-text">关键字搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DSL%E6%90%9C%E7%B4%A2"><span class="nav-number">2.6.</span> <span class="nav-text">DSL搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.1.</span> <span class="nav-text">单条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">多条件范围查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA-highlight"><span class="nav-number">2.7.</span> <span class="nav-text">高亮显示 highlight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88%EF%BC%88%E7%BB%9F%E8%AE%A1%EF%BC%89-aggregations"><span class="nav-number">2.8.</span> <span class="nav-text">聚合（统计） aggregations</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
