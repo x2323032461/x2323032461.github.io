@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基本概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch基本使用">
+<meta property="og:url" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="基本概念">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/clipboard.png">
+<meta property="article:published_time" content="2021-04-06T05:23:15.000Z">
+<meta property="article:modified_time" content="2021-04-06T05:46:05.344Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="Elasticsearch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/clipboard.png">
+
+<link rel="canonical" href="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Elasticsearch基本使用 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/06/%E6%8A%80%E6%9C%AF/ELK%20stack/2.%20Elasticsearch%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Elasticsearch基本使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-06 13:23:15 / 修改时间：13:46:05" itemprop="dateCreated datePublished" datetime="2021-04-06T13:23:15+08:00">2021-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/ELK/" itemprop="url" rel="index"><span itemprop="name">ELK</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><a id="more"></a>
+
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>● 索引( index )是Elasticsearch对逻辑数据的逻辑存储,所以它可以分为更小的部分。</p>
+<p>● 可以把索引看成关系型数据库的表 ,索引的结构是为快速有效的全文索引准备的,特别是它不存储原始值。</p>
+<p>● Elasticsearch可以把索引存放在一台机器或者分散在多台服务器上,每个索引有一或多个分片(shard) ,每个分片可以有多个副    本( replica )。</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>●  存储在Elasticsearch中的主要实体叫文档 ( document )。用关系型数据库来类比的话, 一个文档相当于数据库表中的一行记录。</p>
+<p>● Elasticsearch和MongoDB中的文档类似,都可以有不同的结构,但Elasticsearch的文档中,相同字段必须有相同类型。</p>
+<p>● 文档由多个字段组成,每个字段可能多次出现在一 个文档里,这样的字段叫多值字段( multivalued ).</p>
+<p>● 每个字段的类型,可以是文本、数值、日期等。字段类型也可以是复杂类型, -个字段包含其他子文档或者数组。</p>
+<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>● 所有文档写进索引之前都会先进行分析,如何将输入的文本分割为词条、哪些词条又会被过滤,这种行为叫做映射(mapping)。一般由用户自己定义规则。</p>
+<h2 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h2><p>● 在Elasticsearch中, 一个索引对象可以存储很多不同用途的对象。例如,一个博客应用程序可以保存文章和评论。</p>
+<p>● 每个文档可以有不同的结构。</p>
+<p>● 同的文档类型不能为相同的属性设置不同的类型。例如,在同一索引中的所有文档类型中，一个叫title的字段必须具有相同的类型。</p>
+<h1 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h1><p><code>在Elasticsearch中，提供了功能丰富的RESTful API的操作，包括基本的CRUD、创建索引、删除索引等操作。</code></p>
+<h2 id="创建非结构化的索引-创建删除索引库"><a href="#创建非结构化的索引-创建删除索引库" class="headerlink" title="创建非结构化的索引(创建删除索引库)"></a>创建非结构化的索引(创建删除索引库)</h2><p>在Lucene中,创建索引是需要定义字段名称以及字段的类型的，在Elasticsearch中提供了非结构化的索引，就是不需要创建索引结构，即可写入数据到索引中，实际上在Elasticsearch底层会进行结构化操作，此操作对用户是透明的。</p>
+<p>创建空索引:</p>
+<p>可使用 postman 进行测试</p>
+<p><img src="clipboard.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 插入索引 </span><br><span class="line">PUT /haoke </span><br><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot;: &#123;</span><br><span class="line">            &quot;index&quot;: &#123;</span><br><span class="line">                    &quot;number_of_shards&quot;: &quot;2&quot;,    # 分片数</span><br><span class="line">                    &quot;number_of_replicas&quot;: &quot;0&quot;   # 副本数</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 删除索引 </span><br><span class="line">DELETE /haoke</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="向创建的索引库中插入数据"><a href="#向创建的索引库中插入数据" class="headerlink" title="向创建的索引库中插入数据"></a>向创建的索引库中插入数据</h2><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
+<h3 id="指定id"><a href="#指定id" class="headerlink" title="指定id"></a>指定id</h3><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1001,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;张三&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:20,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>查看数据</p>
+<p>![img](2. Elasticsearch使用/clipboard.png)</p>
+<h3 id="不指定id"><a href="#不指定id" class="headerlink" title="不指定id"></a>不指定id</h3><p><code>POST   url/&#123;索引&#125;/&#123;类型&#125;</code></p>
+<p>若不指定 {id} 则会自动生成一个id并返回</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;李四&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:21,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>![img](2. Elasticsearch使用/clipboard.png)</p>
+<h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><h3 id="全部更新"><a href="#全部更新" class="headerlink" title="全部更新"></a>全部更新</h3><p><code>删除原来的文档，插入新文档</code></p>
+<p><code>PUT     url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;id&quot;:1002,</span><br><span class="line"></span><br><span class="line">  &quot;name&quot;:&quot;张三1&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;age&quot;:25,</span><br><span class="line"></span><br><span class="line">  &quot;sex&quot;:&quot;男&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="局部更新"><a href="#局部更新" class="headerlink" title="局部更新"></a>局部更新</h3><p><code>删除原来的文档，插入新文档</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST     url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;/_update	使用doc将数据打包</span><br><span class="line"></span><br><span class="line">192.168.88.128:9200/haoke/user/1001/_update</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;doc&quot;:&#123;</span><br><span class="line">	&quot;age&quot;:25</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><p><code>DELETE         url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br></pre></td></tr></table></figure>
+
+
+<p>删除一个文档也不会立即从磁盘上移除，它只是被标记成已删除。Elasticsearch将会在你之后添加更多索引的时候才会在后台进行删除内容的清理。</p>
+<p>不会每一个都去删除，减小了磁盘的压力</p>
+<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><h3 id="单条查询"><a href="#单条查询" class="headerlink" title="单条查询"></a>单条查询</h3><p><code>GET   url/&#123;索引&#125;/&#123;类型&#125;/&#123;id&#125;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/1001</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="多条查询"><a href="#多条查询" class="headerlink" title="多条查询"></a>多条查询</h3><p><code>GET   url/&#123;索引&#125;/&#123;类型&#125;/_search</code></p>
+<p><code>仅能查询10条数据，多条时，需要进行分页</code></p>
+<p>192.168.88.128:9200/haoke/user/_search</p>
+<h3 id="关键字搜索"><a href="#关键字搜索" class="headerlink" title="关键字搜索"></a>关键字搜索</h3><p><code>GET   url/&#123;索引&#125;/&#123;类型&#125;/_search?q=字段名:数据</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.88.128:9200/haoke/user/_search?q=age:21</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="DSL搜索"><a href="#DSL搜索" class="headerlink" title="DSL搜索"></a>DSL搜索</h2><p><code>POST    url/&#123;索引&#125;/&#123;类型&#125;/_search</code></p>
+<p>Elasticsearch提供丰富且灵活的查询语言叫做DSL查询(Query DSL),它允许你构建更加复杂、强大的查询。</p>
+<p>DSL(Domain Specific Language特定领域语言)以JSON请求体的形式出现。</p>
+<p>详细介绍</p>
+<p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/full-body-search.html">https://www.elastic.co/guide/cn/elasticsearch/guide/current/full-body-search.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014646662/article/details/89010759">https://blog.csdn.net/u014646662/article/details/89010759</a></p>
+<h3 id="单条件查询"><a href="#单条件查询" class="headerlink" title="单条件查询"></a>单条件查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot; : &#123;</span><br><span class="line">        &quot;match&quot; : &#123; #match只是查询的一种</span><br><span class="line">            &quot;age&quot; : 20</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1. 参数可传入多个，使用 ， 或空格分隔</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;李四,zookeeper&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 为汉字时将会筛选字段中含有传入汉字的对象，为英文时，会返回可将字段完整提取出来的对象，如</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> kibana-cc 可通过kibana或cc查询得到</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 张三 可通过查询 张 获得</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="多条件范围查询"><a href="#多条件范围查询" class="headerlink" title="多条件范围查询"></a>多条件范围查询</h3><p><code>sex为男 中过滤age大于22</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;age&quot;: &#123;</span><br><span class="line">            &quot;gt&quot;: 22</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;must&quot;: &#123;</span><br><span class="line">        &quot;match&quot;: &#123;</span><br><span class="line">          &quot;sex&quot;: &quot;男&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="高亮显示"><a href="#高亮显示" class="headerlink" title="高亮显示"></a>高亮显示</h2><p><code>查询条件后面添加 heightlight 对象，其中fields中的字段表示高亮显示的内容</code></p>
+<blockquote>
+<p>{<br>  “query”: {<br>    “match”: {<br>      “name”: “kibana”<br>    }<br>  },<br>  <code>&quot;highlight&quot;: &#123;</code><br>    <code>&quot;fields&quot;: &#123;</code><br>      <code>&quot;name&quot;: &#123;&#125;</code><br>    <code>&#125;</code><br>  <code>&#125;</code><br>}</p>
+</blockquote>
+<p><code>查询结果中将会有特殊标记的字段，供前端做高亮处理</code></p>
+<blockquote>
+<p>{</p>
+<p>  “took”: 6,</p>
+<p>  “timed_out”: <strong>false</strong>,</p>
+<p>  “_shards”: {</p>
+<p>​    “total”: 2,</p>
+<p>​    “successful”: 2,</p>
+<p>​    “skipped”: 0,</p>
+<p>​    “failed”: 0</p>
+<p>  },</p>
+<p>  “hits”: {</p>
+<p>​    “total”: {</p>
+<p>​      “value”: 1,</p>
+<p>​      “relation”: “eq”</p>
+<p>​    },</p>
+<p>​    “max_score”: 1.1374959,</p>
+<p>​    “hits”: [</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “twPYQXcBYpuk6qbRaJeI”,</p>
+<p>​        “_score”: 1.1374959,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1006,</p>
+<p>​          “name”: “kibana-cc”,</p>
+<p>​          “age”: 50,</p>
+<p>​          “sex”: “女”</p>
+<p>​        },</p>
+<p>​        <code>&quot;highlight&quot;: &#123;</code></p>
+<p>​          <code>&quot;name&quot;: [</code></p>
+<p>​            <code>&quot;&lt;em&gt;kibana&lt;/em&gt;-cc&quot;</code></p>
+<p>​          <code>]</code></p>
+<p>​        <code>&#125;</code></p>
+<p>​      }</p>
+<p>​    ]</p>
+<p>  }</p>
+<p>}</p>
+</blockquote>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p>以提供字段为条件将数据分组返回每组的数量，类似于group by</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;aggs&quot;: &#123;</span><br><span class="line">    &quot;all_interests&quot;: &#123;</span><br><span class="line">      &quot;terms&quot;: &#123;</span><br><span class="line">        &quot;field&quot;: &quot;age&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>返回</p>
+<blockquote>
+<p>{</p>
+<p>  “took”: 101,</p>
+<p>  “timed_out”: <strong>false</strong>,</p>
+<p>  “_shards”: {</p>
+<p>​    “total”: 2,</p>
+<p>​    “successful”: 2,</p>
+<p>​    “skipped”: 0,</p>
+<p>​    “failed”: 0</p>
+<p>  },</p>
+<p>  “hits”: {</p>
+<p>​    “total”: {</p>
+<p>​      “value”: 7,</p>
+<p>​      “relation”: “eq”</p>
+<p>​    },</p>
+<p>​    “max_score”: 1.0,</p>
+<p>​    “hits”: [</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “swOsQXcBYpuk6qbR0pcc”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1002,</p>
+<p>​          “name”: “李四”,</p>
+<p>​          “age”: 21,</p>
+<p>​          “sex”: “男”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “tAPGQXcBYpuk6qbRY5f6”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1002,</p>
+<p>​          “name”: “李四”,</p>
+<p>​          “age”: 21,</p>
+<p>​          “sex”: “男”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “1004”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1004,</p>
+<p>​          “name”: “elasticsearch”,</p>
+<p>​          “age”: 25,</p>
+<p>​          “sex”: “女”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “twPYQXcBYpuk6qbRaJeI”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1006,</p>
+<p>​          “name”: “kibana-cc”,</p>
+<p>​          “age”: 50,</p>
+<p>​          “sex”: “女”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “1001”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1001,</p>
+<p>​          “name”: “法外狂徒 - 张三”,</p>
+<p>​          “age”: 21,</p>
+<p>​          “sex”: “男”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “1003”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1001,</p>
+<p>​          “name”: “甲乙丙丁午己庚辛壬癸”,</p>
+<p>​          “age”: 25,</p>
+<p>​          “sex”: “男”</p>
+<p>​        }</p>
+<p>​      },</p>
+<p>​      {</p>
+<p>​        “_index”: “haoke”,</p>
+<p>​        “_type”: “user”,</p>
+<p>​        “_id”: “tgPYQXcBYpuk6qbRQpeC”,</p>
+<p>​        “_score”: 1.0,</p>
+<p>​        “_source”: {</p>
+<p>​          “id”: 1004,</p>
+<p>​          “name”: “zookeeper”,</p>
+<p>​          “age”: 20,</p>
+<p>​          “sex”: “女”</p>
+<p>​        }</p>
+<p>​      }</p>
+<p>​    ]</p>
+<p>  },</p>
+<p>  <code>&quot;aggregations&quot;: &#123;</code></p>
+<p>​    <code>&quot;all_interests&quot;: &#123;</code></p>
+<p>​      <code>&quot;doc_count_error_upper_bound&quot;: 0,</code></p>
+<p>​      <code>&quot;sum_other_doc_count&quot;: 0,</code></p>
+<p>​      <code>&quot;buckets&quot;: [</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>&quot;key&quot;: 21,</code></p>
+<p>​          <code>&quot;doc_count&quot;: 3</code></p>
+<p>​        <code>&#125;,</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>&quot;key&quot;: 25,</code></p>
+<p>​          <code>&quot;doc_count&quot;: 2</code></p>
+<p>​       <code>&#125;,</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>&quot;key&quot;: 20,</code></p>
+<p>​          <code>&quot;doc_count&quot;: 1</code></p>
+<p>​        <code>&#125;,</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>&quot;key&quot;: 50,</code></p>
+<p>​          <code>&quot;doc_count&quot;: 1</code></p>
+<p>​        <code>&#125;</code></p>
+<p>​      <code>]</code></p>
+<p>​    <code>&#125;</code></p>
+<p>  <code>&#125;</code></p>
+<p>}</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Elasticsearch/" rel="tag"># Elasticsearch</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/02/java/%E5%89%8D%E7%AB%AF/%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/%E6%95%B0%E7%BB%84/" rel="prev" title="数组">
+      <i class="fa fa-chevron-left"></i> 数组
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">1.1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.</span> <span class="nav-text">映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文档类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RESTful-API"><span class="nav-number">2.</span> <span class="nav-text">RESTful API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E7%B4%A2%E5%BC%95-%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">创建非结构化的索引(创建删除索引库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E5%88%9B%E5%BB%BA%E7%9A%84%E7%B4%A2%E5%BC%95%E5%BA%93%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.</span> <span class="nav-text">向创建的索引库中插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.1.</span> <span class="nav-text">指定id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E6%8C%87%E5%AE%9Aid"><span class="nav-number">2.2.2.</span> <span class="nav-text">不指定id</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.</span> <span class="nav-text">更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">全部更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">局部更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">2.5.</span> <span class="nav-text">查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.1.</span> <span class="nav-text">单条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.5.2.</span> <span class="nav-text">多条查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E6%90%9C%E7%B4%A2"><span class="nav-number">2.5.3.</span> <span class="nav-text">关键字搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DSL%E6%90%9C%E7%B4%A2"><span class="nav-number">2.6.</span> <span class="nav-text">DSL搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.1.</span> <span class="nav-text">单条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">多条件范围查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA"><span class="nav-number">2.7.</span> <span class="nav-text">高亮显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88"><span class="nav-number">2.8.</span> <span class="nav-text">聚合</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
