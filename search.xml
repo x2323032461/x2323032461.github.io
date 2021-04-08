@@ -273,6 +273,8 @@
 <p><a href="https://greasyfork.org/zh-CN/scripts">https://greasyfork.org/zh-CN/scripts</a></p>
 <p><strong>1.19</strong> <strong>maven 库</strong></p>
 <p><a href="https://mvnrepository.com/tags/ftp">https://mvnrepository.com/tags/ftp</a></p>
+<p>前端样式框架  图标完善 类似于bootstrap</p>
+<p><a href="https://semantic-ui.com/">https://semantic-ui.com/</a></p>
 ]]></content>
       <categories>
         <category>收藏</category>
@@ -367,18 +369,6 @@
       </tags>
   </entry>
   <entry>
-    <title>树</title>
-    <url>/2021/03/18/%E7%AE%97%E6%B3%95/%E6%A0%91/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>算法</category>
-        <category>树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>系统</title>
     <url>/2021/03/24/%E7%B3%BB%E7%BB%9F/1.%20%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><a id="more"></a>
@@ -393,20 +383,32 @@
       </tags>
   </entry>
   <entry>
+    <title>树</title>
+    <url>/2021/03/18/%E7%AE%97%E6%B3%95/%E6%A0%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+        <category>树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>scp文件传输</title>
     <url>/2021/03/23/%E7%B3%BB%E7%BB%9F/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/</url>
     <content><![CDATA[<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><a id="more"></a>
 
 <p>上传文件</p>
 <p>//使用方法：scp 源文件路径 账户@地址:目的路径</p>
-<p>scp C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#x6c;&#x75;&#99;&#97;&#x73;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#49;&#46;&#49;&#x35;&#x30;">&#x6c;&#x75;&#99;&#97;&#x73;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#49;&#46;&#49;&#x35;&#x30;</a>:/home/lucas/</p>
+<p>scp C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#x6c;&#x75;&#x63;&#97;&#x73;&#x40;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#49;&#x31;&#46;&#x31;&#x35;&#x30;">&#x6c;&#x75;&#x63;&#97;&#x73;&#x40;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#49;&#x31;&#46;&#x31;&#x35;&#x30;</a>:/home/lucas/</p>
 <p>然后输入密码即可</p>
 <p>下载文件</p>
-<p>scp <a href="mailto:&#x6c;&#x75;&#x63;&#x61;&#115;&#x40;&#x31;&#57;&#x32;&#46;&#x31;&#x36;&#x38;&#x2e;&#x31;&#x31;&#48;&#x2e;&#x31;&#50;&#x38;">&#x6c;&#x75;&#x63;&#x61;&#115;&#x40;&#x31;&#57;&#x32;&#46;&#x31;&#x36;&#x38;&#x2e;&#x31;&#x31;&#48;&#x2e;&#x31;&#50;&#x38;</a>:/home/lucas/world.txt C:\Users\zbh\Desktop\</p>
+<p>scp <a href="mailto:&#x6c;&#x75;&#99;&#97;&#115;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#x31;&#x31;&#48;&#x2e;&#x31;&#50;&#x38;">&#x6c;&#x75;&#99;&#97;&#115;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#x38;&#x2e;&#x31;&#x31;&#48;&#x2e;&#x31;&#50;&#x38;</a>:/home/lucas/world.txt C:\Users\zbh\Desktop\</p>
 <p>上传文件夹</p>
-<p>scp -r C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#x36;&#x38;&#x2e;&#49;&#x31;&#x2e;&#49;&#x35;&#48;">&#108;&#x75;&#x63;&#x61;&#x73;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#x36;&#x38;&#x2e;&#49;&#x31;&#x2e;&#49;&#x35;&#48;</a>:/home/lucas/</p>
+<p>scp -r C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#108;&#117;&#x63;&#x61;&#115;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x31;&#46;&#49;&#x35;&#48;">&#108;&#117;&#x63;&#x61;&#115;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x31;&#46;&#49;&#x35;&#48;</a>:/home/lucas/</p>
 <p>上传本目录下所有文件</p>
-<p>scp -r *  <a href="mailto:&#108;&#x75;&#x63;&#97;&#x73;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#x31;&#49;&#46;&#x31;&#x35;&#48;">&#108;&#x75;&#x63;&#97;&#x73;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#x31;&#49;&#46;&#x31;&#x35;&#48;</a>:/home/lucas/</p>
+<p>scp -r *  <a href="mailto:&#x6c;&#117;&#99;&#97;&#x73;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#49;&#49;&#46;&#x31;&#53;&#48;">&#x6c;&#117;&#99;&#97;&#x73;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#49;&#49;&#46;&#x31;&#53;&#48;</a>:/home/lucas/</p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="win7可能不存在OpenSSH，需要安装"><a href="#win7可能不存在OpenSSH，需要安装" class="headerlink" title="win7可能不存在OpenSSH，需要安装"></a>win7可能不存在OpenSSH，需要安装</h2><p><strong>下载openSSH</strong></p>
 <p>下载，那当然需要去权威的地方下载，这里提供github发布版</p>
 <p><a href="https://github.com/PowerShell/Win32-OpenSSH/releases">openSSH-Win64.zip</a></p>
@@ -528,10 +530,19 @@
   <entry>
     <title>单词</title>
     <url>/2021/03/05/%E8%BF%9B%E5%BA%A6/2.%20%E5%8D%95%E8%AF%8D/</url>
-    <content><![CDATA[<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><a id="more"></a>
+    <content><![CDATA[<h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><a id="more"></a>
 
 <p>JetBrains</p>
+<p>SpringSecurity    java权限框架</p>
+<p>Security        安全</p>
+<p>authentication    身份认证</p>
+<p>concurrent     并发的，一致的</p>
+<p>unmodifiable   无法改变的</p>
+<p>Collection       集合</p>
+<p>Single            单独</p>
+<p>Declared        宣布的，公布的</p>
 <h2 id="😱-🧐"><a href="#😱-🧐" class="headerlink" title="😱  🧐"></a>😱  🧐</h2><p>method        方法</p>
+<p>framework        框架</p>
 <p>field             字段</p>
 <p>parameter    参数</p>
 <p>constructor    构造方法</p>
@@ -597,7 +608,6 @@
 <p>access        访问</p>
 <p>scheme        方案</p>
 <p>valid            有效的</p>
-<p>authentication    身份验证</p>
 <p>await        等待</p>
 <p>expire        期满，超时</p>
 <p>cyclic        循环        sai ke lei ke </p>
@@ -624,6 +634,8 @@
 <p>tax             税收</p>
 <p>technology    技术</p>
 <p>splunk        si pu lan ke</p>
+<p>Thymeleaf        thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP，Velocity，FreeMaker等， 它也可以轻易的与Spring MVC等Web框架进行集成作为Web应用的模板引擎。与其它模板引擎相比， Thymeleaf最大的特点是能够直接在浏览器中打开并正确显示模板页面，而不需要启动整个Web应用。</p>
+<p>开启某个功能@Enablexxx</p>
 ]]></content>
       <categories>
         <category>进度</category>
@@ -694,6 +706,40 @@
 ]]></content>
       <tags>
         <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora使用</title>
+    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
+<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
+<a id="more"></a>
+
+<p>会显示类似于浏览器的开发者模式窗口</p>
+<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
+<p>此时选择想要修改样式的内容</p>
+<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
+<p>修改完毕后右键Copy link address复制文件路径</p>
+<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
+<blockquote>
+<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
+<p>  一般文件会有带盘符的完整路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 有的文件则以typora:开头</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
+
+
+<p>此时需要</p>
+<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
+<p>此时直接进入 typora://userData\themes 中</p>
+<blockquote>
+<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
+<p>根据行数及选择器名修改样式内容保存即可</p>
+]]></content>
+      <tags>
+        <tag>博客-Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -795,40 +841,6 @@
 ]]></content>
       <tags>
         <tag>定时器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Typora使用</title>
-    <url>/2021/02/24/%E5%8D%9A%E5%AE%A2/Typora/Typora%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="typora修改简单颜色样式"><a href="#typora修改简单颜色样式" class="headerlink" title="typora修改简单颜色样式"></a>typora修改简单颜色样式</h2><blockquote>
-<h4 id="进入-视图-gt-开发者模式"><a href="#进入-视图-gt-开发者模式" class="headerlink" title="进入 视图 &gt; 开发者模式"></a>进入 视图 &gt; 开发者模式</h4></blockquote>
-<a id="more"></a>
-
-<p>会显示类似于浏览器的开发者模式窗口</p>
-<p><img src="image-20210224100817244.png" alt="image-20210224100817244"></p>
-<p>此时选择想要修改样式的内容</p>
-<p><img src="image-20210224101056830.png" alt="image-20210224101056830"></p>
-<p>修改完毕后右键Copy link address复制文件路径</p>
-<p><img src="image-20210224101242695.png" alt="image-20210224101242695"></p>
-<blockquote>
-<h4 id="查找文件路径"><a href="#查找文件路径" class="headerlink" title="查找文件路径"></a>查找文件路径</h4></blockquote>
-<p>  一般文件会有带盘符的完整路径</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">file:<span class="comment">///E:/6-17/workapp/util/Typora/resources/app//style/window.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 有的文件则以typora:开头</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typora: 表示在typora安装目录中，一般为：Typora\resources\app</span></span><br><span class="line"><span class="comment">// userData 可看做style目录</span></span><br><span class="line">typora:<span class="comment">//userData\themes\github.css</span></span><br></pre></td></tr></table></figure>
-
-
-<p>此时需要</p>
-<p><img src="image-20210224103451712.png" alt="image-20210224103451712"></p>
-<p>此时直接进入 typora://userData\themes 中</p>
-<blockquote>
-<h4 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h4></blockquote>
-<p>根据行数及选择器名修改样式内容保存即可</p>
-]]></content>
-      <tags>
-        <tag>博客-Typora</tag>
       </tags>
   </entry>
   <entry>
@@ -1576,6 +1588,32 @@
       </tags>
   </entry>
   <entry>
+    <title>git使用问题</title>
+    <url>/2021/03/05/%E6%8A%80%E6%9C%AF/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
+
+<blockquote>
+<p>报错提示</p>
+</blockquote>
+<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<ol>
+<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
+<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
+<li>重新执行提交代码命令即可</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git使用</title>
     <url>/2021/02/23/%E6%8A%80%E6%9C%AF/git/git%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><a id="more"></a>
@@ -1670,32 +1708,6 @@
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git使用问题</title>
-    <url>/2021/03/05/%E6%8A%80%E6%9C%AF/git/git%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="提交过大文件到线上仓库，删除该文件无法提交的问题"><a href="#提交过大文件到线上仓库，删除该文件无法提交的问题" class="headerlink" title="提交过大文件到线上仓库，删除该文件无法提交的问题"></a>提交过大文件到线上仓库，删除该文件无法提交的问题</h2><a id="more"></a>
-
-<blockquote>
-<p>报错提示</p>
-</blockquote>
-<p>remote: error: File: 68c625d7c4c72d644859123e74957a00701ca947 128.78 MB, exceeds 100.00 MB.<br>remote: Use command below to see the filename:<br>remote: git rev-list –objects –all | grep 68c625d7c4c72d644859123e74957a00701ca947<br>remote: Please remove the file from history and try again.</p>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<ol>
-<li>使用<code>git clone uri</code>重新拉取一份项目    </li>
-<li>使用新项目中的<code>.git</code>替换报错项目中的<code>.git</code>文件夹，存在<code>.gitee</code>文件夹时也一并替换</li>
-<li>重新执行提交代码命令即可</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>问题</tag>
       </tags>
   </entry>
   <entry>
@@ -1857,7 +1869,15 @@
   <entry>
     <title>kafka安装</title>
     <url>/2021/03/22/%E6%8A%80%E6%9C%AF/kafka/2.%20kafka%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>kafka</category>
+      </categories>
+      <tags>
+        <tag>MQ</tag>
+      </tags>
   </entry>
   <entry>
     <title>nginx</title>
@@ -2042,49 +2062,406 @@
       </tags>
   </entry>
   <entry>
-    <title>js高阶函数</title>
-    <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><a id="more"></a>
+    <title>SpringSecurity</title>
+    <url>/2021/04/06/java/%E5%90%8E%E7%AB%AF/%E6%9D%83%E9%99%90/SpringSecurity/</url>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><a id="more"></a>
 
-<p><strong>高阶函数</strong>就是那种输入参数里面有一个或者多个函数，输出也是函数的函数，这个在js里面主要是利用闭包实现的，最简单的就是经常看到的在一个函数内部输出另一个函数</p>
-<h2 id="常见的高阶函数"><a href="#常见的高阶函数" class="headerlink" title="常见的高阶函数"></a>常见的高阶函数</h2><h3 id="filter-map-reduce"><a href="#filter-map-reduce" class="headerlink" title="filter/ map/ reduce"></a>filter/ map/ reduce</h3><p>// filter</p>
-<p>// 筛选数组中大于2的</p>
-<p>let array = [1,2,3]</p>
-<p>array.filter(item =&gt; {</p>
-<p>return item &gt; 2;</p>
-<p>})</p>
-<p>得到[3]</p>
-<p>// reduce</p>
-<p>// 对数组中的内容进行运算，并将(运算结果, 下一项)传到下一轮</p>
-<p>let array = [1, 2, 3]</p>
-<p>array.reduce((a,b) =&gt; {return a + b})</p>
-<p>得到 6</p>
-<p>let array = [1, 2, 3]</p>
-<p>array.reduce((a,b) =&gt; {return a + b}, 0)</p>
-<p>最后面的 0 为初始化的值，即第一轮a为0</p>
-<p>// map</p>
-<p>// 对数组中的每个元素进行统一处理</p>
-<p>let array = [1,2,3]</p>
-<p>array.map(item =&gt; {</p>
-<p>return item * 2;</p>
-<p>})</p>
-<p>得到 [2, 4, 6]</p>
-<p>// 综合  函数式编程</p>
-<p>array.filter(item =&gt; {</p>
-<p>return item &gt; 2;</p>
-<p>}).map(item =&gt; {</p>
-<p>return item * 2;</p>
-<p>}).reduce((a,b) =&gt; {</p>
-<p>return a + b</p>
-<p>}, 0);</p>
-<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3>]]></content>
+<h2 id="介绍说明"><a href="#介绍说明" class="headerlink" title="介绍说明"></a>介绍说明</h2><ol>
+<li>当非常精通过滤器及拦截器时即使不用安全框架也可以实现安全需求，但是使用安全框架会更加方便</li>
+<li>安全不是功能性需求，即即使没有安全框架项目也是可以运行的</li>
+<li>做网站，应该在设计之初就应该考虑安全问题<ul>
+<li>不做安全处理时，可能导致项目存在漏洞，进而引发用户隐私泄露</li>
+<li>架构一旦确定，再加安全框架就比较难加</li>
+</ul>
+</li>
+</ol>
+<p>常用的安全框架</p>
+<p>shiro、SpringSecurity：很像、除了类不一样</p>
+<p>流程：认证、授权</p>
+<p>权限分类</p>
+<ul>
+<li>功能权限</li>
+<li>访问权限</li>
+<li>菜单权限</li>
+</ul>
+<p>使用过滤器，拦截器实现时，需要大量原生代码，冗余</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>Spring Security是针对Spring项目的安全框架，也是Spring Boot底层安全模块默认的技术选型，他可以实现强大的Web安全控制，对于安全控制，我们仅需要引入spring-boot-starter-security模块,进行少量的配置，即可实现强大的安全管理!</p>
+<p>使用到的类：</p>
+<ul>
+<li>WebSecurityConfigurerAdapter：自定义Security策略</li>
+<li>AuthenticationManagerBuilder：自定义认证策略</li>
+<li>@EnableWebSecurity：开启WebSecurity模式     </li>
+</ul>
+<p>​      </p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="https://docs.spring.io/spring-security/site/docs/5.2.0.RELEASE/reference/htmlsingle/">https://docs.spring.io/spring-security/site/docs/5.2.0.RELEASE/reference/htmlsingle/</a></p>
+<p><img src="image-20210407150615192.png" alt="image-20210407150615192"></p>
+<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- spring security --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="thymeleaf整合springsecurity控制菜单显示"><a href="#thymeleaf整合springsecurity控制菜单显示" class="headerlink" title="thymeleaf整合springsecurity控制菜单显示"></a>thymeleaf整合springsecurity控制菜单显示</h2><p><img src="image-20210407163523422.png" alt="image-20210407163523422"></p>
+<p>若使用thymeleaf-extras-springsecurity4 则 springboot版本高于2.0.9时配置无法生效</p>
+<p>可使用thymeleaf-extras-springsecurity5</p>
+<p>依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- thymeleaf --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- thymeleaf-extras-springsecurity4 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-springsecurity5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:sec</span>=<span class="string">&quot;http://www.thymeleaf.org/extras/spring-security&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>无忧社区管理系统<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#bodyDiv</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">        width: 200px; height: 100px; text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;vc-body&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bodyDiv&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>index页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">sec:authorize</span>=<span class="string">&quot;isAuthenticated()&quot;</span>&gt;</span></span><br><span class="line">        用户名：<span class="tag">&lt;<span class="name">span</span> <span class="attr">sec:authentication</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">sec:authorize</span>=<span class="string">&quot;isAuthenticated()&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;level1&quot;</span> <span class="attr">sec:authorize</span>=<span class="string">&quot;hasRole(&#x27;vip1&#x27;)&quot;</span>  <span class="attr">style</span>=<span class="string">&quot;background-color: #ffc59f;&quot;</span>&gt;</span>level1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;level2&quot;</span> <span class="attr">sec:authorize</span>=<span class="string">&quot;hasRole(&#x27;vip2&#x27;)&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: greenyellow;&quot;</span>&gt;</span>level2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;logout&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: skyblue;&quot;</span>&gt;</span>logout<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;login&quot;</span> <span class="attr">sec:authorize</span>=<span class="string">&quot;!isAuthenticated()&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #eba200;&quot;</span>&gt;</span>login<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 4. sec:authorize=&quot;&quot;  进行权限验证，若为false则该元素不会在页面中存在，因此获取元素的方法可能失效</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// isAuthenticated() 验证用户是否登录</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// hasRole(&#x27;vip1&#x27;)   验证登录用户是否有vip1的role</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">// sec:authentication=&quot;name&quot;  获取用户名</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">&quot;level1&quot;</span>))</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;level1&quot;</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.href = <span class="string">&quot;/level1/1&quot;</span>;</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">&quot;level2&quot;</span>))</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;level2&quot;</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.href = <span class="string">&quot;/level2/1&quot;</span>;</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">&quot;logout&quot;</span>))</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;logout&quot;</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.href = <span class="string">&quot;/logout&quot;</span>;</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">&quot;login&quot;</span>))</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;login&quot;</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.href = <span class="string">&quot;/toLogin&quot;</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="登录页"><a href="#登录页" class="headerlink" title="登录页"></a>登录页</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:sec</span>=<span class="string">&quot;http://www.thymeleaf.org/extras/spring-security&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>无忧社区管理系统<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;vc-body&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bodyDiv&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>login页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;用户名&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;密码&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;remember-me&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="后台跳转Controller"><a href="#后台跳转Controller" class="headerlink" title="后台跳转Controller"></a>后台跳转Controller</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.demoengin.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RouterController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&#123;&quot;/&quot;, &quot;/index&quot;&#125;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/toLogin&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toLogin</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;login/login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/level1/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">level1</span> <span class="params">(<span class="meta">@PathVariable</span> String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;level1/&quot;</span> + id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/level2/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">level2</span> <span class="params">(<span class="meta">@PathVariable</span> String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;level2/&quot;</span> + id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.demoengin.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 0. 配置</span></span><br><span class="line"><span class="comment"> *    添加注解 <span class="doctag">@EnableWebSecurity</span></span></span><br><span class="line"><span class="comment"> *    继承 WebSecurityConfigurerAdapter</span></span><br><span class="line"><span class="comment"> * 1. 授权</span></span><br><span class="line"><span class="comment"> * 2. 认证</span></span><br><span class="line"><span class="comment"> * 3. 注销</span></span><br><span class="line"><span class="comment"> * 4. 只显示用户有权限的菜单  前端页面</span></span><br><span class="line"><span class="comment"> *    thymeleaf与springsecurity整合控制用户菜单显示</span></span><br><span class="line"><span class="comment"> * 5. 防止网站攻击</span></span><br><span class="line"><span class="comment"> * 6. 记住我，记住以后关闭浏览器也可记录，默认记录时间为14天</span></span><br><span class="line"><span class="comment"> *    实现原理为记录一个cookie在本地浏览器，</span></span><br><span class="line"><span class="comment"> *    可查看浏览器中Application -&gt; Cookie有remember-me的cookie</span></span><br><span class="line"><span class="comment"> * 7. 定制登录页</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityConfig</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 配置授权规则</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 请求授权的规则</span></span><br><span class="line">        <span class="comment">// 设置首页所有人可以访问，功能页只有对应有权限的人才能访问</span></span><br><span class="line">        http.authorizeRequests()</span><br><span class="line">                .antMatchers(<span class="string">&quot;/&quot;</span>).permitAll()       <span class="comment">// 允许所有人访问主页</span></span><br><span class="line">                .antMatchers(<span class="string">&quot;/level1/**&quot;</span>).hasRole(<span class="string">&quot;vip1&quot;</span>)       <span class="comment">// 设置访问权限</span></span><br><span class="line">                .antMatchers(<span class="string">&quot;/level2/**&quot;</span>).hasRole(<span class="string">&quot;vip2&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 开启注销功能</span></span><br><span class="line">        <span class="comment">// 登出页面 /logout</span></span><br><span class="line">        <span class="comment">// 登出成功后默认到 /login?logout</span></span><br><span class="line">        <span class="comment">// 设置登录</span></span><br><span class="line">        http.logout()</span><br><span class="line">                .deleteCookies(<span class="string">&quot;remove&quot;</span>).invalidateHttpSession(<span class="keyword">false</span>)   <span class="comment">// 删除cookie和session</span></span><br><span class="line">                .logoutSuccessUrl(<span class="string">&quot;/&quot;</span>);    <span class="comment">// 设置登出成功后跳转的页面 index</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭csrf功能，登出失败可能存在的原因</span></span><br><span class="line">        http.csrf().disable();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6. 开启记住我功能</span></span><br><span class="line">        http.rememberMe()</span><br><span class="line">            .rememberMeParameter(<span class="string">&quot;remember-me&quot;</span>);<span class="comment">// 接收前端口是否记住我</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 配置login页面</span></span><br><span class="line">        <span class="comment">// 调用父类的configure时若没有权限会跳转security自带的登录页   super.configure(http);</span></span><br><span class="line">        <span class="comment">// 若不调用则会报403表示没有权限</span></span><br><span class="line">        <span class="comment">// 或自行设置</span></span><br><span class="line">        http.formLogin()</span><br><span class="line">                .loginPage(<span class="string">&quot;/toLogin&quot;</span>)          <span class="comment">// 登录页</span></span><br><span class="line">                .usernameParameter(<span class="string">&quot;user&quot;</span>)      <span class="comment">// 修改前端参数key:用户名</span></span><br><span class="line">                .passwordParameter(<span class="string">&quot;pwd&quot;</span>)       <span class="comment">// 修改前端参数key:密码</span></span><br><span class="line">                .loginProcessingUrl(<span class="string">&quot;/login&quot;</span>);  <span class="comment">// 前端请求提交到的url，注请求方式必须为post</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  2. 配置认证规则</span></span><br><span class="line"><span class="comment">     *  springboot 2.1.x 可以直接使用</span></span><br><span class="line"><span class="comment">     *  在版本更高的时候会报错：java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id &quot;null&quot;</span></span><br><span class="line"><span class="comment">     *  原因为密码未加密</span></span><br><span class="line"><span class="comment">     *  在springsecurity中新增了许多加密方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     *  添加密码加密方式传入加密方式</span></span><br><span class="line"><span class="comment">     *  .passwordEncoder(new BCryptPasswordEncoder())</span></span><br><span class="line"><span class="comment">     *  将后面传入的密码也使用加密方式加密</span></span><br><span class="line"><span class="comment">     *  new BCryptPasswordEncoder().encode(&quot;password&quot;)</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 从内存中读取认证用户</span></span><br><span class="line">        auth.inMemoryAuthentication().passwordEncoder(<span class="keyword">new</span> BCryptPasswordEncoder())</span><br><span class="line">                .withUser(<span class="string">&quot;username&quot;</span>).password(<span class="keyword">new</span> BCryptPasswordEncoder().encode(<span class="string">&quot;password&quot;</span>)).roles(<span class="string">&quot;vip1&quot;</span>, <span class="string">&quot;vip2&quot;</span>)</span><br><span class="line">                .and()</span><br><span class="line">                .withUser(<span class="string">&quot;user1&quot;</span>).password(<span class="keyword">new</span> BCryptPasswordEncoder().encode(<span class="string">&quot;123&quot;</span>)).roles(<span class="string">&quot;vip1&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//        User.UserBuilder users = User.withDefaultPasswordEncoder();</span></span><br><span class="line"><span class="comment">//        // 从数据库中读取</span></span><br><span class="line"><span class="comment">//        auth.jdbcAuthentication()</span></span><br><span class="line"><span class="comment">//                .dataSource(dataSource) // 数据源</span></span><br><span class="line"><span class="comment">//                .withDefaultSchema()</span></span><br><span class="line"><span class="comment">//                .withUser(users.username(&quot;user&quot;).password(&quot;password&quot;).roles(&quot;USER&quot;))</span></span><br><span class="line"><span class="comment">//                .withUser(users.username(&quot;admin&quot;).password(&quot;password&quot;).roles(&quot;USER&quot;,&quot;ADMIN&quot;));</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
       <categories>
         <category>java</category>
-        <category>前端</category>
-        <category>函数</category>
+        <category>后端</category>
+        <category>权限</category>
       </categories>
       <tags>
-        <tag>函数</tag>
+        <tag>项目-权限</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后台图片处理</title>
+    <url>/2021/04/06/java/%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%90%8E%E5%8F%B0%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h1 id="BufferedImage"><a href="#BufferedImage" class="headerlink" title="BufferedImage"></a>BufferedImage</h1><a id="more"></a>
+
+<p>Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Graphics <span class="title">getGraphics</span><span class="params">()</span>； <span class="comment">//获得在图像上绘图的Graphics对象</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>Java将一幅图片加载到内存的方法是：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String imgPath = <span class="string">&quot;C://demo.jpg&quot;</span>;  </span><br><span class="line">BufferedImage image = ImageIO.read(<span class="keyword">new</span> FileInputStream(imgPath));</span><br></pre></td></tr></table></figure>
+
+
+<p>继而可以对图片进行操作,比如，获得图片的宽度：image.getWidth()</p>
+<p>图片只有加载到内存中才能进行进一步的处理。</p>
+<p>RGB:R（红）G（绿）B（蓝）色彩模式是工业界的一种颜色标准。在Java中每个RGB像素所占的位数为8.</p>
+<p>创建：</p>
+<ul>
+<li><p>直接调用构造函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定宽高、图像字节灰度</span></span><br><span class="line">BufferedImage bi = <span class="keyword">new</span> BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY)</span><br><span class="line"><span class="comment">//创建一个不带透明色的对象</span></span><br><span class="line">BufferedImage bimage = <span class="keyword">new</span> BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);</span><br><span class="line"><span class="comment">//创建一个带透明色的对象</span></span><br><span class="line"><span class="keyword">new</span> BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>根据已经存在的BufferedImage对象创建一个copy体</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> BufferedImage <span class="title">createBufferedImage</span><span class="params">(BufferedImage src)</span></span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>通过创建ColorModel（颜色转换为Java中的像素表示）和Raster（光栅，描述像素的）对象创建BufferedImage对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> BufferedImage createBufferedImage（<span class="keyword">int</span> width , <span class="keyword">int</span> height, <span class="keyword">byte</span>[] pixels）&#123; <span class="comment">//pixel像素</span></span><br><span class="line"></span><br><span class="line">ColorModel cm = getColorModel();</span><br><span class="line"></span><br><span class="line">SampleModel sm = getIndexSampleModel((IndexColorModel)cm, width,height);</span><br><span class="line"></span><br><span class="line">DataBuffer db = <span class="keyword">new</span> DataBufferByte(pixels, width*height,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">WritableRaster raster = Raster.creatWritableRaster(sm, db,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">BufferedImage image = <span class="keyword">new</span> BufferedImage (cm, raster,<span class="keyword">false</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> image;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>读取一个图片文件来转换.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BufferedImage image = ImageIo.read(<span class="keyword">new</span> FileInputStream(filePath));</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>保存：找个位置写出去</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">File outputfile  = <span class="keyword">new</span> File(<span class="string">&quot;save.png&quot;</span>);</span><br><span class="line">ImageIO.write(bi,<span class="string">&quot;png&quot;</span>,outputfile);</span><br></pre></td></tr></table></figure>
+
+
+<p>Raster和ColorModel对象、BufferedImage的创建与保存</p>
+<p>ImageIO<br>提供read()和write()静态方法，读写图片，比以往的InputStream读写更方便。<br>BufferedImage与byte数组的转换<br>在传输中，图片是不能直接传的，需要先转为字节数组再传输较为方便；而字节数组再转回BufferedImage则还原图片。</p>
+<p>BufferedImage–&gt;byte[]</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ImageIO.write(BufferedImage image,String format,OutputStream out);</span><br><span class="line"><span class="comment">//format:图片格式，“gif&quot;等；</span></span><br><span class="line"><span class="comment">//out:目标；特别的，如果目标为byte数组，则将其预设为ByteArrayOutputStream即可传入此方法，</span></span><br><span class="line"><span class="comment">//执行完后，只要toByteArray()即可获得byte[].</span></span><br></pre></td></tr></table></figure>
+
+<p>byte[]–&gt;bufferedImage</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ByteArrayInputStream in = <span class="keyword">new</span> ByteArrayInputStream(<span class="keyword">byte</span>[]b); <span class="comment">//将b作为输入流；</span></span><br><span class="line">BufferedImage image = ImageIO.read(InputStream in);</span><br><span class="line"><span class="comment">//将in作为输入流，读取图片存入image中，而这里in可以为ByteArrayInputStream();</span></span><br></pre></td></tr></table></figure>
+
+
+<p>参考文章</p>
+<p>应用<br>缓存网络图片</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获得图片地址</span></span><br><span class="line">Url img = <span class="keyword">new</span>  URL(url);</span><br><span class="line"><span class="comment">//获得图片输入流</span></span><br><span class="line">InputStream in = img.openStream();</span><br><span class="line"><span class="comment">//把输入流转为BufferedImage</span></span><br><span class="line">JPEGImageDecoder decoderFile = JPEGCodec.createJPEGDecoder(in);</span><br><span class="line">BufferedImage image = decoderFile.decodeAsBufferedImage();</span><br><span class="line"><span class="comment">//获得其byte数组</span></span><br><span class="line">ImageIO.write(image, <span class="string">&quot;jpg&quot;</span>, bos);</span><br><span class="line"><span class="comment">//写出</span></span><br><span class="line">InputStream is = <span class="keyword">new</span> ByteArrayInputStream(os.toByteArray());</span><br></pre></td></tr></table></figure>
+
+
+<p>具体测试与改动</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">&quot;http://www.google.com/intl/en_ALL/images/logo.gif&quot;</span>);</span><br><span class="line">BufferedImage image = ImageIO.read(url);</span><br><span class="line">ByteArrayOutputStream os = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">ImageIO.write(image, <span class="string">&quot;gif&quot;</span>, os);</span><br><span class="line">InputStream is = <span class="keyword">new</span> ByteArrayInputStream(os.toByteArray());</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Graphics"><a href="#Graphics" class="headerlink" title="Graphics"></a>Graphics</h1><p>提供基本绘图和显示格式化文字的方法，画图用的坐标系原点在左上角，纵轴向下。主要有画线段、矩形、圆、椭圆、圆弧、多边形等各种颜色的图形、线条。</p>
+<p>Graphics2D类提供更强大的绘图能力。</p>
+<p>在窗口画一条直线：drawLine(int x1,int y1,int x2,int y2)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.drawLine(<span class="number">3</span>,<span class="number">3</span>,<span class="number">50</span>,<span class="number">50</span>);<span class="comment">//在(3,3)与(50,50)之间画一条线段</span></span><br><span class="line">g.drawLine(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);<span class="comment">//画一个点</span></span><br></pre></td></tr></table></figure>
+
+
+<p>画折线：drawPolyline(int[],int[],int)，各点的x、y坐标，折线数。</p>
+<p>画字符串：drawString(String str,int x,int y)，x、y是开始显示的位置，使用默认字体、大小、黑色。再写下一行要写在什么位置就很难精确定位了。若要精确定位，则需要知道字符串显示的长度和字高，可以通过FontMetrics类来实现。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FontMetrics fm = g.getFontMetrics(font); <span class="comment">//从Graphics对象获取FontMetrics对象</span></span><br><span class="line"><span class="keyword">int</span> height = fm.getHeight(); <span class="comment">//调用其getHeight()获得字高</span></span><br><span class="line"><span class="keyword">int</span> width = fm.stringWidth(s1); <span class="comment">//获得字符串宽度</span></span><br></pre></td></tr></table></figure>
+
+
+<p>应用FontMetrics精确定位</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;Hello, Java World!&quot;</span>;</span><br><span class="line">g.setColor(Color.red);</span><br><span class="line">setBackground(<span class="keyword">new</span> Color(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>));</span><br><span class="line">Font font = <span class="keyword">new</span> Font(<span class="string">&quot;Arial&quot;</span>, Font.BOLD, <span class="number">18</span>);</span><br><span class="line">g.setFont(font);</span><br><span class="line">FontMetrics fm = g.getFontMetrics(font);</span><br><span class="line"><span class="keyword">int</span> height = fm.getHeight();</span><br><span class="line"><span class="keyword">int</span> width = fm.stringWidth(s1);</span><br><span class="line"><span class="keyword">int</span> posx =<span class="number">50</span>; <span class="keyword">int</span> posy = <span class="number">50</span>;</span><br><span class="line">g.drawString(s1 ,posx, posy);</span><br><span class="line">g.drawString(<span class="string">&quot;I will come in.&quot;</span> ,posx +width, posy+height);</span><br></pre></td></tr></table></figure>
+
+
+<p>显示效果</p>
+<p>设置画笔字体：setFont(Font font)；Java有一个类叫GraphicsEnvironment提供绘图环境，其中getAvailableFontFamilyNames()方法可获取程序所在操作系统的所有字体名（是String不是Font）。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">GraphicsEnvironment gv =</span><br><span class="line">  GraphicsEnvironment.getLocalGraphicsEnvironment();</span><br><span class="line">  String[] ftNames = gv.getAvailableFontFamilyNames();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;ftNames.length; i++)</span><br><span class="line">      Font ft = <span class="keyword">new</span> Font(ftNames[i], Font.BOLD, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>设置前景色（画笔颜色）：setColor(Color color)，选择颜色有两种方法，一是直接用颜色值RGB创建Color对象：Color color=new Color(int R,int G,int B),由于是8位，所以不能超过255;二是用颜色常量如Color.red,Color.green等，Color类提供了13中颜色常量。</p>
+<p>设置背景色：setBackground(new Color(int,int,int))</p>
+<p>来个写不同字体的小例子</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paint</span> <span class="params">(Graphics g)</span></span>&#123;</span><br><span class="line">   String s1 = <span class="string">&quot;This Font is &quot;</span>;</span><br><span class="line">   Font font = <span class="keyword">new</span> Font(<span class="string">&quot;Arial&quot;</span>, Font.BOLD, <span class="number">18</span>);</span><br><span class="line">   g.setColor(Color.red);</span><br><span class="line">    setBackground(<span class="keyword">new</span> Color(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>));</span><br><span class="line">   g.setFont(font);</span><br><span class="line">   g.drawString(s1 + font.getName() ,<span class="number">20</span>, <span class="number">60</span>);</span><br><span class="line">   g.setFont(<span class="keyword">new</span> Font(<span class="string">&quot;隶书&quot;</span>, Font.BOLD, <span class="number">28</span>));</span><br><span class="line">   g.drawString(<span class="string">&quot;现在是隶书&quot;</span> ,<span class="number">20</span>, <span class="number">120</span>);</span><br><span class="line">   g.setColor(<span class="keyword">new</span> Color(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>显示效果</p>
+<p>画矩形：drawRect(int x,int y,int width,int height),画矩形线框，x,y指定了左上角位置，后两个为矩形宽高；fillRect(iny x.int y,int width,int height),指定填充颜色。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.drawRect(<span class="number">80</span>,<span class="number">100</span>,<span class="number">40</span>,<span class="number">25</span>);<span class="comment">//画线框</span></span><br><span class="line">g.setColor(Color.yellow);g.fillRect(<span class="number">20</span>,<span class="number">70</span>,<span class="number">20</span>,<span class="number">30</span>);<span class="comment">//画着色块</span></span><br></pre></td></tr></table></figure>
+
+
+<p>画圆角矩形：drawRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),线框，最后两个宽高是圆角弧的横向直径和纵向直径；fillRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),颜色填充。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.drawRoundRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">150</span>,<span class="number">70</span>,<span class="number">40</span>,<span class="number">25</span>);<span class="comment">//画一个圆角矩形</span></span><br><span class="line">g.setColor(Color.blue); g.fillRoundRect(<span class="number">80</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">60</span>,<span class="number">40</span>);<span class="comment">//涂一个圆角矩形块</span></span><br><span class="line">g.drawRoundRect(<span class="number">10</span>,<span class="number">150</span>,<span class="number">40</span>,<span class="number">40</span>,<span class="number">40</span>,<span class="number">40</span>);<span class="comment">//画圆</span></span><br><span class="line">g.setColor(Color.red); g.fillRoundRect(<span class="number">80</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);<span class="comment">//画圆块</span></span><br></pre></td></tr></table></figure>
+
+
+<p>画三维矩形: draw3DRect(int x,int y,int width,int height,boolean raised),画一个突出显示的矩形（即3D矩形），raise是突出与否；fill3DRect(int x,int y,int width,int height,boolean raised)，颜色填充。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.draw3DRect(<span class="number">80</span>,<span class="number">100</span>,<span class="number">40</span>,<span class="number">25</span>,<span class="keyword">true</span>);<span class="comment">//画一个线框</span></span><br><span class="line">g.setColor(Color.yellow); g.fill3DRect(<span class="number">20</span>,<span class="number">70</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="keyword">true</span>);<span class="comment">//画一个着色块</span></span><br></pre></td></tr></table></figure>
+
+
+<p>画椭圆：drawOval(int x,int y,int width,int height),x、y是中心坐标，长轴、短轴；fillOval(int x,int y,int width,int height),填充。</p>
+<p>画圆弧：drawArc(int x,int y,int width,int height,int startAngle,int arcAngle),画椭圆一部分的圆弧线，椭圆中心时它的外接矩形的中心，外接矩形左上角坐标为(x,y)，宽width，高height，startAngle单位是度，其实角度0度是指3点钟方向，startAngle和arcAngle表示从startAngle角度开始，逆时针方向画arcAngle度的弧，约定，正值度数是逆时针方向，负数为顺时针，例如-90°是6点钟方向；fillArc(int x,int y,int width, int height, int startAngle, int arcAngle)，着色。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.drawArc(<span class="number">10</span>,<span class="number">40</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">180</span>);<span class="comment">//画圆弧线</span></span><br><span class="line">g.drawArc(<span class="number">100</span>,<span class="number">40</span>,<span class="number">90</span>,<span class="number">50</span>,<span class="number">180</span>,<span class="number">180</span>);<span class="comment">//画圆弧线</span></span><br><span class="line">g.setColor(Color.yellow); g.fillArc(<span class="number">10</span>,<span class="number">100</span>,<span class="number">40</span>,<span class="number">40</span>,<span class="number">0</span>,-<span class="number">270</span>);<span class="comment">//填充缺右上角的四分之三的椭圆</span></span><br><span class="line">g.setColor(Color.green); g.fillArc(<span class="number">60</span>,<span class="number">110</span>,<span class="number">110</span>,<span class="number">60</span>,-<span class="number">90</span>,-<span class="number">270</span>);<span class="comment">//填充缺左下角的四分之三的椭圆</span></span><br></pre></td></tr></table></figure>
+
+
+<p>画多边形：drawPolygon(int xPoints[],int yPoints[],int nPoints),多边形是多条线段首尾连接而成的封笔平面图，多边形线段端点的x,y坐标存储在两个数组中，画多边形就是按给定的坐标点顺序用直线段将它们连起来，nPoints是坐标点个数；fillPolygon(int xPoints[],int yPoints[],int nPoints)，着色。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> px1[]=&#123;<span class="number">50</span>,<span class="number">90</span>,<span class="number">10</span>,<span class="number">50</span>&#125;;<span class="comment">//首末点相重,才能画多边形</span></span><br><span class="line"><span class="keyword">int</span> py1[]=&#123;<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> px2[]=&#123;<span class="number">140</span>,<span class="number">180</span>,<span class="number">170</span>,<span class="number">180</span>,<span class="number">140</span>,<span class="number">100</span>,<span class="number">110</span>,<span class="number">140</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> py2[]=&#123;<span class="number">5</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">5</span>&#125;;</span><br><span class="line">g.setColor(Color.blue);</span><br><span class="line">g.fillPolygon(px1,py1,<span class="number">4</span>);</span><br><span class="line">g.setColor(Color.red);</span><br><span class="line">g.drawPolygon(px2,py2,<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p>也可以用多边形对象Polygon画多边形</p>
+<p>Polygon()：创建多边形对象，暂时没有坐标点。<br>Polygon(int xPoints[],int yPoints[],int nPoints)：用指定的坐标点创建多边形对象。<br>addPoint()：将一个坐标点加入到Polygon对象中。<br>drawPolygon(Polygon p)：绘制多边形。<br>fillPolygon(Polygon p)：和指定的颜色填充多边形。<br>画一个三角形</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x[]=&#123;<span class="number">140</span>,<span class="number">180</span>,<span class="number">170</span>,<span class="number">180</span>,<span class="number">140</span>,<span class="number">100</span>,<span class="number">110</span>,<span class="number">100</span>&#125;; <span class="comment">//用多边形对象不要求首末点重合</span></span><br><span class="line"><span class="keyword">int</span> y[]=&#123;<span class="number">5</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">45</span>,<span class="number">35</span>,<span class="number">25</span>&#125;;</span><br><span class="line">Polygon ponlygon1=<span class="keyword">new</span> Polygon();</span><br><span class="line">polygon1.addPoint(<span class="number">50</span>,<span class="number">10</span>);</span><br><span class="line">polygon1.addPoint(<span class="number">90</span>,<span class="number">50</span>);</span><br><span class="line">polygon1.addPoint(<span class="number">10</span>,<span class="number">50</span>);</span><br><span class="line">g.drawPolygon(polygon1);</span><br><span class="line">g.setColor(Color.yellow);</span><br><span class="line">Polygon polygon2 = <span class="keyword">new</span> Polygon(x,y,<span class="number">8</span>);</span><br><span class="line">g.fillPolygon(polygon2);</span><br></pre></td></tr></table></figure>
+
+
+<p>画图片：drawImage(Image image,int x,int y)</p>
+<p>擦除矩形块：clearREct(int x,int y,int width,int height),当需要在一个着色图形中有一个空缺的矩形时，可用背景色填充一矩形块实现，相当于在该图形上使用了橡皮擦。以下代码实现了在一个圆中擦除了一个矩形块</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.setColor(Color.blue);</span><br><span class="line">g.fillOval(<span class="number">50</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">100</span>);g.clearRect(<span class="number">70</span>,<span class="number">70</span>,<span class="number">40</span>,<span class="number">55</span>);</span><br></pre></td></tr></table></figure>
+
+<p>限定作图显示区域：clipRect(int x,int y,int width,int height),用一个矩形表示图形的显示区域，超出部分不显示，多个限制区有覆盖时，得到交集区域</p>
+<p>  <code>g.clipRect(0,0,100,50);g.clipRect(50,25,100,50);</code></p>
+<p>复制图形：copyArea(int x,int y,int width,int height,int dx,int dy),dx和dy表示将图形复制到原位置偏移的像素点数，正值为往右或往下偏移，负值为往左或往上偏移，x、y是要复制矩形区域的左上角坐标。以下代码将一个矩形的部分、另一个矩形的全部分别平移</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">g.drawRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">60</span>,<span class="number">90</span>);</span><br><span class="line">g.fillRect(<span class="number">90</span>,<span class="number">10</span>,<span class="number">60</span>,<span class="number">90</span>);</span><br><span class="line">g.copyArea(<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,-<span class="number">20</span>,<span class="number">80</span>);</span><br><span class="line">g.copyArea(<span class="number">110</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">60</span>,<span class="number">10</span>,<span class="number">80</span>);</span><br></pre></td></tr></table></figure>
+
+<p>对Point、Rectangle类的应用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Point p = <span class="keyword">new</span> Point(cx / <span class="number">2</span>, cy / <span class="number">2</span>); <span class="comment">//定义一个点</span></span><br><span class="line">Rectangle rect = <span class="keyword">new</span> Rectangle((p.x - <span class="number">40</span>), (p.y - <span class="number">40</span>), <span class="number">80</span>, <span class="number">40</span>); <span class="comment">//定义一个矩形</span></span><br><span class="line"><span class="keyword">int</span>[] xP = &#123;(p.x - <span class="number">40</span>), (p.x + <span class="number">90</span>), p.x+<span class="number">200</span>, (p.x - <span class="number">40</span>)&#125;;</span><br><span class="line"><span class="keyword">int</span>[] yP = &#123;(p.y - <span class="number">40</span>), (p.y +<span class="number">140</span>), (p.y + <span class="number">60</span>), (p.y-<span class="number">40</span>)&#125;;</span><br><span class="line">g.drawArc(rect.x, rect.y, rect.width, rect.height * <span class="number">2</span>, <span class="number">270</span>, <span class="number">90</span>); <span class="comment">//画弧</span></span><br><span class="line">g.drawPolygon(xP, yP,<span class="number">3</span>); <span class="comment">//画多边形</span></span><br><span class="line">g.setColor(Color.red);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>画图形方法</p>
+<p>代码实例<br>github/image_verifyCode分支/thz-parent/thz-manager-web/WebPageController、thz-common/tool/RandomValidateCodeUtil、RandomValidateCodeUtilTest</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>实现</category>
+      </categories>
+      <tags>
+        <tag>后台图片处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>后端进行页面跳转</title>
+    <url>/2021/04/07/java/%E5%90%8E%E7%AB%AF/%E5%AE%9E%E7%8E%B0/%E5%90%8E%E7%AB%AF%E8%BF%9B%E8%A1%8C%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/</url>
+    <content><![CDATA[<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><a id="more"></a>
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Thymeleaf的主要作用是把model中的数据渲染到html中，因此其语法主要是如何解析model中的数据。从以下方面来学习：</p>
+<ul>
+<li>变量、方法、条件判断、循环、运算 [ 逻辑运算、布尔运算、比较运算、条件运算 ]</li>
+<li>其它</li>
+</ul>
+<p><code>便于后端页面跳转后带参</code></p>
+<p>如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 跳转方法</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;test2&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test2</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setAge(<span class="number">21</span>);</span><br><span class="line">    user.setName(<span class="string">&quot;Jackson&quot;</span>);</span><br><span class="line">    user.setFriend(<span class="keyword">new</span> User(<span class="string">&quot;李小龙&quot;</span>, <span class="number">30</span>));</span><br><span class="line">    <span class="comment">// 在model中添加数据</span></span><br><span class="line">    model.addAttribute(<span class="string">&quot;user&quot;</span>, user);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello2&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    User friend;<span class="comment">// 对象类型属性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>前端获取</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">    你好：<span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;user.name&#125;&quot;</span>&gt;</span>请跟我来<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="依赖-–-需要引入模板引擎"><a href="#依赖-–-需要引入模板引擎" class="headerlink" title="依赖 – 需要引入模板引擎"></a>依赖 – 需要引入模板引擎</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="后端代码"><a href="#后端代码" class="headerlink" title="后端代码"></a>后端代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RouterController</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 一个方法可设置多个uri</span></span><br><span class="line">    <span class="comment">// 若配置成功时，ctrl+左键可直接跳转至指定页面</span></span><br><span class="line">    <span class="meta">@RequestMapping(&#123;&quot;/&quot;, &quot;/index&quot;&#125;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/login&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;login/login&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="后端配置"><a href="#后端配置" class="headerlink" title="后端配置"></a>后端配置</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    thymeleaf:</span><br><span class="line">        cache: false  # 关闭thymleaf缓存，代码更新后不用重启</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>后台不能使用@ResponseBody 和 @RestController注解，否则会将页面地址作为字符串返回</p>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 若要进行页面跳转：原因可能为模板引擎引入错误或返回页面未找到</span></span><br><span class="line"><span class="comment">// 若不需要进行页面跳转：可能原因为需要使用注解@ResponseBody或</span></span><br><span class="line"><span class="comment">// 将@Controller替换为@RestController</span></span><br><span class="line">Servlet.service() <span class="keyword">for</span> servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [adPlace]: would dispatch back to the current handler URL [/adPlace] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to <span class="keyword">default</span> view name generation.)] with root cause</span><br><span class="line"></span><br><span class="line">javax.servlet.ServletException: Circular view path [adPlace]: would dispatch back to the current handler URL [/adPlace] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to <span class="keyword">default</span> view name generation</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>实现</category>
+      </categories>
+      <tags>
+        <tag>thymeleaf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>注解</title>
+    <url>/2021/04/06/java/%E5%90%8E%E7%AB%AF/%E6%B3%A8%E8%A7%A3/%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="定时器-Scheduled"><a href="#定时器-Scheduled" class="headerlink" title="定时器 @Scheduled"></a>定时器 @Scheduled</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Scheduled(cron = &quot;50 55 17 * * ?&quot;)</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>注解</category>
+      </categories>
+      <tags>
+        <tag>注解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>枚举</title>
+    <url>/2021/04/08/java/%E5%90%8E%E7%AB%AF/%E6%9E%9A%E4%B8%BE/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[<h1 id="枚举类使用"><a href="#枚举类使用" class="headerlink" title="枚举类使用"></a>枚举类使用</h1><a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span>  <span class="title">EnumSingle</span> </span>&#123;</span><br><span class="line">    FIRST(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;one&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">EnumSingle</span> <span class="params">(String code, String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCode</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(EnumSingle.FIRST.getCode());  	<span class="comment">// 1</span></span><br><span class="line">System.out.println(EnumSingle.FIRST.getMsg());  	<span class="comment">// one</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="枚举类反反射"><a href="#枚举类反反射" class="headerlink" title="枚举类反反射"></a>枚举类反反射</h1><h2 id="查看枚举类class文件"><a href="#查看枚举类class文件" class="headerlink" title="查看枚举类class文件"></a>查看枚举类class文件</h2><p><img src="image-20210408143533873.png" alt="image-20210408143533873"></p>
+<p>可以看到其中包含一个无参构造函数</p>
+<p><img src="image-20210408143628886.png" alt="image-20210408143628886"></p>
+<p>使用反射获取枚举中的无参构造</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Constructor&lt;EnumSingle&gt; declaredConstructor = EnumSingle.class.getDeclaredConstructor(<span class="keyword">null</span>);</span><br><span class="line">declaredConstructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">declaredConstructor.newInstance();</span><br></pre></td></tr></table></figure>
+
+
+<p>此时代码报错并非反射源码中的</p>
+<p><img src="image-20210408144142560.png" alt="枚举"></p>
+<p>而是，未找到指定方法异常</p>
+<p>Exception in thread “main” java.lang.NoSuchMethodException: com.demo.demoengin.sign.EnumSingle.<init>()</p>
+<p>显然受idea所骗，该枚举类中并没有无参的构造函数</p>
+<p>使用jad对源码进行反编译</p>
+<p><img src="image-20210408144824407.png" alt="image-20210408144824407"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\Administrator\Desktop\home&gt;jad -s.java EnumSingle.class</span><br><span class="line">Parsing EnumSingle.class... Generating EnumSingle.java</span><br></pre></td></tr></table></figure>
+
+
+<p>打开文件可以看到，其构造函数为一个有参数构造</p>
+<p><img src="image-20210408145028080.png" alt="image-20210408145028080"></p>
+<p>此时修改代码即可获得预期中的报错</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Constructor&lt;EnumSingle&gt; declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class, <span class="keyword">int</span>.class);</span><br><span class="line">declaredConstructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">declaredConstructor.newInstance(<span class="string">&quot;&quot;</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><code>java.lang.IllegalArgumentException: Cannot reflectively create enum objects</code></p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>枚举</category>
+      </categories>
+      <tags>
+        <tag>枚举</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式</title>
+    <url>/2021/04/07/java/%E5%90%8E%E7%AB%AF/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/0.%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="OOP七大原则"><a href="#OOP七大原则" class="headerlink" title="OOP七大原则"></a>OOP七大原则</h1><a id="more"></a>
+
+<p><code>开闭原则</code>：对扩展开放，对修改关闭。</p>
+<p><code>里氏替换原则</code>：继承必须确保超类所拥有的性质在子类中仍然成立。</p>
+<p>子类尽量不修改父类的实现而是对父类方法进行拓展</p>
+<p><code>依赖倒置原则</code>：要面向接口编程，不要面向实现编程。</p>
+<p>尽量先写接口，然后在依照接口写实现</p>
+<p><code>单一职责原则</code>：控制类的粒度大小、将对象解耦、提高其内聚性。</p>
+<p>单一的类只做一件事</p>
+<p><code>接口隔离原则</code>：要为各个类建立它们需要的专用接口。</p>
+<p><code>迪米特法则</code>：只与你的直接朋友交谈，不跟“陌生人”说话。</p>
+<p>尽量不要越级调用，如：A、B、C三个类，A调用B， B调用C，若A想要调用C时，尽量不要直接调用而是 通过调用B来调用C（个人考虑可能原因为：通过B调用C可能会有一些隐藏的操作，A直接调用C时可能会考虑不到或更加繁琐）</p>
+<p><code>合成复用原则</code>：尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现。</p>
+<p>身体类与头类的关系，头类中存在一个字段为身体类，即have a，二者关系为组合关系</p>
+<p>猫类与动物类的关系，二者为继承关系，即is a，二者关系为继承关系</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单例模式</title>
+    <url>/2021/04/07/java/%E5%90%8E%E7%AB%AF/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1.%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>单例模式最重要的思想，构造器私有化</p>
+<h2 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.demoengin.sign;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 饿汉式单例</span></span><br><span class="line"><span class="comment"> * 服务器加载时就将对象创建出来</span></span><br><span class="line"><span class="comment"> * 缺点：消耗内存资源</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hungry</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 可能该类资源很多，造成空间浪费</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] bytes1 = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] bytes2 = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] bytes3 = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] bytes4 = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Hungry</span> <span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Hungry HUNGRY = <span class="keyword">new</span> Hungry();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Hungry <span class="title">getHungry</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> HUNGRY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="懒汉式单例"><a href="#懒汉式单例" class="headerlink" title="懒汉式单例"></a>懒汉式单例</h2><h3 id="未加锁时"><a href="#未加锁时" class="headerlink" title="未加锁时"></a>未加锁时</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 懒汉式单例</span></span><br><span class="line"><span class="comment">// 单线程下该模式没有问题，但是多线程并发时，可能会创建多个对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyMan</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazyMan</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazyMan lazyMan;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazyMan <span class="title">getLazyMan</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lazyMan == <span class="keyword">null</span>) lazyMan = <span class="keyword">new</span> LazyMan();</span><br><span class="line">        <span class="keyword">return</span> lazyMan;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 多线程测试</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                LazyMan.getLazyMan();</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 懒汉式单例</span></span><br><span class="line"><span class="comment">// 单线程下该模式没有问题，但是多线程并发时，可能会创建多个对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyMan</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazyMan</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> LazyMan lazyMan;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazyMan <span class="title">getLazyMan</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lazyMan == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (LazyMan.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (lazyMan == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        创建对象不是一个原子性操作</span></span><br><span class="line"><span class="comment">                        1. 分配内存空间</span></span><br><span class="line"><span class="comment">                        2. 执行构造方法，初始化对象</span></span><br><span class="line"><span class="comment">                        3. 把这个对象指向这个空间</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                        问题：若线程1进入线程，在内存中执行顺序为132，即先指向空间在初始化对象，</span></span><br><span class="line"><span class="comment">                        那么当线程1执行完3，正在执行操作2时，</span></span><br><span class="line"><span class="comment">                        线程2进来了，此时lazyMan != null 但是lazyMan还没有完成构造</span></span><br><span class="line"><span class="comment">                        此时需要在lazyMan对象上添加修饰词volatile</span></span><br><span class="line"><span class="comment">                     */</span></span><br><span class="line">                    lazyMan = <span class="keyword">new</span> LazyMan();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lazyMan;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多线程测试</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                LazyMan.getLazyMan();</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="静态内部类实现"><a href="#静态内部类实现" class="headerlink" title="静态内部类实现"></a>静态内部类实现</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 公共静态内部类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Holder</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Holder <span class="title">getHolder</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InnerHolder.HOLDER;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Holder HOLDER = <span class="keyword">new</span> Holder();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="破坏单例模式"><a href="#破坏单例模式" class="headerlink" title="破坏单例模式"></a>破坏单例模式</h1><p>以懒汉模式为例</p>
+<h2 id="1-使用反射修改构造器权限，直接调用构造器"><a href="#1-使用反射修改构造器权限，直接调用构造器" class="headerlink" title="1. 使用反射修改构造器权限，直接调用构造器"></a>1. 使用反射修改构造器权限，直接调用构造器</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="comment">// 创建第一个对象</span></span><br><span class="line">    LazyMan lazyMan1 = LazyMan.getLazyMan();</span><br><span class="line">    <span class="comment">// 获取类构造器</span></span><br><span class="line">    Constructor&lt;LazyMan&gt; constructor = LazyMan.class.getDeclaredConstructor(<span class="keyword">null</span>);</span><br><span class="line">    <span class="comment">// 修改权限</span></span><br><span class="line">    constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">// 通过反射获得的构造器创建对象</span></span><br><span class="line">    LazyMan lazyMan2 = constructor.newInstance();</span><br><span class="line">    System.out.println(lazyMan1.hashCode());    <span class="comment">// 1028214719</span></span><br><span class="line">    System.out.println(lazyMan2.hashCode());    <span class="comment">// 500977346</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法构造函数中添加判断，若对象存在则抛出异常，将检测提升为三重检测</span></span><br><span class="line"><span class="comment">//        private LazyMan () &#123;</span></span><br><span class="line"><span class="comment">//            synchronized (LazyMan.class) &#123;</span></span><br><span class="line"><span class="comment">//                if (lazyMan != null) &#123;</span></span><br><span class="line"><span class="comment">//                    throw new RuntimeException(&quot;直接调用构造器异常&quot;);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-均使用反射，不使用提供的方法进行创建"><a href="#2-均使用反射，不使用提供的方法进行创建" class="headerlink" title="2. 均使用反射，不使用提供的方法进行创建"></a>2. 均使用反射，不使用提供的方法进行创建</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    Constructor&lt;LazyMan&gt; constructor = LazyMan.class.getDeclaredConstructor(<span class="keyword">null</span>);</span><br><span class="line">    constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    LazyMan lazyMan1 = constructor.newInstance();</span><br><span class="line">    LazyMan lazyMan2 = constructor.newInstance();</span><br><span class="line">    System.out.println(lazyMan1.hashCode());    <span class="comment">// 1028214719</span></span><br><span class="line">    System.out.println(lazyMan2.hashCode());    <span class="comment">// 500977346</span></span><br><span class="line">        <span class="comment">// 解决方法：添加一个非当前对象的变量作为标识</span></span><br><span class="line"><span class="comment">//        private static boolean redGreenLight = true;</span></span><br><span class="line"><span class="comment">//        private LazyMan () &#123;</span></span><br><span class="line"><span class="comment">//            synchronized (LazyMan.class) &#123;</span></span><br><span class="line"><span class="comment">//                if (redGreenLight) &#123;</span></span><br><span class="line"><span class="comment">//                    redGreenLight = false;</span></span><br><span class="line"><span class="comment">//                &#125; else &#123;</span></span><br><span class="line"><span class="comment">//                    throw new RuntimeException(&quot;直接调用构造器异常&quot;);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-双重反射，既修改构造器权限又修改关键变量权限"><a href="#3-双重反射，既修改构造器权限又修改关键变量权限" class="headerlink" title="3. 双重反射，既修改构造器权限又修改关键变量权限"></a>3. 双重反射，既修改构造器权限又修改关键变量权限</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Constructor&lt;LazyMan&gt; constructor = LazyMan.class.getDeclaredConstructor(<span class="keyword">null</span>);</span><br><span class="line">constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">// 使用反射获取字段</span></span><br><span class="line">Field redGreenLight = LazyMan.class.getDeclaredField(<span class="string">&quot;redGreenLight&quot;</span>);</span><br><span class="line"><span class="comment">// 修改字段权限</span></span><br><span class="line">redGreenLight.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">LazyMan lazyMan1 = constructor.newInstance();</span><br><span class="line"><span class="comment">// 修改字段值</span></span><br><span class="line">redGreenLight.set(LazyMan.class, <span class="keyword">true</span>);</span><br><span class="line">LazyMan lazyMan2 = constructor.newInstance();</span><br><span class="line">System.out.println(lazyMan1.hashCode());    <span class="comment">// 1028214719</span></span><br><span class="line">System.out.println(lazyMan2.hashCode());    <span class="comment">// 500977346</span></span><br></pre></td></tr></table></figure>
+
+
+<p>解决方法： 枚举Enum</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -2144,6 +2521,52 @@
       </tags>
   </entry>
   <entry>
+    <title>js高阶函数</title>
+    <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><a id="more"></a>
+
+<p><strong>高阶函数</strong>就是那种输入参数里面有一个或者多个函数，输出也是函数的函数，这个在js里面主要是利用闭包实现的，最简单的就是经常看到的在一个函数内部输出另一个函数</p>
+<h2 id="常见的高阶函数"><a href="#常见的高阶函数" class="headerlink" title="常见的高阶函数"></a>常见的高阶函数</h2><h3 id="filter-map-reduce"><a href="#filter-map-reduce" class="headerlink" title="filter/ map/ reduce"></a>filter/ map/ reduce</h3><p>// filter</p>
+<p>// 筛选数组中大于2的</p>
+<p>let array = [1,2,3]</p>
+<p>array.filter(item =&gt; {</p>
+<p>return item &gt; 2;</p>
+<p>})</p>
+<p>得到[3]</p>
+<p>// reduce</p>
+<p>// 对数组中的内容进行运算，并将(运算结果, 下一项)传到下一轮</p>
+<p>let array = [1, 2, 3]</p>
+<p>array.reduce((a,b) =&gt; {return a + b})</p>
+<p>得到 6</p>
+<p>let array = [1, 2, 3]</p>
+<p>array.reduce((a,b) =&gt; {return a + b}, 0)</p>
+<p>最后面的 0 为初始化的值，即第一轮a为0</p>
+<p>// map</p>
+<p>// 对数组中的每个元素进行统一处理</p>
+<p>let array = [1,2,3]</p>
+<p>array.map(item =&gt; {</p>
+<p>return item * 2;</p>
+<p>})</p>
+<p>得到 [2, 4, 6]</p>
+<p>// 综合  函数式编程</p>
+<p>array.filter(item =&gt; {</p>
+<p>return item &gt; 2;</p>
+<p>}).map(item =&gt; {</p>
+<p>return item * 2;</p>
+<p>}).reduce((a,b) =&gt; {</p>
+<p>return a + b</p>
+<p>}, 0);</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3>]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>函数</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>observer观察者</title>
     <url>/2021/02/24/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/observer%E8%A7%82%E5%AF%9F%E8%80%85/</url>
     <content><![CDATA[<h2 id="创建观察者监测dom元素的改变"><a href="#创建观察者监测dom元素的改变" class="headerlink" title="创建观察者监测dom元素的改变"></a>创建观察者监测dom元素的改变</h2><p>可监测属性、子节点及节点内容的改变</p>
@@ -2158,38 +2581,6 @@
       </categories>
       <tags>
         <tag>前端-函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>其他函数</title>
-    <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><a id="more"></a>
-
-<p>let arra = [{name:123},{name:456},{name:789}];</p>
-<p>let obj = arra.find(item =&gt; {return item[“name”] == 456})</p>
-<p>.</p>
-<p>得到{name: 456}</p>
-<p>find 返回首个符合标准的</p>
-<p>filter返回集合</p>
-<p><img src="clipboard.png" alt="img"></p>
-<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><p>splice  插入和删除</p>
-<p>list.splice(开始的下标, 删除几个, 插入的元素)</p>
-<h3 id="replace-js替换所有匹配项"><a href="#replace-js替换所有匹配项" class="headerlink" title="replace  js替换所有匹配项"></a>replace  js替换所有匹配项</h3><p>let list = [1,2,3,4]</p>
-<p>let json = JSON.stringify(list)</p>
-<p>let regex = new RegExp(“,”, “g”)</p>
-<p>json.replace(regex,”;”)</p>
-<p>或</p>
-<p>let list = [1,2,3,4]</p>
-<p>let json = JSON.stringify(list)</p>
-<p>json.replace(/,/g, “;”)</p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>前端</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>函数</tag>
       </tags>
   </entry>
   <entry>
@@ -2245,6 +2636,38 @@
       </categories>
       <tags>
         <tag>window、location和history</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>其他函数</title>
+    <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E5%87%BD%E6%95%B0/%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><a id="more"></a>
+
+<p>let arra = [{name:123},{name:456},{name:789}];</p>
+<p>let obj = arra.find(item =&gt; {return item[“name”] == 456})</p>
+<p>.</p>
+<p>得到{name: 456}</p>
+<p>find 返回首个符合标准的</p>
+<p>filter返回集合</p>
+<p><img src="clipboard.png" alt="img"></p>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><p>splice  插入和删除</p>
+<p>list.splice(开始的下标, 删除几个, 插入的元素)</p>
+<h3 id="replace-js替换所有匹配项"><a href="#replace-js替换所有匹配项" class="headerlink" title="replace  js替换所有匹配项"></a>replace  js替换所有匹配项</h3><p>let list = [1,2,3,4]</p>
+<p>let json = JSON.stringify(list)</p>
+<p>let regex = new RegExp(“,”, “g”)</p>
+<p>json.replace(regex,”;”)</p>
+<p>或</p>
+<p>let list = [1,2,3,4]</p>
+<p>let json = JSON.stringify(list)</p>
+<p>json.replace(/,/g, “;”)</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
       </tags>
   </entry>
   <entry>
@@ -2466,38 +2889,6 @@
       </tags>
   </entry>
   <entry>
-    <title>前端样式</title>
-    <url>/2021/03/01/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E5%89%8D%E7%AB%AF%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h1><!-- mroe -->
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.addInspectionListPoint&quot;</span>).css(&#123;</span><br><span class="line">    <span class="string">&quot;position&quot;</span>: <span class="string">&quot;relative&quot;</span>,</span><br><span class="line">    <span class="string">&quot;display&quot;</span>: <span class="string">&quot;inline-block&quot;</span>,</span><br><span class="line">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;#D0EEFF&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border&quot;</span>: <span class="string">&quot;1px solid #99D3F5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border-radius&quot;</span>: <span class="string">&quot;4px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;padding&quot;</span>: <span class="string">&quot;4px 12px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;overflow&quot;</span>: <span class="string">&quot;hidden&quot;</span>,</span><br><span class="line">    <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#1E88C7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-decoration&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-indent&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;line-height&quot;</span>: <span class="string">&quot;20px&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="遮罩层"><a href="#遮罩层" class="headerlink" title="遮罩层"></a>遮罩层</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 100%;</span><br><span class="line"><span class="selector-tag">height</span>: 100%;</span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">left</span>: 0;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">z-index</span>: 2;</span><br><span class="line"><span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span><br><span class="line"><span class="selector-tag">opacity</span>: 0.2;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
-<p>a标签去掉下划线</p>
-</blockquote>
-<p>text-decoration: none;</p>
-<blockquote>
-<p>去除页面默认边框</p>
-</blockquote>
-<p>html, body {</p>
-<p>​    margin: 0;</p>
-<p>​    padding: 0;</p>
-<p>}</p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>前端</category>
-        <category>样式</category>
-      </categories>
-      <tags>
-        <tag>前端-样式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图片</title>
     <url>/2021/03/08/java/%E5%89%8D%E7%AB%AF/%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<h2 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h2><a id="more"></a>
@@ -2535,6 +2926,38 @@
       </tags>
   </entry>
   <entry>
+    <title>前端样式</title>
+    <url>/2021/03/01/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E5%89%8D%E7%AB%AF%E6%A0%B7%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h1><!-- mroe -->
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.addInspectionListPoint&quot;</span>).css(&#123;</span><br><span class="line">    <span class="string">&quot;position&quot;</span>: <span class="string">&quot;relative&quot;</span>,</span><br><span class="line">    <span class="string">&quot;display&quot;</span>: <span class="string">&quot;inline-block&quot;</span>,</span><br><span class="line">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;#D0EEFF&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border&quot;</span>: <span class="string">&quot;1px solid #99D3F5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border-radius&quot;</span>: <span class="string">&quot;4px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;padding&quot;</span>: <span class="string">&quot;4px 12px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;overflow&quot;</span>: <span class="string">&quot;hidden&quot;</span>,</span><br><span class="line">    <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#1E88C7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-decoration&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-indent&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;line-height&quot;</span>: <span class="string">&quot;20px&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="遮罩层"><a href="#遮罩层" class="headerlink" title="遮罩层"></a>遮罩层</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 100%;</span><br><span class="line"><span class="selector-tag">height</span>: 100%;</span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">left</span>: 0;</span><br><span class="line"><span class="selector-tag">top</span>: 0;</span><br><span class="line"><span class="selector-tag">z-index</span>: 2;</span><br><span class="line"><span class="selector-tag">background-color</span>: <span class="selector-id">#000</span>;</span><br><span class="line"><span class="selector-tag">opacity</span>: 0.2;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
+<p>a标签去掉下划线</p>
+</blockquote>
+<p>text-decoration: none;</p>
+<blockquote>
+<p>去除页面默认边框</p>
+</blockquote>
+<p>html, body {</p>
+<p>​    margin: 0;</p>
+<p>​    padding: 0;</p>
+<p>}</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>样式</category>
+      </categories>
+      <tags>
+        <tag>前端-样式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>选择器</title>
     <url>/2021/03/05/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E9%80%89%E6%8B%A9%E5%99%A8/</url>
     <content><![CDATA[<h2 id="选择最后一个对象"><a href="#选择最后一个对象" class="headerlink" title="选择最后一个对象"></a>选择最后一个对象</h2><a id="more"></a>
@@ -2549,23 +2972,6 @@
       </categories>
       <tags>
         <tag>选择器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>日期操作</title>
-    <url>/2021/03/17/java/%E5%89%8D%E7%AB%AF/%E9%80%BB%E8%BE%91/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="获取每月最大的天数"><a href="#获取每月最大的天数" class="headerlink" title="获取每月最大的天数"></a>获取每月最大的天数</h2><a id="more"></a>
-
-<p>获取2月最大天数：</p>
-<p>new Date(2021, 2, 0).getDate();</p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>前端</category>
-        <category>逻辑</category>
-      </categories>
-      <tags>
-        <tag>逻辑-日期操作</tag>
       </tags>
   </entry>
   <entry>
@@ -2608,6 +3014,23 @@
       </categories>
       <tags>
         <tag>逻辑-样式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日期操作</title>
+    <url>/2021/03/17/java/%E5%89%8D%E7%AB%AF/%E9%80%BB%E8%BE%91/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="获取每月最大的天数"><a href="#获取每月最大的天数" class="headerlink" title="获取每月最大的天数"></a>获取每月最大的天数</h2><a id="more"></a>
+
+<p>获取2月最大天数：</p>
+<p>new Date(2021, 2, 0).getDate();</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>前端</category>
+        <category>逻辑</category>
+      </categories>
+      <tags>
+        <tag>逻辑-日期操作</tag>
       </tags>
   </entry>
   <entry>
@@ -2848,7 +3271,7 @@
   </entry>
   <entry>
     <title>多线程</title>
-    <url>/2021/03/18/java/%E5%90%8E%E7%AB%AF/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <url>/2021/03/18/java/%E5%90%8E%E7%AB%AF/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="多线程基础："><a href="#多线程基础：" class="headerlink" title="多线程基础："></a>多线程基础：</h2><a id="more"></a>
 
 <p><img src="image-20210318134058000.png" alt="image-20210318134058000"></p>
