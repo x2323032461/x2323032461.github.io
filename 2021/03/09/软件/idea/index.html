@@ -33,8 +33,10 @@
 <meta property="og:image" content="http://example.com/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/image-20210312093617360.png">
 <meta property="og:image" content="http://example.com/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/image-20210312093643838.png">
 <meta property="og:image" content="http://example.com/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/idea/903105852599.png">
+<meta property="og:image" content="http://example.com/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/image-20210414181238581.png">
+<meta property="og:image" content="http://example.com/2021/03/09/%E8%BD%AF%E4%BB%B6/idea/image-20210414181617752.png">
 <meta property="article:published_time" content="2021-03-09T06:54:24.000Z">
-<meta property="article:modified_time" content="2021-03-18T08:00:16.472Z">
+<meta property="article:modified_time" content="2021-04-14T10:21:09.345Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="软件">
 <meta name="twitter:card" content="summary">
@@ -222,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-18 16:00:16" itemprop="dateModified" datetime="2021-03-18T16:00:16+08:00">2021-03-18</time>
+                <time title="修改时间：2021-04-14 18:21:09" itemprop="dateModified" datetime="2021-04-14T18:21:09+08:00">2021-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,21 +258,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="代码自动缩进行-格式整理"><a href="#代码自动缩进行-格式整理" class="headerlink" title="代码自动缩进行(格式整理)"></a>代码自动缩进行(格式整理)</h2><a id="more"></a>
+        <h1 id="代码自动缩进行-格式整理"><a href="#代码自动缩进行-格式整理" class="headerlink" title="代码自动缩进行(格式整理)"></a>代码自动缩进行(格式整理)</h1><a id="more"></a>
 
 <p>settings –&gt; Keymap –&gt; Main menu –&gt; Code –&gt; Auto-Indent Lines</p>
 <p><img src="image-20210309145729038.png" alt="image-20210309145729038"></p>
-<h2 id="清除idea缓存"><a href="#清除idea缓存" class="headerlink" title="清除idea缓存"></a>清除idea缓存</h2><p><img src="image-20210309165824345.png" alt="image-20210309165824345"></p>
-<h2 id="多项目启动展示-Group-Tabs"><a href="#多项目启动展示-Group-Tabs" class="headerlink" title="多项目启动展示-Group Tabs"></a>多项目启动展示-Group Tabs</h2><p><img src="image-20210312093529999.png" alt="image-20210312093529999"></p>
+<h1 id="清除idea缓存"><a href="#清除idea缓存" class="headerlink" title="清除idea缓存"></a>清除idea缓存</h1><p><img src="image-20210309165824345.png" alt="image-20210309165824345"></p>
+<h1 id="多项目启动展示-Group-Tabs"><a href="#多项目启动展示-Group-Tabs" class="headerlink" title="多项目启动展示-Group Tabs"></a>多项目启动展示-Group Tabs</h1><p><img src="image-20210312093529999.png" alt="image-20210312093529999"></p>
 <p>未打钩时</p>
 <p><img src="image-20210312093617360.png" alt="image-20210312093617360"></p>
 <p>打钩时</p>
 <p><img src="image-20210312093643838.png" alt="image-20210312093643838"></p>
-<h2 id="项目启动报错"><a href="#项目启动报错" class="headerlink" title="项目启动报错"></a>项目启动报错</h2><p>错误重现，用run模式启动项目的时候没出现此问题，但是使用debug模式下启动项目的时候就出现此问题。</p>
+<h1 id="项目启动报错"><a href="#项目启动报错" class="headerlink" title="项目启动报错"></a>项目启动报错</h1><p>错误重现，用run模式启动项目的时候没出现此问题，但是使用debug模式下启动项目的时候就出现此问题。</p>
 <p><img src="idea/903105852599.png" alt="img"></p>
 <p><strong>解决方案！</strong></p>
 <p>  修改项目下 .idea\workspace.xml，找到标签 <strong><component name="PropertiesComponent"></strong> ， 在标签里加一行 </p>
 <p><strong><property name="dynamic.classpath" value="true" /></strong></p>
+<h1 id="搜索项目中所有类"><a href="#搜索项目中所有类" class="headerlink" title="搜索项目中所有类"></a>搜索项目中所有类</h1><p>double shift</p>
+<h1 id="查看UML类图"><a href="#查看UML类图" class="headerlink" title="查看UML类图"></a>查看UML类图</h1><h2 id="1-开启"><a href="#1-开启" class="headerlink" title="1. 开启"></a>1. 开启</h2><p>ctrl + shift + alt + u</p>
+<p><img src="image-20210414181238581.png" alt="image-20210414181238581"></p>
+<h2 id="2-构成"><a href="#2-构成" class="headerlink" title="2.  构成"></a>2.  构成</h2><p>虚线箭头表示实现 implements</p>
+<p>实线箭头表示集成extends</p>
+<p><img src="image-20210414181617752.png" alt="image-20210414181617752"></p>
+<p>fields    字段</p>
+<p>constructors    构造函数</p>
+<p>methods    方法</p>
+<p>properties    类属性</p>
+<p>Inner Classes    内置类</p>
+<h2 id="3-使用快捷键"><a href="#3-使用快捷键" class="headerlink" title="3. 使用快捷键"></a>3. 使用快捷键</h2><p>alt    放大镜</p>
+<p>ctrl + 左键    拖动</p>
 
     </div>
 
@@ -354,7 +369,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E7%BC%A9%E8%BF%9B%E8%A1%8C-%E6%A0%BC%E5%BC%8F%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">代码自动缩进行(格式整理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E9%99%A4idea%E7%BC%93%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">清除idea缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%B1%95%E7%A4%BA-Group-Tabs"><span class="nav-number">3.</span> <span class="nav-text">多项目启动展示-Group Tabs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99"><span class="nav-number">4.</span> <span class="nav-text">项目启动报错</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E7%BC%A9%E8%BF%9B%E8%A1%8C-%E6%A0%BC%E5%BC%8F%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">代码自动缩进行(格式整理)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%85%E9%99%A4idea%E7%BC%93%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">清除idea缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E5%B1%95%E7%A4%BA-Group-Tabs"><span class="nav-number">3.</span> <span class="nav-text">多项目启动展示-Group Tabs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99"><span class="nav-number">4.</span> <span class="nav-text">项目启动报错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%89%80%E6%9C%89%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">搜索项目中所有类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BUML%E7%B1%BB%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">查看UML类图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BC%80%E5%90%AF"><span class="nav-number">6.1.</span> <span class="nav-text">1. 开启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9E%84%E6%88%90"><span class="nav-number">6.2.</span> <span class="nav-text">2.  构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">6.3.</span> <span class="nav-text">3. 使用快捷键</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +383,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -381,7 +396,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
