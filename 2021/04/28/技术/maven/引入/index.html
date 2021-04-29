@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="SpringSecurity  权限框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引入">
+<meta property="og:url" content="http://example.com/2021/04/28/%E6%8A%80%E6%9C%AF/maven/%E5%BC%95%E5%85%A5/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="SpringSecurity  权限框架">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-28T10:54:37.000Z">
+<meta property="article:modified_time" content="2021-04-29T05:29:57.735Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="maven-引入">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/04/28/%E6%8A%80%E6%9C%AF/maven/%E5%BC%95%E5%85%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>引入 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/28/%E6%8A%80%E6%9C%AF/maven/%E5%BC%95%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          引入
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-28 18:54:37" itemprop="dateCreated datePublished" datetime="2021-04-28T18:54:37+08:00">2021-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-29 13:29:57" itemprop="dateModified" datetime="2021-04-29T13:29:57+08:00">2021-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="SpringSecurity-权限框架"><a href="#SpringSecurity-权限框架" class="headerlink" title="SpringSecurity  权限框架"></a>SpringSecurity  权限框架</h1><a id="more"></a>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- spring security --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="thymeleaf-前端模板引擎"><a href="#thymeleaf-前端模板引擎" class="headerlink" title="thymeleaf 前端模板引擎"></a>thymeleaf 前端模板引擎</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- thymeleaf --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="SpringSecurity-thymeleaf-二者整合做权限处理"><a href="#SpringSecurity-thymeleaf-二者整合做权限处理" class="headerlink" title="SpringSecurity - thymeleaf 二者整合做权限处理"></a>SpringSecurity - thymeleaf 二者整合做权限处理</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- thymeleaf-extras-springsecurity4 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-springsecurity5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="DateTime-日期处理"><a href="#DateTime-日期处理" class="headerlink" title="DateTime 日期处理"></a>DateTime 日期处理</h1><h2 id="1-依赖"><a href="#1-依赖" class="headerlink" title="1. 依赖"></a>1. 依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-获取对象"><a href="#2-获取对象" class="headerlink" title="2. 获取对象"></a>2. 获取对象</h2><p>DateTime now = new DateTime();</p>
+<h2 id="3-获取事件最大值"><a href="#3-获取事件最大值" class="headerlink" title="3. 获取事件最大值"></a>3. 获取事件最大值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取一天有多少小时</span></span><br><span class="line"><span class="keyword">int</span> maxHour = now.getHourOfDay();</span><br><span class="line"><span class="comment">// 获取一小时有多少分钟</span></span><br><span class="line"><span class="keyword">int</span> maxMillis = now.getMinuteOfHour();</span><br><span class="line"><span class="comment">// 获取一分钟有多少秒</span></span><br><span class="line"><span class="keyword">int</span> maxSeconds = now.getSecondOfMinute();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-日期运算"><a href="#4-日期运算" class="headerlink" title="4. 日期运算"></a>4. 日期运算</h2><blockquote>
+<p>now 的 plus 运算</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加运算  当前日期 -1</span></span><br><span class="line">now.plusHours(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 减运算  当前日期 -1</span></span><br><span class="line">now.plusHours(-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 日期加一个Long值</span></span><br><span class="line">now.plus(<span class="number">1000L</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><code>所有plus方法均会返回DateTime对象，因此可使用链式编程进行运算</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now.plusHours(<span class="number">1</span>).plusMinutes(<span class="number">1</span>).plusSeconds(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-格式化"><a href="#5-格式化" class="headerlink" title="5. 格式化"></a>5. 格式化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">now.toString(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Jackson-json数据处理"><a href="#Jackson-json数据处理" class="headerlink" title="Jackson json数据处理"></a>Jackson json数据处理</h1><h2 id="1-依赖-1"><a href="#1-依赖-1" class="headerlink" title="1. 依赖"></a>1. 依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-项目中用到的jar包"><a href="#2-项目中用到的jar包" class="headerlink" title="2. 项目中用到的jar包"></a>2. 项目中用到的jar包</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonParseException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonMappingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonNode;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.schema.Entry;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-JsonNode使用"><a href="#3-JsonNode使用" class="headerlink" title="3. JsonNode使用"></a>3. JsonNode使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map操作</span></span><br><span class="line">String json = <span class="string">&quot;&#123;\&quot;username\&quot;:\&quot;tom\&quot;,\&quot;company\&quot;:&#123;\&quot;companyName\&quot;:\&quot;中华\&quot;,\&quot;address\&quot;:\&quot;北京\&quot;&#125;,\&quot;cars\&quot;:[\&quot;奔驰\&quot;,\&quot;宝马\&quot;]&#125;&quot;</span>;</span><br><span class="line"></span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">JsonNode jsonNode = mapper.readTree(json);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取所有节点（迭代器）</span></span><br><span class="line">Iterator&lt;String&gt; stringIterator = jsonNode.fieldNames();</span><br><span class="line"><span class="keyword">while</span>(stringIterator.hasNext()) &#123;</span><br><span class="line">    System.out.print(<span class="string">&quot;key 为：&quot;</span>);</span><br><span class="line">    System.out.println(stringIterator.next());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取username节点的值</span></span><br><span class="line">JsonNode path = jsonNode.path(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">JsonNode resultValue = jsonNode.findValue(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">JsonNode resultPath = jsonNode.findPath(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;path&quot;</span> + path);</span><br><span class="line">System.out.println(<span class="string">&quot;findValue&quot;</span> + resultValue);</span><br><span class="line">System.out.println(<span class="string">&quot;findPath&quot;</span> + resultPath);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取所有包含有key为username的节点</span></span><br><span class="line"><span class="comment">// findKeys:&#123;&quot;username&quot;:&quot;tom&quot;,&quot;company&quot;:&#123;&quot;companyName&quot;:&quot;中华&quot;,&quot;address&quot;:&quot;北京&quot;,&quot;username&quot;:&quot;北京1&quot;&#125;,&quot;cars&quot;:[&quot;奔驰&quot;,&quot;宝马&quot;]&#125;</span></span><br><span class="line"><span class="comment">// findKeys:&#123;&quot;companyName&quot;:&quot;中华&quot;,&quot;address&quot;:&quot;北京&quot;,&quot;username&quot;:&quot;北京1&quot;&#125;</span></span><br><span class="line">List&lt;JsonNode&gt; findKeys = jsonNode.findParents(<span class="string">&quot;username&quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (JsonNode result:findKeys)&#123;</span><br><span class="line">    System.err.println(<span class="string">&quot;findKeys:&quot;</span> + result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取所有key为username的节点的值</span></span><br><span class="line"><span class="comment">// findValues:&quot;tom&quot;</span></span><br><span class="line"><span class="comment">// findValues:&quot;北京1&quot;</span></span><br><span class="line">List&lt;JsonNode&gt; findValues = jsonNode.findValues(<span class="string">&quot;username&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(JsonNode value: findValues)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;findValues:&quot;</span> + value.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历某个JsonNode的key和value(value可能是字符串也可能是子jsonNode，但如果value是jsonNode数组的话，是无法读取的)</span></span><br><span class="line">Iterator&lt;Map.Entry&lt;String,JsonNode&gt;&gt; jsonNodes = jsonNode.fields();</span><br><span class="line"><span class="keyword">while</span> (jsonNodes.hasNext()) &#123;</span><br><span class="line">	Map.Entry&lt;String, JsonNode&gt; node = jsonNodes.next();</span><br><span class="line">    System.err.println(<span class="string">&quot;遍历获取key:&quot;</span>+node.getKey());</span><br><span class="line">    System.err.println(<span class="string">&quot;遍历获取值:&quot;</span>+node.getValue().toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// JsonNode对象转换成JSON字符串</span></span><br><span class="line">String jsonStr = mapper.writeValueAsString(jsonNode);</span><br><span class="line">System.out.println(<span class="string">&quot;JsonNode---&gt;Json:&quot;</span>+jsonStr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// list操作</span></span><br><span class="line">String arrayJson = <span class="string">&quot;[&#123;\&quot;number\&quot;:64,\&quot;result\&quot;:\&quot;SUCCESS\&quot;&#125;,&#123;\&quot;number\&quot;:65,\&quot;result\&quot;:\&quot;FAILURE\&quot;&#125;,&#123;\&quot;number\&quot;:66,\&quot;result\&quot;:\&quot;ABORTED\&quot;&#125;,&#123;\&quot;number\&quot;:67,\&quot;result\&quot;:\&quot;SUCCESS\&quot;&#125;]&quot;</span>;</span><br><span class="line">JsonNode arrayNodes = <span class="keyword">new</span> ObjectMapper().readTree(arrayJson);</span><br><span class="line"><span class="keyword">if</span> (arrayNodes.isArray()) &#123;</span><br><span class="line">    <span class="keyword">for</span> (JsonNode arrayNode : arrayNodes) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;arrayNode:&quot;</span> + arrayNode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-json字符串转换成JsonObject对象"><a href="#3-json字符串转换成JsonObject对象" class="headerlink" title="3. json字符串转换成JsonObject对象"></a>3. json字符串转换成JsonObject对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String studentJson = <span class="string">&quot;&#123;\&quot;stuId\&quot;:\&quot;116\&quot;,\&quot;stuName\&quot;:\&quot;赵云\&quot;,\&quot;stuAddress\&quot;:\&quot;常山\&quot;,\&quot;stuIQ\&quot;:\&quot;93\&quot;&#125;&quot;</span>;</span><br><span class="line"> </span><br><span class="line">JSONObject object = JSON.parseObject(studentJson);</span><br><span class="line"><span class="comment">// JsonObject对象转换成JavaBean</span></span><br><span class="line">Student student = object.toJavaObject(Student.class);</span><br><span class="line"><span class="comment">// json字符串转换成JavaBean</span></span><br><span class="line">Student stu = JSON.parseObject(studentJson,Student.class);</span><br><span class="line"><span class="comment">// JsonObject对象根据key获取对应的值</span></span><br><span class="line">String name = object.getString(<span class="string">&quot;stuName&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-其他方法"><a href="#4-其他方法" class="headerlink" title="4. 其他方法"></a>4. 其他方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把JSON文本parse为JSONObject或者JSONArray</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object <span class="title">parse</span><span class="params">(String text)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 把JSON文本parse成JSONArray</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> JSONArray <span class="title">parseArray</span><span class="params">(String text)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">//把JSON文本parse成JavaBean集合</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">parseArray</span><span class="params">(String text, Class&lt;T&gt; clazz)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 将JavaBean序列化为JSON文本</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String <span class="title">toJSONString</span><span class="params">(Object object)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 将JavaBean序列化为带格式的JSON文本</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String <span class="title">toJSONString</span><span class="params">(Object object, <span class="keyword">boolean</span> prettyFormat)</span></span>; </span><br><span class="line"> </span><br><span class="line"><span class="comment">// 将JavaBean转换为JSONObject或者JSONArray。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object <span class="title">toJSON</span><span class="params">(Object javaObject)</span></span>; </span><br></pre></td></tr></table></figure>
+
+
+<h1 id="RandomUtils-各种类型随机数"><a href="#RandomUtils-各种类型随机数" class="headerlink" title="RandomUtils 各种类型随机数"></a>RandomUtils 各种类型随机数</h1><h2 id="1-依赖-2"><a href="#1-依赖-2" class="headerlink" title="1. 依赖"></a>1. 依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><p>分为给定范围及无范围</p>
+<p>可随机生成long、boolean、int、bytes、double及float</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成随机Long</span></span><br><span class="line">RandomUtils.nextLong(起始值, 截止值)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成随机boolean</span></span><br><span class="line">RandomUtils.nextBoolean()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="SpringBoot中RestController等的依赖"><a href="#SpringBoot中RestController等的依赖" class="headerlink" title="SpringBoot中RestController等的依赖"></a>SpringBoot中RestController等的依赖</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/maven-%E5%BC%95%E5%85%A5/" rel="tag"># maven-引入</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/28/%E6%8A%80%E6%9C%AF/maven/maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/" rel="prev" title="maven环境下创建多模块项目">
+      <i class="fa fa-chevron-left"></i> maven环境下创建多模块项目
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/%E6%8A%A5%E9%94%99/" rel="next" title="报错">
+      报错 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringSecurity-%E6%9D%83%E9%99%90%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">SpringSecurity  权限框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#thymeleaf-%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">2.</span> <span class="nav-text">thymeleaf 前端模板引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringSecurity-thymeleaf-%E4%BA%8C%E8%80%85%E6%95%B4%E5%90%88%E5%81%9A%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">SpringSecurity - thymeleaf 二者整合做权限处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DateTime-%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">DateTime 日期处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BE%9D%E8%B5%96"><span class="nav-number">4.1.</span> <span class="nav-text">1. 依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.2.</span> <span class="nav-text">2. 获取对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%8E%B7%E5%8F%96%E4%BA%8B%E4%BB%B6%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">3. 获取事件最大值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%97%A5%E6%9C%9F%E8%BF%90%E7%AE%97"><span class="nav-number">4.4.</span> <span class="nav-text">4. 日期运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">4.5.</span> <span class="nav-text">5. 格式化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jackson-json%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">Jackson json数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BE%9D%E8%B5%96-1"><span class="nav-number">5.1.</span> <span class="nav-text">1. 依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84jar%E5%8C%85"><span class="nav-number">5.2.</span> <span class="nav-text">2. 项目中用到的jar包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-JsonNode%E4%BD%BF%E7%94%A8"><span class="nav-number">5.3.</span> <span class="nav-text">3. JsonNode使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-json%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90JsonObject%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.4.</span> <span class="nav-text">3. json字符串转换成JsonObject对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">5.5.</span> <span class="nav-text">4. 其他方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RandomUtils-%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">RandomUtils 各种类型随机数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BE%9D%E8%B5%96-2"><span class="nav-number">6.1.</span> <span class="nav-text">1. 依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8"><span class="nav-number">6.2.</span> <span class="nav-text">2. 使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot%E4%B8%ADRestController%E7%AD%89%E7%9A%84%E4%BE%9D%E8%B5%96"><span class="nav-number">7.</span> <span class="nav-text">SpringBoot中RestController等的依赖</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
