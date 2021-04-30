@@ -693,6 +693,7 @@
 <h2 id="3-使用快捷键"><a href="#3-使用快捷键" class="headerlink" title="3. 使用快捷键"></a>3. 使用快捷键</h2><p>alt    放大镜</p>
 <p>ctrl + 左键    拖动</p>
 <h1 id="清除idea缓存"><a href="#清除idea缓存" class="headerlink" title="清除idea缓存"></a>清除idea缓存</h1><p><img src="image-20210309165824345.png" alt="image-20210309165824345"></p>
+<h2 id="项目引入依赖文件夹中明明有仍然报找不到"><a href="#项目引入依赖文件夹中明明有仍然报找不到" class="headerlink" title="项目引入依赖文件夹中明明有仍然报找不到"></a>项目引入依赖文件夹中明明有仍然报找不到</h2><p>原因可能为idea缓存问题，清除缓存即可</p>
 <h1 id="多项目启动展示-Group-Tabs"><a href="#多项目启动展示-Group-Tabs" class="headerlink" title="多项目启动展示-Group Tabs"></a>多项目启动展示-Group Tabs</h1><p><img src="image-20210312093529999.png" alt="image-20210312093529999"></p>
 <p>未打钩时</p>
 <p><img src="image-20210312093617360.png" alt="image-20210312093617360"></p>
@@ -2144,7 +2145,9 @@
   <entry>
     <title>maven环境下创建多模块项目</title>
     <url>/2021/04/28/%E6%8A%80%E6%9C%AF/maven/maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的复用，便于维护和管理。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><a id="more"></a>
+
+<p>Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的复用，便于维护和管理。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">　　项目结构如下：</span><br><span class="line"></span><br><span class="line">  　　　　test-hd-parent 　　(父级)</span><br><span class="line">       　　　　  ---pom.xml</span><br><span class="line">       　　　　  ---test-hd-api   　　　    (第三方接口层)</span><br><span class="line">            　　　　　　  ----pom.xml    </span><br><span class="line">    　　　　　  ---test-hd-foundation     (基础工具层)</span><br><span class="line">            　　　　　　  ----pom.xml</span><br><span class="line">       　　　　  ---test-hd-resource　    (资源层) </span><br><span class="line">              　　　　　　----pom.xml</span><br><span class="line">       　　　　  ---test-hd-service  　　   (逻辑业务层)</span><br><span class="line">            　　　　　　  ----pom.xml</span><br><span class="line">    　　　　　  ---test-hd-modules  　　 (web层)</span><br><span class="line">              　　　　　　----pom.xml</span><br><span class="line">     　　　　 　　  　　---test-hd-www   　　  　　(web模块1)</span><br><span class="line">                  　　　　　  　　 ----pom.xml</span><br><span class="line">     　　　　 　　  　　---test-hd-admin 　　   　　(web模块2)</span><br><span class="line">                  　　　　　  　　 ----pom.xml　　</span><br></pre></td></tr></table></figure>
 
 
@@ -2164,7 +2167,16 @@
 <p><img src="image-20210428170856216.png" alt="image-20210428170856216"></p>
 <p>配置maven信息</p>
 <p><img src="image-20210428170928332.png" alt="image-20210428170928332"></p>
-]]></content>
+<h1 id="子模块调用另一个子模块的方法"><a href="#子模块调用另一个子模块的方法" class="headerlink" title="子模块调用另一个子模块的方法"></a>子模块调用另一个子模块的方法</h1><p>如：user模块调用utils模块的方法</p>
+<h2 id="1-首先为utils模块添加版本"><a href="#1-首先为utils模块添加版本" class="headerlink" title="1. 首先为utils模块添加版本"></a>1. 首先为utils模块添加版本</h2><p><code>如：&lt;version&gt;0.0.1&lt;/version&gt;</code></p>
+<p><img src="image-20210430094742964.png" alt="image-20210430094742964"></p>
+<h2 id="2-user模块中引入utils模块"><a href="#2-user模块中引入utils模块" class="headerlink" title="2. user模块中引入utils模块"></a>2. user模块中引入utils模块</h2><p>必须要有<code>&lt;scope&gt;compile&lt;/scope&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.yoga<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>utils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>对应关系</p>
+<p><img src="maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210430095508827.png" alt="image-20210430095508827"></p>
+<h2 id="3-此时就可以正常使用了"><a href="#3-此时就可以正常使用了" class="headerlink" title="3. 此时就可以正常使用了"></a>3. 此时就可以正常使用了</h2>]]></content>
       <categories>
         <category>技术</category>
         <category>maven</category>
@@ -2441,9 +2453,23 @@
   <entry>
     <title>抽象、接口</title>
     <url>/2021/04/26/java/%E5%90%8E%E7%AB%AF/java/2.%20%E6%8A%BD%E8%B1%A1%E3%80%81%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<p>接口的设计目的，是对类的行为进行约束（更准确的说是一种“有”约束，因为接口不能规定类不可以有什么行为），也就是提供一种机制，可以强制要求不同的类具有相同的行为。它只约束了行为的有无，但不对如何实现行为进行限制。对“接口为何是约束”的理解，我觉得配合泛型食用效果更佳。</p>
-<p>而抽象类的设计目的，是代码复用。当不同的类具有某些相同的行为(记为行为集合A)，且其中一部分行为的实现方式一致时（A的非真子集，记为B），可以让这些类都派生于一个抽象类。在这个抽象类中实现了B，避免让所有的子类来实现B，这就达到了代码复用的目的。而A减B的部分，留给各个子类自己实现。正是因为A-B在这里没有实现，所以抽象类不允许实例化出来（否则当调用到A-B时，无法执行）。</p>
+    <content><![CDATA[<p><strong>接口的设计目的，是对类的行为进行约束</strong></p>
+<a id="more"></a>
+
+<p>（更准确的说是一种“有”约束，因为接口不能规定类不可以有什么行为），也就是提供一种机制，可以强制要求不同的类具有相同的行为。它只约束了行为的有无，但不对如何实现行为进行限制。对“接口为何是约束”的理解，我觉得配合泛型食用效果更佳。</p>
+<p><strong>而抽象类的设计目的，是代码复用</strong>。当不同的类具有某些相同的行为(记为行为集合A)，且其中一部分行为的实现方式一致时（A的非真子集，记为B），可以让这些类都派生于一个抽象类。在这个抽象类中实现了B，避免让所有的子类来实现B，这就达到了代码复用的目的。而A减B的部分，留给各个子类自己实现。正是因为A-B在这里没有实现，所以抽象类不允许实例化出来（否则当调用到A-B时，无法执行）。</p>
+<p> <strong>抽象类是用来捕捉子类的通用特性的，而接口则是抽象方法的集合；</strong>抽象类不能被实例化，只能被用作子类的超类，是被用来创建继承层级里子类的模板，而接口只是一种形式，接口自身不能做任何事情。</p>
+<p> 其次，抽象类可以有默认的方法实现，子类使用extends关键字来继承抽象类，如果子类不是抽象类的话，它需要提供抽象类中所有声明方法的实现。而接口完全是抽象的，它根本不存在方法的实现，子类使用关键字implements来实现接口，它需要提供接口中所有声明方法的实现。</p>
+<p> 抽象类可以有构造器，除了不能实例化抽象类之外，它和普通Java类没有任何区别，抽象方法可以有public、protected和default这些修饰符。而接口不能有构造器，是完全不同的类型，接口方法默认修饰符是public，不可以使用其它修饰符。                </p>
 ]]></content>
+      <categories>
+        <category>java</category>
+        <category>后端</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>抽象、接口</tag>
+      </tags>
   </entry>
   <entry>
     <title>泛型</title>
@@ -2751,24 +2777,6 @@
       </categories>
       <tags>
         <tag>项目-权限</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽象、接口</title>
-    <url>/2021/04/26/java/%E5%90%8E%E7%AB%AF/java/%E6%8A%BD%E8%B1%A1%E3%80%81%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<p><strong>接口的设计目的，是对类的行为进行约束</strong>（更准确的说是一种“有”约束，因为接口不能规定类不可以有什么行为），也就是提供一种机制，可以强制要求不同的类具有相同的行为。它只约束了行为的有无，但不对如何实现行为进行限制。对“接口为何是约束”的理解，我觉得配合泛型食用效果更佳。</p>
-<p><strong>而抽象类的设计目的，是代码复用</strong>。当不同的类具有某些相同的行为(记为行为集合A)，且其中一部分行为的实现方式一致时（A的非真子集，记为B），可以让这些类都派生于一个抽象类。在这个抽象类中实现了B，避免让所有的子类来实现B，这就达到了代码复用的目的。而A减B的部分，留给各个子类自己实现。正是因为A-B在这里没有实现，所以抽象类不允许实例化出来（否则当调用到A-B时，无法执行）。</p>
-<p> <strong>抽象类是用来捕捉子类的通用特性的，而接口则是抽象方法的集合；</strong>抽象类不能被实例化，只能被用作子类的超类，是被用来创建继承层级里子类的模板，而接口只是一种形式，接口自身不能做任何事情。</p>
-<p> 其次，抽象类可以有默认的方法实现，子类使用extends关键字来继承抽象类，如果子类不是抽象类的话，它需要提供抽象类中所有声明方法的实现。而接口完全是抽象的，它根本不存在方法的实现，子类使用关键字implements来实现接口，它需要提供接口中所有声明方法的实现。</p>
-<p> 抽象类可以有构造器，除了不能实例化抽象类之外，它和普通Java类没有任何区别，抽象方法可以有public、protected和default这些修饰符。而接口不能有构造器，是完全不同的类型，接口方法默认修饰符是public，不可以使用其它修饰符。                </p>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>后端</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>抽象、接口</tag>
       </tags>
   </entry>
   <entry>
@@ -3677,7 +3685,9 @@
   <entry>
     <title>事务</title>
     <url>/2021/04/19/java/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/1.%20%E4%BA%8B%E5%8A%A1/</url>
-    <content><![CDATA[<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2><p><strong>要么都成功，要么都失败</strong></p>
+    <content><![CDATA[<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><a id="more"></a>
+
+<h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2><p><strong>要么都成功，要么都失败</strong></p>
 <h2 id="事务四个特性ACID"><a href="#事务四个特性ACID" class="headerlink" title="事务四个特性ACID"></a>事务四个特性ACID</h2><ol>
 <li>Atomicity原子性</li>
 <li>Consistency一致性</li>
@@ -3740,7 +3750,9 @@
   <entry>
     <title>索引</title>
     <url>/2021/04/19/java/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/2.%20%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><blockquote>
+    <content><![CDATA[<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><a id="more"></a>
+
+<blockquote>
 <p>MySQL官方对索引的定义为：<strong>索引（Index）是帮助MySQL高效获取数据的数据结构。</strong></p>
 <p>提取句子主干，就可以得到索引的本质：索引是数据结构。</p>
 </blockquote>
@@ -4229,7 +4241,9 @@
   <entry>
     <title>MybatisPlus</title>
     <url>/2021/04/27/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/MybatisPlus/</url>
-    <content><![CDATA[<h1 id="MybatisPlus概述"><a href="#MybatisPlus概述" class="headerlink" title="MybatisPlus概述"></a>MybatisPlus概述</h1><p>MybatisPlus可以节省大量的工作时间，所有的CRUD代码都可以自动化完成！</p>
+    <content><![CDATA[<h1 id="MybatisPlus概述"><a href="#MybatisPlus概述" class="headerlink" title="MybatisPlus概述"></a>MybatisPlus概述</h1><a id="more"></a>
+
+<p>MybatisPlus可以节省大量的工作时间，所有的CRUD代码都可以自动化完成！</p>
 <p>官网：<a href="https://mp.baomidou.com/">https://mp.baomidou.com/</a></p>
 <p><img src="image-20210427090724744.png" alt="image-20210427090724744"></p>
 <p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
@@ -4470,7 +4484,7 @@
   <entry>
     <title>前端样式</title>
     <url>/2021/03/01/java/%E5%89%8D%E7%AB%AF/%E6%A0%B7%E5%BC%8F/%E5%89%8D%E7%AB%AF%E6%A0%B7%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h1><!-- mroe -->
+    <content><![CDATA[<h1 id="Jquery修改样式"><a href="#Jquery修改样式" class="headerlink" title="Jquery修改样式"></a>Jquery修改样式</h1><a id="more"></a>
 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.addInspectionListPoint&quot;</span>).css(&#123;</span><br><span class="line">    <span class="string">&quot;position&quot;</span>: <span class="string">&quot;relative&quot;</span>,</span><br><span class="line">    <span class="string">&quot;display&quot;</span>: <span class="string">&quot;inline-block&quot;</span>,</span><br><span class="line">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;#D0EEFF&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border&quot;</span>: <span class="string">&quot;1px solid #99D3F5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;border-radius&quot;</span>: <span class="string">&quot;4px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;padding&quot;</span>: <span class="string">&quot;4px 12px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;overflow&quot;</span>: <span class="string">&quot;hidden&quot;</span>,</span><br><span class="line">    <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#1E88C7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-decoration&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text-indent&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;line-height&quot;</span>: <span class="string">&quot;20px&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
