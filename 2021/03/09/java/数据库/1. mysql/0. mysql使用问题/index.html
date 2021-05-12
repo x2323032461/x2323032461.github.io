@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/2021/03/09/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/0.%20mysql%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/image-20210511165008169.png">
 <meta property="og:image" content="http://example.com/2021/03/09/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/0.%20mysql%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/image-20210511165112054.png">
 <meta property="article:published_time" content="2021-03-09T02:58:56.000Z">
-<meta property="article:modified_time" content="2021-05-11T08:55:29.784Z">
+<meta property="article:modified_time" content="2021-05-12T10:41:43.033Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="问题">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 16:55:29" itemprop="dateModified" datetime="2021-05-11T16:55:29+08:00">2021-05-11</time>
+                <time title="修改时间：2021-05-12 18:41:43" itemprop="dateModified" datetime="2021-05-12T18:41:43+08:00">2021-05-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,16 +283,11 @@
 <h2 id="下划线类型-user-id-转小驼峰-userId"><a href="#下划线类型-user-id-转小驼峰-userId" class="headerlink" title="下划线类型(user_id)转小驼峰(userId)"></a>下划线类型(user_id)转小驼峰(userId)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">frontChange</span> (<span class="params">list</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(list) || list.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> finalStr = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    list.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> newFront = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">let</span> splitList = item.split(<span class="string">&quot;_&quot;</span>);</span><br><span class="line">        splitList.forEach(<span class="function">(<span class="params">splitListItem, splitListIndex</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (splitListIndex != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> firstFront = splitListItem.trim().substr(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">                splitListItem = splitListItem.replace(firstFront, firstFront.toUpperCase());</span><br><span class="line">            &#125;</span><br><span class="line">            newFront += splitListItem;</span><br><span class="line">        &#125;)</span><br><span class="line">        finalStr += newFront + <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(finalStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-
-
-
-
-
-
-
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><h2 id="索引问题"><a href="#索引问题" class="headerlink" title="索引问题"></a>索引问题</h2><p> mysql单表超过300w条数据时，就要创建索引了</p>
+<h2 id="数据库本质"><a href="#数据库本质" class="headerlink" title="数据库本质"></a>数据库本质</h2><p>读、写</p>
+<h3 id="数据库引擎区别解决读的压力"><a href="#数据库引擎区别解决读的压力" class="headerlink" title="数据库引擎区别解决读的压力"></a>数据库引擎区别解决读的压力</h3><p>MyISAM：表锁（若需要查询某条数据，其会将整个表锁起来，其他的查询只能等待这个查询结束之后才能进行查询，十分影响效率，高并发下就会出现严重的锁问题）</p>
+<p>Innodb：行锁</p>
+<h3 id="使用分库分表解决写的压力"><a href="#使用分库分表解决写的压力" class="headerlink" title="使用分库分表解决写的压力"></a>使用分库分表解决写的压力</h3><p>面对不同的业务使用不同的数据库进行管理</p>
 
     </div>
 
@@ -376,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">字符串类型字段排序问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%95%BF%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">类型长度问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Duplicate-entry-%E2%80%98id%E2%80%99-for-key-%E2%80%98PRIMARY%E2%80%99"><span class="nav-number">3.</span> <span class="nav-text">Duplicate entry ‘id’ for key ‘PRIMARY’</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%9A%E5%86%B2%E7%AA%81%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="nav-number">3.1.</span> <span class="nav-text">数据库会冲突的字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%B0%E5%BD%95%E6%B5%8F%E8%A7%88%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">数据库记录浏览量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF%E7%B1%BB%E5%9E%8B-user-id-%E8%BD%AC%E5%B0%8F%E9%A9%BC%E5%B3%B0-userId"><span class="nav-number">3.3.</span> <span class="nav-text">下划线类型(user_id)转小驼峰(userId)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">字符串类型字段排序问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%95%BF%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">类型长度问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Duplicate-entry-%E2%80%98id%E2%80%99-for-key-%E2%80%98PRIMARY%E2%80%99"><span class="nav-number">3.</span> <span class="nav-text">Duplicate entry ‘id’ for key ‘PRIMARY’</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%9A%E5%86%B2%E7%AA%81%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="nav-number">3.1.</span> <span class="nav-text">数据库会冲突的字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%B0%E5%BD%95%E6%B5%8F%E8%A7%88%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">数据库记录浏览量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF%E7%B1%BB%E5%9E%8B-user-id-%E8%BD%AC%E5%B0%8F%E9%A9%BC%E5%B3%B0-userId"><span class="nav-number">3.3.</span> <span class="nav-text">下划线类型(user_id)转小驼峰(userId)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">索引问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%AC%E8%B4%A8"><span class="nav-number">4.2.</span> <span class="nav-text">数据库本质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E5%8C%BA%E5%88%AB%E8%A7%A3%E5%86%B3%E8%AF%BB%E7%9A%84%E5%8E%8B%E5%8A%9B"><span class="nav-number">4.2.1.</span> <span class="nav-text">数据库引擎区别解决读的压力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%86%99%E7%9A%84%E5%8E%8B%E5%8A%9B"><span class="nav-number">4.2.2.</span> <span class="nav-text">使用分库分表解决写的压力</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,14 +385,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
