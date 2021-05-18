@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20redis/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20redis/" class="post-title-link" itemprop="url">redis</a>
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/" class="post-title-link" itemprop="url">NoSQL</a>
         </h2>
 
         <div class="post-meta">
@@ -202,10 +202,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-12 17:09:53 / 修改时间：18:34:08" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
+              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-17 18:58:17" itemprop="dateModified" datetime="2021-05-17T18:58:17+08:00">2021-05-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,7 +222,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
                 </span>
             </span>
 
@@ -231,46 +237,185 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="1-Nosql概述"><a href="#1-Nosql概述" class="headerlink" title="1. Nosql概述"></a>1. Nosql概述</h2><h3 id="Nosql发展"><a href="#Nosql发展" class="headerlink" title="Nosql发展"></a>Nosql发展</h3><p>我们处于大数据时代；</p>
-<p>大数据即一般的数据库无法进行分析处理了！</p>
-<blockquote>
-<p>1、单机MySQL的年代</p>
-</blockquote>
-<p>APP -&gt; DAL -&gt; MySQL</p>
-<p>该年代网站访问量一般不会太大，单个数据库完全足够</p>
-<p>更多的使用静态页面html，服务器根本没有太大的压力</p>
-<p>此时，整个网站的瓶颈：</p>
-<ul>
-<li>数据量如果太大，一台机器放不下</li>
-<li>数据的索引（B+ Tree）</li>
-<li>访问量（读写混合），一个服务器承受不了~</li>
-</ul>
-<blockquote>
-<p>2、缓存Memcached + MySQL + 垂直拆分</p>
-</blockquote>
-<p>读写分离：</p>
-<p>![image-20210512175208541](0. redis/image-20210512175208541.png)</p>
-<p>网站80%的情况都是在读取数据，若每次都去查询数据库的话就十分的麻烦</p>
-<p>此时可以使用缓存技术：</p>
-<p>如：用户1查询1号商品，用户2也来查询1号商品，若两次请求均查询数据库，则造成了资源的浪费，此时可以在用户1查询1号商品时将1号商品放入<code>缓存中</code>，再有用户查询1号商品时直接从缓存中获取数据即可，保证了效率</p>
-<p>![image-20210512175351483](0. redis/image-20210512175351483.png)</p>
-<blockquote>
-<p>3、分库分表 + 水平拆分 + MySQL集群</p>
-</blockquote>
-<p>在各个集群中各存放一部分数据，加起来就是完整的数据，通过集群的一些机制就可以找到对应的数据的位置</p>
-<p>![image-20210512181602909](0. redis/image-20210512181602909.png)</p>
-<blockquote>
-<p>4、目前</p>
-</blockquote>
-<p>MySQL等关系型数据库就不够用了！数据量大，变化快</p>
-<p>由此产生更多类型数据库</p>
-<ul>
-<li>有的使用MySQL存储一些比较大的文件，如：博客、图片等！数据库表很大，效率就低了，如果有一种数据库专门处理这种数据。Mysql的压力就变得十分小了。</li>
-<li>大数据的IO压力下，表几乎无法更改，即，若表中有上亿条数据，此时若要加一列是十分困难的</li>
-</ul>
-<p><strong>目前一个基本的互联网项目</strong></p>
-<p>此时有一组用户需要访问数据库</p>
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Redis入门及搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-17 19:06:18" itemprop="dateModified" datetime="2021-05-17T19:06:18+08:00">2021-05-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Redis使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-17 19:31:09" itemprop="dateModified" datetime="2021-05-17T19:31:09+08:00">2021-05-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Redis基本操作"><a href="#Redis基本操作" class="headerlink" title="Redis基本操作"></a>Redis基本操作</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -320,7 +465,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:32:27" itemprop="dateModified" datetime="2021-05-12T10:32:27+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-17 18:58:32" itemprop="dateModified" datetime="2021-05-17T18:58:32+08:00">2021-05-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -347,18 +492,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>爬取数据：获取请求返回的页面信息，筛选出我们想要的数据</p>
-<p>jSoup用来解析网页，需要爬电影音乐等可以使用tika</p>
-<p>jSoup包</p>
-<ol>
-<li><p>导入依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- jsoup --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jsoup<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsoup<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.10.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>受害者</p>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://search.jd.com/Search?keyword=java&amp;enc=utf-8">https://search.jd.com/Search?keyword=java&amp;enc=utf-8</a></p>
-<p><a target="_blank" rel="noopener" href="https://search.jd.com/Search?keyword=java">https://search.jd.com/Search?keyword=java</a></p>
-
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/11/%E6%8A%80%E6%9C%AF/jsoup%E7%88%AC%E8%99%AB/0.%20jsoup%E7%88%AC%E8%99%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -400,10 +542,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-11 15:59:02 / 修改时间：16:19:53" itemprop="dateCreated datePublished" datetime="2021-05-11T15:59:02+08:00">2021-05-11</time>
+              <time title="创建时间：2021-05-11 15:59:02" itemprop="dateCreated datePublished" datetime="2021-05-11T15:59:02+08:00">2021-05-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-17 18:58:57" itemprop="dateModified" datetime="2021-05-17T18:58:57+08:00">2021-05-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -429,59 +577,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>需要springbox</p>
-<ul>
-<li>swagger2</li>
-<li>ui</li>
-</ul>
-<p>SpringBoot集成Swagger</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="新版swagger-3-0-0，可能存在依赖冲突等问题，推荐使用旧版的"><a href="#新版swagger-3-0-0，可能存在依赖冲突等问题，推荐使用旧版的" class="headerlink" title="新版swagger  3.0.0，可能存在依赖冲突等问题，推荐使用旧版的"></a>新版swagger  3.0.0，可能存在依赖冲突等问题，推荐使用旧版的</h3><h4 id="1-依赖"><a href="#1-依赖" class="headerlink" title="1. 依赖"></a>1. 依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.0版本后需添加 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-添加配置文件"><a href="#2-添加配置文件" class="headerlink" title="2. 添加配置文件"></a>2. 添加配置文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.swaggerdemo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span>     <span class="comment">// 开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>访问页面：</p>
-<p><a target="_blank" rel="noopener" href="http://localhost:8080/swagger-ui/index.html">http://localhost:8080/swagger-ui/index.html</a></p>
-<h3 id="旧版2-9-2"><a href="#旧版2-9-2" class="headerlink" title="旧版2.9.2"></a>旧版2.9.2</h3><h4 id="1-依赖-1"><a href="#1-依赖-1" class="headerlink" title="1. 依赖"></a>1. 依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-添加配置文件-1"><a href="#2-添加配置文件-1" class="headerlink" title="2. 添加配置文件"></a>2. 添加配置文件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.swaggerdemo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span>     <span class="comment">// 开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>访问页面：</p>
-<p><a target="_blank" rel="noopener" href="http://localhost:9001/swagger-ui.html">http://localhost:9001/swagger-ui.html</a></p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="1-Swagger的bean实例Docket"><a href="#1-Swagger的bean实例Docket" class="headerlink" title="1. Swagger的bean实例Docket"></a>1. Swagger的bean实例Docket</h2><h3 id="Docket源码"><a href="#Docket源码" class="headerlink" title="Docket源码"></a><strong>Docket源码</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Docket</span><span class="params">(DocumentationType documentationType)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Swagger信息</span></span><br><span class="line">    <span class="keyword">this</span>.apiInfo = ApiInfo.DEFAULT;</span><br><span class="line">    <span class="keyword">this</span>.groupName = <span class="string">&quot;default&quot;</span>;</span><br><span class="line">    <span class="keyword">this</span>.enabled = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.genericsNamingStrategy = <span class="keyword">new</span> DefaultGenericTypeNamingStrategy();</span><br><span class="line">    <span class="keyword">this</span>.applyDefaultResponseMessages = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.host = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">this</span>.pathMapping = Optional.empty();</span><br><span class="line">    <span class="keyword">this</span>.apiSelector = ApiSelector.DEFAULT;</span><br><span class="line">    <span class="keyword">this</span>.enableUrlTemplating = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">this</span>.vendorExtensions = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">this</span>.globalRequestParameters = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">this</span>.documentationType = documentationType;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="使用-Bean注入一个Docket对象"><a href="#使用-Bean注入一个Docket对象" class="headerlink" title="使用@Bean注入一个Docket对象"></a><strong>使用@Bean注入一个Docket对象</strong></h3><p>DocumentationType源码中有三个实例对象，此处选择 SWAGGER_2 对象</p>
-<p><img src="clipboard.png" alt="img"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置Swagger的Docket的bean实例</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 此处需要传入一个DocumentationType对象</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="2-配置Swagger信息"><a href="#2-配置Swagger信息" class="headerlink" title="2. 配置Swagger信息"></a>2. 配置Swagger信息</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.env.Environment;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.env.Profiles;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.Contact;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">(Environment environment)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 设置要显示的swagger环境</span></span><br><span class="line">        Profiles profiles = Profiles.of(<span class="string">&quot;dev&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取项目运行环境</span></span><br><span class="line">        <span class="keyword">boolean</span> b = environment.acceptsProfiles(profiles);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            此处需要传入一个DocumentationType对象</span></span><br><span class="line"><span class="comment">            Docket方法</span></span><br><span class="line"><span class="comment">                apiInfo     设置展示页面信息</span></span><br><span class="line"><span class="comment">                enable      是否启用swagger</span></span><br><span class="line"><span class="comment">                select      设置扫描规则</span></span><br><span class="line"><span class="comment">                groupName   配置组名，可通过配置多个Docket对象，每个docket扫描不同的包，来区分不同的人开发的组</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                <span class="comment">// 设置展示页面信息</span></span><br><span class="line">                .apiInfo(getApiInfo())</span><br><span class="line">                <span class="comment">// 是否启用swagger</span></span><br><span class="line">                .enable(b)</span><br><span class="line">                <span class="comment">// 自定义组名(单个)</span></span><br><span class="line">                .groupName(<span class="string">&quot;自定义组名1&quot;</span>)</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                    .select()</span></span><br><span class="line"><span class="comment">                        .paths()</span></span><br><span class="line"><span class="comment">                        .apis()</span></span><br><span class="line"><span class="comment">                        .build()</span></span><br><span class="line"><span class="comment">                    paths、apis和build均为select方法下的方法</span></span><br><span class="line"><span class="comment">                    RequestHandlerSelectors 配置扫描接口的方式</span></span><br><span class="line"><span class="comment">                        none 都不扫描</span></span><br><span class="line"><span class="comment">                        any 所有都扫描</span></span><br><span class="line"><span class="comment">                        basePackage 通过路径的方式</span></span><br><span class="line"><span class="comment">                        withClassAnnotation  通过类注解</span></span><br><span class="line"><span class="comment">                        withMethodAnnotation 通过方法注解</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">                .select().apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))</span><br><span class="line">                <span class="comment">// 使用路径进行过滤(使用uri访问路径而不是包路径)</span></span><br><span class="line">                .paths(PathSelectors.ant(<span class="string">&quot;/hello/**&quot;</span>))</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        可通过配置多个组来扫描不同的开发者的包</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket1</span><span class="params">(Environment environment)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .groupName(<span class="string">&quot;开发者&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiInfo <span class="title">getApiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 作者信息</span></span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;姓名&quot;</span>, <span class="string">&quot;https://www.hao123.com/&quot;</span>, <span class="string">&quot;2323032461@qq.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;标题&quot;</span>,</span><br><span class="line">                <span class="string">&quot;描述&quot;</span>,</span><br><span class="line">                <span class="string">&quot;版本1.0&quot;</span>,</span><br><span class="line">                <span class="comment">// 团队url</span></span><br><span class="line">                <span class="string">&quot;https://www.hao123.com/&quot;</span>,</span><br><span class="line">                contact,</span><br><span class="line">                <span class="comment">// 许可证</span></span><br><span class="line">                <span class="string">&quot;Apache 2.0&quot;</span>,</span><br><span class="line">                <span class="comment">// 许可证url</span></span><br><span class="line">                <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,</span><br><span class="line">                <span class="keyword">new</span> ArrayList());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-使用Swagger页面中的Models列出接口中提到的实体类的信息"><a href="#3-使用Swagger页面中的Models列出接口中提到的实体类的信息" class="headerlink" title="3. 使用Swagger页面中的Models列出接口中提到的实体类的信息"></a>3. 使用Swagger页面中的Models列出接口中提到的实体类的信息</h2><p>要将实体类中的信息添加到Models中需要两个条件：</p>
-<ol>
-<li><p>需要接口中返回值或者参数中存在该实体类，该类将会被扫描如swagger中</p>
-</li>
-<li><p>该类中的属性必须为public或者有该属性的set方法此时该类的属性信息才能被扫入swagger中</p>
-</li>
-</ol>
-<p>给实体类及其中属性添加说明信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModel;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModelProperty;</span><br><span class="line"></span><br><span class="line"><span class="comment">//@Api(value = &quot;注释&quot;)</span></span><br><span class="line"><span class="meta">@ApiModel(&quot;用户实体类：User&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;年龄&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;姓名&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String age, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(String age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
+          <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/11/%E6%8A%80%E6%9C%AF/Swagger/1.%20Swagger%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -610,7 +714,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 09:35:53" itemprop="dateModified" datetime="2021-05-12T09:35:53+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-18 08:52:12" itemprop="dateModified" datetime="2021-05-18T08:52:12+08:00">2021-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -641,47 +745,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>AutoGenerator 是 MyBatis-Plus 的代码生成器，通过 AutoGenerator 可以快速生成 Entity、Mapper、Mapper XML、Service、Controller 等各个模块的代码，极大的提升了开发效率。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1. 添加依赖"></a>1. 添加依赖</h2><p>MyBatis-Plus 从 <code>3.0.3</code> 之后移除了代码生成器与模板引擎的默认依赖，需要手动添加相关依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="2-生成代码"><a href="#2-生成代码" class="headerlink" title="2. 生成代码"></a>2. 生成代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.FieldFill;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.IdType;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.AutoGenerator;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.DataSourceConfig;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.GlobalConfig;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.PackageConfig;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.StrategyConfig;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.po.TableFill;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.rules.DateType;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 代码生成器</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GeneratorCode</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 构建一个代码生成器对象</span></span><br><span class="line">        AutoGenerator autoGenerator = <span class="keyword">new</span> AutoGenerator();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 全局配置</span></span><br><span class="line">        <span class="comment">// 注：对象在 com.baomidou.mybatisplus.generator.AutoGenerator 包下</span></span><br><span class="line">        GlobalConfig globalConfig = <span class="keyword">new</span> GlobalConfig();</span><br><span class="line">        <span class="comment">// 设置文件生产的位置</span></span><br><span class="line">        String projectPath = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">        globalConfig.setOutputDir(projectPath + <span class="string">&quot;/user-manage/src/main/java&quot;</span>);</span><br><span class="line">        <span class="comment">// 作者信息</span></span><br><span class="line">        globalConfig.setAuthor(<span class="string">&quot;xc&quot;</span>);</span><br><span class="line">        <span class="comment">// 是否打开资源管理器，是否打开windows文件夹</span></span><br><span class="line">        globalConfig.setOpen(<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">// 是否覆盖原来生成的，设置为true时，当数据库修改后再次运行即可覆盖原有的数据</span></span><br><span class="line">        globalConfig.setFileOverride(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 设置service命名格式 %s 为类名</span></span><br><span class="line">        globalConfig.setServiceName(<span class="string">&quot;%sService&quot;</span>);</span><br><span class="line">        <span class="comment">// 设置Id生成策略</span></span><br><span class="line">        globalConfig.setIdType(IdType.ASSIGN_ID);</span><br><span class="line">        <span class="comment">// 设置日期类型</span></span><br><span class="line">        globalConfig.setDateType(DateType.ONLY_DATE);</span><br><span class="line">        globalConfig.setSwagger2(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将配置项交给代码生成器对象</span></span><br><span class="line">        autoGenerator.setGlobalConfig(globalConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 设置数据源</span></span><br><span class="line">        DataSourceConfig dataSourceConfig = <span class="keyword">new</span> DataSourceConfig();</span><br><span class="line">        dataSourceConfig.setUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/book_manage?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&quot;</span>);</span><br><span class="line">        dataSourceConfig.setDriverName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        dataSourceConfig.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        dataSourceConfig.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        autoGenerator.setDataSource(dataSourceConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 包的配置</span></span><br><span class="line">        PackageConfig packageConfig = <span class="keyword">new</span> PackageConfig();</span><br><span class="line">        packageConfig.setParent(<span class="string">&quot;com.yoga&quot;</span>);</span><br><span class="line">        <span class="comment">// 会拼接到parent后</span></span><br><span class="line">        packageConfig.setModuleName(<span class="string">&quot;usermanage&quot;</span>);</span><br><span class="line">        packageConfig.setEntity(<span class="string">&quot;entity&quot;</span>);</span><br><span class="line">        packageConfig.setMapper(<span class="string">&quot;mapper&quot;</span>);</span><br><span class="line">        packageConfig.setService(<span class="string">&quot;service&quot;</span>);</span><br><span class="line">        packageConfig.setController(<span class="string">&quot;controller&quot;</span>);</span><br><span class="line">        autoGenerator.setPackageInfo(packageConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 策略配置</span></span><br><span class="line">        StrategyConfig strategy = <span class="keyword">new</span> StrategyConfig();</span><br><span class="line">        <span class="comment">// 要映射的表名</span></span><br><span class="line">        strategy.setInclude(<span class="string">&quot;role&quot;</span>);</span><br><span class="line">        <span class="comment">// 表名命名格式  underline_to_camel 下滑线转驼峰命名</span></span><br><span class="line">        strategy.setNaming(NamingStrategy.underline_to_camel);</span><br><span class="line">        <span class="comment">// 列名命名格式</span></span><br><span class="line">        strategy.setColumnNaming(NamingStrategy.underline_to_camel);</span><br><span class="line"><span class="comment">//        strategy.setSuperEntityClass(&quot;你自己的父类实体,没有就不用设置!&quot;);</span></span><br><span class="line">        <span class="comment">// 自动配置lombok</span></span><br><span class="line">        strategy.setEntityLombokModel(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 逻辑删除字段</span></span><br><span class="line">        strategy.setLogicDeleteFieldName(<span class="string">&quot;deleted&quot;</span>);</span><br><span class="line">        <span class="comment">// 自动填充策略</span></span><br><span class="line">        TableFill create_time = <span class="keyword">new</span> TableFill(<span class="string">&quot;create_time&quot;</span>, FieldFill.INSERT);</span><br><span class="line">        TableFill update_time = <span class="keyword">new</span> TableFill(<span class="string">&quot;update_time&quot;</span>, FieldFill.UPDATE);</span><br><span class="line">        List&lt;TableFill&gt; tableFills = Arrays.asList(create_time, update_time);</span><br><span class="line">        strategy.setTableFillList(tableFills);</span><br><span class="line">        <span class="comment">// 乐观锁配置</span></span><br><span class="line">        strategy.setVersionFieldName(<span class="string">&quot;version&quot;</span>);</span><br><span class="line">        <span class="comment">// 设置 RestFul 驼峰命名</span></span><br><span class="line">        strategy.setRestControllerStyle(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 下划线命名</span></span><br><span class="line">        strategy.setControllerMappingHyphenStyle(<span class="keyword">true</span>);</span><br><span class="line">        autoGenerator.setStrategy(strategy);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行</span></span><br><span class="line">        autoGenerator.execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/11/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/3.%20%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -814,7 +886,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 09:31:15" itemprop="dateModified" datetime="2021-05-12T09:31:15+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-18 08:52:05" itemprop="dateModified" datetime="2021-05-18T08:52:05+08:00">2021-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -822,15 +894,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
                 </span>
             </span>
 
@@ -898,25 +970,31 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-08 09:29:18 / 修改时间：09:37:42" itemprop="dateCreated datePublished" datetime="2021-05-08T09:29:18+08:00">2021-05-08</time>
+              <time title="创建时间：2021-05-08 09:29:18" itemprop="dateCreated datePublished" datetime="2021-05-08T09:29:18+08:00">2021-05-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-18 08:52:19" itemprop="dateModified" datetime="2021-05-18T08:52:19+08:00">2021-05-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
                 </span>
             </span>
 
@@ -935,184 +1013,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/1.%20MybatisPlus%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/1.%20MybatisPlus%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">MybatisPlus使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-08 08:57:26" itemprop="dateCreated datePublished" datetime="2021-05-08T08:57:26+08:00">2021-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 09:32:06" itemprop="dateModified" datetime="2021-05-12T09:32:06+08:00">2021-05-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/1.%20MybatisPlus%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/java/%E5%90%8E%E7%AB%AF/java/4.%20java%E8%AF%AD%E6%B3%95%E7%B3%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/07/java/%E5%90%8E%E7%AB%AF/java/4.%20java%E8%AF%AD%E6%B3%95%E7%B3%96/" class="post-title-link" itemprop="url">java语法糖</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-07 19:06:29" itemprop="dateCreated datePublished" datetime="2021-05-07T19:06:29+08:00">2021-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 09:39:34" itemprop="dateModified" datetime="2021-05-11T09:39:34+08:00">2021-05-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="java-中的-及-labmda表达式"><a href="#java-中的-及-labmda表达式" class="headerlink" title="java 中的 :: 及 labmda表达式"></a>java 中的 :: 及 labmda表达式</h1><p>转载自：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/07/java/%E5%90%8E%E7%AB%AF/java/4.%20java%E8%AF%AD%E6%B3%95%E7%B3%96/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1201,20 +1101,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

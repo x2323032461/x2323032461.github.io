@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scp文件传输">
+<meta property="og:url" content="http://example.com/2021/03/23/%E7%B3%BB%E7%BB%9F/0.%20%E6%80%BB/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/03/23/%E7%B3%BB%E7%BB%9F/0.%20%E6%80%BB/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/504233650253.png">
+<meta property="article:published_time" content="2021-03-23T01:37:24.000Z">
+<meta property="article:modified_time" content="2021-03-23T02:48:48.537Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="scp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/23/%E7%B3%BB%E7%BB%9F/0.%20%E6%80%BB/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/504233650253.png">
+
+<link rel="canonical" href="http://example.com/2021/03/23/%E7%B3%BB%E7%BB%9F/0.%20%E6%80%BB/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>scp文件传输 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/23/%E7%B3%BB%E7%BB%9F/0.%20%E6%80%BB/2.%20scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          scp文件传输
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-23 09:37:24 / 修改时间：10:48:48" itemprop="dateCreated datePublished" datetime="2021-03-23T09:37:24+08:00">2021-03-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">系统</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%B3%BB%E7%BB%9F/scp%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" itemprop="url" rel="index"><span itemprop="name">scp文件传输</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><a id="more"></a>
+
+<p>上传文件</p>
+<p>//使用方法：scp 源文件路径 账户@地址:目的路径</p>
+<p>scp C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#x6c;&#117;&#x63;&#x61;&#115;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#x31;&#x2e;&#49;&#x35;&#x30;">&#x6c;&#117;&#x63;&#x61;&#115;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#x31;&#x2e;&#49;&#x35;&#x30;</a>:/home/lucas/</p>
+<p>然后输入密码即可</p>
+<p>下载文件</p>
+<p>scp <a href="mailto:&#108;&#x75;&#x63;&#97;&#115;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#49;&#49;&#x30;&#x2e;&#x31;&#x32;&#x38;">&#108;&#x75;&#x63;&#97;&#115;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#46;&#49;&#49;&#x30;&#x2e;&#x31;&#x32;&#x38;</a>:/home/lucas/world.txt C:\Users\zbh\Desktop\</p>
+<p>上传文件夹</p>
+<p>scp -r C:\Users\zbh\Desktop\1.txt  <a href="mailto:&#108;&#x75;&#99;&#97;&#115;&#64;&#x31;&#57;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#49;&#x31;&#46;&#x31;&#53;&#48;">&#108;&#x75;&#99;&#97;&#115;&#64;&#x31;&#57;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#49;&#x31;&#46;&#x31;&#53;&#48;</a>:/home/lucas/</p>
+<p>上传本目录下所有文件</p>
+<p>scp -r *  <a href="mailto:&#x6c;&#x75;&#x63;&#97;&#115;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#x2e;&#x31;&#49;&#46;&#49;&#53;&#48;">&#x6c;&#x75;&#x63;&#97;&#115;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#x38;&#x2e;&#x31;&#49;&#46;&#49;&#53;&#48;</a>:/home/lucas/</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="win7可能不存在OpenSSH，需要安装"><a href="#win7可能不存在OpenSSH，需要安装" class="headerlink" title="win7可能不存在OpenSSH，需要安装"></a>win7可能不存在OpenSSH，需要安装</h2><p><strong>下载openSSH</strong></p>
+<p>下载，那当然需要去权威的地方下载，这里提供github发布版</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PowerShell/Win32-OpenSSH/releases">openSSH-Win64.zip</a></p>
+<p>文件夹G:\软件\编程\OPENSSH</p>
+<p><strong>使用cmd命令安装openSSH</strong></p>
+<p>step.1 解压到C:\Program Files\OpenSSH</p>
+<p>据说官方要求放在这个目录下，跟着做就是了</p>
+<p><img src="504233650253.png" alt="img"></p>
+<p>ps 如果只是客户端使用，而不需要作为服务端，则到此为止。进入C:\Program Files\OpenSSH下，启动cmd 即可执行ssh登录到指定的服务器。</p>
+<p>如果嫌进入目录麻烦，可以把C:\Program Files\OpenSSH目录添加到系统环境变量</p>
+<p>我的电脑&gt;属性&gt;高级系统设置&gt;环境变量&gt;系统变量&gt;Path末尾添加;C:\Program Files\OpenSSH</p>
+<p>step.2 管理员启动cmd进入OpenSSH目录</p>
+<p>1)安装sshd服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1</span><br></pre></td></tr></table></figure>
+
+
+<p>2)开发22端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置开启启动sshd服务</span></span><br><span class="line"></span><br><span class="line">sc config sshd start= auto</span><br></pre></td></tr></table></figure>
+
+
+<p>安装完成</p>
+<p>启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start sshd</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Linux远程连接服务器报错"><a href="#Linux远程连接服务器报错" class="headerlink" title="Linux远程连接服务器报错:"></a>Linux远程连接服务器报错:</h2><h2 id="WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED"><a href="#WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED" class="headerlink" title="WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"></a>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</span><br><span class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</span><br><span class="line">It is also possible that a host key has just been changed.</span><br><span class="line">The fingerprint for the ECDSA key sent by the remote host is</span><br><span class="line">SHA256:ROHKP9YWTj4dYleZn0xlIQOjIL8TEInp9z5Oz03NESU.</span><br><span class="line">Please contact your system administrator.</span><br><span class="line">Add correct host key in /Users/shimh/.ssh/known_hosts to get rid of this message.</span><br><span class="line">Offending ECDSA key in /Users/shimh/.ssh/known_hosts:1</span><br><span class="line">ECDSA host key for 39.107.229.88 has changed and you have requested strict checking.</span><br><span class="line">Host key verification failed.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h3><p>本地记录的ip地址对应的服务器存在更改，可能为服务器端重装系统</p>
+<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式:"></a>解决方式:</h3><p>1.在报错中找到以下日志:</p>
+<p><code>Add correct host key in /Users/shimh/.ssh/known_hosts to get rid of this message.</code></p>
+<p>2.用编辑器以可编辑的方式打开以下文件</p>
+<p><code>/Users/shimh/.ssh/known_hosts</code></p>
+<p>3.这个文件是存储当前设备的登录过的所有IP地址远程连接的密钥文件,找到你的服务器IP对应密钥的那一行删除掉</p>
+<p>4.打开linux命令行重新登录就可以了</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/scp/" rel="tag"># scp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/23/%E6%8A%80%E6%9C%AF/nginx/2.%20nginx%E5%AE%89%E8%A3%85/" rel="prev" title="nginx安装">
+      <i class="fa fa-chevron-left"></i> nginx安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/23/java/%E5%89%8D%E7%AB%AF/%E6%A1%86%E6%9E%B6/vue/vue%E4%BD%BF%E7%94%A8/" rel="next" title="vue使用">
+      vue使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#win7%E5%8F%AF%E8%83%BD%E4%B8%8D%E5%AD%98%E5%9C%A8OpenSSH%EF%BC%8C%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">win7可能不存在OpenSSH，需要安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%A5%E9%94%99"><span class="nav-number">2.2.</span> <span class="nav-text">Linux远程连接服务器报错:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED"><span class="nav-number">2.3.</span> <span class="nav-text">WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="nav-number">2.3.1.</span> <span class="nav-text">原因：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.2.</span> <span class="nav-text">解决方式:</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
