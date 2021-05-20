@@ -179,6 +179,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/19/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/19/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/" class="post-title-link" itemprop="url">Redis事务及乐观锁</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-19 18:38:52" itemprop="dateCreated datePublished" datetime="2021-05-19T18:38:52+08:00">2021-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-20 09:35:14" itemprop="dateModified" datetime="2021-05-20T09:35:14+08:00">2021-05-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h2><p>Redis事务本质：一组命令的集合；一个事务中的所有命令都会被序列化，Redis事务是按顺序执行的</p>
+<p>执行一系列命令遵循：一次性、顺序性、排他性</p>
+<blockquote>
+<p>Redis单条命令是保证原子性的，但是Redis事务是不保证原子性的</p>
+<p>Redis事务是没有隔离级别的概念</p>
+<p>所有的命令在事务中，并没有直接被执行，只有发起执行命令的时候才会执行</p>
+</blockquote>
+<p>Redis事务：</p>
+<ul>
+<li>开启事务（multi）</li>
+<li>命令入对（其他命令）</li>
+<li>执行事务（exec）</li>
+<li>放弃事务（discard）</li>
+</ul>
+<h2 id="2-正常执行事务"><a href="#2-正常执行事务" class="headerlink" title="2. 正常执行事务"></a>2. 正常执行事务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启事务</span></span><br><span class="line">multi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时输入命令时并不会立即执行而是被放入队列</span></span><br><span class="line">set k1 v1		# 打印：QUEUED</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交事务</span></span><br><span class="line">exec</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 放弃事务</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 放弃事务后，队列中的所有命令都会放弃执行</span></span><br><span class="line">discard</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-异常"><a href="#3-异常" class="headerlink" title="3. 异常"></a>3. 异常</h2><p>命令入队时如果出错则整个事务无法运行</p>
+<p>命令入队成功但是执行时出错，不会影响其他的命令执行</p>
+<h3 id="3-1-编译型异常"><a href="#3-1-编译型异常" class="headerlink" title="3.1 编译型异常"></a>3.1 编译型异常</h3><p>类比java中的代码有问题，即：命令有问题</p>
+<p>事务中的所有命令都不会被执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k3 v3	# 正确命令</span><br><span class="line">QUEUED	</span><br><span class="line">127.0.0.1:6379&gt; set k4		# 错误命令</span><br><span class="line">(error) ERR wrong number of arguments for &#x27;set&#x27; command</span><br><span class="line">127.0.0.1:6379&gt; exec		# 提交事务报错</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br><span class="line">127.0.0.1:6379&gt; get k3		# 此时可以看出所有命令都没有执行</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-2-运行时异常"><a href="#3-2-运行时异常" class="headerlink" title="3.2 运行时异常"></a>3.2 运行时异常</h3><p>若事务队列中存在语法型错误，那么提交事务时，其他命令是可以正常执行的，错误命令抛出异常</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set k1 &quot;v1&quot;		# 设置一个字符串类型的元素</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr k1			# 执行字符串元素自增</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set k2 v2		# 正常存储数据</span><br><span class="line">QUEUED</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交事务，此时可以看到：执行字符串元素自增命令报错</span></span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">1) (error) ERR value is not an integer or out of range</span><br><span class="line">2) OK</span><br><span class="line">127.0.0.1:6379&gt; get k2			# 可正常获取事务中存储的数据</span><br><span class="line">&quot;v2&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="乐观锁-监控"><a href="#乐观锁-监控" class="headerlink" title="乐观锁 - 监控"></a>乐观锁 - 监控</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,7 +454,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -363,7 +468,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Redis使用</a>
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">Redis基本操作及数据类型</a>
         </h2>
 
         <div class="post-meta">
@@ -380,7 +485,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 19:31:09" itemprop="dateModified" datetime="2021-05-17T19:31:09+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-19 18:10:07" itemprop="dateModified" datetime="2021-05-19T18:10:07+08:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -410,7 +515,7 @@
           <h1 id="Redis基本操作"><a href="#Redis基本操作" class="headerlink" title="Redis基本操作"></a>Redis基本操作</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -550,7 +655,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 18:58:57" itemprop="dateModified" datetime="2021-05-17T18:58:57+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-20 14:29:32" itemprop="dateModified" datetime="2021-05-20T14:29:32+08:00">2021-05-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -714,7 +819,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-18 08:52:12" itemprop="dateModified" datetime="2021-05-18T08:52:12+08:00">2021-05-18</time>
+                <time title="修改时间：2021-05-19 18:39:30" itemprop="dateModified" datetime="2021-05-19T18:39:30+08:00">2021-05-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -726,11 +831,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
                 </span>
             </span>
 
@@ -886,7 +991,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-18 08:52:05" itemprop="dateModified" datetime="2021-05-18T08:52:05+08:00">2021-05-18</time>
+                <time title="修改时间：2021-05-18 09:01:08" itemprop="dateModified" datetime="2021-05-18T09:01:08+08:00">2021-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -924,95 +1029,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/10/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/2.%20%E4%B9%90%E8%A7%82%E9%94%81%E3%80%81%E6%82%B2%E8%A7%82%E9%94%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">分布式系统唯一ID生成方案</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-08 09:29:18" itemprop="dateCreated datePublished" datetime="2021-05-08T09:29:18+08:00">2021-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-18 08:52:19" itemprop="dateModified" datetime="2021-05-18T08:52:19+08:00">2021-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="转载自："><a href="#转载自：" class="headerlink" title="转载自："></a>转载自：</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haoxinyue/p/5208136.html">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1101,14 +1117,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
