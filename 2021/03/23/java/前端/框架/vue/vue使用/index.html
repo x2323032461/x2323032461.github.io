@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-23T05:37:10.000Z">
-<meta property="article:modified_time" content="2021-03-23T05:45:58.588Z">
+<meta property="article:modified_time" content="2021-05-24T09:03:38.818Z">
 <meta property="article:author" content="yoga">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -207,10 +207,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-23 13:37:10 / 修改时间：13:45:58" itemprop="dateCreated datePublished" datetime="2021-03-23T13:37:10+08:00">2021-03-23</time>
+              <time title="创建时间：2021-03-23 13:37:10" itemprop="dateCreated datePublished" datetime="2021-03-23T13:37:10+08:00">2021-03-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-24 17:03:38" itemprop="dateModified" datetime="2021-05-24T17:03:38+08:00">2021-05-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -261,6 +267,202 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@change=<span class="string">&quot;getExcelTemplate($event, item)&quot;</span></span><br></pre></td></tr></table></figure>
 
 
+<h2 id="选择及修改下拉框"><a href="#选择及修改下拉框" class="headerlink" title="选择及修改下拉框"></a>选择及修改下拉框</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">&quot;selectItemId&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">filterable</span></span></span><br><span class="line"><span class="tag">           <span class="attr">remote</span></span></span><br><span class="line"><span class="tag">           <span class="attr">reserve-keyword</span></span></span><br><span class="line"><span class="tag">           <span class="attr">allow-create</span></span></span><br><span class="line"><span class="tag">           <span class="attr">:remote-method</span>=<span class="string">&quot;remoteMethod&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">:loading</span>=<span class="string">&quot;loading&quot;</span></span></span><br><span class="line"><span class="tag">           @<span class="attr">change</span>=<span class="string">&quot;remoteMethodChange&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">placeholder</span>=<span class="string">&quot;请输入客户名称&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-option</span> <span class="attr">v-for</span>=<span class="string">&quot;item in showCustomers&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:key</span>=<span class="string">&quot;item.customerId&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:label</span>=<span class="string">&quot;item.customerName&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">:value</span>=<span class="string">&quot;item.customerId&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+<th align="left">可选值</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">value / v-model</td>
+<td align="left">绑定值</td>
+<td align="left">boolean / string / number</td>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">multiple</td>
+<td align="left">是否多选</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">disabled</td>
+<td align="left">是否禁用</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">value-key</td>
+<td align="left">作为 value 唯一标识的键名，绑定值为对象类型时必填</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">value</td>
+</tr>
+<tr>
+<td align="left">size</td>
+<td align="left">输入框尺寸</td>
+<td align="left">string</td>
+<td align="left">medium/small/mini</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">clearable</td>
+<td align="left">是否可以清空选项</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">collapse-tags</td>
+<td align="left">多选时是否将选中值按文字的形式展示</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">multiple-limit</td>
+<td align="left">多选时用户最多可以选择的项目数，为 0 则不限制</td>
+<td align="left">number</td>
+<td align="left">—</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left">select input 的 name 属性</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">autocomplete</td>
+<td align="left">select input 的 autocomplete 属性</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">off</td>
+</tr>
+<tr>
+<td align="left">auto-complete</td>
+<td align="left">下个主版本弃用</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">off</td>
+</tr>
+<tr>
+<td align="left">placeholder</td>
+<td align="left">占位符</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">请选择</td>
+</tr>
+<tr>
+<td align="left">filterable</td>
+<td align="left">是否可搜索</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">allow-create</td>
+<td align="left">是否允许用户创建新条目，需配合 <code>filterable</code> 使用</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">filter-method</td>
+<td align="left">自定义搜索方法</td>
+<td align="left">function</td>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">remote</td>
+<td align="left">是否为远程搜索</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">remote-method</td>
+<td align="left">远程搜索方法</td>
+<td align="left">function</td>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">loading</td>
+<td align="left">是否正在从远程获取数据</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">loading-text</td>
+<td align="left">远程加载时显示的文字</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">加载中</td>
+</tr>
+<tr>
+<td align="left">no-match-text</td>
+<td align="left">搜索条件无匹配时显示的文字，也可以使用<code>slot=&quot;empty&quot;</code>设置</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">无匹配数据</td>
+</tr>
+<tr>
+<td align="left">no-data-text</td>
+<td align="left">选项为空时显示的文字，也可以使用<code>slot=&quot;empty&quot;</code>设置</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">无数据</td>
+</tr>
+<tr>
+<td align="left">popper-class</td>
+<td align="left">Select 下拉框的类名</td>
+<td align="left">string</td>
+<td align="left">—</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">reserve-keyword</td>
+<td align="left">多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词</td>
+<td align="left">boolean</td>
+<td align="left">—</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">default-first-option</td>
+<td align="left">在输入框按下回车，选择第一个匹配项。需配合 <code>filterable</code> 或 <code>remote</code> 使用</td>
+<td align="left">boolean</td>
+<td align="left">-</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">popper-append-to-body</td>
+<td align="left">是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false</td>
+<td align="left">boolean</td>
+<td align="left">-</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">automatic-dropdown</td>
+<td align="left">对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单</td>
+<td align="left">boolean</td>
+<td align="left">-</td>
+<td align="left">false</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -344,7 +546,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">使用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%8F%8A%E4%BF%AE%E6%94%B9%E4%B8%8B%E6%8B%89%E6%A1%86"><span class="nav-number">1.1.</span> <span class="nav-text">选择及修改下拉框</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,20 +560,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
