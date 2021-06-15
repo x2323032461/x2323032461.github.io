@@ -954,7 +954,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/0.%20%E6%8A%A5%E9%94%99/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/%E6%89%93%E5%8C%85/1.%20springboot%E6%89%93war%E5%8C%85%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -968,7 +968,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/0.%20%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">报错</a>
+            <a href="/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/%E6%89%93%E5%8C%85/1.%20springboot%E6%89%93war%E5%8C%85%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">springboot打war包部署</a>
         </h2>
 
         <div class="post-meta">
@@ -985,7 +985,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 08:49:21" itemprop="dateModified" datetime="2021-05-21T08:49:21+08:00">2021-05-21</time>
+                <time title="修改时间：2021-06-09 18:37:43" itemprop="dateModified" datetime="2021-06-09T18:37:43+08:00">2021-06-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1016,15 +1016,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="搭建项目报错"><a href="#搭建项目报错" class="headerlink" title="搭建项目报错"></a>搭建项目报错</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/29/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/0.%20%E6%8A%A5%E9%94%99/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h2 id="将打包方式修改为war"><a href="#将打包方式修改为war" class="headerlink" title="将打包方式修改为war"></a>将打包方式修改为war</h2><p><code>&lt;packaging&gt;war&lt;/packaging&gt;</code></p>
+<p>没有时，将其添加在properties 同级</p>
+<h2 id="移除tomcat依赖或者将tomcat依赖scope改为provide"><a href="#移除tomcat依赖或者将tomcat依赖scope改为provide" class="headerlink" title="移除tomcat依赖或者将tomcat依赖scope改为provide"></a>移除tomcat依赖或者将tomcat依赖scope改为provide</h2><h3 id="移除tomcat依赖"><a href="#移除tomcat依赖" class="headerlink" title="移除tomcat依赖"></a>移除tomcat依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">　　	 <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">　　　　<span class="comment">&lt;!-- 移除嵌入式tomcat插件 --&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">　　　　　　　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">　　　　　　<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="或者（推荐）"><a href="#或者（推荐）" class="headerlink" title="或者（推荐）"></a>或者（推荐）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加servlet-api的依赖,用来打war包  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="修改启动类"><a href="#修改启动类" class="headerlink" title="修改启动类"></a>修改启动类</h2><blockquote>
+<p>继承org.springframework.boot.web.servlet.support.SpringBootServletInitializer，实现configure方法：</p>
+</blockquote>
+<blockquote>
+<p> 为什么继承该类，SpringBootServletInitializer源码注释：</p>
+<p>Note that a WebApplicationInitializer is only needed if you are building a war file and deploying it. If you prefer to run an embedded web server then you won’t need this at all.</p>
+<p>注意，如果您正在构建WAR文件并部署它，则需要WebApplicationInitializer。如果你喜欢运行一个嵌入式Web服务器，那么你根本不需要这个。</p>
+</blockquote>
+<p>启动类代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>1.方式一，启动类继承SpringBootServletInitializer实现configure（推荐）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.builder.SpringApplicationBuilder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.support.SpringBootServletInitializer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Application 为启动类名</span></span><br><span class="line">        <span class="keyword">return</span> builder.sources(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>2.方式二，新增加一个类继承SpringBootServletInitializer实现configure：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletInitializer</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//此处的Application.class为带有@SpringBootApplication注解的启动类</span></span><br><span class="line">        <span class="keyword">return</span> builder.sources(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用外部Tomcat部署访问的时候，application.properties(或者application.yml)中配置的</p>
+<p>server.port=</p>
+<p>server.servlet.context-path=</p>
+<p>将失效，需使用tomcat的端口，tomcat，webapps下项目名进行访问。为了防止应用上下文所导致的项目访问资源加载不到的问题，建议pom.xml文件中<code>&lt;build&gt;&lt;/build&gt;</code>标签下添加<code>&lt;finalName&gt;&lt;/finalName&gt;</code>标签：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 应与application.properties(或application.yml)中context-path保持一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>war包名称<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用idea生成war包"><a href="#使用idea生成war包" class="headerlink" title="使用idea生成war包"></a>使用idea生成war包</h2><p>在idea菜单栏中找到Build—-&gt;build Arufacts生成war，生成的war包会在target文件夹中找到</p>
+<h2 id="打开tomcat"><a href="#打开tomcat" class="headerlink" title="打开tomcat"></a>打开tomcat</h2><p>在地址栏输入服务器地址及端口号，进入之后会有如下页面</p>
+<p>![img](1. springboot打war包部署/31135647793.jpeg)</p>
+<p>点击manager app 需要输入用户名和密码</p>
+<p>![img](1. springboot打war包部署/231135926636.png)</p>
+<p>登录成功后在最下面会有个deploy按钮，先选择之前已经准备好的war包，点击deploy就会部署到tomcat服务器端，部署成功之后项目会自动运行。</p>
+<p>如果可以远程到服务器的话可以像部署到本地tomcat一样，直接把war包放在webAPP下，然后启动tomcat就行了。</p>
+
       
     </div>
 
@@ -1121,7 +1158,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

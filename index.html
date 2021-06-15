@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/26/%E8%BD%AF%E4%BB%B6/github/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/0.%20SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/%E8%BD%AF%E4%BB%B6/github/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/0.%20SpringBoot/" class="post-title-link" itemprop="url">SpringBoot</a>
         </h2>
 
         <div class="post-meta">
@@ -202,9 +202,32 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-26 09:09:47 / 修改时间：09:09:15" itemprop="dateCreated datePublished" datetime="2021-05-26T09:09:47+08:00">2021-05-26</time>
+              <time title="创建时间：2021-06-10 09:10:35" itemprop="dateCreated datePublished" datetime="2021-06-10T09:10:35+08:00">2021-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-11 10:28:50" itemprop="dateModified" datetime="2021-06-11T10:28:50+08:00">2021-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">框架</span></a>
+                </span>
             </span>
 
           
@@ -218,420 +241,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          :root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
-}
-
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('./github/open-sans-v17-latin-ext_latin-regular.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* open-sans-italic - latin-ext_latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: normal;
-    src: local('Open Sans Italic'), local('OpenSans-Italic'), url('./github/open-sans-v17-latin-ext_latin-italic.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* open-sans-700 - latin-ext_latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    src: local('Open Sans Bold'), local('OpenSans-Bold'), url('./github/open-sans-v17-latin-ext_latin-700.woff2') format('woff2'); 
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* open-sans-700italic - latin-ext_latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: bold;
-    src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url('./github/open-sans-v17-latin-ext_latin-700italic.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-html {
-    font-size: 16px;
-}
-
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
-}
-
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
-}
-
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
-
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
-}
-
-a {
-    color: #4183C4;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-	color: red;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
-	color: orange;
-}
-
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-	color: green;
-}
-h4 {
-    font-size: 1.25em;
-	color: blue;
-}
-h5 {
-    font-size: 1em;
-	color: purple;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
-}
-
-li p.first {
-    display: inline-block;
-}
-ul,
-ol {
-    padding-left: 30px;
-}
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
-}
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-blockquote {
-    border-left: 4px solid #55b7a5;
-    padding: 0 15px;
-    color: #777777;
-    line-height: 40px;
-}
-blockquote blockquote {
-    padding-right: 0;
-}
-table {
-    padding: 0;
-    word-break: initial;
-}
-table tr {
-    border-top: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table th:first-child,
-table td:first-child {
-    margin-top: 0;
-}
-table th:last-child,
-table td:last-child {
-    margin-bottom: 0;
-}
-
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
-}
-
-code {
-    background-color: #0ddedeb3;
-    padding: 0 2px 0 2px;
-}
-
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-}
+          <h1 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h1><blockquote>
+<p>学习</p>
+</blockquote>
+<p>javase：OOP</p>
+<p>mysql：持久化</p>
+<p>html+css+jQuery+框架：视图</p>
+<p>javaweb：独立开发MVC三层架构的网站：原始</p>
+<p>ssm：框架，简化了我们的开发流程，配置也开始复杂起来</p>
+<p><strong>war：tomcat运行</strong></p>
+<p>spring再简化：springboot - jar：内嵌tomcat；</p>
+<p>服务越来越多：springcloud</p>
+<h1 id="什么是SpringBoot"><a href="#什么是SpringBoot" class="headerlink" title="什么是SpringBoot"></a>什么是SpringBoot</h1><h2 id="0-架构"><a href="#0-架构" class="headerlink" title="0. 架构"></a>0. 架构</h2><p>MVC三层架构</p>
+<p>MVVM</p>
+<p>微服务架构</p>
+<p>all in one的架构方式，我们把所有的功能单元放在-个应用里面。然后我们把整个应用部署到服<br>务器上。如果负载能力不行，我们将整个应用进行水平复制，进行扩展，然后在负载均衡。<br>所谓微服务架构，就是打破之前all in one的架构方式，把每个功能元素独立出来。把独立出来的<br>功能元素的动态组合，需要的功能元素才去拿来组合、需要多一些时 可以整合多个功能元素。所以微服<br>务架构是对功能元索进行复制，而没有对整个应用进行复制。</p>
+<h3 id="发展演变史"><a href="#发展演变史" class="headerlink" title="发展演变史"></a>发展演变史</h3><p><a target="_blank" rel="noopener" href="https://dubbo.apache.org/zh/docs/v2.7/user/preface/background/#m-zhdocsv27userprefacebackground">https://dubbo.apache.org/zh/docs/v2.7/user/preface/background/#m-zhdocsv27userprefacebackground</a></p>
+<h2 id="1-Spring"><a href="#1-Spring" class="headerlink" title="1. Spring"></a>1. Spring</h2><p>Spring是为了解决企业级应用开发的复杂性而创建的，简化开发</p>
+<p>为了降低Java开发的复杂性，Spring采用了以下4种关键策略：</p>
+<p>1、基于POJO的轻量级和最小侵入性编程，所有东西都是bean；</p>
+<p>2、通过IOC，依赖注入（DI）和面向接口实现松耦合；</p>
+<p>3、基于切面（AOP）和惯例进行声明式编程；</p>
+<p>4、通过切面和模版减少样式代码，RedisTemplate，xxxTemplate；</p>
+<p><strong>约定大于配置</strong></p>
+<h2 id="2-SpringBoot"><a href="#2-SpringBoot" class="headerlink" title="2. SpringBoot"></a>2. SpringBoot</h2><ul>
+<li>为所有Spring开发者更快的入门</li>
+<li><strong>开箱即用</strong>，提供这种默认排至来简化项目配置</li>
+<li>内嵌式容器简化Web项目</li>
+<li>没有冗余代码生成XML配置的要求</li>
+</ul>
+<h1 id="创建SpringBoot项目"><a href="#创建SpringBoot项目" class="headerlink" title="创建SpringBoot项目"></a>创建SpringBoot项目</h1><h2 id="1-SpringBoot官网创建"><a href="#1-SpringBoot官网创建" class="headerlink" title="1. SpringBoot官网创建"></a>1. SpringBoot官网创建</h2><p>![image-20210611090238482](0. SpringBoot/image-20210611090238482.png)</p>
+<p>![image-20210611090249356](0. SpringBoot/image-20210611090249356.png)</p>
+<p>![image-20210611090258675](0. SpringBoot/image-20210611090258675.png)</p>
+<p>配置完成后点击 generate 即可下载项目压缩包</p>
+<h2 id="2-使用idea创建（推荐）"><a href="#2-使用idea创建（推荐）" class="headerlink" title="2. 使用idea创建（推荐）"></a>2. 使用idea创建（推荐）</h2><p>![image-20210611090625543](0. SpringBoot/image-20210611090625543.png)</p>
+<p>此时可以看到对应官网的Spring Initializr，以及默认的地址就是官网Spring Initializr的地址</p>
+<p>![image-20210611090700871](0. SpringBoot/image-20210611090700871.png)</p>
+<h2 id="3-初始项目pom-xml解析"><a href="#3-初始项目pom-xml解析" class="headerlink" title="3. 初始项目pom.xml解析"></a>3. 初始项目pom.xml解析</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 父项目 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- gav 坐标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.demo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo-engin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>demo-engin<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 所有的springboot依赖都是以 spring-boot-starter 开头 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 打包插件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>demo<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-.md-task-list-item > input {
-  margin-left: -1.3em;
-}
 
-@media print {
-    html {
-        font-size: 13px;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
-}
 
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
-}
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
-}
 
-.md-mathjax-midline {
-    background: #fafafa;
-}
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
-}
 
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
-}
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
-}
 
-.sidebar-tabs {
-    border-bottom: none;
-}
 
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-}
 
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
-}
 
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
-}
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
-}
 
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-.html-for-mac .context-menu {
-    --item-hover-bg-color: #E6F0FE;
-}
-
-#md-notification .btn {
-    border: 0;
-}
-
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-}
-
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
-}
       
     </div>
 
@@ -650,7 +311,7 @@ header, .context-menu, .megamenu-content, footer{
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/19/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -664,7 +325,7 @@ header, .context-menu, .megamenu-content, footer{
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/19/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/" class="post-title-link" itemprop="url">Redis事务及乐观锁</a>
+            <a href="/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">Redis进阶</a>
         </h2>
 
         <div class="post-meta">
@@ -674,14 +335,14 @@ header, .context-menu, .megamenu-content, footer{
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-19 18:38:52" itemprop="dateCreated datePublished" datetime="2021-05-19T18:38:52+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-20 18:38:52" itemprop="dateCreated datePublished" datetime="2021-05-20T18:38:52+08:00">2021-05-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 09:07:32" itemprop="dateModified" datetime="2021-05-24T09:07:32+08:00">2021-05-24</time>
+                <time title="修改时间：2021-06-10 09:06:02" itemprop="dateModified" datetime="2021-06-10T09:06:02+08:00">2021-06-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -708,78 +369,15 @@ header, .context-menu, .megamenu-content, footer{
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h2><p>Redis事务本质：一组命令的集合；一个事务中的所有命令都会被序列化，Redis事务是按顺序执行的</p>
-<p>执行一系列命令遵循：一次性、顺序性、排他性</p>
-<blockquote>
-<p>Redis单条命令是保证原子性的，但是Redis事务是不保证原子性的</p>
-<p>Redis事务是没有隔离级别的概念</p>
-<p>所有的命令在事务中，并没有直接被执行，只有发起执行命令的时候才会执行</p>
-</blockquote>
-<p>Redis事务：</p>
-<ul>
-<li>开启事务（multi）</li>
-<li>命令入对（其他命令）</li>
-<li>执行事务（exec）</li>
-<li>放弃事务（discard）</li>
-</ul>
-<h2 id="2-正常执行事务"><a href="#2-正常执行事务" class="headerlink" title="2. 正常执行事务"></a>2. 正常执行事务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启事务</span></span><br><span class="line">multi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时输入命令时并不会立即执行而是被放入队列</span></span><br><span class="line">set k1 v1		# 打印：QUEUED</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交事务</span></span><br><span class="line">exec</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 放弃事务</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 放弃事务后，队列中的所有命令都会放弃执行</span></span><br><span class="line">discard</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-异常"><a href="#3-异常" class="headerlink" title="3. 异常"></a>3. 异常</h2><p>命令入队时如果出错则整个事务无法运行</p>
-<p>命令入队成功但是执行时出错，不会影响其他的命令执行</p>
-<h3 id="3-1-编译型异常"><a href="#3-1-编译型异常" class="headerlink" title="3.1 编译型异常"></a>3.1 编译型异常</h3><p>类比java中的代码有问题，即：命令有问题</p>
-<p>事务中的所有命令都不会被执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k3 v3	# 正确命令</span><br><span class="line">QUEUED	</span><br><span class="line">127.0.0.1:6379&gt; set k4		# 错误命令</span><br><span class="line">(error) ERR wrong number of arguments for &#x27;set&#x27; command</span><br><span class="line">127.0.0.1:6379&gt; exec		# 提交事务报错</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br><span class="line">127.0.0.1:6379&gt; get k3		# 此时可以看出所有命令都没有执行</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="3-2-运行时异常"><a href="#3-2-运行时异常" class="headerlink" title="3.2 运行时异常"></a>3.2 运行时异常</h3><p>若事务队列中存在语法型错误，那么提交事务时，其他命令是可以正常执行的，错误命令抛出异常</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set k1 &quot;v1&quot;		# 设置一个字符串类型的元素</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr k1			# 执行字符串元素自增</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set k2 v2		# 正常存储数据</span><br><span class="line">QUEUED</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交事务，此时可以看到：执行字符串元素自增命令报错</span></span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">1) (error) ERR value is not an integer or out of range</span><br><span class="line">2) OK</span><br><span class="line">127.0.0.1:6379&gt; get k2			# 可正常获取事务中存储的数据</span><br><span class="line">&quot;v2&quot;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="乐观锁-监控-Watch"><a href="#乐观锁-监控-Watch" class="headerlink" title="乐观锁 - 监控  Watch"></a>乐观锁 - 监控  Watch</h1><p>悲观锁：</p>
-<ul>
-<li>很悲观，认为什么时候都会出问题，无论做什么都会加锁</li>
-</ul>
-<p>乐观锁：</p>
-<ul>
-<li>很乐观，认为什么时候都不会出问题，无论做什么都不会加锁</li>
-<li>更新的时候去判断下，查看在此期间是否有人修改过这个数据</li>
-<li>获取version</li>
-<li>更新的时候比较version</li>
-</ul>
-<h2 id="1-Redis的监视测试"><a href="#1-Redis的监视测试" class="headerlink" title="1. Redis的监视测试"></a>1. Redis的监视测试</h2><h3 id="1-1-正常情况"><a href="#1-1-正常情况" class="headerlink" title="1.1 正常情况"></a>1.1 正常情况</h3><p>程序正常执行时，money正常减少，out正常增加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; decrby money 20</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incrby out 20</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">1) (integer) 80</span><br><span class="line">2) (integer) 20</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="1-2-被另一个线程篡改"><a href="#1-2-被另一个线程篡改" class="headerlink" title="1.2 被另一个线程篡改"></a>1.2 被另一个线程篡改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 正常线程还未提交事务</span></span><br><span class="line">127.0.0.1:6379&gt; watch money </span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; decrby money 20</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incrby out 20</span><br><span class="line">QUEUED</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 另外一个线程动了被监视的数据</span></span><br><span class="line">127.0.0.1:6379&gt; get money</span><br><span class="line">&quot;80&quot;</span><br><span class="line">127.0.0.1:6379&gt; set money 1000</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 此时提交事务线程，提示事务运行失败</span></span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="1-3-被篡改后的处理方法-unwatch"><a href="#1-3-被篡改后的处理方法-unwatch" class="headerlink" title="1.3 被篡改后的处理方法  unwatch"></a>1.3 被篡改后的处理方法  unwatch</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用 unwatch 解锁被监视的数据</span></span><br><span class="line">unwatch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次使用 watch 重新监视该数据，可以重新再走一次修改</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <h1 id="Redis配置文件"><a href="#Redis配置文件" class="headerlink" title="Redis配置文件"></a>Redis配置文件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -883,7 +481,7 @@ header, .context-menu, .megamenu-content, footer{
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/19/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -897,7 +495,7 @@ header, .context-menu, .megamenu-content, footer{
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/19/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">Redis进阶</a>
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/" class="post-title-link" itemprop="url">Redis事务及乐观锁</a>
         </h2>
 
         <div class="post-meta">
@@ -907,14 +505,14 @@ header, .context-menu, .megamenu-content, footer{
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-19 18:38:52" itemprop="dateCreated datePublished" datetime="2021-05-19T18:38:52+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-12 17:38:52" itemprop="dateCreated datePublished" datetime="2021-05-12T17:38:52+08:00">2021-05-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-09 18:11:13" itemprop="dateModified" datetime="2021-06-09T18:11:13+08:00">2021-06-09</time>
+                <time title="修改时间：2021-06-15 18:08:43" itemprop="dateModified" datetime="2021-06-15T18:08:43+08:00">2021-06-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -941,180 +539,10 @@ header, .context-menu, .megamenu-content, footer{
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Redis配置文件"><a href="#Redis配置文件" class="headerlink" title="Redis配置文件"></a>Redis配置文件</h1>
+          <h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/19/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/" class="post-title-link" itemprop="url">NoSQL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 09:07:50" itemprop="dateModified" datetime="2021-05-24T09:07:50+08:00">2021-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoga">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄焖鸡在逃米饭">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Redis入门及搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 09:07:44" itemprop="dateModified" datetime="2021-05-24T09:07:44+08:00">2021-05-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/#more" rel="contents">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/2.%20Redis%E4%BA%8B%E5%8A%A1%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1162,14 +590,14 @@ header, .context-menu, .megamenu-content, footer{
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-12 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T17:09:53+08:00">2021-05-12</time>
+              <time title="创建时间：2021-05-12 16:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T16:09:53+08:00">2021-05-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 16:18:28" itemprop="dateModified" datetime="2021-05-26T16:18:28+08:00">2021-05-26</time>
+                <time title="修改时间：2021-06-10 09:05:33" itemprop="dateModified" datetime="2021-06-10T09:05:33+08:00">2021-06-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1200,6 +628,91 @@ header, .context-menu, .megamenu-content, footer{
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Redis入门及搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 15:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T15:09:53+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-10 09:05:19" itemprop="dateModified" datetime="2021-06-10T09:05:19+08:00">2021-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1285,6 +798,91 @@ header, .context-menu, .megamenu-content, footer{
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/11/%E6%8A%80%E6%9C%AF/jsoup%E7%88%AC%E8%99%AB/0.%20jsoup%E7%88%AC%E8%99%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/11/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/11/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/" class="post-title-link" itemprop="url">NoSQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-11 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-11T17:09:53+08:00">2021-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-10 09:05:09" itemprop="dateModified" datetime="2021-06-10T09:05:09+08:00">2021-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/11/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1550,7 +1148,7 @@ header, .context-menu, .megamenu-content, footer{
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
