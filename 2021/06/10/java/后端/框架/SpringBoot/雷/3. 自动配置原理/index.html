@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="自动配置原理入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="底层注解">
+<meta property="og:url" content="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="自动配置原理入门">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/image-20210723152906487.png">
+<meta property="og:image" content="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/SpringBoot.png">
+<meta property="og:image" content="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/image-20210726143026340.png">
+<meta property="article:published_time" content="2021-06-10T01:10:35.000Z">
+<meta property="article:modified_time" content="2021-07-26T06:46:28.689Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/image-20210723152906487.png">
+
+<link rel="canonical" href="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>底层注解 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/3.%20%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          底层注解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-10 09:10:35" itemprop="dateCreated datePublished" datetime="2021-06-10T09:10:35+08:00">2021-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-26 14:46:28" itemprop="dateModified" datetime="2021-07-26T14:46:28+08:00">2021-07-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">框架</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/%E9%9B%B7/" itemprop="url" rel="index"><span itemprop="name">雷</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/%E9%9B%B7/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="自动配置原理入门"><a href="#自动配置原理入门" class="headerlink" title="自动配置原理入门"></a>自动配置原理入门</h1><a id="more"></a>
+
+<h2 id="1-注解"><a href="#1-注解" class="headerlink" title="1. 注解"></a>1. 注解</h2><p><code>@SpringBootApplication</code>相当于 </p>
+<p><code>@SpringBootConfiguration</code> + <code>@EnableAutoConfiguration</code> + <code>@ComponentScan</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相当于@Configuration，表示当前是一个配置类</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="comment">// 核心注解</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="comment">// 指定要扫描那些包</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-1-SpringBootConfiguration"><a href="#1-1-SpringBootConfiguration" class="headerlink" title="1.1 @SpringBootConfiguration"></a>1.1 @SpringBootConfiguration</h3><p>相当于@Configuration，表示当前是一个配置类</p>
+<h3 id="1-2-ComponentScan"><a href="#1-2-ComponentScan" class="headerlink" title="1.2 @ComponentScan"></a>1.2 @ComponentScan</h3><p>指定要扫描那些包</p>
+<h3 id="1-3-EnableAutoConfiguration-核心注解"><a href="#1-3-EnableAutoConfiguration-核心注解" class="headerlink" title="1.3 @EnableAutoConfiguration  核心注解"></a>1.3 @EnableAutoConfiguration  核心注解</h3><blockquote>
+<p><strong>启动时加载所有的场景的自动配置，最终按照条件（@Conditional）装配规则，按需配置</strong></p>
+</blockquote>
+<h4 id="1-3-1-AutoConfigurationPackage"><a href="#1-3-1-AutoConfigurationPackage" class="headerlink" title="1.3.1 @AutoConfigurationPackage"></a>1.3.1 @AutoConfigurationPackage</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用Registrar给容器中批量导入一系列组件</span></span><br><span class="line"><span class="meta">@Import(AutoConfigurationPackages.Registrar.class)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 AutoConfigurationPackages的Registrar 方法</span></span><br><span class="line"><span class="comment">// 将主程序下的所有组件导入进来</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210723152906487.png" alt="image-20210723152906487"></p>
+<h4 id="1-3-2-Import-AutoConfigurationImportSelector-class"><a href="#1-3-2-Import-AutoConfigurationImportSelector-class" class="headerlink" title="1.3.2 @Import(AutoConfigurationImportSelector.class)"></a>1.3.2 @Import(AutoConfigurationImportSelector.class)</h4><p>加载所有的场景</p>
+<ol>
+<li><p>使用Selector给容器中批量导入主要为实现了<code>DeferredImportSelector</code> 接口的 <code>selectImports</code> 方法</p>
+</li>
+<li><p><code>selectImports</code> 方法中主要为调用 <code>getAutoConfigurationEntry</code></p>
+</li>
+<li><p><code>getAutoConfigurationEntry</code>中主要通过<code>getCandidateConfigurations</code>方法加载所有的组件</p>
+</li>
+<li><p><code>getCandidateConfigurations</code>中通过<code>SpringFactoriesLoader</code>加载所有的组件</p>
+</li>
+<li><p>在<code>SpringFactoriesLoader</code>中的<code>Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(ClassLoader classLoader)</code></p>
+<ul>
+<li>方法中会加载所有的<code>META-INF</code>下的<code>spring.factories</code>文件</li>
+<li>最主要的就是<code>spring-boot-autoconfigure-2.5.2.jar</code>包下的<code>META-INF/spring.factories</code>文件</li>
+<li>打开<code>META-INF/spring.factories</code>文件，其中以# Auto Configure标明自动注入的组件都有哪些</li>
+</ul>
+</li>
+</ol>
+<p>思维导图：</p>
+<p>原导图地址：<a target="_blank" rel="noopener" href="https://www.processon.com/mindmap/60c9c9d107912975024b848c">https://www.processon.com/mindmap/60c9c9d107912975024b848c</a></p>
+<p><img src="SpringBoot.png" alt="SpringBoot"></p>
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>@ConditionalOnProperty注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line"><span class="comment">// 是否存在spring.aop 的 auto配置，并且他的值是true</span></span><br><span class="line"><span class="meta">@ConditionalOnProperty(prefix = &quot;spring.aop &quot;, name = &quot;auto&quot;, havingValue = &quot;true&quot;, matchIfMissing = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AopAutoConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line">    <span class="comment">// 若存在Advice类则AspectJAutoProxyingConfiguration类生效</span></span><br><span class="line">	<span class="meta">@ConditionalOnClass(Advice.class)</span></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectJAutoProxyingConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line">		<span class="meta">@EnableAspectJAutoProxy(proxyTargetClass = false)</span></span><br><span class="line">		<span class="meta">@ConditionalOnProperty(prefix = &quot;spring.aop&quot;, name = &quot;proxy-target-class&quot;, havingValue = &quot;false&quot;)</span></span><br><span class="line">		<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">JdkDynamicAutoProxyConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line">		<span class="meta">@EnableAspectJAutoProxy(proxyTargetClass = true)</span></span><br><span class="line">		<span class="meta">@ConditionalOnProperty(prefix = &quot;spring.aop&quot;, name = &quot;proxy-target-class&quot;, havingValue = &quot;true&quot;,</span></span><br><span class="line"><span class="meta">				matchIfMissing = true)</span></span><br><span class="line">		<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CglibAutoProxyConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Configuration(proxyBeanMethods = false)</span></span><br><span class="line">    <span class="comment">// 若不存在Advice类则 ClassProxyingConfiguration类生效</span></span><br><span class="line">	<span class="meta">@ConditionalOnMissingClass(&quot;org.aspectj.weaver.Advice&quot;)</span></span><br><span class="line">	<span class="meta">@ConditionalOnProperty(prefix = &quot;spring.aop&quot;, name = &quot;proxy-target-class&quot;, havingValue = &quot;true&quot;,</span></span><br><span class="line"><span class="meta">			matchIfMissing = true)</span></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassProxyingConfiguration</span> </span>&#123;</span><br><span class="line">		<span class="meta">@Bean</span></span><br><span class="line">		<span class="function"><span class="keyword">static</span> BeanFactoryPostProcessor <span class="title">forceAutoProxyCreatorToUseClassProxying</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> (beanFactory) -&gt; &#123;</span><br><span class="line">				<span class="keyword">if</span> (beanFactory <span class="keyword">instanceof</span> BeanDefinitionRegistry) &#123;</span><br><span class="line">					BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;</span><br><span class="line">					AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry);</span><br><span class="line">					AopConfigUtils.forceAutoProxyCreatorToUseClassProxying(registry);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>文件上传解析器 - 重命名用户配置的文件上传解析器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法的意思为：如果用户配置有文件上传解析器，但是解析器名称不为multipartResolver</span></span><br><span class="line"><span class="comment">// 此时这个方法就会获取容器中的文件上传解析器然后返回，相当于仅改了组件的名称</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="comment">// 容器中有MultipartResolver组件</span></span><br><span class="line"><span class="meta">@ConditionalOnBean(MultipartResolver.class)</span></span><br><span class="line"><span class="comment">// 容器中没有multipartResolver名字的组件</span></span><br><span class="line"><span class="meta">@ConditionalOnMissingBean(name = &quot;multipartResolver&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MultipartResolver <span class="title">multipartResolver</span><span class="params">(MultipartResolver resolver)</span> </span>&#123;</span><br><span class="line">   <span class="comment">// @Bean标注的方法的参数，是从容器中获取的</span></span><br><span class="line">   <span class="comment">// Detect if the user has created a MultipartResolver but named it incorrectly</span></span><br><span class="line">   <span class="keyword">return</span> resolver;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>SpringBoot默认会在底层配置好所有的组件，但是如果用户自己配置了以用户的优先</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="comment">// 当容器中没有该组件时生效</span></span><br><span class="line"><span class="meta">@ConditionalOnMissingBean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CharacterEncodingFilter <span class="title">characterEncodingFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>配置文件如何控制组件中的配置</p>
+<p><img src="image-20210726143026340.png" alt="image-20210726143026340"></p>
+<p>总结：</p>
+<ul>
+<li>SpringBoot先加载所有配置类</li>
+<li>每个自动配置类按照条件进行生效，默认都会绑定配置文件指定的值，都会从xxxProperties里边获取，xxxProperties和配置文件进行了绑定</li>
+<li>生效的配置类就会给容器中装配很多组件</li>
+<li>只要容器中有这些组件，相当于这些功能就有了</li>
+<li>只要用户有自己配置的，就以用户的优先<ul>
+<li>用户直接自己@Bean替换底层的组件</li>
+<li>用户去看这个组件是获取的配置文件的什么值，就去设置什么值即可</li>
+<li>xxxAutoConfiguration –&gt; 组件 –&gt;  xxxProperties里边拿值 –&gt; application.properties/yml</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/4.%20%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" rel="prev" title="开发技巧">
+      <i class="fa fa-chevron-left"></i> 开发技巧
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/2.%20%E5%BA%95%E5%B1%82%E6%B3%A8%E8%A7%A3/" rel="next" title="底层注解">
+      底层注解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">自动配置原理入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">1. 注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-SpringBootConfiguration"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 @SpringBootConfiguration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-ComponentScan"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 @ComponentScan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-EnableAutoConfiguration-%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 @EnableAutoConfiguration  核心注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-AutoConfigurationPackage"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">1.3.1 @AutoConfigurationPackage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-Import-AutoConfigurationImportSelector-class"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">1.3.2 @Import(AutoConfigurationImportSelector.class)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">实例分析</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

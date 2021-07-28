@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Linux安装MySQL - rpm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库读写分离">
+<meta property="og:url" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="Linux安装MySQL - rpm">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210719181422349.png">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210719181645758.png">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210719182324913.png">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210719182420291.png">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/20201207100517190.png">
+<meta property="og:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210720102035929.png">
+<meta property="article:published_time" content="2021-04-23T08:53:37.000Z">
+<meta property="article:modified_time" content="2021-07-20T10:05:03.976Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="数据库设计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/image-20210719181422349.png">
+
+<link rel="canonical" href="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据库读写分离 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/4.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据库读写分离
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-23 16:53:37" itemprop="dateCreated datePublished" datetime="2021-04-23T16:53:37+08:00">2021-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-20 18:05:03" itemprop="dateModified" datetime="2021-07-20T18:05:03+08:00">2021-07-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Linux安装MySQL-rpm"><a href="#Linux安装MySQL-rpm" class="headerlink" title="Linux安装MySQL - rpm"></a>Linux安装MySQL - rpm</h1><a id="more"></a>
+
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41510551/article/details/110731610">https://blog.csdn.net/qq_41510551/article/details/110731610</a></p>
+<ol>
+<li>查看是否已经安装了mysql</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#无输出说明没有安装</span></span><br><span class="line">rpm -qa|grep mysql </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>打开网址：MySQL Yum存储库: <a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/repo/yum/">https://dev.mysql.com/downloads/repo/yum/</a></p>
+</li>
+<li><p>找到对应linux的版本进行下载<br>查看自己的版本：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br><span class="line"><span class="comment"># CentOS Linux release 7.8.2003 (Core)</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210719181422349.png" alt="image-20210719181422349"></p>
+<p><img src="image-20210719181645758.png" alt="image-20210719181645758"></p>
+<ol start="4">
+<li>下载和安装mysql源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p>​    注： 如果显示wget未找到命令，则需要先安装wget：</p>
+<p>​    yum -y install wget</p>
+<p>​    然后再次执行上面命令</p>
+<ol start="5">
+<li>安装mysql源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh mysql80-community-release-el7-3.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+
+<ol start="6">
+<li><p>检查是否安装成功：<br>执行成功后会在/etc/yum.repos.d/目录下生成两个repo文件mysql-community.repo及 mysql-community-source.repo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cd /etc/yum.repos.d/</span></span><br><span class="line">[root@localhost yum.repos.d]<span class="comment"># ls -l</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210719182324913.png" alt="image-20210719182324913"></p>
+</li>
+</ol>
+<ol start="7">
+<li><p>查看mysql相关资源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist enabled | grep <span class="string">&quot;mysql.*-community.*&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210719182420291.png" alt="image-20210719182420291"></p>
+</li>
+<li><p>选择masql版本（根据需求）</p>
+<p>使用MySQL Yum Repository安装MySQL，默认会选择当前最新的稳定版本</p>
+</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前yum repolist的所有版本</span></span><br><span class="line">yum repolist all | grep mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换版本</span></span><br><span class="line">sudo yum-config-manager --<span class="built_in">disable</span> mysql80-community</span><br><span class="line">sudo yum-config-manager --<span class="built_in">enable</span> mysql57-community</span><br></pre></td></tr></table></figure>
+
+
+<ol start="9">
+<li><p>安装mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+<p>该命令会安装MySQL服务器 (mysql-community-server) 及其所需的依赖、相关组件，包括mysql-community-client、mysql-community-common、mysql-community-libs等。安装时间会比较长</p>
+</li>
+</ol>
+<p>注：可能会报：<strong>Error: Unable to find a match: mysql-community-server</strong></p>
+<p>解决办法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum module <span class="built_in">disable</span> mysql</span><br><span class="line"></span><br><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+
+<ol start="10">
+<li>启动</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询状态</span></span><br><span class="line">systemctl status mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">systemctl stop mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart mysqld.service</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-修改密码及登录"><a href="#2-修改密码及登录" class="headerlink" title="2. 修改密码及登录"></a>2. 修改密码及登录</h2><h3 id="2-1-初始密码"><a href="#2-1-初始密码" class="headerlink" title="2.1 初始密码"></a>2.1 初始密码</h3><p>MySQL第一次启动后会创建超级管理员账号root@localhost，初始密码存储在日志文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&#x27;temporary password&#x27;</span> /var/<span class="built_in">log</span>/mysqld.log</span><br><span class="line"><span class="comment"># 2020-12-06T07:32:41.399112Z 6 [Note] [MY-010454] [Server] A </span></span><br><span class="line"><span class="comment"># temporary password is generated for root@localhost: ipx.ng;e/8gK</span></span><br><span class="line"></span><br><span class="line">icx.ax;e/9gK</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-2-修改默认密码"><a href="#2-2-修改默认密码" class="headerlink" title="2.2 修改默认密码"></a>2.2 修改默认密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先进行登录</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">Enter password: </span><br><span class="line">mysql&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"><span class="comment"># ERROR 1819 (HY000): Your password does not satisfy the current policy requirements </span></span><br><span class="line"><span class="comment">#密码太弱</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录其他服务器的mysql</span></span><br><span class="line">mysql -uroot -proot@123 -h192.168.88.130</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-3-修改密码校验强度："><a href="#2-3-修改密码校验强度：" class="headerlink" title="2.3 修改密码校验强度："></a>2.3 修改密码校验强度：</h3><h4 id="2-3-1-centos8以下"><a href="#2-3-1-centos8以下" class="headerlink" title="2.3.1 centos8以下"></a>2.3.1 centos8以下</h4><p>使用复杂密码，MySQL默认的密码策略是要包含数字、字母及特殊字符；<br>如果只是测试用，不想用那么复杂的密码，可以修改默认策略，即validate_password_policy（以及validate_password_length等相关参数），使其支持简单密码的设定，具体方法可以参考：设置密码策略；<br>修改配置文件<code>/etc/my.cnf</code>，添加validate_password=OFF，保存并重启MySQL</p>
+<h4 id="2-3-2-8以上"><a href="#2-3-2-8以上" class="headerlink" title="2.3.2 8以上"></a>2.3.2 8以上</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看mysql的密码强度</span></span><br><span class="line">mysql&gt; show variables like <span class="string">&#x27;%valid%&#x27;</span>;</span><br><span class="line"></span><br><span class="line">+--------------------------------------+--------+</span><br><span class="line">| Variable_name                        | Value  |</span><br><span class="line">+--------------------------------------+--------+</span><br><span class="line">| innodb_validate_tablespace_paths     | ON     |</span><br><span class="line">| validate_password.check_user_name    | ON     |</span><br><span class="line">| validate_password.dictionary_file    |        |</span><br><span class="line">| validate_password.length             | 8      |</span><br><span class="line">| validate_password.mixed_case_count   | 1      |</span><br><span class="line">| validate_password.number_count       | 1      |</span><br><span class="line"><span class="comment"># 密码强度 默认为 MEDIUM</span></span><br><span class="line">| validate_password.policy             | MEDIUM |</span><br><span class="line">| validate_password.special_char_count | 1      |</span><br><span class="line">+--------------------------------------+--------+</span><br><span class="line">8 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改密码强度为low validate_password.policy为查出的文件名</span></span><br><span class="line"><span class="built_in">set</span> global validate_password.policy=low;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-设置编码"><a href="#3-设置编码" class="headerlink" title="3. 设置编码"></a>3. 设置编码</h2><h3 id="3-1-查看编码"><a href="#3-1-查看编码" class="headerlink" title="3.1 查看编码"></a>3.1 查看编码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE <span class="string">&#x27;character%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-2-设置编码"><a href="#3-2-设置编码" class="headerlink" title="3.2 设置编码"></a>3.2 设置编码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">init-connect=<span class="string">&#x27;SET NAMES utf8&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-设置开机自启动"><a href="#4-设置开机自启动" class="headerlink" title="4. 设置开机自启动"></a>4. 设置开机自启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-关闭防火墙"><a href="#5-关闭防火墙" class="headerlink" title="5. 关闭防火墙"></a>5. 关闭防火墙</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># firewall防火墙</span></span><br><span class="line">systemctl status firewalld</span><br><span class="line"><span class="comment"># 查看转态</span></span><br><span class="line">firewall-cmd --state</span><br><span class="line"><span class="comment"># 开启</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="comment">#注意分清楚linux的版本 命令会有所不同</span></span><br><span class="line"><span class="comment">#查看防火墙规则</span></span><br><span class="line">firewall-cmd --list-all </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6-删除mysql"><a href="#6-删除mysql" class="headerlink" title="6. 删除mysql"></a>6. 删除mysql</h2><p>检查mariadb</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep mariadb</span><br></pre></td></tr></table></figure>
+
+
+<p>如无则跳过下面一条 删除mariadb</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># rpm -e --nodeps mariadb-server</span></span><br><span class="line">[root@localhost ~]<span class="comment"># rpm -e --nodeps mariadb</span></span><br><span class="line">[root@localhost ~]<span class="comment"># rpm -e --nodeps mariadb-libs</span></span><br></pre></td></tr></table></figure>
+
+
+<p>检查mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># rpm -qa|grep mysql</span></span><br><span class="line">mysql-community-client-8.0.22-1.el7.x86_64</span><br><span class="line">mysql-community-common-8.0.22-1.el7.x86_64</span><br><span class="line">mysql-community-client-plugins-8.0.22-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-8.0.22-1.el7.x86_64</span><br><span class="line">mysql80-community-release-el7-3.noarch</span><br><span class="line">mysql-community-libs-8.0.22-1.el7.x86_64</span><br><span class="line">mysql-community-server-8.0.22-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+
+<p>删除mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># rpm -e --nodeps xxx</span></span><br></pre></td></tr></table></figure>
+<p><img src="20201207100517190.png" alt="在这里插入图片描述"></p>
+<h1 id="SpringBoot-Mybatis-plus-mysql实现读写分离"><a href="#SpringBoot-Mybatis-plus-mysql实现读写分离" class="headerlink" title="SpringBoot + Mybatis-plus + mysql实现读写分离"></a>SpringBoot + Mybatis-plus + mysql实现读写分离</h1><blockquote>
+<p>参考网址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/blacksmith4/p/13748414.html">https://www.cnblogs.com/blacksmith4/p/13748414.html</a></p>
+</blockquote>
+<h2 id="1-数据库设置"><a href="#1-数据库设置" class="headerlink" title="1. 数据库设置"></a>1. 数据库设置</h2><h3 id="1-0-注"><a href="#1-0-注" class="headerlink" title="1.0 注"></a>1.0 注</h3><p>当主从复制读写分离建立成功后，从库就只能进行读取，不能进行其他的操作，否则会出错导致，Slave_SQL_Running变为No，响应报错信息会显示在Last_Error中：</p>
+<p>![img](4. 数据库读写分离/20190802141257449.png)</p>
+<p>出问题后解决方法：</p>
+<p>将主库的数据备份出来，然后再导入从库即可</p>
+<p>然后将从库断开<code>stop slave;</code></p>
+<p>再重新连接<code>start slave;</code>即可</p>
+<h3 id="1-1-修改uuid（对于克隆的虚拟机）"><a href="#1-1-修改uuid（对于克隆的虚拟机）" class="headerlink" title="1.1 修改uuid（对于克隆的虚拟机）"></a>1.1 修改uuid（对于克隆的虚拟机）</h3><p>克隆的虚拟机会导致每个数据库的 uuid 相同，需要修改为不同的 uuid。</p>
+<h4 id="1-1-1-登陆mysql"><a href="#1-1-1-登陆mysql" class="headerlink" title="1.1.1 登陆mysql"></a>1.1.1 登陆mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找mysql的安装地址</span></span><br><span class="line">show variables like <span class="string">&#x27;datadir&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过mysql生成一个uuid</span></span><br><span class="line">select uuid();</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-1-2-进入datadir目录"><a href="#1-1-2-进入datadir目录" class="headerlink" title="1.1.2 进入datadir目录"></a>1.1.2 进入datadir目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/mysql/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改server-uuid</span></span><br><span class="line">vi auto.cnf</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-2-主库配置"><a href="#1-2-主库配置" class="headerlink" title="1.2 主库配置"></a>1.2 主库配置</h3><p>主数据库（master）中新建一个用户用于从数据库（slave）读取主数据库二进制日志，sql 语句如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建角色</span></span><br><span class="line">mysql&gt; CREATE USER <span class="string">&#x27;master&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;master@123&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#分配权限</span></span><br><span class="line">mysql&gt; GRANT REPLICATION SLAVE ON *.* TO <span class="string">&#x27;repl&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#刷新权限</span></span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+
+
+<p>修改 mysql 配置文件<code>vim /etc/my.cnf</code>开启二进制日志，新增部分如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line">log-bin=master-bin</span><br><span class="line">log-bin-index=master-bin.index</span><br></pre></td></tr></table></figure>
+
+
+<p>重启数据库，查看主库状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br></pre></td></tr></table></figure>
+<p>![image-20210720133458497](4. 数据库读写分离/image-20210720133458497.png)</p>
+<h4 id="设置备份时需要忽略哪些库"><a href="#设置备份时需要忽略哪些库" class="headerlink" title="设置备份时需要忽略哪些库"></a>设置备份时需要忽略哪些库</h4><p>默认情况下备份是主库的全部操作都会备份到从库，实际可能需要忽略某些库，可以在主库中增加如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不同步哪些数据库</span></span><br><span class="line">binlog-ignore-db = mysql</span><br><span class="line">binlog-ignore-db = <span class="built_in">test</span></span><br><span class="line">binlog-ignore-db = information_schema</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只同步哪些数据库，除此之外，其他不同步</span></span><br><span class="line">binlog-do-db = game</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-3-从库配置"><a href="#1-3-从库配置" class="headerlink" title="1.3. 从库配置"></a>1.3. 从库配置</h3><h4 id="1-3-1-修改-mysql-配置文件"><a href="#1-3-1-修改-mysql-配置文件" class="headerlink" title="1.3.1 修改 mysql 配置文件"></a>1.3.1 修改 mysql 配置文件</h4><p><code>vim /etc/my.cnf</code>开启二进制日志，新增部分如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=2</span><br><span class="line">relay-log-index=slave-relay-bin.index</span><br><span class="line">relay-log=slave-relay-bin</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-3-2-连接主库"><a href="#1-3-2-连接主库" class="headerlink" title="1.3.2 连接主库"></a>1.3.2 连接主库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MASTER_HOST：主节点ip</span></span><br><span class="line"><span class="comment"># MASTER_USER：主节点角色</span></span><br><span class="line"><span class="comment"># MASTER_PASSWORD：主节点密码</span></span><br><span class="line"><span class="comment"># MASTER_LOG_FILE：主节点show master status中查出来的 file</span></span><br><span class="line"><span class="comment"># MASTER_LOG_POS：主节点show master status中查出来的 position</span></span><br><span class="line">CHANGE MASTER TO</span><br><span class="line">         MASTER_HOST=<span class="string">&#x27;192.168.88.130&#x27;</span>,</span><br><span class="line">         MASTER_USER=<span class="string">&#x27;master&#x27;</span>,</span><br><span class="line">         MASTER_PASSWORD=<span class="string">&#x27;master@123&#x27;</span>,</span><br><span class="line">         MASTER_LOG_FILE=<span class="string">&#x27;master-bin.000001&#x27;</span>,</span><br><span class="line">         MASTER_LOG_POS=156;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-3-3-启动链路-备份"><a href="#1-3-3-启动链路-备份" class="headerlink" title="1.3.3 启动链路/备份"></a>1.3.3 启动链路/备份</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启备份</span></span><br><span class="line">mysql&gt; start slave;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止备份</span></span><br><span class="line"><span class="comment"># 当需要修改master节点时需要先停止备份然后才能操作</span></span><br><span class="line">mysql&gt; STOP slave;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-3-4-查看是否连接成功"><a href="#1-3-4-查看是否连接成功" class="headerlink" title="1.3.4 查看是否连接成功"></a>1.3.4 查看是否连接成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status \G;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Slave_IO_Running 和 Slave_SQL_Running 必须都是 yes</span></span><br><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若Slave_IO_Running显示为connecting</span></span><br><span class="line"><span class="comment"># 可是在从节点服务器上远程登陆下主节点</span></span><br><span class="line"><span class="comment"># 其他原因可能为：https://blog.csdn.net/mbytes/article/details/86711508</span></span><br><span class="line"><span class="comment"># 1.网络不通</span></span><br><span class="line"><span class="comment"># 2.账户密码错误</span></span><br><span class="line"><span class="comment"># 3.防火墙</span></span><br><span class="line"><span class="comment"># 4.mysql配置文件问题</span></span><br><span class="line"><span class="comment"># 5.连接服务器时语法</span></span><br><span class="line"><span class="comment"># 6.主服务器mysql权限</span></span><br><span class="line">mysql -uroot -proot@123 -h192.168.88.130</span><br></pre></td></tr></table></figure>
+<p>![image-20210720152609117](4. 数据库读写分离/image-20210720152609117.png)</p>
+<h2 id="2-代码层面进行读写分离"><a href="#2-代码层面进行读写分离" class="headerlink" title="2. 代码层面进行读写分离"></a>2. 代码层面进行读写分离</h2><h3 id="2-0-前提"><a href="#2-0-前提" class="headerlink" title="2.0 前提"></a>2.0 前提</h3><p>需要先配置好mybatis-plus</p>
+<h3 id="2-1-依赖"><a href="#2-1-依赖" class="headerlink" title="2.1 依赖"></a>2.1 依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ###################mybatis-plus全部依赖################### --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- mysql连接 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- mybatis-plus启动 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 代码自动生成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- velocity前端模板，mybatis-puls分析sql性能时必须 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;dependency&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            &lt;version&gt;2.3&lt;/version&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;/dependency&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- aop --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- druid jdbc连接池 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-2-配置文件"><a href="#2-2-配置文件" class="headerlink" title="2.2 配置文件"></a>2.2 配置文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="comment"># 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml</span></span><br><span class="line">  <span class="comment"># 如果是放在resource目录 classpath:/mapper/*Mapper.xml</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">com/example/demo/mapper/*Mapper.xml</span></span><br><span class="line">  <span class="comment">#实体扫描，多个package用逗号或者分号分隔</span></span><br><span class="line">  <span class="attr">typeAliasesPackage:</span> <span class="string">com.example.demo.entity</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="comment">#主键类型  0:&quot;数据库ID自增&quot;, 1:&quot;用户输入ID&quot;,2:&quot;全局唯一ID (数字类型唯一ID)&quot;, 3:&quot;全局唯一ID UUID&quot;;</span></span><br><span class="line">    <span class="attr">id-type:</span> <span class="number">0</span></span><br><span class="line">    <span class="comment">#字段策略 0:&quot;忽略判断&quot;,1:&quot;非 NULL 判断&quot;),2:&quot;非空判断&quot;</span></span><br><span class="line">    <span class="attr">field-strategy:</span> <span class="number">1</span></span><br><span class="line">    <span class="comment">#刷新mapper 调试神器</span></span><br><span class="line">    <span class="attr">refresh-mapper:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">cache-enabled:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment">#配置JdbcTypeForNull</span></span><br><span class="line">    <span class="attr">jdbc-type-for-null:</span> <span class="string">&#x27;null&#x27;</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">write-db-ip:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.130</span></span><br><span class="line">  <span class="attr">read-db-ip:</span> <span class="number">192.168</span><span class="number">.88</span><span class="number">.133</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">activate:</span></span><br><span class="line">      <span class="attr">on-profile:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">master:</span></span><br><span class="line">      <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">jdbc:mysql://$&#123;spring.write-db-ip&#125;:3306/test</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">root@123</span></span><br><span class="line">      <span class="comment">#----数据库连接池配置----------------------</span></span><br><span class="line">      <span class="comment"># 下面为连接池的补充设置，应用到上面所有数据源中</span></span><br><span class="line">      <span class="comment"># 初始化大小，最小，最大</span></span><br><span class="line">      <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">      <span class="attr">minIdle:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">maxActive:</span> <span class="number">50</span></span><br><span class="line">      <span class="comment"># 配置获取连接等待超时的时间</span></span><br><span class="line">      <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">      <span class="comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span></span><br><span class="line">      <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">      <span class="comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span></span><br><span class="line">      <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">      <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">      <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">      <span class="comment"># 打开PSCache，并且指定每个连接上PSCache的大小</span></span><br><span class="line">      <span class="attr">poolPreparedStatements:</span> <span class="literal">false</span></span><br><span class="line">      <span class="comment">#maxPoolPreparedStatementPerConnectionSize: 20</span></span><br><span class="line">      <span class="comment"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&#x27;wall&#x27;用于防火墙</span></span><br><span class="line">      <span class="attr">filters:</span> <span class="string">stat,wall,slf4j</span></span><br><span class="line">      <span class="comment"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span></span><br><span class="line">      <span class="attr">connectionProperties:</span></span><br><span class="line">        <span class="attr">druid:</span></span><br><span class="line">          <span class="attr">stat:</span></span><br><span class="line">            <span class="attr">mergeSql:</span> <span class="literal">true</span></span><br><span class="line">            <span class="attr">slowSqlMillis:</span> <span class="number">5000</span></span><br><span class="line">      <span class="comment"># 合并多个DruidDataSource的监控数据</span></span><br><span class="line">      <span class="comment">#useGlobalDataSourceStat: true</span></span><br><span class="line">    <span class="attr">slave:</span></span><br><span class="line">      <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">jdbc:mysql://$&#123;spring.read-db-ip&#125;:3306/test</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">root@123</span></span><br><span class="line">      <span class="comment">#----数据库连接池配置----------------------</span></span><br><span class="line">      <span class="comment"># 下面为连接池的补充设置，应用到上面所有数据源中</span></span><br><span class="line">      <span class="comment"># 初始化大小，最小，最大</span></span><br><span class="line">      <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">      <span class="attr">minIdle:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">maxActive:</span> <span class="number">50</span></span><br><span class="line">      <span class="comment"># 配置获取连接等待超时的时间</span></span><br><span class="line">      <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">      <span class="comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span></span><br><span class="line">      <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">      <span class="comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span></span><br><span class="line">      <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">      <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">      <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">      <span class="comment"># 打开PSCache，并且指定每个连接上PSCache的大小</span></span><br><span class="line">      <span class="attr">poolPreparedStatements:</span> <span class="literal">false</span></span><br><span class="line">      <span class="comment">#maxPoolPreparedStatementPerConnectionSize: 20</span></span><br><span class="line">      <span class="comment"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&#x27;wall&#x27;用于防火墙</span></span><br><span class="line">      <span class="attr">filters:</span> <span class="string">stat,wall,slf4j</span></span><br><span class="line">      <span class="comment"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span></span><br><span class="line">      <span class="attr">connectionProperties:</span></span><br><span class="line">        <span class="attr">druid:</span></span><br><span class="line">          <span class="attr">stat:</span></span><br><span class="line">            <span class="attr">mergeSql:</span> <span class="literal">true</span></span><br><span class="line">            <span class="attr">slowSqlMillis:</span> <span class="number">5000</span></span><br><span class="line">      <span class="comment"># 合并多个DruidDataSource的监控数据</span></span><br><span class="line">      <span class="comment">#useGlobalDataSourceStat: true</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-3-SpringBoot启动类设置"><a href="#2-3-SpringBoot启动类设置" class="headerlink" title="2.3 SpringBoot启动类设置"></a>2.3 SpringBoot启动类设置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableCaching</span><span class="comment">//开启基于注解的缓存</span></span><br><span class="line"><span class="meta">@SpringBootApplication(exclude = &#123;DataSourceAutoConfiguration.class&#125;)</span> <span class="comment">// 设置动态数据源需要，禁用数据源自动配置</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若mybatis-plus的配置文件中未配置：开启springBoot事务，mapper文件扫描</p>
+<p>启动类中还需配置:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.bbdog.dao.mapper*&quot;)</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span><span class="comment">//开启springBoot事务</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-4-创建数据源类型"><a href="#2-4-创建数据源类型" class="headerlink" title="2.4 创建数据源类型"></a>2.4 创建数据源类型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SourceName</span> </span>&#123;</span><br><span class="line">    read(<span class="string">&quot;read&quot;</span>), write(<span class="string">&quot;write&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line"></span><br><span class="line">    SourceName(String value) &#123;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">value</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-5-构建切换数据源类"><a href="#2-5-构建切换数据源类" class="headerlink" title="2.5 构建切换数据源类"></a>2.5 构建切换数据源类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDataSourceContextHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;String&gt; contextHolder = <span class="keyword">new</span> ThreadLocal&lt;String&gt;() &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 将 read 数据源的 key作为默认数据源的 key</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> String <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> SourceName.read.value();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据源的 key集合，用于切换时判断数据源是否存在</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; dataSourceKeys = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切换数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setDataSourceKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        contextHolder.set(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getDataSourceKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> contextHolder.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 重置数据源</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">clearDataSourceKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        contextHolder.remove();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断是否包含数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key 数据源key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">containDataSourceKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dataSourceKeys.contains(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加数据源keys</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> keys</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">addDataSourceKeys</span><span class="params">(Collection&lt;? extends Object&gt; keys)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dataSourceKeys.addAll(keys);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-6-继承AbstractRoutingDataSource接口实现动态数据源"><a href="#2-6-继承AbstractRoutingDataSource接口实现动态数据源" class="headerlink" title="2.6 继承AbstractRoutingDataSource接口实现动态数据源"></a>2.6 继承AbstractRoutingDataSource接口实现动态数据源</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoChooseDataSource</span> <span class="keyword">extends</span> <span class="title">AbstractRoutingDataSource</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 如果不希望数据源在启动配置时就加载好，可以定制这个方法，从任何你希望的地方读取并返回数据源</span></span><br><span class="line"><span class="comment">     * 比如从数据库、文件、外部接口等读取数据源信息，并最终返回一个DataSource实现类对象即可</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> DataSource <span class="title">determineTargetDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.determineTargetDataSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 如果希望所有数据源在启动配置时就加载好，这里通过设置数据源Key值来切换数据，定制这个方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">determineCurrentLookupKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DynamicDataSourceContextHolder.getDataSourceKey();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置默认数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> defaultDataSource</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDefaultTargetDataSource</span><span class="params">(Object defaultDataSource)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.setDefaultTargetDataSource(defaultDataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dataSources</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTargetDataSources</span><span class="params">(Map&lt;Object, Object&gt; dataSources)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.setTargetDataSources(dataSources);</span><br><span class="line">        <span class="comment">// 将数据源的 key 放到数据源上下文的 key 集合中，用于切换时判断数据源是否有效</span></span><br><span class="line">        DynamicDataSourceContextHolder.addDataSourceKeys(dataSources.keySet());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-7-数据源配置类设置"><a href="#2-7-数据源配置类设置" class="headerlink" title="2.7 数据源配置类设置"></a>2.7 数据源配置类设置</h3><p>参照自动配置类MybatisPlusAutoConfiguration.java中的SqlSessionFactory配置来为添加自己的动态数据源 <code>可双击shift搜错MybatisPlusAutoConfiguration 查看该类内容</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 动态数据源配置**********************************↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line"><span class="comment">     ***************************/</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(name = &quot;write&quot;, destroyMethod = &quot;close&quot;, initMethod = &quot;init&quot;)</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource.master&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">master</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> druidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(name = &quot;read&quot;, destroyMethod = &quot;close&quot;, initMethod = &quot;init&quot;)</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource.slave&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">slave</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> druidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(&quot;dataSource&quot;)</span></span><br><span class="line">    <span class="meta">@Primary</span><span class="comment">//自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为首选者，否则将抛出异常</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">autoChooseDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        AutoChooseDataSource autoChooseDataSource = <span class="keyword">new</span> AutoChooseDataSource();</span><br><span class="line">        Map&lt;Object, Object&gt; dataSourceMap = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">2</span>);</span><br><span class="line">        dataSourceMap.put(SourceName.write.value(), master());</span><br><span class="line">        dataSourceMap.put(SourceName.read.value(), slave());</span><br><span class="line">        <span class="comment">// 将 read 数据源作为默认指定的数据源</span></span><br><span class="line">        autoChooseDataSource.setDefaultTargetDataSource(slave());</span><br><span class="line">        <span class="comment">// 将 read 和 write 数据源作为指定的数据源</span></span><br><span class="line">        autoChooseDataSource.setTargetDataSources(dataSourceMap);</span><br><span class="line">        <span class="keyword">return</span> autoChooseDataSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PlatformTransactionManager <span class="title">transactionManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 配置事务管理, 使用事务时在方法头部添加@Transactional注解即可</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(autoChooseDataSource());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 动态数据源配置**********************************↑↑↑↑↑↑↑↑↑↑↑↑↑↑</span></span><br><span class="line"><span class="comment">     ***************************/</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druidDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-8-创建数据源切换注解"><a href="#2-8-创建数据源切换注解" class="headerlink" title="2.8 创建数据源切换注解"></a>2.8 创建数据源切换注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> DataSource &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据源key值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">SourceName <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-9-创建数据源切换切面"><a href="#2-9-创建数据源切换切面" class="headerlink" title="2.9 创建数据源切换切面"></a>2.9 创建数据源切换切面</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Order(-1)</span>  <span class="comment">// 该切面应当先于 @Transactional 执行</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDataSourceAspect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger _log = LoggerFactory.getLogger(DynamicDataSourceAspect.class);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切换数据源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> point</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dataSource</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Before(&quot;@annotation(dataSource))</span><span class="string">&quot;)</span></span><br><span class="line"><span class="string">    public void switchDataSource(JoinPoint point, DataSource dataSource) &#123;</span></span><br><span class="line"><span class="string">        if (!DynamicDataSourceContextHolder.containDataSourceKey(dataSource.value().name())) &#123;</span></span><br><span class="line"><span class="string">            _log.error(&quot;</span>DataSource [&#123;&#125;] 不存在，使用默认 DataSource [&#123;&#125;] <span class="string">&quot;,</span></span><br><span class="line"><span class="string">                    dataSource.value(),</span></span><br><span class="line"><span class="string">                    DynamicDataSourceContextHolder.getDataSourceKey());</span></span><br><span class="line"><span class="string">        &#125; else &#123;</span></span><br><span class="line"><span class="string">            // 切换数据源</span></span><br><span class="line"><span class="string">            DynamicDataSourceContextHolder.setDataSourceKey(dataSource.value().name());</span></span><br><span class="line"><span class="string">            _log.debug(&quot;</span>切换 DataSource 至 [&#123;&#125;] ，引起切换方法是 [&#123;&#125;]<span class="string">&quot;,</span></span><br><span class="line"><span class="string">                    DynamicDataSourceContextHolder.getDataSourceKey(),</span></span><br><span class="line"><span class="string">                    point.getSignature());</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    /**</span></span><br><span class="line"><span class="string">     * 重置数据源</span></span><br><span class="line"><span class="string">     *</span></span><br><span class="line"><span class="string">     * @param point</span></span><br><span class="line"><span class="string">     * @param dataSource</span></span><br><span class="line"><span class="string">     */</span></span><br><span class="line"><span class="string">    @After(&quot;</span><span class="meta">@annotation(dataSource)</span>)<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    public void restoreDataSource(JoinPoint point, DataSource dataSource) &#123;</span></span><br><span class="line"><span class="string">        // 将数据源置为默认数据源</span></span><br><span class="line"><span class="string">        DynamicDataSourceContextHolder.clearDataSourceKey();</span></span><br><span class="line"><span class="string">        _log.debug(&quot;</span>重置 DataSource 至 [&#123;&#125;] ，引起重置的方法是 [&#123;&#125;]<span class="string">&quot;,</span></span><br><span class="line"><span class="string">                DynamicDataSourceContextHolder.getDataSourceKey(),</span></span><br><span class="line"><span class="string">                point.getSignature());</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-10-示例"><a href="#2-10-示例" class="headerlink" title="2.10 示例"></a>2.10 示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;list&quot;)</span></span><br><span class="line"><span class="comment">// 依靠注解，使用不同的数据源</span></span><br><span class="line"><span class="meta">@DataSource(SourceName.read)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUser</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;User&gt; list = userService.list();</span><br><span class="line">    <span class="keyword">return</span> JSONObject.toJSONString(list);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping(&quot;save&quot;)</span></span><br><span class="line"><span class="meta">@DataSource(SourceName.write)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">save</span> <span class="params">(<span class="meta">@RequestParam</span> String userName)</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setName(userName);</span><br><span class="line">    <span class="keyword">boolean</span> save = userService.save(user);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;null&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><h2 id="1-1130-Host-XXX-is-not-allowed-to-connect-to-this-MySQL-server。"><a href="#1-1130-Host-XXX-is-not-allowed-to-connect-to-this-MySQL-server。" class="headerlink" title="1. 1130 - Host XXX is not allowed to connect to this MySQL server。"></a>1. 1130 - Host XXX is not allowed to connect to this MySQL server。</h2><p>由于Mysql配置了不支持远程连接引起的</p>
+<h4 id="登录到服务器的数据库"><a href="#登录到服务器的数据库" class="headerlink" title="登录到服务器的数据库"></a>登录到服务器的数据库</h4><h4 id="查询主机配置信息"><a href="#查询主机配置信息" class="headerlink" title="查询主机配置信息"></a>查询主机配置信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"> </span><br><span class="line">select host from user <span class="built_in">where</span> user=<span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>可以看到当前主机配置信息为localhost.</p>
+<p><img src="image-20210720102035929.png" alt="image-20210720102035929"></p>
+<h4 id="修改配置信息"><a href="#修改配置信息" class="headerlink" title="修改配置信息"></a>修改配置信息</h4><p>将Host设置为通配符%</p>
+<p>Host列指定了允许用户登录所使用的IP，比如user=root Host=192.168.1.1。这里的意思就是说root用户只能通过192.168.1.1的客户端去访问。 user=root Host=localhost，表示只能通过本机客户端去访问。而%是个通配符，如果Host=192.168.1.%，那么就表示只要是IP地址前缀为“192.168.1.”的客户端都可以连接。如果Host=%，表示所有IP都有连接权限。 </p>
+<p><strong>注意：</strong></p>
+<p><strong>1. 在生产环境下不能为了省事将host设置为%，这样做会存在安全问题，具体的设置可以根据生产环境的IP进行设置；</strong></p>
+<p><strong>2. 修改成功后，若需要修改账户密码需要使用 ‘root’@’%’ 而不是 ‘root’@’localhost’ ；</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将host设置为%</span></span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user =<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行flush privileges使配置立即生效</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-Can-t-connect-MySQL-server"><a href="#2-Can-t-connect-MySQL-server" class="headerlink" title="2. Can`t connect MySQL server"></a>2. Can`t connect MySQL server</h2><p>![image-20210720140532803](4. 数据库读写分离/image-20210720140532803.png)</p>
+<ol>
+<li>查看mysql数据库是否启动</li>
+<li>查看防火墙是否未关闭</li>
+</ol>
+<h2 id="3-读写分离"><a href="#3-读写分离" class="headerlink" title="3. 读写分离"></a>3. 读写分离</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/" rel="tag"># 数据库设计</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/19/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/2.%20%E7%B4%A2%E5%BC%95/" rel="prev" title="索引">
+      <i class="fa fa-chevron-left"></i> 索引
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/23/java/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20mysql/3.%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/" rel="next" title="数据库设计">
+      数据库设计 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AE%89%E8%A3%85MySQL-rpm"><span class="nav-number">1.</span> <span class="nav-text">Linux安装MySQL - rpm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%8F%8A%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 修改密码及登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 初始密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 修改默认密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E6%A0%A1%E9%AA%8C%E5%BC%BA%E5%BA%A6%EF%BC%9A"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 修改密码校验强度：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-centos8%E4%BB%A5%E4%B8%8B"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">2.3.1 centos8以下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-8%E4%BB%A5%E4%B8%8A"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2.3.2 8以上</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">3. 设置编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%9F%A5%E7%9C%8B%E7%BC%96%E7%A0%81"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 查看编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%AE%BE%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 设置编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">1.4.</span> <span class="nav-text">4. 设置开机自启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.5.</span> <span class="nav-text">5. 关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%88%A0%E9%99%A4mysql"><span class="nav-number">1.6.</span> <span class="nav-text">6. 删除mysql</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot-Mybatis-plus-mysql%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot + Mybatis-plus + mysql实现读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">1. 数据库设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-0-%E6%B3%A8"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.0 注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BF%AE%E6%94%B9uuid%EF%BC%88%E5%AF%B9%E4%BA%8E%E5%85%8B%E9%9A%86%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.1 修改uuid（对于克隆的虚拟机）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E7%99%BB%E9%99%86mysql"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1.1.1 登陆mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-%E8%BF%9B%E5%85%A5datadir%E7%9B%AE%E5%BD%95"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">1.1.2 进入datadir目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%B8%BB%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.2 主库配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%87%E4%BB%BD%E6%97%B6%E9%9C%80%E8%A6%81%E5%BF%BD%E7%95%A5%E5%93%AA%E4%BA%9B%E5%BA%93"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">设置备份时需要忽略哪些库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E4%BB%8E%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.3. 从库配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-%E4%BF%AE%E6%94%B9-mysql-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">1.3.1 修改 mysql 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-%E8%BF%9E%E6%8E%A5%E4%B8%BB%E5%BA%93"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">1.3.2 连接主库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-%E5%90%AF%E5%8A%A8%E9%93%BE%E8%B7%AF-%E5%A4%87%E4%BB%BD"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">1.3.3 启动链路&#x2F;备份</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F"><span class="nav-number">2.1.4.4.</span> <span class="nav-text">1.3.4 查看是否连接成功</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BB%A3%E7%A0%81%E5%B1%82%E9%9D%A2%E8%BF%9B%E8%A1%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2. 代码层面进行读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-%E5%89%8D%E6%8F%90"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.0 前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%BE%9D%E8%B5%96"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.1 依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-SpringBoot%E5%90%AF%E5%8A%A8%E7%B1%BB%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.3 SpringBoot启动类设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%BA%90%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.4 创建数据源类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%9E%84%E5%BB%BA%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E6%BA%90%E7%B1%BB"><span class="nav-number">2.2.6.</span> <span class="nav-text">2.5 构建切换数据源类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E7%BB%A7%E6%89%BFAbstractRoutingDataSource%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-number">2.2.7.</span> <span class="nav-text">2.6 继承AbstractRoutingDataSource接口实现动态数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE%E7%B1%BB%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.2.8.</span> <span class="nav-text">2.7 数据源配置类设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%BA%90%E5%88%87%E6%8D%A2%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.2.9.</span> <span class="nav-text">2.8 创建数据源切换注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%BA%90%E5%88%87%E6%8D%A2%E5%88%87%E9%9D%A2"><span class="nav-number">2.2.10.</span> <span class="nav-text">2.9 创建数据源切换切面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.2.11.</span> <span class="nav-text">2.10 示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%A5%E9%94%99"><span class="nav-number">3.</span> <span class="nav-text">报错</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1130-Host-XXX-is-not-allowed-to-connect-to-this-MySQL-server%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">1. 1130 - Host XXX is not allowed to connect to this MySQL server。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.1.0.1.</span> <span class="nav-text">登录到服务器的数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.0.2.</span> <span class="nav-text">查询主机配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.0.3.</span> <span class="nav-text">修改配置信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Can-t-connect-MySQL-server"><span class="nav-number">3.2.</span> <span class="nav-text">2. Can&#96;t connect MySQL server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">3.3.</span> <span class="nav-text">3. 读写分离</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
