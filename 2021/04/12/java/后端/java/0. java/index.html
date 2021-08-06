@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="黄焖鸡在逃米饭">
 <meta property="og:description" content="aop：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/690102/201607/690102-20160725102547356-2054241629.png">
 <meta property="article:published_time" content="2021-04-12T02:08:56.000Z">
-<meta property="article:modified_time" content="2021-06-15T06:18:10.979Z">
+<meta property="article:modified_time" content="2021-08-06T10:09:32.083Z">
 <meta property="article:author" content="yoga">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/690102/201607/690102-20160725102547356-2054241629.png">
 
 <link rel="canonical" href="http://example.com/2021/04/12/java/%E5%90%8E%E7%AB%AF/java/0.%20java/">
 
@@ -214,7 +216,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-15 14:18:10" itemprop="dateModified" datetime="2021-06-15T14:18:10+08:00">2021-06-15</time>
+                <time title="修改时间：2021-08-06 18:09:32" itemprop="dateModified" datetime="2021-08-06T18:09:32+08:00">2021-08-06</time>
               </span>
 
           
@@ -328,42 +330,34 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">String str=<span class="keyword">null</span>;</span><br><span class="line">str=String.format(<span class="string">&quot;Hi,%s&quot;</span>, <span class="string">&quot;小超&quot;</span>);</span><br><span class="line">System.out.println(str);		<span class="comment">// Hi,小超</span></span><br><span class="line">str=String.format(<span class="string">&quot;Hi,%s %s %s&quot;</span>, <span class="string">&quot;小超&quot;</span>,<span class="string">&quot;是个&quot;</span>,<span class="string">&quot;大帅哥&quot;</span>);</span><br><span class="line">System.out.println(str);		<span class="comment">// Hi,小超 是个 大帅哥</span></span><br><span class="line">System.out.printf(<span class="string">&quot;字母c的大写是：%c %n&quot;</span>, <span class="string">&#x27;C&#x27;</span>);	<span class="comment">// 字母c的大写是：C 	</span></span><br><span class="line">System.out.printf(<span class="string">&quot;布尔结果是：%b %n&quot;</span>, <span class="string">&quot;小超&quot;</span>.equals(<span class="string">&quot;帅哥&quot;</span>));	<span class="comment">// 布尔结果是：false </span></span><br><span class="line">System.out.printf(<span class="string">&quot;100的一半是：%d %n&quot;</span>, <span class="number">100</span>/<span class="number">2</span>);	<span class="comment">// 100的一半是：50 </span></span><br><span class="line">System.out.printf(<span class="string">&quot;100的16进制数是：%x %n&quot;</span>, <span class="number">100</span>);	<span class="comment">// 100的16进制数是：64 </span></span><br><span class="line">System.out.printf(<span class="string">&quot;100的8进制数是：%o %n&quot;</span>, <span class="number">100</span>);	<span class="comment">// 100的8进制数是：144</span></span><br><span class="line">System.out.printf(<span class="string">&quot;50元的书打8.5折扣是：%f 元%n&quot;</span>, <span class="number">50</span>*<span class="number">0.85</span>);	<span class="comment">// 50元的书打8.5折扣是：42.500000 元</span></span><br><span class="line">System.out.printf(<span class="string">&quot;上面价格的16进制数是：%a %n&quot;</span>, <span class="number">50</span>*<span class="number">0.85</span>);	<span class="comment">// 上面价格的16进制数是：0x1.54p5</span></span><br><span class="line">System.out.printf(<span class="string">&quot;上面价格的指数表示：%e %n&quot;</span>, <span class="number">50</span>*<span class="number">0.85</span>);		<span class="comment">// 上面价格的指数表示：4.250000e+01</span></span><br><span class="line">System.out.printf(<span class="string">&quot;上面价格的指数和浮点数结果的长度较短的是：%g %n&quot;</span>, <span class="number">50</span>*<span class="number">0.85</span>);	<span class="comment">// 上面价格的指数和浮点数结果的长度较短的是：42.5000</span></span><br><span class="line">System.out.printf(<span class="string">&quot;上面的折扣是%d%% %n&quot;</span>, <span class="number">85</span>);	<span class="comment">// 上面的折扣是85%</span></span><br><span class="line">System.out.printf(<span class="string">&quot;字母A的散列码是：%h %n&quot;</span>, <span class="string">&#x27;A&#x27;</span>);	<span class="comment">//字母A的散列码是：41 </span></span><br></pre></td></tr></table></figure>
 
 
+<h1 id="native-交给操作系统去执行"><a href="#native-交给操作系统去执行" class="headerlink" title="native 交给操作系统去执行"></a>native 交给操作系统去执行</h1><h2 id="一、认识-native-即-JNI-Java-Native-Interface"><a href="#一、认识-native-即-JNI-Java-Native-Interface" class="headerlink" title="一、认识 native 即 JNI,Java Native Interface"></a>一、认识 native 即 JNI,Java Native Interface</h2><p>凡是一种语言，都希望是纯。比如解决某一个方案都喜欢就单单这个语言来写即可。Java平台有个用户和本地C代码进行互操作的API，称为Java Native Interface (Java本地接口)。</p>
+<p>native是与C++联合开发的时候用的！java自己开发不用的！</p>
+<h2 id="二、用-Java-调用-C-的“Hello，JNI”"><a href="#二、用-Java-调用-C-的“Hello，JNI”" class="headerlink" title="二、用 Java 调用 C 的“Hello，JNI”"></a>二、用 Java 调用 C 的“Hello，JNI”</h2><p>我们需要按照下班方便的步骤进行：</p>
+<p><strong>1、创建一个Java类</strong>，里面包含着一个 native 的方法和加载库的方法 loadLibrary。HelloNative.java 代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class HelloNative&#96;&#96;&#123;&#96;&#96;  &#96;&#96;static&#96;&#96;  &#96;&#96;&#123;&#96;&#96;    &#96;&#96;System.loadLibrary(&quot;HelloNative&quot;);&#96;&#96;  &#96;&#96;&#125;&#96;&#96;  &#96; &#96;  &#96;&#96;public static native void sayHello();&#96;&#96;  &#96; &#96;  &#96;&#96;@SuppressWarnings(&quot;static-access&quot;)&#96;&#96;  &#96;&#96;public static void main(String[] args)&#96;&#96;  &#96;&#96;&#123;&#96;&#96;    &#96;&#96;new HelloNative().sayHello();&#96;&#96;  &#96;&#96;&#125;&#96;&#96;&#125;</span><br></pre></td></tr></table></figure>
+<p>首先让大家注意的是native方法，那个加载库的到后面也起作用。native 关键字告诉编译器（其实是JVM）调用的是该方法在外部定义，这里指的是C。如果大家直接运行这个代码， JVM会告之：“A Java Exception has occurred.”控制台输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.UnsatisfiedLinkError: no HelloNative in java.library.path&#96;&#96;  &#96;&#96;at java.lang.ClassLoader.loadLibrary(Unknown Source)&#96;&#96;  &#96;&#96;at java.lang.Runtime.loadLibrary0(Unknown Source)&#96;&#96;  &#96;&#96;at java.lang.System.loadLibrary(Unknown Source)&#96;&#96;  &#96;&#96;at HelloNative.&lt;&#96;&#96;clinit&#96;&#96;&gt;(HelloNative.java:5)</span><br></pre></td></tr></table></figure>
+<p>这是程序使用它的时候，虚拟机说不知道如何找到sayHello。下面既可以手动写，自然泥瓦匠是用</p>
+<p>  <strong>2、运行javah</strong>，得到包含该方法的C声明<strong>头文件.h</strong></p>
+<p>将HelloNative.java ，简单地 javac javah，如图</p>
+<p>就得到了下面的 <strong>HelloNative.h文件</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* DO NOT EDIT THIS FILE - it is machine generated *&#x2F;&#96;&#96;#include &lt;&#96;&#96;jni.h&#96;&#96;&gt;&#96;&#96;&#x2F;* Header for class HelloNative *&#x2F;&#96; &#96;#ifndef _Included_HelloNative&#96;&#96;#define _Included_HelloNative&#96;&#96;#ifdef __cplusplus&#96;&#96;extern &quot;C&quot; &#123;&#96;&#96;#endif&#96;&#96;&#x2F;*&#96;&#96; &#96;&#96;* Class:   HelloNative&#96;&#96; &#96;&#96;* Method:  sayHello&#96;&#96; &#96;&#96;* Signature: ()V&#96;&#96; &#96;&#96;*&#x2F;&#96;&#96;JNIEXPORT void JNICALL Java_HelloNative_sayHello&#96;&#96; &#96;&#96;(JNIEnv *, jclass);&#96; &#96;#ifdef __cplusplus&#96;&#96;&#125;&#96;&#96;#endif&#96;&#96;#endif</span><br></pre></td></tr></table></figure>
+<p>jni.h 这个文件，在/%JAVA_HOME%include</p>
+<p>3、根据头文件，写<strong>C实现本地方法</strong>。</p>
+<p>这里我们简单地实现这个sayHello方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;HelloNative.h&quot;&#96;&#96;#include &lt;&#96;&#96;stdio.h&#96;&#96;&gt;&#96; &#96;JNIEXPORT void JNICALL Java_HelloNative_sayHello&#96;&#96;&#123;&#96;&#96;  &#96;&#96;printf(&quot;Hello，JNI&quot;);  &#96;&#96;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4、生成dll共享库</strong>，然后Java程序load库，<strong>调用</strong>即可。</p>
+<p>在Windows上，MinGW GCC 运行如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -m64 -Wl,--add-stdcall-alias -I&quot;C:\Program Files\Java\jdk1.7.0_71\include&quot; -I&quot;C:\Program Files\Java\jdk1.7.0_71\include\include\win32&quot; -shared -o HelloNative.dll HelloNative.c</span><br></pre></td></tr></table></figure>
+<p>-m64表示生成dll库是64位的。然后运行 <strong>HelloNative：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloNative</span><br></pre></td></tr></table></figure>
 
 
+<p>终于成功地可以看到控制台打印如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello，JNI</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="三、JNI-调用-C-流程图"><a href="#三、JNI-调用-C-流程图" class="headerlink" title="三、JNI 调用 C 流程图"></a>三、JNI 调用 C 流程图</h2><p><img src="https://images2015.cnblogs.com/blog/690102/201607/690102-20160725102547356-2054241629.png" alt="img"></p>
 
     </div>
 
@@ -444,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">aop：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-format%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">1. format方法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">aop：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-format%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">1. format方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#native-%E4%BA%A4%E7%BB%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%BB%E6%89%A7%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">native 交给操作系统去执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AE%A4%E8%AF%86-native-%E5%8D%B3-JNI-Java-Native-Interface"><span class="nav-number">3.1.</span> <span class="nav-text">一、认识 native 即 JNI,Java Native Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8-Java-%E8%B0%83%E7%94%A8-C-%E7%9A%84%E2%80%9CHello%EF%BC%8CJNI%E2%80%9D"><span class="nav-number">3.2.</span> <span class="nav-text">二、用 Java 调用 C 的“Hello，JNI”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81JNI-%E8%B0%83%E7%94%A8-C-%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">3.3.</span> <span class="nav-text">三、JNI 调用 C 流程图</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
