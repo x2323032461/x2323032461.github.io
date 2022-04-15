@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="转载自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;haoxinyue&#x2F;p&#x2F;5208136.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式系统唯一ID生成方案">
+<meta property="og:url" content="http://example.com/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="转载自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;haoxinyue&#x2F;p&#x2F;5208136.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/15700/201602/15700-20160227213048721-177386520.png">
+<meta property="og:image" content="http://images.blogjava.net/blogjava_net/dongbule/46046/o_111.PNG">
+<meta property="article:published_time" content="2021-05-08T01:29:18.000Z">
+<meta property="article:modified_time" content="2021-05-18T00:52:19.235Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="MybatisPlus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/15700/201602/15700-20160227213048721-177386520.png">
+
+<link rel="canonical" href="http://example.com/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>分布式系统唯一ID生成方案 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/z.%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分布式系统唯一ID生成方案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-08 09:29:18" itemprop="dateCreated datePublished" datetime="2021-05-08T09:29:18+08:00">2021-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-18 08:52:19" itemprop="dateModified" datetime="2021-05-18T08:52:19+08:00">2021-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/MybatisPlus/" itemprop="url" rel="index"><span itemprop="name">MybatisPlus</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="转载自："><a href="#转载自：" class="headerlink" title="转载自："></a>转载自：</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haoxinyue/p/5208136.html">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
+<a id="more"></a>
+
+
+
+<h1 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h1><p>系统唯一ID是我们在设计一个系统的时候常常会遇见的问题，也常常为这个问题而纠结。生成ID的方法有很多，适应不同的场景、需求以及性能要求。所以有些比较复杂的系统会有多个ID生成的策略。下面就介绍一些常见的ID生成策略。</p>
+<h2 id="1-数据库自增长序列或字段"><a href="#1-数据库自增长序列或字段" class="headerlink" title="1. 数据库自增长序列或字段"></a>1. 数据库自增长序列或字段</h2><p>最常见的方式。利用数据库，全数据库唯一。</p>
+<p>优点：</p>
+<p>1）简单，代码方便，性能可以接受。</p>
+<p>2）数字ID天然排序，对分页或者需要排序的结果很有帮助。</p>
+<p>缺点：</p>
+<p>1）不同数据库语法和实现不同，数据库迁移的时候或多数据库版本支持的时候需要处理。</p>
+<p>2）在单个数据库或读写分离或一主多从的情况下，只有一个主库可以生成。有单点故障的风险。</p>
+<p>3）在性能达不到要求的情况下，比较难于扩展。</p>
+<p>4）如果遇见多个系统需要合并或者涉及到数据迁移会相当痛苦。</p>
+<p>5）分表分库的时候会有麻烦。</p>
+<p>优化方案：</p>
+<p>1）针对主库单点，如果有多个Master库，则每个Master库设置的起始数字不一样，步长一样，可以是Master的个数。比如：Master1 生成的是 1，4，7，10，Master2生成的是2,5,8,11 Master3生成的是 3,6,9,12。这样就可以有效生成集群中的唯一ID，也可以大大降低ID生成数据库操作的负载。</p>
+<h2 id="2-UUID"><a href="#2-UUID" class="headerlink" title="2. UUID"></a>2. UUID</h2><p>常见的方式。可以利用数据库也可以利用程序生成，一般来说全球唯一。</p>
+<p>优点：</p>
+<p>1）简单，代码方便。</p>
+<p>2）生成ID性能非常好，基本不会有性能问题。</p>
+<p>3）全球唯一，在遇见数据迁移，系统数据合并，或者数据库变更等情况下，可以从容应对。</p>
+<p>缺点：</p>
+<p>1）没有排序，无法保证趋势递增。</p>
+<p>2）UUID往往是使用字符串存储，查询的效率比较低。</p>
+<p>3）存储空间比较大，如果是海量数据库，就需要考虑存储量的问题。</p>
+<p>4）传输数据量大</p>
+<p>5）不可读。</p>
+<h2 id="3-UUID的变种"><a href="#3-UUID的变种" class="headerlink" title="3. UUID的变种"></a>3. UUID的变种</h2><p>1）为了解决UUID不可读，可以使用UUID to Int64的方法，即</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 根据GUID获取唯一数字序列</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">GuidToInt64</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] bytes = Guid.NewGuid().ToByteArray();</span><br><span class="line">    <span class="keyword">return</span> BitConverter.ToInt64(bytes, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>2）为了解决UUID无序的问题，NHibernate在其主键生成方式中提供了Comb算法（combined guid/timestamp）。保留GUID的10个字节，用另6个字节表示GUID生成的时间（DateTime）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt; </span></span><br><span class="line"><span class="comment">/// Generate a new &lt;see cref=&quot;Guid&quot;/&gt; using the comb algorithm. </span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt; </span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Guid <span class="title">GenerateComb</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] guidArray = Guid.NewGuid().ToByteArray();</span><br><span class="line"> </span><br><span class="line">    DateTime baseDate = <span class="keyword">new</span> DateTime(<span class="number">1900</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    DateTime now = DateTime.Now;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Get the days and milliseconds which will be used to build    </span></span><br><span class="line">    <span class="comment">//the byte string    </span></span><br><span class="line">    TimeSpan days = <span class="keyword">new</span> TimeSpan(now.Ticks - baseDate.Ticks);</span><br><span class="line">    TimeSpan msecs = now.TimeOfDay;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Convert to a byte array        </span></span><br><span class="line">    <span class="comment">// Note that SQL Server is accurate to 1/300th of a    </span></span><br><span class="line">    <span class="comment">// millisecond so we divide by 3.333333    </span></span><br><span class="line">    <span class="keyword">byte</span>[] daysArray = BitConverter.GetBytes(days.Days);</span><br><span class="line">    <span class="keyword">byte</span>[] msecsArray = BitConverter.GetBytes((<span class="keyword">long</span>)</span><br><span class="line">      (msecs.TotalMilliseconds / <span class="number">3.333333</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Reverse the bytes to match SQL Servers ordering    </span></span><br><span class="line">    Array.Reverse(daysArray);</span><br><span class="line">    Array.Reverse(msecsArray);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Copy the bytes into the guid    </span></span><br><span class="line">    Array.Copy(daysArray, daysArray.Length - <span class="number">2</span>, guidArray,</span><br><span class="line">      guidArray.Length - <span class="number">6</span>, <span class="number">2</span>);</span><br><span class="line">    Array.Copy(msecsArray, msecsArray.Length - <span class="number">4</span>, guidArray,</span><br><span class="line">      guidArray.Length - <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Guid(guidArray);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>用上面的算法测试一下，得到如下的结果：作为比较，前面3个是使用COMB算法得出的结果，最后12个字符串是时间序（统一毫秒生成的3个UUID），过段时间如果再次生成，则12个字符串会比图示的要大。后面3个是直接生成的GUID。</p>
+<p><a target="_blank" rel="noopener" href="http://images2015.cnblogs.com/blog/15700/201602/15700-20160227213048174-1443183768.png"><img src="https://images2015.cnblogs.com/blog/15700/201602/15700-20160227213048721-177386520.png" alt="ODX}_`4N5X$F93OAS~`8Z)C"></a></p>
+<p>如果想把时间序放在前面，可以生成后改变12个字符串的位置，也可以修改算法类的最后两个Array.Copy。</p>
+<h2 id="4-Redis生成ID"><a href="#4-Redis生成ID" class="headerlink" title="4. Redis生成ID"></a>4. Redis生成ID</h2><p>当使用数据库来生成ID性能不够要求的时候，我们可以尝试使用Redis来生成ID。这主要依赖于Redis是单线程的，所以也可以用生成全局唯一的ID。可以用Redis的原子操作 INCR和INCRBY来实现。</p>
+<p>可以使用Redis集群来获取更高的吞吐量。假如一个集群中有5台Redis。可以初始化每台Redis的值分别是1,2,3,4,5，然后步长都是5。各个Redis生成的ID为：</p>
+<p>A：1,6,11,16,21</p>
+<p>B：2,7,12,17,22</p>
+<p>C：3,8,13,18,23</p>
+<p>D：4,9,14,19,24</p>
+<p>E：5,10,15,20,25</p>
+<p>这个，随便负载到哪个机确定好，未来很难做修改。但是3-5台服务器基本能够满足器上，都可以获得不同的ID。但是步长和初始值一定需要事先需要了。使用Redis集群也可以方式单点故障的问题。</p>
+<p>另外，比较适合使用Redis来生成每天从0开始的流水号。比如订单号=日期+当日自增长号。可以每天在Redis中生成一个Key，使用INCR进行累加。</p>
+<p>优点：</p>
+<p>1）不依赖于数据库，灵活方便，且性能优于数据库。</p>
+<p>2）数字ID天然排序，对分页或者需要排序的结果很有帮助。</p>
+<p>缺点：</p>
+<p>1）如果系统中没有Redis，还需要引入新的组件，增加系统复杂度。</p>
+<p>2）需要编码和配置的工作量比较大。</p>
+<h2 id="5-Twitter的snowflake算法（雪花算法）"><a href="#5-Twitter的snowflake算法（雪花算法）" class="headerlink" title="5. Twitter的snowflake算法（雪花算法）"></a>5. Twitter的snowflake算法（雪花算法）</h2><p>snowflake是Twitter开源的分布式ID生成算法，结果是一个long型的ID。其核心思想是：使用41bit作为毫秒数，10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID），12bit作为毫秒内的流水号（意味着每个节点在每毫秒可以产生 4096 个 ID），最后还有一个符号位，永远是0。具体实现的代码可以参看<a target="_blank" rel="noopener" href="https://github.com/twitter/snowflake%E3%80%82">https://github.com/twitter/snowflake。</a></p>
+<p>C#代码如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> From: https://github.com/twitter/snowflake</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> An object that generates IDs.</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> This is broken into a separate class in case</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> we ever want to support multiple worker threads</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> per process</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">IdWorker</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> workerId;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> datacenterId;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> sequence = <span class="number">0L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> twepoch = <span class="number">1288834974657L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> workerIdBits = <span class="number">5L</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> datacenterIdBits = <span class="number">5L</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> maxWorkerId = <span class="number">-1L</span> ^ (<span class="number">-1L</span> &lt;&lt; (<span class="built_in">int</span>)workerIdBits);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> maxDatacenterId = <span class="number">-1L</span> ^ (<span class="number">-1L</span> &lt;&lt; (<span class="built_in">int</span>)datacenterIdBits);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">long</span> sequenceBits = <span class="number">12L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> workerIdShift = sequenceBits;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> datacenterIdShift = sequenceBits + workerIdBits;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;</span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> sequenceMask = <span class="number">-1L</span> ^ (<span class="number">-1L</span> &lt;&lt; (<span class="built_in">int</span>)sequenceBits);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="built_in">long</span> lastTimestamp = <span class="number">-1L</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">object</span> syncRoot = <span class="keyword">new</span> <span class="built_in">object</span>();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">IdWorker</span>(<span class="params"><span class="built_in">long</span> workerId, <span class="built_in">long</span> datacenterId</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// sanity check for workerId</span></span><br><span class="line">            <span class="keyword">if</span> (workerId &gt; maxWorkerId || workerId &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="built_in">string</span>.Format(<span class="string">&quot;worker Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxWorkerId));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (datacenterId &gt; maxDatacenterId || datacenterId &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="built_in">string</span>.Format(<span class="string">&quot;datacenter Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxDatacenterId));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.workerId = workerId;</span><br><span class="line">            <span class="keyword">this</span>.datacenterId = datacenterId;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="built_in">long</span> <span class="title">nextId</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">lock</span> (syncRoot)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">long</span> timestamp = timeGen();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (timestamp &lt; lastTimestamp)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ApplicationException(<span class="built_in">string</span>.Format(<span class="string">&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;</span>, lastTimestamp - timestamp));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (lastTimestamp == timestamp)</span><br><span class="line">                &#123;</span><br><span class="line">                    sequence = (sequence + <span class="number">1</span>) &amp; sequenceMask;</span><br><span class="line">                    <span class="keyword">if</span> (sequence == <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        timestamp = tilNextMillis(lastTimestamp);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    sequence = <span class="number">0L</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                lastTimestamp = timestamp;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> ((timestamp - twepoch) &lt;&lt; (<span class="built_in">int</span>)timestampLeftShift) | (datacenterId &lt;&lt; (<span class="built_in">int</span>)datacenterIdShift) | (workerId &lt;&lt; (<span class="built_in">int</span>)workerIdShift) | sequence;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="built_in">long</span> <span class="title">tilNextMillis</span>(<span class="params"><span class="built_in">long</span> lastTimestamp</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="built_in">long</span> timestamp = timeGen();</span><br><span class="line">            <span class="keyword">while</span> (timestamp &lt;= lastTimestamp)</span><br><span class="line">            &#123;</span><br><span class="line">                timestamp = timeGen();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> timestamp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="built_in">long</span> <span class="title">timeGen</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="built_in">long</span>)(DateTime.UtcNow - <span class="keyword">new</span> DateTime(<span class="number">1970</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, DateTimeKind.Utc)).TotalMilliseconds;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>测试代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestIdWorker</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            HashSet&lt;<span class="keyword">long</span>&gt; set = <span class="keyword">new</span> HashSet&lt;<span class="keyword">long</span>&gt;();</span><br><span class="line">            IdWorker idWorker1 = <span class="keyword">new</span> IdWorker(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            IdWorker idWorker2 = <span class="keyword">new</span> IdWorker(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">            Thread t1 = <span class="keyword">new</span> Thread(() =&gt; DoTestIdWoker(idWorker1, set));</span><br><span class="line">            Thread t2 = <span class="keyword">new</span> Thread(() =&gt; DoTestIdWoker(idWorker2, set));</span><br><span class="line">            t1.IsBackground = <span class="keyword">true</span>;</span><br><span class="line">            t2.IsBackground = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">            t1.Start();</span><br><span class="line">            t2.Start();</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                Thread.Sleep(<span class="number">30000</span>);</span><br><span class="line">                t1.Abort();</span><br><span class="line">                t2.Abort();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception e)</span><br><span class="line">            &#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DoTestIdWoker</span><span class="params">(IdWorker idWorker, HashSet&lt;<span class="keyword">long</span>&gt; set)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">long</span> id = idWorker.nextId();</span><br><span class="line">                <span class="keyword">if</span> (!set.Add(id))</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;duplicate:&quot;</span> + id);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Thread.Sleep(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>snowflake算法可以根据自身项目的需要进行一定的修改。比如估算未来的数据中心个数，每个数据中心的机器数以及统一毫秒可以能的并发数来调整在算法中所需要的bit数。</p>
+<p>优点：</p>
+<p>1）不依赖于数据库，灵活方便，且性能优于数据库。</p>
+<p>2）ID按照时间在单机上是递增的。</p>
+<p>缺点：</p>
+<p>1）在单机上是递增的，但是由于涉及到分布式环境，每台机器上的时钟不可能完全同步，也许有时候也会出现不是全局递增的情况。</p>
+<h2 id="6-利用zookeeper生成唯一ID"><a href="#6-利用zookeeper生成唯一ID" class="headerlink" title="6. 利用zookeeper生成唯一ID"></a>6. 利用zookeeper生成唯一ID</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zookeeper主要通过其znode数据版本来生成序列号，可以生成32位和64位的数据版本号，客户端可以使用这个版本号来作为唯一的序列号。</span><br><span class="line">很少会使用zookeeper来生成唯一ID。主要是由于需要依赖zookeeper，并且是多步调用API，如果在竞争较大的情况下，需要考虑使用分布式锁。因此，性能在高并发的分布式环境下，也不甚理想。</span><br><span class="line"> </span><br><span class="line">7. MongoDB的ObjectId</span><br><span class="line">MongoDB的ObjectId和snowflake算法类似。它设计成轻量型的，不同的机器都能用全局唯一的同种方法方便地生成它。MongoDB 从一开始就设计用来作为分布式数据库，处理多个节点是一个核心要求。使其在分片环境中要容易生成得多。</span><br></pre></td></tr></table></figure>
+<p>其格式如下：</p>
+<p><img src="http://images.blogjava.net/blogjava_net/dongbule/46046/o_111.PNG" alt="img"></p>
+<p>前4 个字节是从标准纪元开始的时间戳，单位为秒。时间戳，与随后的5 个字节组合起来，提供了秒级别的唯一性。由于时间戳在前，这意味着ObjectId 大致会按照插入的顺序排列。这对于某些方面很有用，如将其作为索引提高效率。这4 个字节也隐含了文档创建的时间。绝大多数客户端类库都会公开一个方法从ObjectId 获取这个信息。<br>接下来的3 字节是所在主机的唯一标识符。通常是机器主机名的散列值。这样就可以确保不同主机生成不同的ObjectId，不产生冲突。<br>为了确保在同一台机器上并发的多个进程产生的ObjectId 是唯一的，接下来的两字节来自产生ObjectId 的进程标识符（PID）。<br>前9 字节保证了同一秒钟不同机器不同进程产生的ObjectId 是唯一的。后3 字节就是一个自动增加的计数器，确保相同进程同一秒产生的ObjectId 也是不一样的。同一秒钟最多允许每个进程拥有2563（16 777 216）个不同的ObjectId。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MybatisPlus/" rel="tag"># MybatisPlus</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/08/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/1.%20MybatisPlus%E4%BD%BF%E7%94%A8/" rel="prev" title="MybatisPlus使用">
+      <i class="fa fa-chevron-left"></i> MybatisPlus使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/10/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/2.%20%E4%B9%90%E8%A7%82%E9%94%81%E3%80%81%E6%82%B2%E8%A7%82%E9%94%81/" rel="next" title="乐观锁、悲观锁">
+      乐观锁、悲观锁 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E8%BD%BD%E8%87%AA%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">转载自：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%87%AA%E5%A2%9E%E9%95%BF%E5%BA%8F%E5%88%97%E6%88%96%E5%AD%97%E6%AE%B5"><span class="nav-number">2.1.</span> <span class="nav-text">1. 数据库自增长序列或字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-UUID"><span class="nav-number">2.2.</span> <span class="nav-text">2. UUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-UUID%E7%9A%84%E5%8F%98%E7%A7%8D"><span class="nav-number">2.3.</span> <span class="nav-text">3. UUID的变种</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Redis%E7%94%9F%E6%88%90ID"><span class="nav-number">2.4.</span> <span class="nav-text">4. Redis生成ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Twitter%E7%9A%84snowflake%E7%AE%97%E6%B3%95%EF%BC%88%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-number">2.5.</span> <span class="nav-text">5. Twitter的snowflake算法（雪花算法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%88%A9%E7%94%A8zookeeper%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80ID"><span class="nav-number">2.6.</span> <span class="nav-text">6. 利用zookeeper生成唯一ID</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

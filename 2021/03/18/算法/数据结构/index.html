@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="栈1. 说明若要将字母 a b c d 反方向排序 条件为一次只能移动一个字母  此时有一个容器，将字母按顺序依次放入容器中，全部放置完毕后  将最上边的依次弹出  由此即可得到反向排列后的字母 这个容器就叫栈（Stack），其只有一个口，所以只能两个操作：压栈push和出栈pop 虽然只有两个简单的操作但是使用其可以完成非常复杂的效果 2. 检查字符串括号是否对上{[()]}（语法检查）规则如下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="栈1. 说明若要将字母 a b c d 反方向排序 条件为一次只能移动一个字母  此时有一个容器，将字母按顺序依次放入容器中，全部放置完毕后  将最上边的依次弹出  由此即可得到反向排列后的字母 这个容器就叫栈（Stack），其只有一个口，所以只能两个操作：压栈push和出栈pop 虽然只有两个简单的操作但是使用其可以完成非常复杂的效果 2. 检查字符串括号是否对上{[()]}（语法检查）规则如下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210502213853350.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210502214108343.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210502214301074.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210502220847133.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506094253617.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506094400649.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506100302090.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506100417255.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506100532085.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506100609924.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506110409902.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506101317642.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506101519675.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210506101809386.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210630110521010.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630111925697.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630111844288.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630112254200.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630112803512.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630113948720.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630114137729.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630133105571.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210630133758172.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703140705762.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703140705762.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703141830811.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703141930165.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703142101713.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703142321072.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703142446526.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703145248535.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703145337808.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703145451047.png">
+<meta property="og:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/数据结构/image-20210703145557911.png">
+<meta property="article:published_time" content="2021-03-18T03:44:07.000Z">
+<meta property="article:modified_time" content="2021-07-03T07:00:01.173Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210502213853350.png">
+
+<link rel="canonical" href="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/18/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-18 11:44:07" itemprop="dateCreated datePublished" datetime="2021-03-18T11:44:07+08:00">2021-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-03 15:00:01" itemprop="dateModified" datetime="2021-07-03T15:00:01+08:00">2021-07-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h2><p>若要将字母 a b c d 反方向排序</p>
+<p>条件为一次只能移动一个字母</p>
+<p><img src="image-20210502213853350.png" alt="image-20210502213853350"></p>
+<p>此时有一个容器，将字母按顺序依次放入容器中，全部放置完毕后</p>
+<p><img src="image-20210502214108343.png" alt="image-20210502214108343"></p>
+<p>将最上边的依次弹出</p>
+<p><img src="image-20210502214301074.png" alt="image-20210502214301074"></p>
+<p>由此即可得到反向排列后的字母</p>
+<p><strong>这个容器就叫栈（Stack），其只有一个口，所以只能两个操作：压栈push和出栈pop</strong></p>
+<p>虽然只有两个简单的操作但是使用其可以完成非常复杂的效果</p>
+<h2 id="2-检查字符串括号是否对上-（语法检查）"><a href="#2-检查字符串括号是否对上-（语法检查）" class="headerlink" title="2. 检查字符串括号是否对上{[()]}（语法检查）"></a>2. 检查字符串括号是否对上{[()]}（语法检查）</h2><p>规则如下：</p>
+<ol>
+<li>所有左括号都入栈</li>
+<li>碰到右括号时则进行出栈操作，若左右括号匹配则抵消，若不匹配则表示未对上</li>
+</ol>
+<p><img src="image-20210502220847133.png" alt="image-20210502220847133"></p>
+<h3 id="java代码实现，使用到Stack类"><a href="#java代码实现，使用到Stack类" class="headerlink" title="java代码实现，使用到Stack类"></a>java代码实现，使用到<code>Stack</code>类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">5</span>);</span><br><span class="line">    map.put(<span class="string">&quot;[&quot;</span>, <span class="string">&quot;]&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;&#123;&quot;</span>, <span class="string">&quot;&#125;&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;(&quot;</span>, <span class="string">&quot;)&quot;</span>);</span><br><span class="line">    <span class="keyword">char</span>[] dataChar = str.toCharArray();</span><br><span class="line">    Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> item : dataChar) &#123;</span><br><span class="line">        String nowItem = String.valueOf(item);</span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(nowItem)) &#123;</span><br><span class="line">            stack.push(map.get(nowItem));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (stack.empty() || !nowItem.equals(stack.pop())) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-计算机如何计算1-2-3-4-5-6"><a href="#3-计算机如何计算1-2-3-4-5-6" class="headerlink" title="3. 计算机如何计算1+2*3+(4+5)*6"></a>3. 计算机如何计算1+2*3+(4+5)*6</h2><h3 id="旧方法："><a href="#旧方法：" class="headerlink" title="旧方法："></a><strong>旧方法</strong>：</h3><ol>
+<li>先扫一遍算式查看否有括号，优先计算括号中的</li>
+<li>再扫一遍算式查看否有乘号和除号，计算乘除</li>
+<li>最后在计算加减算法</li>
+</ol>
+<p>这种算法的效率就会比较低</p>
+<p><strong>更高效的方式为先转成一个中间态，去掉括号，将运算符放到数字后面</strong></p>
+<p><strong>运算符在中间的称为中缀表达式，运算符放在后边的叫做后缀表达式，也叫逆波兰表达式</strong></p>
+<h3 id="中缀表达式转换为后缀表达式（逆波兰表达式）："><a href="#中缀表达式转换为后缀表达式（逆波兰表达式）：" class="headerlink" title="中缀表达式转换为后缀表达式（逆波兰表达式）："></a>中缀表达式转换为后缀表达式（逆波兰表达式）：</h3><p>数字：</p>
+<ol>
+<li>所有的数字直接输出</li>
+</ol>
+<p>符号：</p>
+<ol>
+<li>运算符优先级高于栈内的（或栈空）要入栈，否则从堆栈中他拿出所有优先级更高或一样的运算符（或直到括号），再将当前的入栈</li>
+<li>左括号直接入栈</li>
+<li>若栈内包含左括号，运算符入栈遵从步骤：符号1（验证算式：2*(3*4+5)）</li>
+<li>若是右括号，栈内不断出栈直到碰到左括号</li>
+<li>最后将栈中全部出栈，即可得到后缀表达式</li>
+</ol>
+<p><img src="image-20210506094253617.png" alt="image-20210506094253617"></p>
+<p><img src="image-20210506094400649.png" alt="image-20210506094400649"></p>
+<p><img src="image-20210506100302090.png" alt="image-20210506100302090"></p>
+<p><img src="image-20210506100417255.png" alt="image-20210506100417255"></p>
+<p><img src="image-20210506100532085.png" alt="image-20210506100532085"></p>
+<p><img src="image-20210506100609924.png" alt="image-20210506100609924"></p>
+<h3 id="后缀表达式运算："><a href="#后缀表达式运算：" class="headerlink" title="后缀表达式运算："></a>后缀表达式运算：</h3><ol>
+<li><p>凡是数字就压栈</p>
+</li>
+<li><p>凡是运算符就出栈两次然后计算后压栈，</p>
+<p>先出栈的数字在运算符后，后出栈的在运算符前</p>
+<p>即： 栈中有23、2两个数字，23在下，2在上，运算符号为 - ，此时运算为23 - 2</p>
+<p><img src="image-20210506110409902.png" alt="image-20210506110409902"></p>
+</li>
+<li><p>最后栈内剩下的就是结果</p>
+</li>
+</ol>
+<p><img src="image-20210506101317642.png" alt="image-20210506101317642"></p>
+<p><img src="image-20210506101519675.png" alt="image-20210506101519675"></p>
+<p><img src="image-20210506101809386.png" alt="image-20210506101809386"></p>
+<h3 id="java实现-仅实现未优化v1"><a href="#java实现-仅实现未优化v1" class="headerlink" title="java实现  仅实现未优化v1"></a>java实现  仅实现未优化v1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//  String str = &quot;1+2*3+(4+5)*6&quot;;</span></span><br><span class="line">    String str = <span class="string">&quot;2*(3*4+5)&quot;</span>;</span><br><span class="line">    List&lt;Character&gt; count = count(str);</span><br><span class="line">    <span class="keyword">if</span> (count == <span class="keyword">null</span>) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;算式非法!&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(getResult(count));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Character&gt; <span class="title">count</span><span class="params">(String countStr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!Pattern.matches(<span class="string">&quot;^[0-9()*/+-]+$&quot;</span>, countStr)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] countChars = countStr.toCharArray();</span><br><span class="line">    <span class="comment">// 存储输出结果</span></span><br><span class="line">    List&lt;Character&gt; resultCharacterList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> countCharsItem : countChars) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Character.isDigit(countCharsItem)) &#123;</span><br><span class="line">            <span class="comment">// 数字直接输出</span></span><br><span class="line">            resultCharacterList.add(countCharsItem);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (countCharsItem == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 左括号直接入栈</span></span><br><span class="line">            stack.push(countCharsItem);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (countCharsItem == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 右括号不断出栈直到碰到左括号</span></span><br><span class="line">            <span class="keyword">char</span> popChar = stack.pop();</span><br><span class="line">            <span class="keyword">while</span> (popChar != <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                resultCharacterList.add(popChar);</span><br><span class="line">                popChar = stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (countCharsItem == <span class="string">&#x27;*&#x27;</span> || countCharsItem == <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 运算符优先级高于栈内的（或栈空）要入栈，否则从堆栈中他拿出所有优先级更高或一样的运算符（或直到括号），再将当前的入栈</span></span><br><span class="line">            <span class="keyword">if</span> (stack.empty()) &#123;</span><br><span class="line">                stack.push(countCharsItem);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">char</span> popChar = stack.pop();</span><br><span class="line">            <span class="keyword">if</span> (popChar == <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">                resultCharacterList.add(popChar);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.push(popChar);</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(countCharsItem);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (countCharsItem == <span class="string">&#x27;+&#x27;</span> || countCharsItem == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 当符号为加减时除非栈空或者最上层为左括号, </span></span><br><span class="line">            <span class="comment">// 否则都要出栈直到栈空或者最上层为左括号为止，之后将符号入栈</span></span><br><span class="line">            <span class="keyword">if</span> (stack.empty()) &#123;</span><br><span class="line">                stack.push(countCharsItem);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">char</span> popChar = stack.pop();</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (popChar == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                    stack.push(popChar);</span><br><span class="line">                    stack.push(countCharsItem);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    resultCharacterList.add(popChar);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (stack.empty()) &#123;</span><br><span class="line">                    stack.push(countCharsItem);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                popChar = stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 剩余符号依次出栈</span></span><br><span class="line">    <span class="keyword">while</span> (!stack.empty()) &#123;</span><br><span class="line">        resultCharacterList.add(stack.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resultCharacterList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getResult</span> <span class="params">(List&lt;Character&gt; list)</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; characterStack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    list.forEach(item -&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (Character.isDigit(item)) &#123;</span><br><span class="line">            <span class="comment">// 如果为数字则入栈</span></span><br><span class="line">            characterStack.push(Integer.parseInt(String.valueOf(item)));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> number1 = characterStack.pop();</span><br><span class="line">            <span class="keyword">int</span> number2 = characterStack.pop();</span><br><span class="line">            <span class="keyword">switch</span> (item) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                    characterStack.push(Math.addExact(number2, number1));</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                    characterStack.push(Math.subtractExact(number2, number1));</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                    characterStack.push(Math.multiplyExact(number2, number1));</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">                    characterStack.push(Math.floorDiv(number2, number1));</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> characterStack.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="1-二叉树特点"><a href="#1-二叉树特点" class="headerlink" title="1. 二叉树特点"></a>1. 二叉树特点</h2><p><img src="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20210630110521010.png" alt="image-20210630110521010"></p>
+<ol>
+<li>二叉树作为一个搜索树，其仅有一个根节点</li>
+<li>二叉树所有的节点最多有两个子节点，一左一右</li>
+<li>左子节点包括其子孙都小于父节点，父节点 小于 右子节点及其子孙，这一特性对于所有节点都成立</li>
+</ol>
+<h2 id="2-数据查找"><a href="#2-数据查找" class="headerlink" title="2. 数据查找"></a>2. 数据查找</h2><h3 id="2-1-实现"><a href="#2-1-实现" class="headerlink" title="2.1 实现"></a>2.1 实现</h3><p>如果现在要查找 <code>7</code> 这个值</p>
+<p>首先与根节点比较： 4 &lt; <code>7</code> ，因此继续与右子节点比较</p>
+<img src="数据结构/image-20210630111925697.png" alt="image-20210630111155594" style="zoom: 50%;" />
+
+
+
+<p>与根节点右子节点比较： 6 &lt; <code>7</code> ，因此查找节点 6 的右子节点</p>
+<img src="数据结构/image-20210630111844288.png" alt="image-20210630111255777" style="zoom:50%;" />
+
+<p>与节点 6 的右子节点比较：<code>7</code> = 7，输出</p>
+<blockquote>
+<p>整个过程共比较三次，即 树的高度 次</p>
+</blockquote>
+<h3 id="2-2-与线性数据结构比较（时间复杂度）"><a href="#2-2-与线性数据结构比较（时间复杂度）" class="headerlink" title="2.2 与线性数据结构比较（时间复杂度）"></a>2.2 与线性数据结构比较（时间复杂度）</h3><p>比如链表</p>
+<img src="数据结构/image-20210630112254200.png" alt="image-20210630112254200" style="zoom:67%;" />
+
+
+
+<p>此时如果同样需要查找<code>7</code>的话，需要从头开始，一个一个编译，一直到最后的 7<br>总共需要查找 7 次</p>
+<p>而如果存在非常多的数据时：<br>二叉树中每层会有 <code>2^n</code> 个节点</p>
+<img src="数据结构/image-20210630112803512.png" alt="image-20210630112803512" style="zoom:67%;" />
+
+
+
+<p>转换成链表的话：</p>
+<p>节点数为： 1 + 2 + 4 + …… + 2^n = 2^(n+1)-1</p>
+<p>反过来的话就是：log2(m + 1) - 1 = n</p>
+<blockquote>
+<p>即：<br>链表时间复杂度为：O(n)<br>二叉树时间复杂度为：O(log(n))</p>
+</blockquote>
+<h2 id="3-平衡二叉树"><a href="#3-平衡二叉树" class="headerlink" title="3. 平衡二叉树"></a>3. 平衡二叉树</h2><blockquote>
+<p>定义：任何节点的左子树和右子树的高度差不超过1，就可以成为平衡二叉树</p>
+</blockquote>
+<h3 id="3-1-二叉树平衡的好处"><a href="#3-1-二叉树平衡的好处" class="headerlink" title="3.1 二叉树平衡的好处"></a>3.1 二叉树平衡的好处</h3><p>二叉树不平衡的极致为线性结构的树，其时间复杂度为O(n)</p>
+<img src="数据结构/image-20210630113948720.png" alt="image-20210630113948720" style="zoom:67%;" />
+
+<p>将其转换成一个平衡二叉树后，时间复杂度为O(log(n))</p>
+<img src="数据结构/image-20210630114137729.png" alt="image-20210630114137729" style="zoom:67%;" />
+
+<p>而非极致的二叉树时间复杂度处于二者之间</p>
+<p>O(n) &lt; 二叉树 &lt; O(log(n))</p>
+<blockquote>
+<p>所以：平衡二叉树为二叉树查询中最优的解</p>
+</blockquote>
+<h3 id="3-2-如何保持平衡状态-AVL树"><a href="#3-2-如何保持平衡状态-AVL树" class="headerlink" title="3.2 如何保持平衡状态  AVL树"></a>3.2 如何保持平衡状态  AVL树</h3><h4 id="3-2-0-不平衡类型确认"><a href="#3-2-0-不平衡类型确认" class="headerlink" title="3.2.0 不平衡类型确认"></a>3.2.0 不平衡类型确认</h4><p>在该二叉树中插入数字 1</p>
+<img src="数据结构/image-20210630133105571.png" alt="image-20210630133105571" style="zoom:67%;" />
+
+<p>插入后的二叉树如图：</p>
+<img src="数据结构/image-20210630133758172.png" alt="image-20210630133721869" style="zoom:67%;" />
+
+<p>此时节点9的左子树有三层，而右子树只有一层，变的不平衡了</p>
+<p>现在从插入的节点1 出发向上追寻最近的不平衡子树的根节点</p>
+<p>可以看出节点3 与 节点6 均为平衡节点，继续向上找，节点9为不平衡节点，</p>
+<p>因此节点9需要进行调整。</p>
+<p>调整类型确认：</p>
+<p>查看 由节点9 到 节点1 的路径，可以看出均在父节点左侧，即为：左左类型</p>
+<img src="数据结构/image-20210703140705762.png" alt="image-20210703140705762" style="zoom:67%;" />
+
+<h4 id="3-2-1-左左类型调整"><a href="#3-2-1-左左类型调整" class="headerlink" title="3.2.1 左左类型调整"></a>3.2.1 左左类型调整</h4><img src="数据结构/image-20210703140705762.png" alt="image-20210703140705762" style="zoom: 50%;" />
+
+<p>将 不平衡节点及其两个子节点单独提出，<br>然后进行右旋，<br>也就是将 不平衡节点的左子节点6 作为根节点</p>
+<img src="数据结构/image-20210703141830811.png" alt="image-20210703141830811" style="zoom: 50%;" />
+
+<p>然后将剩余的节点1、3、7插入树中</p>
+<img src="数据结构/image-20210703141930165.png" alt="image-20210703141930165" style="zoom:50%;" />
+
+
+
+<h4 id="3-2-2-左右类型调整"><a href="#3-2-2-左右类型调整" class="headerlink" title="3.2.2 左右类型调整"></a>3.2.2 左右类型调整</h4><img src="数据结构/image-20210703142101713.png" alt="image-20210703142101713" style="zoom:50%;" />
+
+<p>将节点3、5、7左旋</p>
+<p>调整剩下的6<br><code>此时树变为左左类型不平衡树</code></p>
+<img src="数据结构/image-20210703142321072.png" alt="image-20210703142321072" style="zoom:50%;" />
+
+<p>将节点7、9、11右旋</p>
+<img src="数据结构/image-20210703142446526.png" alt="image-20210703142446526" style="zoom:50%;" />
+
+<h4 id="3-2-3-右右类型调整"><a href="#3-2-3-右右类型调整" class="headerlink" title="3.2.3 右右类型调整"></a>3.2.3 右右类型调整</h4><img src="数据结构/image-20210703145248535.png" alt="image-20210703145248535" style="zoom:50%;" />
+
+<p>与左左类型类似，<br>先将节点5、6、9左旋<br>然后将剩余的节点插入树中</p>
+<img src="数据结构/image-20210703145337808.png" alt="image-20210703145337808" style="zoom:50%;" />
+
+
+
+<h4 id="3-2-4-右左类型"><a href="#3-2-4-右左类型" class="headerlink" title="3.2.4 右左类型"></a>3.2.4 右左类型</h4><img src="数据结构/image-20210703145451047.png" alt="image-20210703145451047" style="zoom:50%;" />
+
+<p>先将节点8、11、13右旋，<br>调整节点7的位置<br><code>此时树变为右右类型不平衡树</code></p>
+<img src="数据结构/image-20210703145557911.png" alt="image-20210703145557911" style="zoom:50%;" />
+
+<p>然后将节点5、6、8左旋，最后调整剩余节点的位置</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/17/%E6%8A%80%E6%9C%AF/ELK%20stack/1.%20Elasticsearch%E5%8F%8AHead%E5%AE%89%E8%A3%85/" rel="prev" title="Elasticsearch及Head安装">
+      <i class="fa fa-chevron-left"></i> Elasticsearch及Head安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/18/java/%E5%90%8E%E7%AB%AF/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="多线程">
+      多线程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%88"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A3%80%E6%9F%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%AC%E5%8F%B7%E6%98%AF%E5%90%A6%E5%AF%B9%E4%B8%8A-%EF%BC%88%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">2. 检查字符串括号是否对上{[()]}（语法检查）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%88%B0Stack%E7%B1%BB"><span class="nav-number">1.2.1.</span> <span class="nav-text">java代码实现，使用到Stack类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%971-2-3-4-5-6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 计算机如何计算1+2*3+(4+5)*6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A7%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">旧方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%89%EF%BC%9A"><span class="nav-number">1.3.2.</span> <span class="nav-text">中缀表达式转换为后缀表达式（逆波兰表达式）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="nav-number">1.3.3.</span> <span class="nav-text">后缀表达式运算：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%AE%9E%E7%8E%B0-%E4%BB%85%E5%AE%9E%E7%8E%B0%E6%9C%AA%E4%BC%98%E5%8C%96v1"><span class="nav-number">1.3.4.</span> <span class="nav-text">java实现  仅实现未优化v1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">1. 二叉树特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E6%9F%A5%E6%89%BE"><span class="nav-number">2.2.</span> <span class="nav-text">2. 数据查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%B8%8E%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%AF%94%E8%BE%83%EF%BC%88%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%89"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 与线性数据结构比较（时间复杂度）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.3.</span> <span class="nav-text">3. 平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B9%B3%E8%A1%A1%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 二叉树平衡的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E5%B9%B3%E8%A1%A1%E7%8A%B6%E6%80%81-AVL%E6%A0%91"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 如何保持平衡状态  AVL树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-0-%E4%B8%8D%E5%B9%B3%E8%A1%A1%E7%B1%BB%E5%9E%8B%E7%A1%AE%E8%AE%A4"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">3.2.0 不平衡类型确认</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-%E5%B7%A6%E5%B7%A6%E7%B1%BB%E5%9E%8B%E8%B0%83%E6%95%B4"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">3.2.1 左左类型调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-%E5%B7%A6%E5%8F%B3%E7%B1%BB%E5%9E%8B%E8%B0%83%E6%95%B4"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">3.2.2 左右类型调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-%E5%8F%B3%E5%8F%B3%E7%B1%BB%E5%9E%8B%E8%B0%83%E6%95%B4"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">3.2.3 右右类型调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-%E5%8F%B3%E5%B7%A6%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">3.2.4 右左类型</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

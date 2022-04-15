@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven环境下创建多模块项目">
+<meta property="og:url" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="说明">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210429133141627.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20211009110524401.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428163451788.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428091646944.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428091749905.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428092100226.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428170856216.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210428170928332.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210430094742964.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210430095508827.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210914143722278.png">
+<meta property="og:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210914144200432.png">
+<meta property="article:published_time" content="2021-04-28T01:01:10.000Z">
+<meta property="article:modified_time" content="2021-10-09T05:56:14.747Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="maven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/image-20210429133141627.png">
+
+<link rel="canonical" href="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>maven环境下创建多模块项目 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/28/maven/1.%20maven%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          maven环境下创建多模块项目
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-28 09:01:10" itemprop="dateCreated datePublished" datetime="2021-04-28T09:01:10+08:00">2021-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-09 13:56:14" itemprop="dateModified" datetime="2021-10-09T13:56:14+08:00">2021-10-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><a id="more"></a>
+
+<p>Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的复用，便于维护和管理。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">　　项目结构如下：</span><br><span class="line"></span><br><span class="line">  　　　　test-hd-parent 　　(父级)</span><br><span class="line">       　　　　  ---pom.xml</span><br><span class="line">       　　　　  ---test-hd-api   　　　    (第三方接口层)</span><br><span class="line">            　　　　　　  ----pom.xml    </span><br><span class="line">    　　　　　  ---test-hd-foundation     (基础工具层)</span><br><span class="line">            　　　　　　  ----pom.xml</span><br><span class="line">       　　　　  ---test-hd-resource　    (资源层) </span><br><span class="line">              　　　　　　----pom.xml</span><br><span class="line">       　　　　  ---test-hd-service  　　   (逻辑业务层)</span><br><span class="line">            　　　　　　  ----pom.xml</span><br><span class="line">    　　　　　  ---test-hd-modules  　　 (web层)</span><br><span class="line">              　　　　　　----pom.xml</span><br><span class="line">     　　　　 　　  　　---test-hd-www   　　  　　(web模块1)</span><br><span class="line">                  　　　　　  　　 ----pom.xml</span><br><span class="line">     　　　　 　　  　　---test-hd-admin 　　   　　(web模块2)</span><br><span class="line">                  　　　　　  　　 ----pom.xml　　</span><br></pre></td></tr></table></figure>
+
+
+<p>让每个模块独立,高内聚,低耦合.不同模块之间保持自己的完整性.</p>
+<p>可以互相不干扰.方便以后的维护开发</p>
+<p>子模块可以使用父模块的依赖</p>
+<h2 id="依赖共享关系："><a href="#依赖共享关系：" class="headerlink" title="依赖共享关系："></a>依赖共享关系：</h2><h3 id="0-项目依赖中DepencyManagement和Dependencies的区别"><a href="#0-项目依赖中DepencyManagement和Dependencies的区别" class="headerlink" title="0. 项目依赖中DepencyManagement和Dependencies的区别"></a>0. 项目依赖中DepencyManagement和Dependencies的区别</h3><p>地址： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/feibazhf/p/7886617.html">https://www.cnblogs.com/feibazhf/p/7886617.html</a></p>
+<p>通过DepencyManagement来管理jar包的版本，让子项目中引用一个依赖而不用显示的列出版本号。Maven会沿着父子层次向上走，直到找到一个拥有dependencyManagement元素的项目，然后它就会使用在这个dependencyManagement元素中指定的版本号。<br>所有声明在dependencies里的依赖都会自动引入，并默认被所有的子项目继承。</p>
+<p>即通过DepencyManagement管理版本号，子项目中仍需引入依赖，但不用声明版本号，<br>通过Dependencies进行依赖，该依赖被子模块继承</p>
+<h3 id="1-子模块可以使用父模块的依赖："><a href="#1-子模块可以使用父模块的依赖：" class="headerlink" title="1. 子模块可以使用父模块的依赖："></a>1. 子模块可以使用父模块的依赖：</h3><p>当父模块存在依赖时，若子模块还要添加该依赖则会有重复警告</p>
+<p><img src="image-20210429133141627.png" alt="image-20210429133141627"></p>
+<h3 id="2-兄弟模块之间无法共享依赖："><a href="#2-兄弟模块之间无法共享依赖：" class="headerlink" title="2. 兄弟模块之间无法共享依赖："></a>2. 兄弟模块之间无法共享依赖：</h3><p>因此多个模块使用的依赖可以提到父模块中</p>
+<h2 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h2><p>两个模块不能相互依赖，否则效果类似死循环</p>
+<p>会报错 ：</p>
+<p><code>Error:java: Annotation processing is not supported for module cycles. Please ensure that all modules from cycle [user-manage,utils] are excluded from annotation processing</code></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="父模块中引入的依赖不下载还一直爆红"><a href="#父模块中引入的依赖不下载还一直爆红" class="headerlink" title="父模块中引入的依赖不下载还一直爆红"></a>父模块<dependencyManagement>中引入的依赖不下载还一直爆红</h2><p><img src="image-20211009110524401.png" alt="image-20211009110524401"></p>
+<p>父模块<dependencyManagement>中引入的依赖不下载还一直爆红</p>
+<p>原因为<dependencyManagement>中的依赖子模块中尚未使用，父模块中相当于一直引用的是一个空的依赖，因此会一直爆红，只有子模块中引用时才会下载。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>maven创建多模块项目并应用springboot框架<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/meitanzai/p/10945085.html">https://www.cnblogs.com/meitanzai/p/10945085.html</a></p>
+<h2 id="1-创建父maven项目"><a href="#1-创建父maven项目" class="headerlink" title="1. 创建父maven项目"></a>1. 创建父maven项目</h2><p><img src="image-20210428163451788.png" alt="image-20210428163451788"></p>
+<h2 id="2-删除父模块中的src目录"><a href="#2-删除父模块中的src目录" class="headerlink" title="2.删除父模块中的src目录"></a>2.删除父模块中的src目录</h2><h2 id="3-创建子模块"><a href="#3-创建子模块" class="headerlink" title="3. 创建子模块"></a>3. 创建子模块</h2><p><img src="image-20210428091646944.png" alt="image-20210428091646944"></p>
+<p>点击modules –&gt; New Module创建子模块</p>
+<p><img src="image-20210428091749905.png" alt="image-20210428091749905"></p>
+<p>选择maven 选中 Create from archetype 复选框 选择maven模板 点击Next ，若为普通模块则不需要勾选</p>
+<p><img src="image-20210428092100226.png" alt="image-20210428092100226"></p>
+<p>选择父模块，修改模块名</p>
+<p><img src="image-20210428170856216.png" alt="image-20210428170856216"></p>
+<p>配置maven信息</p>
+<p><img src="image-20210428170928332.png" alt="image-20210428170928332"></p>
+<h1 id="子模块调用另一个子模块的方法"><a href="#子模块调用另一个子模块的方法" class="headerlink" title="子模块调用另一个子模块的方法"></a>子模块调用另一个子模块的方法</h1><p>如：user模块调用utils模块的方法</p>
+<h2 id="1-首先为utils模块添加版本"><a href="#1-首先为utils模块添加版本" class="headerlink" title="1. 首先为utils模块添加版本"></a>1. 首先为utils模块添加版本</h2><p><code>如：&lt;version&gt;0.0.1&lt;/version&gt;</code></p>
+<p><img src="image-20210430094742964.png" alt="image-20210430094742964"></p>
+<h2 id="2-user模块中引入utils模块"><a href="#2-user模块中引入utils模块" class="headerlink" title="2. user模块中引入utils模块"></a>2. user模块中引入utils模块</h2><p>必须要有<code>&lt;scope&gt;compile&lt;/scope&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.yoga<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>utils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>对应关系</p>
+<p><img src="image-20210430095508827.png" alt="image-20210430095508827"></p>
+<h2 id="3-此时就可以正常使用了"><a href="#3-此时就可以正常使用了" class="headerlink" title="3. 此时就可以正常使用了"></a>3. 此时就可以正常使用了</h2><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="使用某个模块存储其他模块都需要的东西"><a href="#使用某个模块存储其他模块都需要的东西" class="headerlink" title="使用某个模块存储其他模块都需要的东西"></a>使用某个模块存储其他模块都需要的东西</h2><blockquote>
+<p>如：在service-common模块中存储常量或工具类<br>该模块由于会作为jar包引入其余模块因此，若需要做拦截时可以在该模块中进行</p>
+</blockquote>
+<p>项目结构如图：</p>
+<p><img src="image-20210914143722278.png" alt="image-20210914143722278"></p>
+<p>创建项目分化好模块后在父项目依赖中添加常量模块的依赖</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.***&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;***-common&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+<p>此时common模块将会作为jar包的形式出现在业务模块中</p>
+<p><img src="image-20210914144200432.png" alt="image-20210914144200432"></p>
+<h1 id="多模块打包"><a href="#多模块打包" class="headerlink" title="多模块打包"></a>多模块打包</h1><p>maven多模块项目打包需添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 文件名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>business<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/maven/" rel="tag"># maven</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/27/java/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MybatisPlus/0.%20MybatisPlus/" rel="prev" title="MybatisPlus">
+      <i class="fa fa-chevron-left"></i> MybatisPlus
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/28/maven/0.%20%E5%BC%95%E5%85%A5/" rel="next" title="引入">
+      引入 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%85%B1%E4%BA%AB%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">依赖共享关系：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E4%B8%ADDepencyManagement%E5%92%8CDependencies%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text">0. 项目依赖中DepencyManagement和Dependencies的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%90%E6%A8%A1%E5%9D%97%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%88%B6%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BE%9D%E8%B5%96%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">1. 子模块可以使用父模块的依赖：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%85%84%E5%BC%9F%E6%A8%A1%E5%9D%97%E4%B9%8B%E9%97%B4%E6%97%A0%E6%B3%95%E5%85%B1%E4%BA%AB%E4%BE%9D%E8%B5%96%EF%BC%9A"><span class="nav-number">1.1.3.</span> <span class="nav-text">2. 兄弟模块之间无法共享依赖：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">注：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%B6%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%BC%95%E5%85%A5%E7%9A%84%E4%BE%9D%E8%B5%96%E4%B8%8D%E4%B8%8B%E8%BD%BD%E8%BF%98%E4%B8%80%E7%9B%B4%E7%88%86%E7%BA%A2"><span class="nav-number">2.1.</span> <span class="nav-text">父模块中引入的依赖不下载还一直爆红</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E7%88%B6maven%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.1.</span> <span class="nav-text">1. 创建父maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%A0%E9%99%A4%E7%88%B6%E6%A8%A1%E5%9D%97%E4%B8%AD%E7%9A%84src%E7%9B%AE%E5%BD%95"><span class="nav-number">3.2.</span> <span class="nav-text">2.删除父模块中的src目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="nav-number">3.3.</span> <span class="nav-text">3. 创建子模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">子模块调用另一个子模块的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%A6%96%E5%85%88%E4%B8%BAutils%E6%A8%A1%E5%9D%97%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9C%AC"><span class="nav-number">4.1.</span> <span class="nav-text">1. 首先为utils模块添加版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-user%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%BC%95%E5%85%A5utils%E6%A8%A1%E5%9D%97"><span class="nav-number">4.2.</span> <span class="nav-text">2. user模块中引入utils模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%AD%A4%E6%97%B6%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BA%86"><span class="nav-number">4.3.</span> <span class="nav-text">3. 此时就可以正常使用了</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9F%90%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%AD%98%E5%82%A8%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97%E9%83%BD%E9%9C%80%E8%A6%81%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">5.1.</span> <span class="nav-text">使用某个模块存储其他模块都需要的东西</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85"><span class="nav-number">6.</span> <span class="nav-text">多模块打包</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

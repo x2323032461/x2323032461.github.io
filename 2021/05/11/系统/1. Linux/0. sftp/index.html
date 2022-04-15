@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="linux如何搭建sftp服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sftp">
+<meta property="og:url" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="linux如何搭建sftp服务器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190327279-1203813997.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190555834-68000529.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190651310-1496501090.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190803931-466530668.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190901342-326185468.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721191003265-417048492.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721191029329-1126142717.png">
+<meta property="og:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721191102776-933184056.png">
+<meta property="article:published_time" content="2021-05-11T09:09:53.000Z">
+<meta property="article:modified_time" content="2021-07-12T09:25:37.000Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="sftp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/1352343-20190721190327279-1203813997.png">
+
+<link rel="canonical" href="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>sftp | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/11/%E7%B3%BB%E7%BB%9F/1.%20Linux/0.%20sftp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sftp
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-11 17:09:53" itemprop="dateCreated datePublished" datetime="2021-05-11T17:09:53+08:00">2021-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-12 17:25:37" itemprop="dateModified" datetime="2021-07-12T17:25:37+08:00">2021-07-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/sftp/" itemprop="url" rel="index"><span itemprop="name">sftp</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="linux如何搭建sftp服务器"><a href="#linux如何搭建sftp服务器" class="headerlink" title="linux如何搭建sftp服务器"></a>linux如何搭建sftp服务器</h1><a id="more"></a>
+
+<blockquote>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/reachos/p/11157329.html">https://www.cnblogs.com/reachos/p/11157329.html</a></p>
+</blockquote>
+<p>sftp采用的是ssh加密隧道，安装性方面较ftp强，而且依赖的是系统自带的ssh服务，不像ftp还需要额外的进行安装</p>
+<h2 id="1-创建sftp组"><a href="#1-创建sftp组" class="headerlink" title="1. 创建sftp组"></a>1. 创建sftp组</h2><blockquote>
+<p>groupadd sftp</p>
+</blockquote>
+<p>创建完成之后使用cat /etc/group命令组的信息</p>
+<p><img src="1352343-20190721190327279-1203813997.png" alt="img"></p>
+<h2 id="2-创建一个sftp用户mysftp并加入到创建的sftp组中，同时修改mysftp用户的密码"><a href="#2-创建一个sftp用户mysftp并加入到创建的sftp组中，同时修改mysftp用户的密码" class="headerlink" title="2. 创建一个sftp用户mysftp并加入到创建的sftp组中，同时修改mysftp用户的密码"></a>2. 创建一个sftp用户mysftp并加入到创建的sftp组中，同时修改mysftp用户的密码</h2><blockquote>
+<p>useradd -g sftp -s /bin/false mysftp<br>passwd mysftp </p>
+</blockquote>
+<p><img src="1352343-20190721190555834-68000529.png" alt="img"></p>
+<h2 id="3-新建-data-sftp-mysftp目录，并将它指定为mysftp组用户的home目录"><a href="#3-新建-data-sftp-mysftp目录，并将它指定为mysftp组用户的home目录" class="headerlink" title="3. 新建/data/sftp/mysftp目录，并将它指定为mysftp组用户的home目录"></a>3. 新建/data/sftp/mysftp目录，并将它指定为mysftp组用户的home目录</h2><blockquote>
+<p>mkdir -p /data/sftp/mysftp<br>usermod -d /data/sftp/mysftp mysftp</p>
+</blockquote>
+<p><img src="1352343-20190721190651310-1496501090.png" alt="img"></p>
+<h2 id="4-编辑配置文件"><a href="#4-编辑配置文件" class="headerlink" title="4. 编辑配置文件"></a>4. 编辑配置文件</h2><h2 id="etc-ssh-sshd-config，"><a href="#etc-ssh-sshd-config，" class="headerlink" title="/etc/ssh/sshd_config，"></a>/etc/ssh/sshd_config，</h2><blockquote>
+<p>vi /etc/ssh/sshd_config</p>
+</blockquote>
+<p>　　将如下这行用#符号注释掉</p>
+<p>Subsystem   sftp  /usr/libexec/openssh/sftp-server </p>
+<p>并在文件最后面添加如下几行内容然后保存</p>
+<p>Subsystem    sftp  internal-sftp  </p>
+<p>Match Group sftp  </p>
+<p>ChrootDirectory /data/sftp/%u  </p>
+<p>ForceCommand  internal-sftp  </p>
+<p>AllowTcpForwarding no  </p>
+<p>X11Forwarding no </p>
+<p><img src="1352343-20190721190803931-466530668.png" alt="img"></p>
+<h2 id="5-设置Chroot目录权限"><a href="#5-设置Chroot目录权限" class="headerlink" title="5. 设置Chroot目录权限"></a>5. 设置Chroot目录权限</h2><blockquote>
+<p>chown root:sftp /data/sftp/mysftp<br>chmod 755 /data/sftp/mysftp</p>
+</blockquote>
+<p><img src="1352343-20190721190901342-326185468.png" alt="img"></p>
+<h2 id="6-新建一个目录供stp用户mysftp上传文件，这个目录所有者为mysftp所有组为sftp，所有者有写入权限所有组无写入权限"><a href="#6-新建一个目录供stp用户mysftp上传文件，这个目录所有者为mysftp所有组为sftp，所有者有写入权限所有组无写入权限" class="headerlink" title="6. 新建一个目录供stp用户mysftp上传文件，这个目录所有者为mysftp所有组为sftp，所有者有写入权限所有组无写入权限"></a>6. 新建一个目录供stp用户mysftp上传文件，这个目录所有者为mysftp所有组为sftp，所有者有写入权限所有组无写入权限</h2><p>mkdir /data/sftp/mysftp/upload </p>
+<p>chown mysftp:sftp /data/sftp/mysftp/upload </p>
+<p>chmod 755 /data/sftp/mysftp/upload </p>
+<p><img src="1352343-20190721191003265-417048492.png" alt="img"></p>
+<h2 id="7-关闭selinux并重启sshd服务，然后测试"><a href="#7-关闭selinux并重启sshd服务，然后测试" class="headerlink" title="7. 关闭selinux并重启sshd服务，然后测试"></a>7. 关闭selinux并重启sshd服务，然后测试</h2><p>setenforce 0</p>
+<p>systemctl restart sshd.service</p>
+<p><img src="1352343-20190721191029329-1126142717.png" alt="img"></p>
+<h2 id="8-在其他服务器上进行验证-sftp-用户名-ip地址"><a href="#8-在其他服务器上进行验证-sftp-用户名-ip地址" class="headerlink" title="8. 在其他服务器上进行验证,sftp 用户名@ip地址"></a>8. 在其他服务器上进行验证,sftp 用户名@ip地址</h2><p><img src="1352343-20190721191102776-933184056.png" alt="img"></p>
+<h2 id="9-查看报错"><a href="#9-查看报错" class="headerlink" title="9. 查看报错"></a>9. 查看报错</h2><p>systemctl status sshd.service</p>
+<p>查看报错</p>
+<h1 id="java连接sftp进行文件操作"><a href="#java连接sftp进行文件操作" class="headerlink" title="java连接sftp进行文件操作"></a>java连接sftp进行文件操作</h1><h2 id="1-参数"><a href="#1-参数" class="headerlink" title="1. 参数"></a>1. 参数</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">read-doc-sftp:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="number">123.60</span><span class="number">.220</span><span class="number">.148</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">mysftp</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">ydwyzxqy@2021</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">2038</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">/upload</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-工具类"><a href="#2-工具类" class="headerlink" title="2. 工具类"></a>2. 工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xatali.signplatform.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.jcraft.jsch.*;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Junpzx</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SftpUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 每个目录下最大子文件(夹)数量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_CHILD_FILE_NUMBER = <span class="number">1000</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> ChannelSftp sftp = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Session sshSession = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SftpUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 附件上传</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sftpConfig  sftp 配置信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileName    文件名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> inputStream 文件流</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SftpException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> JSchException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">upload</span><span class="params">(SftpConfig sftpConfig, String fileName, InputStream inputStream)</span> <span class="keyword">throws</span> SftpException, JSchException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> upload(sftpConfig, <span class="keyword">null</span>, fileName, inputStream);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文件上传</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sftpConfig   sftp 配置信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> relativePath 文件保存的相对路径(最后一级目录)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileName     文件名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> inputStream  文件流</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> JSchException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SftpException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">upload</span><span class="params">(SftpConfig sftpConfig, String relativePath, String fileName, InputStream inputStream)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> JSchException, SftpException </span>&#123;</span><br><span class="line">        init(sftpConfig);</span><br><span class="line">        createFolder(sftpConfig.getPath());</span><br><span class="line">        String filePath = sftpConfig.getPath();</span><br><span class="line">        <span class="keyword">if</span> (relativePath != <span class="keyword">null</span> &amp;&amp; !relativePath.trim().isEmpty()) &#123;</span><br><span class="line">            filePath = sftpConfig.getPath() + <span class="string">&quot;/&quot;</span> + relativePath;</span><br><span class="line">        &#125;</span><br><span class="line">        filePath = generateValidPath(filePath);</span><br><span class="line">        filePath = filePath + <span class="string">&quot;/&quot;</span> + fileName;</span><br><span class="line">        sftp.put(inputStream, filePath);</span><br><span class="line">        <span class="keyword">return</span> filePath.substring(sftpConfig.getPath().length() + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文件下载</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sftpConfig sftp 配置信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileName</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> JSchException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SftpException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] download(SftpConfig sftpConfig, String fileName) <span class="keyword">throws</span> JSchException, SftpException,</span><br><span class="line">            IOException &#123;</span><br><span class="line">        init(sftpConfig);</span><br><span class="line">        InputStream inputStream = sftp.get(sftpConfig.getPath() + <span class="string">&quot;/&quot;</span> + fileName);</span><br><span class="line">        ByteArrayOutputStream buffer = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">while</span> ((n = inputStream.read(data, <span class="number">0</span>, data.length)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            buffer.write(data, <span class="number">0</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">        buffer.flush();</span><br><span class="line">        <span class="keyword">return</span> buffer.toByteArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断是否关闭</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isClosed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Objects.isNull(sshSession) || Objects.isNull(sftp)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Objects.nonNull(sshSession) &amp;&amp; sshSession.isConnected() &amp;&amp; Objects.nonNull(sftp) &amp;&amp; sftp.isConnected()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sshSession != <span class="keyword">null</span> &amp;&amp; sshSession.isConnected()) &#123;</span><br><span class="line">            sshSession.disconnect();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sftp != <span class="keyword">null</span> &amp;&amp; sftp.isConnected()) &#123;</span><br><span class="line">            sftp.disconnect();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> JSchException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(SftpConfig sftpConfig)</span> <span class="keyword">throws</span> JSchException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isClosed()) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (SftpUtil.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!isClosed()) &#123;</span><br><span class="line">                    JSch jsch = <span class="keyword">new</span> JSch();</span><br><span class="line">                    jsch.getSession(sftpConfig.getUsername(), sftpConfig.getHost(), sftpConfig.getPort());</span><br><span class="line">                    sshSession = jsch.getSession(sftpConfig.getUsername(), sftpConfig.getHost(), sftpConfig.getPort());</span><br><span class="line">                    sshSession.setPassword(sftpConfig.getPassword());</span><br><span class="line">                    Properties sshConfig = <span class="keyword">new</span> Properties();</span><br><span class="line">                    sshConfig.put(<span class="string">&quot;StrictHostKeyChecking&quot;</span>, <span class="string">&quot;no&quot;</span>);</span><br><span class="line">                    sshSession.setConfig(sshConfig);</span><br><span class="line">                    sshSession.connect();</span><br><span class="line">                    Channel channel = sshSession.openChannel(<span class="string">&quot;sftp&quot;</span>);</span><br><span class="line">                    channel.connect();</span><br><span class="line">                    sftp = (ChannelSftp) channel;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建目录</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> path 目录路径</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">createFolder</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            sftp.mkdir(path);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SftpException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 统计目录下文件(夹)数量</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> path</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">countFiles</span><span class="params">(String path)</span> <span class="keyword">throws</span> SftpException </span>&#123;</span><br><span class="line">        sftp.cd(path);</span><br><span class="line">        <span class="keyword">return</span> sftp.ls(path).size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 校验路径是否可用</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> path</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">validatePathValid</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> countFiles = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            countFiles = countFiles(path);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SftpException e) &#123;</span><br><span class="line">            createFolder(path);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (countFiles &lt;= MAX_CHILD_FILE_NUMBER) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生成有效路径</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> path</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">generateValidPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (validatePathValid(path)) &#123;</span><br><span class="line">            <span class="keyword">return</span> path;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            String newPath = path + String.valueOf(System.currentTimeMillis()).substring(<span class="number">9</span>);</span><br><span class="line">            createFolder(newPath);</span><br><span class="line">            <span class="keyword">return</span> newPath;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SftpConfig <span class="title">sftpConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SftpUtil().<span class="function">new <span class="title">SftpConfig</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SftpConfig <span class="title">sftpConfig</span><span class="params">(String host, <span class="keyword">int</span> port, String username, String password, String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SftpUtil().n<span class="function">ew <span class="title">SftpConfig</span><span class="params">(host, port, username, password, path)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * sftp 配置信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Data</span></span><br><span class="line">    <span class="meta">@NoArgsConstructor</span></span><br><span class="line">    <span class="meta">@AllArgsConstructor</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SftpConfig</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 主机地址</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String host;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * sftp 连接端口</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 用户名</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String username;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 密码</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String password;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 文件保存根路径</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> String path;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sftp/" rel="tag"># sftp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/11/%E6%8A%80%E6%9C%AF/Swagger/1.%20Swagger%E4%BD%BF%E7%94%A8/" rel="prev" title="Swagger使用">
+      <i class="fa fa-chevron-left"></i> Swagger使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/11/%E6%8A%80%E6%9C%AF/redis/0.%20NoSQL/" rel="next" title="NoSQL">
+      NoSQL <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAsftp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">linux如何搭建sftp服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BAsftp%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">1. 创建sftp组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAsftp%E7%94%A8%E6%88%B7mysftp%E5%B9%B6%E5%8A%A0%E5%85%A5%E5%88%B0%E5%88%9B%E5%BB%BA%E7%9A%84sftp%E7%BB%84%E4%B8%AD%EF%BC%8C%E5%90%8C%E6%97%B6%E4%BF%AE%E6%94%B9mysftp%E7%94%A8%E6%88%B7%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建一个sftp用户mysftp并加入到创建的sftp组中，同时修改mysftp用户的密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%96%B0%E5%BB%BA-data-sftp-mysftp%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%AE%83%E6%8C%87%E5%AE%9A%E4%B8%BAmysftp%E7%BB%84%E7%94%A8%E6%88%B7%E7%9A%84home%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.</span> <span class="nav-text">3. 新建&#x2F;data&#x2F;sftp&#x2F;mysftp目录，并将它指定为mysftp组用户的home目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">4. 编辑配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#etc-ssh-sshd-config%EF%BC%8C"><span class="nav-number">1.5.</span> <span class="nav-text">&#x2F;etc&#x2F;ssh&#x2F;sshd_config，</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%AE%BE%E7%BD%AEChroot%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90"><span class="nav-number">1.6.</span> <span class="nav-text">5. 设置Chroot目录权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95%E4%BE%9Bstp%E7%94%A8%E6%88%B7mysftp%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%8C%E8%BF%99%E4%B8%AA%E7%9B%AE%E5%BD%95%E6%89%80%E6%9C%89%E8%80%85%E4%B8%BAmysftp%E6%89%80%E6%9C%89%E7%BB%84%E4%B8%BAsftp%EF%BC%8C%E6%89%80%E6%9C%89%E8%80%85%E6%9C%89%E5%86%99%E5%85%A5%E6%9D%83%E9%99%90%E6%89%80%E6%9C%89%E7%BB%84%E6%97%A0%E5%86%99%E5%85%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.7.</span> <span class="nav-text">6. 新建一个目录供stp用户mysftp上传文件，这个目录所有者为mysftp所有组为sftp，所有者有写入权限所有组无写入权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%85%B3%E9%97%ADselinux%E5%B9%B6%E9%87%8D%E5%90%AFsshd%E6%9C%8D%E5%8A%A1%EF%BC%8C%E7%84%B6%E5%90%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">1.8.</span> <span class="nav-text">7. 关闭selinux并重启sshd服务，然后测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%9C%A8%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E8%BF%9B%E8%A1%8C%E9%AA%8C%E8%AF%81-sftp-%E7%94%A8%E6%88%B7%E5%90%8D-ip%E5%9C%B0%E5%9D%80"><span class="nav-number">1.9.</span> <span class="nav-text">8. 在其他服务器上进行验证,sftp 用户名@ip地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%9F%A5%E7%9C%8B%E6%8A%A5%E9%94%99"><span class="nav-number">1.10.</span> <span class="nav-text">9. 查看报错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E8%BF%9E%E6%8E%A5sftp%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">java连接sftp进行文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">1. 参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2. 工具类</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

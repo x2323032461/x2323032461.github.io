@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Redis入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis入门及搭建">
+<meta property="og:url" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="Redis入门">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210513161902855.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210513160714269.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210513161030774.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210513161146254.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210514144751029.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210514172511671.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/707331-20180201145503750-901697180.png">
+<meta property="og:image" content="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/image-20210514180642373.png">
+<meta property="article:published_time" content="2021-05-12T07:09:53.000Z">
+<meta property="article:modified_time" content="2022-03-01T11:44:08.239Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210513161902855.png">
+
+<link rel="canonical" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Redis入门及搭建 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/12/%E6%8A%80%E6%9C%AF/redis/0.%20Redis%E5%85%A5%E9%97%A8%E5%8F%8A%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis入门及搭建
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 15:09:53" itemprop="dateCreated datePublished" datetime="2021-05-12T15:09:53+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-01 19:44:08" itemprop="dateModified" datetime="2022-03-01T19:44:08+08:00">2022-03-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h1><a id="more"></a>
+
+<h2 id="0-网址"><a href="#0-网址" class="headerlink" title="0. 网址"></a>0. 网址</h2><p>官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
+<p>中文网：<a target="_blank" rel="noopener" href="http://redis.cn/">http://redis.cn/</a></p>
+<p>官方介绍：<a target="_blank" rel="noopener" href="http://redis.cn/topics/introduction">http://redis.cn/topics/introduction</a></p>
+<p>Windows版下载地址：<a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100">https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100</a></p>
+<p>Window版本Redis需要在Github上下载（停更很久了），</p>
+<p><strong>Redis推荐是在Linux服务器上搭建的</strong></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210513161902855.png" alt="image-20210513161902855"></p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>Redis（<strong>Re</strong>mote <strong>Di</strong>ctionary <strong>S</strong>erver），远程字典服务。</p>
+<p>使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
+<p>redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
+<p>免费和开源！是当下最热门的NoSQL技术之一，也被人们称为结构化数据库。</p>
+<h2 id="2-作用"><a href="#2-作用" class="headerlink" title="2. 作用"></a>2. 作用</h2><ol>
+<li>内存存储、持久化，内存中的数据是断电即失，所以持久化很重要（rdb、aof）</li>
+<li>效率高，可以用于高速缓存</li>
+<li>发布订阅信息</li>
+<li>地图信息分析</li>
+<li>计时器、计数器（浏览量！）</li>
+<li>……</li>
+</ol>
+<h2 id="3-特性"><a href="#3-特性" class="headerlink" title="3. 特性"></a>3. 特性</h2><ol>
+<li>多样的数据类型</li>
+<li>持久化</li>
+<li>集群</li>
+<li>事务</li>
+<li>……</li>
+</ol>
+<h1 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h1><ol>
+<li><p>下载安装包</p>
+</li>
+<li><p>下载完毕得到压缩包，解压即可</p>
+</li>
+<li><p>开启Redis运行服务即可（注：此时可以看到，此次运行redis使用的配置文件为 /path/to/redis.conf，并没有用到配置文件redis.windows.conf，因此配置文件中的内容并不会生效，若要生效需要使用命令：redis-server.exe redis.windows.conf 运行redis）</p>
+</li>
+</ol>
+<p><img src="image-20210513160714269.png" alt="image-20210513160714269"></p>
+<ol start="4">
+<li><p>使用redis客户端连接redis服务端（双击即可打开），连接测试：输入PING命令，会回复PONG</p>
+<p><img src="image-20210513161030774.png" alt="image-20210513161030774"></p>
+</li>
+</ol>
+<ol start="5">
+<li>使用： set key 123；get key</li>
+</ol>
+<p><img src="image-20210513161146254.png" alt="image-20210513161146254"></p>
+<h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 下载获得安装包</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 发送安装包到服务器</span></span><br><span class="line">scp C:\Users\zbh\Desktop\1.txt  lucas@192.168.11.150:/home/lucas/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 解压</span></span><br><span class="line">tar -zxvf redis-5.0.3.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 下载安装环境 可使用`gcc -v`查看下载的gcc版本</span></span><br><span class="line">yum install gcc-c++</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 配置文件</span></span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 6. 确认安装是否完成</span></span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 一般我们自己安装的东西都会安装在  /usr/<span class="built_in">local</span>/bin 目录下</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 7. 将redis配置文件复制到 /usr/<span class="built_in">local</span>/bin 目录下</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-修改redis为后台启动"><a href="#2-修改redis为后台启动" class="headerlink" title="2. 修改redis为后台启动"></a>2. 修改redis为后台启动</h2><p>redis默认不是后台启动的，若需要后台启动要修改配置文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 搜索daemonzie  修改为yes</span></span><br><span class="line">/daemonzie</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-启动redis服务"><a href="#3-启动redis服务" class="headerlink" title="3. 启动redis服务"></a>3. 启动redis服务</h2><h3 id="1-通过指定的配置文件启动服务"><a href="#1-通过指定的配置文件启动服务" class="headerlink" title="1. 通过指定的配置文件启动服务"></a>1. 通过指定的配置文件启动服务</h3><p><code>redis-server redis-config/redis.conf</code></p>
+<p><img src="image-20210514144751029.png" alt="image-20210514144751029"></p>
+<h3 id="2-查看是否启动成功"><a href="#2-查看是否启动成功" class="headerlink" title="2. 查看是否启动成功"></a>2. 查看是否启动成功</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 或使用ps -ef查看redis是否启动</span>   </span><br><span class="line">ps -ef|grep redis</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-连接到服务"><a href="#3-连接到服务" class="headerlink" title="3. 连接到服务"></a>3. 连接到服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> redis-cli -p 端口号</span></span><br><span class="line">redis-cli -p 6379</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-停止服务-shutdown"><a href="#4-停止服务-shutdown" class="headerlink" title="4. 停止服务 shutdown"></a>4. 停止服务 shutdown</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在客户端输入命令</span></span><br><span class="line">shutdown</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210514172511671.png" alt="image-20210514172511671"></p>
+<h1 id="redis-benchmark性能测试"><a href="#redis-benchmark性能测试" class="headerlink" title="redis-benchmark性能测试"></a>redis-benchmark性能测试</h1><p>官方自带的压力测试工具</p>
+<p><img src="707331-20180201145503750-901697180.png" alt="img"></p>
+<p>测试并发连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 测试：100个并发连接，10000请求 / s</span></span><br><span class="line">redis-benchmark -h localhost -p 6379 -c 100 -n 10000</span><br></pre></td></tr></table></figure>
+
+
+<p>测试结果分析</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">====== SET ======</span><br><span class="line">  10000 requests completed <span class="keyword">in</span> 0.28 seconds		// 对1w个请求进行写入测试</span><br><span class="line">  100 parallel clients	// 100个并发客户端</span><br><span class="line">  3 bytes payload		// 每次写入三个字节</span><br><span class="line">  keep alive: 1			// 只有一台服务器处理这些请求（单机性能）</span><br><span class="line"></span><br><span class="line">2.42% &lt;= 1 milliseconds</span><br><span class="line">79.73% &lt;= 2 milliseconds</span><br><span class="line">94.08% &lt;= 3 milliseconds</span><br><span class="line">98.52% &lt;= 4 milliseconds</span><br><span class="line">99.63% &lt;= 5 milliseconds</span><br><span class="line">99.92% &lt;= 6 milliseconds</span><br><span class="line">100.00% &lt;= 6 milliseconds</span><br><span class="line">35335.69 requests per second	// 每秒处理35335.69个请求</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Redis基本知识说明"><a href="#Redis基本知识说明" class="headerlink" title="Redis基本知识说明"></a>Redis基本知识说明</h1><h2 id="1-redis默认有16个数据库，默认使用第0个数据库"><a href="#1-redis默认有16个数据库，默认使用第0个数据库" class="headerlink" title="1. redis默认有16个数据库，默认使用第0个数据库"></a>1. redis默认有16个数据库，默认使用第0个数据库</h2><p><img src="image-20210514180642373.png" alt="image-20210514180642373"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用 select 切换数据库</span></span><br><span class="line">select 5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前数据被使用的大小</span></span><br><span class="line">dbsize</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前数据库状态</span></span><br><span class="line">info</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 清除当前数据库</span></span><br><span class="line">flushdb</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 清除所有数据库</span></span><br><span class="line">flushall</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-Redis是单线程的"><a href="#2-Redis是单线程的" class="headerlink" title="2. Redis是单线程的"></a>2. Redis是单线程的</h2><blockquote>
+<p>Redis是单线程的</p>
+</blockquote>
+<p>Redis是基于内存操作，CPU不是Redis的性能瓶颈，Redis的瓶颈是根据机器的内存和网络带宽的，既然可以使用单线程就使用了单线程！</p>
+<blockquote>
+<p>为什么Redis单线程还那么快</p>
+</blockquote>
+<p>Redis是C语言写的，官方提供的数据为10W+ 的QPS，完全不必同样使用key-value的Memcache差</p>
+<ol>
+<li>误区1：高性能的服务器一定是多线程的？</li>
+<li>误区2：多线程一定比单线程效率高？（CPU上下文切换也会消耗资源）</li>
+<li>运行速度： CPU &gt; 内存 &gt; 硬盘 </li>
+</ol>
+<p>核心：redis是将所有的数据全部都放在内存中的，所以说使用单线程去操作效率就是最高的，多线程（CPU上下文会切换：耗时的操作），对于内存系统来说，如果没有上下文切换效率就是最高的，多次读写都是在一个CPU上，在内存情况下，这个就是最佳方案！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/11/%E6%8A%80%E6%9C%AF/jsoup%E7%88%AC%E8%99%AB/0.%20jsoup%E7%88%AC%E8%99%AB/" rel="prev" title="jsoup爬虫">
+      <i class="fa fa-chevron-left"></i> jsoup爬虫
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/12/%E6%8A%80%E6%9C%AF/redis/1.%20Redis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="next" title="Redis基本操作及数据类型">
+      Redis基本操作及数据类型 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">Redis入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E7%BD%91%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">0. 网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%9C%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">2. 作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%89%B9%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">3. 特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Windows安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">Linux安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9redis%E4%B8%BA%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="nav-number">3.2.</span> <span class="nav-text">2. 修改redis为后台启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%90%AF%E5%8A%A8redis%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">3. 启动redis服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%9A%E8%BF%87%E6%8C%87%E5%AE%9A%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. 通过指定的配置文件启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. 查看是否启动成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.3.3.</span> <span class="nav-text">3. 连接到服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%81%9C%E6%AD%A2%E6%9C%8D%E5%8A%A1-shutdown"><span class="nav-number">3.3.4.</span> <span class="nav-text">4. 停止服务 shutdown</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-benchmark%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">redis-benchmark性能测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E8%AF%B4%E6%98%8E"><span class="nav-number">5.</span> <span class="nav-text">Redis基本知识说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-redis%E9%BB%98%E8%AE%A4%E6%9C%8916%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%AC%AC0%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">5.1.</span> <span class="nav-text">1. redis默认有16个数据库，默认使用第0个数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Redis%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84"><span class="nav-number">5.2.</span> <span class="nav-text">2. Redis是单线程的</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

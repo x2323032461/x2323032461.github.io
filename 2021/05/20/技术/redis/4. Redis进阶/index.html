@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Redis配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis进阶">
+<meta property="og:url" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="黄焖鸡在逃米饭">
+<meta property="og:description" content="Redis配置文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210526091015775.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210526091118820.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210526164004720.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210526173216475.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210527172112369.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210601085936858.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210602093554108.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210603092211802.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210604091447387.png">
+<meta property="og:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210604091817044.png">
+<meta property="article:published_time" content="2021-05-20T10:38:52.000Z">
+<meta property="article:modified_time" content="2021-06-10T01:06:02.508Z">
+<meta property="article:author" content="yoga">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/image-20210526091015775.png">
+
+<link rel="canonical" href="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Redis进阶 | 黄焖鸡在逃米饭</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">黄焖鸡在逃米饭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/20/%E6%8A%80%E6%9C%AF/redis/4.%20Redis%E8%BF%9B%E9%98%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoga">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄焖鸡在逃米饭">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis进阶
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-20 18:38:52" itemprop="dateCreated datePublished" datetime="2021-05-20T18:38:52+08:00">2021-05-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-10 09:06:02" itemprop="dateModified" datetime="2021-06-10T09:06:02+08:00">2021-06-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Redis配置文件"><a href="#Redis配置文件" class="headerlink" title="Redis配置文件"></a>Redis配置文件</h1><a id="more"></a>
+
+<blockquote>
+<p>单位</p>
+</blockquote>
+<p><img src="image-20210526091015775.png" alt="image-20210526091015775"></p>
+<ol>
+<li>配置文件对大小写不敏感</li>
+</ol>
+<blockquote>
+<p>引入其他配置文件   INCLUDES</p>
+</blockquote>
+<p><img src="image-20210526091118820.png" alt="image-20210526091118820"></p>
+<blockquote>
+<p>网络配置    NETWORK</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 绑定的ip，默认只能本地访问</span></span><br><span class="line">bind 127.0.0.1 	</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保护模式</span></span><br><span class="line">protected-mode no</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 端口</span></span><br><span class="line">port 6379</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>通用    GENERAL</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 守护进程的方式运行</span></span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果以后台的方式运行，我们就需要指定一个pid文件</span></span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 日志级别</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Specify the server verbosity level.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This can be one of:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> debug (a lot of information, useful <span class="keyword">for</span> development/testing) 大量的信息，用于生产或测试</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> verbose (many rarely useful info, but not a mess like the debug level)许多很少用到的信息，单不想debug那个混乱</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> notice (moderately verbose, what you want <span class="keyword">in</span> production probably) 生产环境</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> warning (only very important / critical messages are logged)仅仅非常重要的信息</span></span><br><span class="line">loglevel notice</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 日志的文件位置名</span></span><br><span class="line">logfile &quot;&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 数据库的数量，默认是16个</span></span><br><span class="line">databases 16</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 是否显示logo</span></span><br><span class="line">always-show-logo yes</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>快照    SNAPSHOTTING</p>
+</blockquote>
+<p>持久化，在规定的时间内，执行了多少次操作，则会持久化到文件 .rdb .aof</p>
+<p>redis是内存数据库，如果没有持久化，那么数据断电即失</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果 900s 内，如果至少有一个key进行了修改，就进行持久化操作</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 持久化如果出错，是否还需要继续工作</span></span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 是否压缩rdb文件，需要消耗一些cup资源</span></span><br><span class="line">rdbcompression yes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保存rdb文件时，进行错误的检查校验</span></span><br><span class="line">rdbchecksum yes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保存的目录</span></span><br><span class="line">dir ./</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>复制    REPLICATION</p>
+</blockquote>
+<blockquote>
+<p>安全设置    SECURITY</p>
+</blockquote>
+<p>未设置密码时</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+
+<p>设置密码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置密码</span></span><br><span class="line">requirepass 123</span><br></pre></td></tr></table></figure>
+
+
+<p>此时进行获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">(error) NOAUTH Authentication required.</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 登录操作</span></span><br><span class="line">auth 123</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>客户端    CLIENTS</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置能连接上redis的最大客户端的数量</span></span><br><span class="line">maxclients 10000</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>内存管理    MEMORY MANAGEMENT</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置最大内存容量</span></span><br><span class="line">maxmemory &lt;bytes&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 内存到达上限之后的处理策略</span></span><br><span class="line"><span class="meta">#</span><span class="bash">1、volatile-lru：	只对设置了过期时间的key进行LRU（默认值）</span> </span><br><span class="line"><span class="meta">#</span><span class="bash">2、allkeys-lru ： 	删除lru算法的key</span>   </span><br><span class="line"><span class="meta">#</span><span class="bash">3、volatile-random：	随机删除即将过期key</span>   </span><br><span class="line"><span class="meta">#</span><span class="bash">4、allkeys-random：	随机删除</span>   </span><br><span class="line"><span class="meta">#</span><span class="bash">5、volatile-ttl ： 	删除即将过期的</span>   </span><br><span class="line"><span class="meta">#</span><span class="bash">6、noeviction ： 	永不过期，返回错误</span></span><br><span class="line">maxmemory-policy noeviction</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>AOF配置    APPEND ONLY MODE</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认是不开启AOF的</span></span><br><span class="line">appendonly no</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 持久化的文件名</span></span><br><span class="line">appendfilename &quot;appendonly.aof&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> AOP存储策略</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> appendfsync always	<span class="comment"># 每次修改都会存储，消耗性你那个</span></span></span><br><span class="line">appendfsync everysec	# 美妙执行一次存储，可能会丢失这1s的数据</span><br><span class="line"><span class="meta">#</span><span class="bash"> appendfsync no		<span class="comment"># 不执行同步，这个时候操作系统自己同步数据，速度最快</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 是否开启重写</span></span><br><span class="line">no-appendfsync-on-rewrite no</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 若开启重写，当文件大小超过64mb时</span></span><br><span class="line">auto-aof-rewrite-percentage 100</span><br><span class="line">auto-aof-rewrite-min-size 64mb</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><h2 id="RDB（Redis-DataBase）"><a href="#RDB（Redis-DataBase）" class="headerlink" title="RDB（Redis DataBase）"></a>RDB（Redis DataBase）</h2><p>在指定的时间间隔将内存中的数据集快照写入磁盘，也就是Snapshot快照，恢复时将快照文件直接读到内存中。</p>
+<p>Redis会单独创建( fork ) 一个子进程来进行持久化，会先将数据写入到一个临时文件中,待持久化过程都结束了,再用这个临时文件替换上次持久化好的文件。整个过程中,主进程是不进行任何I0操作的。这就确保了极高的性能。如果需要进行大规模数据的恢复，且对于数据恢复的完整性不是非常敏感,那RDB方式要比AOF方式更加的高效。RDB的缺点是最后一次持久化后的数据可能丢失。</p>
+<p>Redis默认的是RDB，一般情况下不需要修改这个配置。</p>
+<p>rdb保存的文件是<code>dump.rdb</code>，生产环境一般需要将这个文件备份</p>
+<p><img src="image-20210526164004720.png" alt="image-20210526164004720"></p>
+<h3 id="1-测试"><a href="#1-测试" class="headerlink" title="1. 测试"></a>1. 测试</h3><p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> save 900 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> save 300 10</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> save 60 10000</span></span><br><span class="line">save 60 3	# 六十秒内修改三次即进行存储</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行测试命令</span></span><br><span class="line">set k1 v1</span><br><span class="line">set k2 v2</span><br><span class="line">set k3 v3</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时在外部可以看到生成了一个dump.rdb文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭redis</span></span><br><span class="line">shutdown</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次开启redis，执行查询命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 依然可以获取数据</span></span><br><span class="line">get k1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-触发机制"><a href="#2-触发机制" class="headerlink" title="2. 触发机制"></a>2. 触发机制</h3><ol>
+<li>save的规则满足时，会自动触发rdb规则</li>
+<li>执行flushall命令，也会触发rdb规则</li>
+<li>退出redis，也会产生rdb文件</li>
+</ol>
+<p>备份就会生产一个dump.rdb文件</p>
+<h3 id="3-如何恢复rdb文件"><a href="#3-如何恢复rdb文件" class="headerlink" title="3. 如何恢复rdb文件"></a>3. 如何恢复rdb文件</h3><p>只需要将rdb文件放在redis启动目录即可，redis启动时会自动检查dump.rdb 并恢复其中的数据</p>
+<h3 id="4-优缺点"><a href="#4-优缺点" class="headerlink" title="4. 优缺点"></a>4. 优缺点</h3><blockquote>
+<p>优点：</p>
+</blockquote>
+<ol>
+<li>适合大规模的数据恢复</li>
+<li>对数据的完整性不高</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ol>
+<li>需要一定的时间间隔进行进程操作，如果redis意外宕机了，最后一次修改的数据就没了</li>
+<li>fork进程会占用一定的内存空间</li>
+</ol>
+<h2 id="AOF（Append-Only-File）"><a href="#AOF（Append-Only-File）" class="headerlink" title="AOF（Append Only File）"></a>AOF（Append Only File）</h2><blockquote>
+<p>将所有的写命令都记录下来，恢复的时候再把这些命令全部再执行一遍</p>
+<p>aof默认的是文件的无限追加，因此文件会越来越大</p>
+</blockquote>
+<p>以日志的形式来记录每个写操作, 将Redis执行过的所有指令记录下来(读操作不记录) ,只许追加文件但不可以改写文件, redis启动之初会读取该文件重新构建数据,换言之, redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作</p>
+<p>AOP保存的文件时<code>appendonly.aof</code></p>
+<p><img src="image-20210526173216475.png" alt="image-20210526173216475"></p>
+<p>默认是不开启的，只需要将appendonly 修改为yes之后重启redis，就可以开启aof了</p>
+<h3 id="1-使用及-aof-文件修复"><a href="#1-使用及-aof-文件修复" class="headerlink" title="1. 使用及 aof 文件修复"></a>1. 使用及 aof 文件修复</h3><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行插入命令</span></span><br><span class="line">set k1 v1</span><br></pre></td></tr></table></figure>
+
+
+<p>退出查看appendonly.aof文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*2</span><br><span class="line"><span class="variable">$6</span></span><br><span class="line">SELECT</span><br><span class="line"><span class="variable">$1</span></span><br><span class="line">0</span><br><span class="line">*3</span><br><span class="line"><span class="variable">$3</span></span><br><span class="line"><span class="built_in">set</span></span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">k1</span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">v1</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="破坏"><a href="#破坏" class="headerlink" title="破坏"></a>破坏</h4><p>若此时人为破坏该文件，之后重启redis</p>
+<p>再次连接时会报错，表示redis无法连接：</p>
+<p>Could not connect to Redis at 127.0.0.1:6379: Connection refused</p>
+<h4 id="aof文件修复-redis-check-aof-–fix-appendonly-aof"><a href="#aof文件修复-redis-check-aof-–fix-appendonly-aof" class="headerlink" title="aof文件修复    redis-check-aof –fix appendonly.aof"></a>aof文件修复    redis-check-aof –fix appendonly.aof</h4><blockquote>
+<p>如果这个aof文件有错误，这时候redis是启动不起来的，此时需要修复aof文件 </p>
+<p>redis提供了一个工具用来修复aof文件    <code>redis-check-rdb</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行修复命令</span></span><br><span class="line">redis-check-aof --fix appendonly.aof</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 询问是否执行修复</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入 y 执行修复</span></span><br><span class="line">0x              6e: Expected prefix &#x27;*&#x27;, got: &#x27;1&#x27;</span><br><span class="line">AOF analyzed: size=121, ok_up_to=110, diff=11</span><br><span class="line">This will shrink the AOF from 121 bytes, with 11 bytes, to 110 bytes</span><br><span class="line">Continue? [y/N]: y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 表示修复成功</span></span><br><span class="line">Successfully truncated AOF</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="修复成功"><a href="#修复成功" class="headerlink" title="修复成功"></a>修复成功</h4><p>此时打开 appendonly.aof 文件可以看到人为添加的的部分已经被删除了</p>
+<p>重启redsi即可正常连接</p>
+<h3 id="2-aof有点和缺点"><a href="#2-aof有点和缺点" class="headerlink" title="2. aof有点和缺点"></a>2. aof有点和缺点</h3><blockquote>
+<p> 优点：</p>
+</blockquote>
+<ol>
+<li>每一次修改都同步，文件完整性会非常好</li>
+<li>默认每秒同步一次，可能会丢失一秒的数据</li>
+<li>不开启时从不同步，效率是最高的</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ol>
+<li>相对于数据文件而言，aof远大于rdb，修复速度也比rdb慢</li>
+<li>aof运行效率也要比rdb慢，所以redis默认的配置就是rdb持久化</li>
+</ol>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
+<li><p>RDB持久化方式能够在指定的时间间隔内对你的数据进行快照存储</p>
+</li>
+<li><p>AOF 持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据， AOF命令以Redis协议追加保存每次写的操作到文件末尾， Redis还能对AOF文件进行后台重写，使得AOF文件的体积不至于过大。</p>
+</li>
+<li><p>如果你只希望你的数据在服务器运行的时候存在，即只做缓存，你也可以不使用任何持久化</p>
+</li>
+<li><p>同时开启两种持久化方式：</p>
+</li>
+</ol>
+<ul>
+<li>在这种情况下，当redis重启的时候会优先载入AOF文件来恢复原始的数据，因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整。</li>
+<li>RDB的数据不实时，同时使用两者时服务器重启也只会找AOF文件，那要不要只使用AOF呢？作者建议不要，因为RDB更适合用于备份数据库( AOF在不断变化不好备份) ， 快速重启，而且不会有AOF可能潜在的Bug ，留着作为一个万一的手段。</li>
+</ul>
+<ol start="5">
+<li>性能建议</li>
+</ol>
+<ul>
+<li><p>因为RDB文件只用作后备用途，建议只在Save 上持久化RDB文件，而且只要15分钟备份一次就够了，即只保留save 900 1这条规则。</p>
+</li>
+<li><p>如果Enable AOF ， 好处是在最恶劣情况下也只会丢失不超过两秒数据，启动脚本较简单只load自己的AOF文件就可以了， 代价一是带来了持续的IO ，二是AOF rewrite的最后将rewrite过程中产生的新数据写到新文件造成的阻塞几乎是不可避免的。只要硬盘许可，应该尽量减少AOF rewrite的频率， AOF重写的基础大小默认值64M太小了，可以设到5G以上，默认超过原大小<br>100%大小重写可以改到适当的数值。</p>
+</li>
+<li><p>如果不Enable AOF ，仅靠Master-Slave Repllcation 实现高可用性也可以，能省掉一大笔IO，也减少了rewrite时带来的系统波动。代价是如果Master/Slave同时倒掉，会丢失十几分钟的数据，启动脚本也要比较两个Master/Slave中的RDB文件，载入较新的那个，微博就是这种架构。</p>
+</li>
+</ul>
+<h1 id="Redis发布订阅"><a href="#Redis发布订阅" class="headerlink" title="Redis发布订阅"></a>Redis发布订阅</h1><p>发布订阅（pub/sub）是一种消息通信模式：发送者（pub）发送消息，订阅者（sub）接收消息。微博、微信、关注系统就是以此实现</p>
+<p>Redis客户端可以订阅任意数量的频道</p>
+<p>发布/订阅消息图：</p>
+<p><img src="image-20210527172112369.png" alt="image-20210527172112369"></p>
+<ol>
+<li>消息发送者</li>
+<li>频道</li>
+<li>消息订阅者</li>
+</ol>
+<blockquote>
+<p>命令及测试</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PSUBSCRIBE pattern [pattern …]</td>
+<td align="left">订阅一个或多个符合给定模式的频道。</td>
+</tr>
+<tr>
+<td align="left">PUBSUB subcommand [argument [argument …]</td>
+<td align="left">查看订阅与发布系统状态。</td>
+</tr>
+<tr>
+<td align="left">PUBLISH channel message</td>
+<td align="left">将信息发送到指定的频道。</td>
+</tr>
+<tr>
+<td align="left">PUNSUBSCRIBE [pattern [pattern …]</td>
+<td align="left">退订所有给定模式的频道。</td>
+</tr>
+<tr>
+<td align="left">SUBSCRIBE channel [channel …]</td>
+<td align="left">订阅给定的一个或多个频道的信息。</td>
+</tr>
+<tr>
+<td align="left">UNSUBSCRIBE [channel [channel …]</td>
+<td align="left">指退订给定的频道。</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 客户端1（订阅者）订阅一个频道，此时会进入等待状态</span></span><br><span class="line">127.0.0.1:6379&gt; subscribe pindao1</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) &quot;subscribe&quot;</span><br><span class="line">2) &quot;pindao1&quot;</span><br><span class="line">3) (integer) 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 客户端2（发布者），在频道中发布一条信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时在客户端1的窗口中会显示发布的信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1) <span class="string">&quot;message&quot;</span>		提示有一条消息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2) <span class="string">&quot;pindao1&quot;</span>		显示来自于哪个频道</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3) <span class="string">&quot;123&quot;</span>			消息内容</span></span><br><span class="line">publish pindao1 123</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>原理</p>
+</blockquote>
+<p>Redis是使用C实现的，通过分析Redis源码里的pubsub.c文件，了解发布和订阅机制的底层实现，籍此加深对Redis的理解。</p>
+<p>Redis通过PUBLISH、SUBSCRIBE 和PSUBSCRIBE等命令实现发布和订阅功能。</p>
+<p>微信:</p>
+<p>通过SUBSCRIBE命令订阅某频道后， redis-server 里维护了一个字典，字典的键就是一个个频道! 而字典的值则是一个链表，链表中保存了所有订阅这个channel的客户端。SUBSCRIBE 命令的关键，就是将客户端添加到给定channel的订阅链表中。</p>
+<p>通过PUBLISH命令向订阅者发送消息，redis-server 会使用给定的频道作为键，在它所维护的channel字典中查找记录了订阅这个频道的所有客户端的链表，遍历这个链表，将消息发布给所有订阅者。</p>
+<p>Pub/Sub从字面上理解就是发布( Publish )与订阅( Subscribe ) ， 在Redis中，你可以设定对某一个key值进行消息发布及消息订阅，当一个key值上进行了消息发布后，所有订阅它的客户端都会收到相应的消息。这一功能最明显 的用法就是用作实时消息系统，比如普通的即时聊天，群聊等功能。</p>
+<blockquote>
+<p>使用场景</p>
+</blockquote>
+<ol>
+<li>实时消息系统</li>
+<li>实时聊天（频道当做聊天室，将消息回显给所有人即可）</li>
+<li>订阅，关注系统都可以</li>
+</ol>
+<p>稍微复杂的场景，我们会使用消息中间件MQ</p>
+<h1 id="Redis主从复制"><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><p>主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(mater/leader) ，后者称为从节点(slave/follower) ;<code>数据的复制是单向的，只能由主节点到从节点</code>。Master以写为主 ， Slave以读为主。</p>
+<p>默认情况下，每台Redis服务器都是主节点；且一个主节点可以有多个从节点(或没有从节点) ，但一个从节点只能有一个主节点。</p>
+<p>主从复制的作用主要包括：</p>
+<p>1、数据冗余：主从复制实现了数据的热备份，是持久化之外的一种数据冗余方式。<br>2、故障恢复：当主节点出现问题时，可以由从节点提供服务，实现快速的故障恢复;实际上是-种服务的冗余。<br>3、负载均衡：在主从复制的基础上，配合读写分离，可以由主节点提供写服务，由从节点提供读服务(即写Redis数据时应用连接主节点，读Redis数据时应用连接从节点) ， 分担服务器负载;尤其是在写少读多的场景下，通过多个从节点分担读负载，可以大大提高Redis服务器的并发量。<br>4、高可用基石：除了上述作用以外，主从复制还是哨兵和集群能够实施的基础，因此说主从复制是Redis高可用的基础。</p>
+<p>一般来说，要将Redis运用于工程项目中，只使用一台Redis是万万不能的 ， 原因如下:<br>1、从结构上，单个Redis服务器会发生单点故障，并且一台服务器需要处理所有的请求负载，压力较大;<br>2、从容量上，单个Redis服务器内存容量有限，就算一台Redis服务 器内存容量为256G ，也不能将所有内存用作Redis存储内存，一般来说， <code>单台Redis最大使用内存不应该超过20G</code>。</p>
+<p>电商网站上的商品，一般都是一次上传，无数次浏览的，说专业点也就是”多读少写”。</p>
+<p>对于这种场景，我们可以使如下这种架构:</p>
+<p><img src="image-20210601085936858.png" alt="image-20210601085936858"></p>
+<blockquote>
+<p>业务中80%情况下都是进行读操作，用以减缓服务器的压力，在架构中经常使用</p>
+<p>一般最低配为一主二从，因为当主节点挂了时，由于哨兵模式，两个从节点之间可以进行选举，当只有一个从节点时，就无法进行选举</p>
+</blockquote>
+<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><blockquote>
+<p>只配置从库，不用配置主库</p>
+<p>由于redis启动默认就为主机，因此搭建集群时，仅需配置从机即可</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; info replication	# 查看当前库的信息</span><br><span class="line"><span class="meta">#</span><span class="bash"> Replication</span></span><br><span class="line">role:master		# 角色</span><br><span class="line">connected_slaves:0		# 从机数量</span><br><span class="line">master_replid:0454c2f247e7962fdc77c5e2a5a1434da8355907</span><br><span class="line">master_replid2:0000000000000000000000000000000000000000</span><br><span class="line">master_repl_offset:0</span><br><span class="line">second_repl_offset:-1</span><br><span class="line">repl_backlog_active:0</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:0</span><br><span class="line">repl_backlog_histlen:0</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="复制3份配置文件，然后修改对应的信息"><a href="#复制3份配置文件，然后修改对应的信息" class="headerlink" title="复制3份配置文件，然后修改对应的信息"></a>复制3份配置文件，然后修改对应的信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 修改端口</span></span><br><span class="line">port 6380</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 后台运行的</span></span><br><span class="line">pidfile /var/run/redis_6380.pid</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. <span class="built_in">log</span>日志</span></span><br><span class="line">logfile &quot;6380.log&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. rdb文件</span></span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注：若要做主机的服务配置有requirepass（密码）,则需要在从机配置中配置masterauth</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 否则连接会出错，主机中会无法显示从机的信息</span></span><br><span class="line">masterauth 123</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="依次依靠三个配置文件启动三个redis服务"><a href="#依次依靠三个配置文件启动三个redis服务" class="headerlink" title="依次依靠三个配置文件启动三个redis服务"></a>依次依靠三个配置文件启动三个redis服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]# redis-server redis-config/redis79.conf </span><br><span class="line">[root@localhost bin]# redis-server redis-config/redis80.conf </span><br><span class="line">[root@localhost bin]# redis-server redis-config/redis81.conf </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="修改服务为从机"><a href="#修改服务为从机" class="headerlink" title="修改服务为从机"></a>修改服务为从机</h3><blockquote>
+<p>slaveof ip port 选择服务器作为自己的主节点</p>
+<p>slaveof no one 选择自身为主节点</p>
+</blockquote>
+<h4 id="命令方式设置：关机即无"><a href="#命令方式设置：关机即无" class="headerlink" title="命令方式设置：关机即无"></a>命令方式设置：关机即无</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 认老大</span></span><br><span class="line">slaveof 127.0.0.1 6379</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时查询信息可以看到，本机角色变为从机</span></span><br><span class="line">127.0.0.1:6380&gt; info replication</span><br><span class="line"><span class="meta">#</span><span class="bash"> Replication</span></span><br><span class="line">role:slave			##################</span><br><span class="line">master_host:127.0.0.1</span><br><span class="line">master_port:6379</span><br><span class="line">master_link_status:down</span><br><span class="line">master_last_io_seconds_ago:-1</span><br><span class="line">master_sync_in_progress:0</span><br><span class="line">slave_repl_offset:1</span><br><span class="line">master_link_down_since_seconds:1622596401</span><br><span class="line">slave_priority:100</span><br><span class="line">slave_read_only:1</span><br><span class="line">connected_slaves:0</span><br><span class="line">master_replid:90e5b38935f2261fb2e21203395e150dcd644fb0</span><br><span class="line">master_replid2:0000000000000000000000000000000000000000</span><br><span class="line">master_repl_offset:0</span><br><span class="line">second_repl_offset:-1</span><br><span class="line">repl_backlog_active:0</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:0</span><br><span class="line">repl_backlog_histlen:0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看主机信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 主机中会显示从机的信息</span></span><br><span class="line">role:master</span><br><span class="line">connected_slaves:1			### 多了从机的配置，及从机的信息</span><br><span class="line">slave0:ip=127.0.0.1,port=6380,state=online,offset=42,lag=0</span><br><span class="line">master_replid:6c82c3de5c305587d875b941b112c488a43ed527</span><br><span class="line">master_replid2:0000000000000000000000000000000000000000</span><br><span class="line">master_repl_offset:42</span><br><span class="line">second_repl_offset:-1</span><br><span class="line">repl_backlog_active:1</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:1</span><br><span class="line">repl_backlog_histlen:42</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 两台从机都设置完毕后的主机</span></span><br><span class="line">role:master</span><br><span class="line">connected_slaves:2</span><br><span class="line">slave0:ip=127.0.0.1,port=6380,state=online,offset=784,lag=0</span><br><span class="line">slave1:ip=127.0.0.1,port=6381,state=online,offset=784,lag=0</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="修改配置文件的配置：永久性的"><a href="#修改配置文件的配置：永久性的" class="headerlink" title="修改配置文件的配置：永久性的"></a>修改配置文件的配置：永久性的</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> replicaof &lt;masterip&gt; &lt;masterport&gt;</span></span><br><span class="line">replicaof 127.0.0.1 6379</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-细节"><a href="#3-细节" class="headerlink" title="3. 细节"></a>3. 细节</h2><p>主机可以写，从机不能写只能读，主机中的所有信息和数据，都会自动被从机保存。</p>
+<p>从机执行写的操作时：</p>
+<p><img src="image-20210602093554108.png" alt="image-20210602093554108"></p>
+<p>测试：</p>
+<ol>
+<li>主机断开连接时，从机依旧是连接到主机的，依旧没有写的权限；此时如果主机回来了，从机仍旧可以直接获取主机写的信息。</li>
+<li>如果使用命令行配置的主从，此时如果从机重启，该从机就会变回主机；此时重新设置为从机，立马就会从主机中获取值</li>
+</ol>
+<blockquote>
+<p>复制原理</p>
+</blockquote>
+<p>Slave启动成功连接到master后会发送一个sync同步命令</p>
+<p>Master接到命令，启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，<code>master将传送整个数据文件到slave ，并完成一次完全同步。</code></p>
+<p><code>全量复制</code>：slave服务在接收到数据库文件数据后，将其存盘并加载到内存中。</p>
+<p><code>增量复制</code>：Master继续将新的所有收集到的修改命令依次传给slave ，完成同步</p>
+<p>只要是重新连接master，一次完全同步（全量复制）将被自动执行</p>
+<blockquote>
+<p>层层链路模式</p>
+</blockquote>
+<p><img src="image-20210603092211802.png" alt="image-20210603092211802"></p>
+<blockquote>
+<p>谋朝篡位手动版</p>
+</blockquote>
+<p>主机挂机时，手动在某个从机上输入，<code>slaveof no one</code>设置自身为主机，其他从机切换追随新竞主机</p>
+<h1 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h1><blockquote>
+<p>自动选举老大的模式</p>
+</blockquote>
+<h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h2><p>谋朝篡位的自动版，能够后台监控主机是否故障，如果故障了根据投票数自动将从库转换为主库。</p>
+<p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程。其原理是哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</p>
+<p><img src="image-20210604091447387.png" alt="image-20210604091447387"></p>
+<p>哨兵作用：</p>
+<ul>
+<li><p>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器。</p>
+</li>
+<li><p>当哨兵监测到master宕机，会自动将slave切换成master ，然后通过发布订阅模式通知其他的从服务器，修改配置文件，让它们切换主机。</p>
+</li>
+</ul>
+<p>然而仅一个哨兵进程对Redis服务器进行监控，可能会出现问题，为此，我们可以使用<code>多个哨兵</code>进行监控。各个哨兵之间还会进行监控，这样就形成了多哨兵模式。</p>
+<p><img src="image-20210604091817044.png" alt="image-20210604091817044"></p>
+<p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行<code>failover[故障转移]</code>过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象称为<code>主观下线</code>。当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起，进行failover操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<code>客观下线</code>。</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 配置哨兵配置文件   sentinel.conf  <span class="comment">#######################</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentinel monitor 固定格式</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> myredis 名称，可随便起</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 127.0.0.1 6379 监视的主机</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1 投的票/允许投票选举主机 ？</span></span><br><span class="line">sentinel monitor myredis 127.0.0.1 6379 1 </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 启动哨兵 <span class="comment">#######################</span></span></span><br><span class="line">redis-sentinel sentinel.conf</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-测试"><a href="#3-测试" class="headerlink" title="3. 测试"></a>3. 测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果master节点断开了，这个时候会从从机中随机选择一个服务器作为主机</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如： 主机为：6380  从机为：6379 和 6381</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时主机断开，哨兵并不会直接进行投票选举，一定时间主机无响应后，哨兵进行调整：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 哨兵日志：</span></span><br><span class="line">3632:X 07 Jun 2021 21:19:02.126 # +sdown master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.126 # +odown master myredis 127.0.0.1 6380 #quorum 1/1</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.126 # +new-epoch 8</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.126 # +try-failover master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.128 # +vote-for-leader 72693c12e020c758eef76bc38a1817fd7735dfd4 8</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.128 # +elected-leader master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.128 # +failover-state-select-slave master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.191 # +selected-slave slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.191 * +failover-state-send-slaveof-noone slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.244 * +failover-state-wait-promotion slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.637 # +promoted-slave slave 127.0.0.1:6379 127.0.0.1 6379 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.637 # +failover-state-reconf-slaves master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:02.691 * +slave-reconf-sent slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:03.200 * +slave-reconf-inprog slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:04.255 * +slave-reconf-done slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:04.316 # +failover-end master myredis 127.0.0.1 6380</span><br><span class="line">3632:X 07 Jun 2021 21:19:04.316 # +switch-master myredis 127.0.0.1 6380 127.0.0.1 6379</span><br><span class="line">3632:X 07 Jun 2021 21:19:04.317 * +slave slave 127.0.0.1:6381 127.0.0.1 6381 @ myredis 127.0.0.1 6379</span><br><span class="line">3632:X 07 Jun 2021 21:19:04.317 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 主机由6380 转至 6379</span></span><br><span class="line">3632:X 07 Jun 2021 21:19:34.340 # +sdown slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 6379</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时如果主机 6380 重新连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 哨兵日志：</span></span><br><span class="line">3632:X 07 Jun 2021 21:21:47.953 * +convert-to-slave slave 127.0.0.1:6380 127.0.0.1 6380 @ myredis 127.0.0.1 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看6379 信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> info replication</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以看出原来的主机现在作为一台从机进行工作</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Replication</span></span><br><span class="line">role:master</span><br><span class="line">connected_slaves:2</span><br><span class="line">slave0:ip=127.0.0.1,port=6381,state=online,offset=83402,lag=1</span><br><span class="line">slave1:ip=127.0.0.1,port=6380,state=online,offset=83402,lag=1</span><br><span class="line">master_replid:d285d1af5502b618a690774fc1e3e58b45f88d0b</span><br><span class="line">master_replid2:a45f8a275277b9759db20c6c5a6f5ee9f6e57485</span><br><span class="line">master_repl_offset:83534</span><br><span class="line">second_repl_offset:30903</span><br><span class="line">repl_backlog_active:1</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:25634</span><br><span class="line">repl_backlog_histlen:57901</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-优缺点-1"><a href="#4-优缺点-1" class="headerlink" title="4. 优缺点"></a>4. 优缺点</h2><p>优点：</p>
+<pre><code>1. 哨兵集群，基于主从复制模式，所有的主从配置的有点，他都有
+2. 主从可以切换，故障可以转移，系统的可用性就会更好
+3. 哨兵模式就是主从模式的升级，由手动到自动，更加健壮</code></pre>
+<p>缺点：</p>
+<pre><code>1. Redis，集群容量一旦到达上限，在线扩容就十分麻烦
+2. 实现哨兵模式配置其实是非常麻烦的，</code></pre>
+<h2 id="5-哨兵模式的全部配置"><a href="#5-哨兵模式的全部配置" class="headerlink" title="5. 哨兵模式的全部配置"></a>5. 哨兵模式的全部配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Example sentine1. conf</span></span><br><span class="line"><span class="meta">#</span><span class="bash">哨兵sentine实例运行的端口默认26379</span></span><br><span class="line">port 26379</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">哨兵sentine1的工作目录</span></span><br><span class="line">dir /tmp</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">哨兵sentine1监控的redis主节点的ip port</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> master-name 可以自己命名的主节点名字只能由字母A-z、数字0-9、这三个字符<span class="string">&quot;.-_&quot;</span>组成。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> quorum 配置多少个sentine1哨兵统一认为master主节点失联那么这时客观上认为主节点失联了</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 monitor &lt;master-name&gt; &lt;ip&gt; &lt;redis-port&gt; &lt;quorum&gt;</span></span><br><span class="line">sentine1 monitor mymaster 127.0.0.1 6379 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">当在Redis实例中开启了requirepass foobared授权密码这样所有连接Redis实例的客户端都要提供密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash">设置哨兵sentine1连接主从的密码注意必须为主从设置一样的验证密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 auth-pass &lt;master-name&gt; &lt;password&gt;</span></span><br><span class="line">sentine1 auth-pass mymaster MySUPER--secret-0123passwOrd</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">指定多少毫秒之后主节点没有应答哨兵sentinel 此时哨兵主观上认为主节点下线默认30秒</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 down-after-milliseconds &lt;master-name&gt; &lt;mi 1liseconds&gt;</span></span><br><span class="line">sentine1 down-after-mi 11iseconds mymaster 30000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">这个配置项指定了在发生failover主备切换时最多可以有多少个s1ave同时对新的master进行同步，</span></span><br><span class="line"><span class="meta">#</span><span class="bash">这个数字越小，完成failover所需的时间就越长，</span></span><br><span class="line"><span class="meta">#</span><span class="bash">但是如果这个数字越大，就意味着越多的slave因为replication而不可用</span></span><br><span class="line"><span class="meta">#</span><span class="bash">可以通过将这个值设为1来保证每次只有一个s1ave处于不能处理命令请求的状态。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 parallel-syncs &lt;master-name&gt; &lt;nums laves&gt;</span></span><br><span class="line">sentine1 paralle1-syncs mymaster 1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">故障转移的超时时间failover-timeout 可以用在以下这些方面:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">1.同一个sentinel对同一个master两次failover之间的问隔时间。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">2.当一个slave从一个错误的master那里同步数据开始计算时间。直到slave被纠正为向正确的master那里同步数据时。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">3.当想要取消一个正在进行的failover所需要的时间。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">4.当进行failover时，配置所有slaves指向新的master所需的最大时间。不过，即使过了这个超时，slaves 依然会被正确配置为指向</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> master,但是就不按parallel-syncs所配置的规则来了</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认三分钟</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 failover-timeout &lt;master-name&gt; &lt;mi 11iseconds&gt;</span></span><br><span class="line">sentine1 failover-timeout mymaster 180000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> SCRIPTS EXECUTION</span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置当某一事件发生时所需要执行的脚本，可以通过脚本来通知管理员，例如当系统运行不正常时发邮件通知相关人员。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">对于脚本的运行结果有以下规则:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">若脚本执行后返回1，那么该脚本稍后将会被再次执行，重复次数目前默认为10</span></span><br><span class="line"><span class="meta">#</span><span class="bash">若脚本执行后返回2，或者比2更高的一个返回值。脚本将不会重复执行。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">如果脚本在执行过程中由于收到系统中断信号被终止了，则同返回值为1时的行为相同。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">一个脚本的最大执行时间为60s，如果超过这个时间，脚本将会被一个SIGKIL信号终止，之后重新执行。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">通知型脚本:当sentinel有任何警告级别的事件发生时(比如说redis实例的主观失效和客观失效等等)，将会去调用这个脚本，这时这个</span></span><br><span class="line"><span class="meta">#</span><span class="bash">脚本应该通过邮件，SMS 等方式去通知系统管理员关于系统不正常运行的信息。调用该脚木时，将传给脚木两个参数，一 个是事件的类型，</span></span><br><span class="line"><span class="meta">#</span><span class="bash">个是事件的措述。如果sentinel.conf配置文件中配置了这个脚本路径，那么必须保证这个脚本存在于这个路径。并且是可执行的，否则</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sentinel无法正常启动成功。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">通知脚本  shell编程</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentine1 notification-script &lt;master-name&gt; &lt;script-path&gt;</span></span><br><span class="line">sentine1 notificati on-script mymaster /var/redi s/notify.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">客户端重新配置主节点参数脚木</span></span><br><span class="line"><span class="meta">#</span><span class="bash">当一个master由于failover而发生改变时，这个脚本将会被调用，通知相关的客户端关于master地址已经发生改变的信息。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">以下参数将会在调用脚本时传给脚本:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> &lt;master-name&gt; &lt;ro1e&gt; &lt;state&gt; &lt;from-ip&gt; &lt;from-port&gt; &lt;to-ip&gt; &lt;to-port&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash">目前&lt;state&gt;总是“failover<span class="string">&quot;,</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> &lt;role&gt; 是<span class="string">&quot;leader&quot;</span>或省<span class="string">&quot;observer&quot;</span>中的一个。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">参数from-ip， from-port, to-ip， to-port是用来和旧的master和新的master (即旧的s1ave)通信的</span></span><br><span class="line"><span class="meta">#</span><span class="bash">这个脚本应该是通用的，能被多次调用，不是针对性的。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;</span></span><br><span class="line">sentinel client-reconfig-script mymaster /var/redis/ reconfig.sh</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Redis缓存穿透、击穿和雪崩"><a href="#Redis缓存穿透、击穿和雪崩" class="headerlink" title="Redis缓存穿透、击穿和雪崩"></a>Redis缓存穿透、击穿和雪崩</h1><p>​    Redis缓存的使用，极大的提升了应用程序的性能和效率，特别是数据查询方面。但同时，它也带来了一些问题。其中，最要害的问题，就是数据的一致性问题，从严格意义上讲，这个问题无解。如果对数据的一致性要求很高，那么就不能使用缓存。</p>
+<p>​    另外的一些典型问题就是，缓存穿透、缓存雪崩和缓存击穿。目前，业界也都有比较流行的解决方案。</p>
+<blockquote>
+<p>服务的高可用问题</p>
+</blockquote>
+<h2 id="1-缓存穿透（查不到导致的）"><a href="#1-缓存穿透（查不到导致的）" class="headerlink" title="1. 缓存穿透（查不到导致的）"></a>1. 缓存穿透（查不到导致的）</h2><p>![image-20210609143615903](4. Redis进阶/image-20210609143615903.png)</p>
+<p>正常请求：</p>
+<ul>
+<li><p>用户首先查询缓存，若缓存中有数据则直接返回给用户；</p>
+</li>
+<li><p>若缓存中没有该数据则查询数据库，在数据库中查询到该数据后返回给用户；</p>
+</li>
+</ul>
+<p>非正常请求：</p>
+<ul>
+<li>用户首先查询缓存，缓存中没有请求的数据，然后请求数据库，数据库中也没有该数据；</li>
+<li>此时，如果存在攻击，攻击方不断的请求，数据库将接收到大量的访问，此时数据库将非常容易崩溃；</li>
+</ul>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>​    用户想要查询一个数据，发现redis内存数据库中没有，也就是缓存没有命中，于是向持久层数据库查询。发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀！），于是都去请求了持久层数据库。这会给持久层数据库造成很大的压力，这时候就相当于出现了缓存穿透。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><blockquote>
+<p>布隆过滤器</p>
+</blockquote>
+<p>布隆过滤器是一种数据结构，对所有可能查询的参数以hash形式存储，在控制层先进行校验，不符合则丢弃，从而避免对底层存储系统的查询压力</p>
+<p>![image-20210609145640547](4. Redis进阶/image-20210609145640547.png)</p>
+<blockquote>
+<p>缓存空对象</p>
+</blockquote>
+<p>当存储层不命中后，即使返回空对象也将其缓存起来，同时会设置一个过期时间，之后在访问这个数据将会从缓存中获取，保护了后端数据源</p>
+<p>![image-20210609165739202](4. Redis进阶/image-20210609165739202.png)</p>
+<p>但是这种方法会存在两个问题:<br>1、如果空值能够被缓存起来，这就意味着缓存需要更多的空间存储更多的键，因为这当中可能会有很多的空值的键;<br>2、即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致 ，这对于需要保持一致性的业务会有影响。</p>
+<h2 id="2-缓存击穿（查询量过大，缓存过期导致）"><a href="#2-缓存击穿（查询量过大，缓存过期导致）" class="headerlink" title="2. 缓存击穿（查询量过大，缓存过期导致）"></a>2. 缓存击穿（查询量过大，缓存过期导致）</h2><h3 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h3><p>这里需要注意和缓存击穿的区别，缓存击穿，是指一个key非常热点 ，在不停的扛着大并发， 大并发集中对这一个点进行访问 ，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</p>
+<p>当某个key在过期的瞬间，有大量的请求并发访问，这类数据一般是热点数据，由于缓存过期，会同时访问数据库来查询最新数据，并且回写缓存，会导使数据库瞬间压力过大。</p>
+<p>类比于热搜：</p>
+<p>若该条热搜在缓存中存储60s，会在60.1s时恢复，此时的0.1s中所有的访问都会砸在数据库上。</p>
+<h3 id="2-2-解决方法"><a href="#2-2-解决方法" class="headerlink" title="2.2 解决方法"></a>2.2 解决方法</h3><blockquote>
+<p>设置热点数据永不过期</p>
+</blockquote>
+<p>从缓存层面看，没有设置过期时间，所以就不会出现热点key过期后产生的问题；</p>
+<blockquote>
+<p>使用分布式锁</p>
+</blockquote>
+<p>分布式锁：使用分布式锁，保证对于每个key同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限，因此只需要等待即可。这种方式将高并发的压力转移到了分布式锁，因此对分布式锁的考验很大。</p>
+<p>![image-20210609175512618](4. Redis进阶/image-20210609175512618.png)</p>
+<h2 id="3-缓存雪崩"><a href="#3-缓存雪崩" class="headerlink" title="3. 缓存雪崩"></a>3. 缓存雪崩</h2><blockquote>
+<p>概念</p>
+</blockquote>
+<p>缓存雪崩，是指在某一个时间段，缓存集体过期失效。如：Redis宕机！</p>
+<p>产生雪崩的原因之一， 比如双十二零点抢购 ，这波商品信息时间比较集中的放入了缓存，假设缓存一个小时。那么到了凌晨一点钟的时候 ，这批商品的缓存就都过期了。而对这批商品的访问查询，都落到了数据库上，对于数据库而言，就会产生周期性的压力波峰。于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会挂掉的情况。</p>
+<p>![image-20210609180032014](4. Redis进阶/image-20210609180032014.png)</p>
+<p>其实集中过期，倒不是非常致命，比较致命的缓存雪崩，是缓存服务器某个节点宕机或断网。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很有可能瞬间就把数据库压垮。</p>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<p>双十一：停掉一些服务（保证主要的服务可用）</p>
+<p><strong>redis高可用：</strong><br>这个思想的含义是，既然redis有可能挂掉，那我多增设几台redis ，这样一台挂掉之后其他的还可以继续工作，其实就是搭建的集群。（异地多活）</p>
+<p><strong>限流降级：</strong><br>这个解决方案的思想是，在缓存失效后，通过加锁或者队列来控制读数据库写缓存的线程数量。比如对某个key只允许一个线程查询数据和写缓存，其他线程等待。</p>
+<p><strong>数据预热：</strong><br>数据预热的含义就是在正式部署之前，我先把可能的数据先预先访问一遍，这样部分可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的key ，设置不同的过期时间，让缓存失效的时间点尽量均匀。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/20/%E6%8A%80%E6%9C%AF/redis/5.%20Redis%20%E5%92%8C%20Mysql%20%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E6%80%A7/" rel="prev" title="Redis和Mysql数据库数据如何保持一致性">
+      <i class="fa fa-chevron-left"></i> Redis和Mysql数据库数据如何保持一致性
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/10/java/%E5%90%8E%E7%AB%AF/%E6%A1%86%E6%9E%B6/SpringBoot/%E9%9B%B7/0.%20%E9%97%AE%E9%A2%98/" rel="next" title="web开发">
+      web开发 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Redis配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">Redis持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB%EF%BC%88Redis-DataBase%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">RDB（Redis DataBase）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 触发机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8Drdb%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 如何恢复rdb文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.1.4.</span> <span class="nav-text">4. 优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOF%EF%BC%88Append-Only-File%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">AOF（Append Only File）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8%E5%8F%8A-aof-%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 使用及 aof 文件修复</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">破坏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aof%E6%96%87%E4%BB%B6%E4%BF%AE%E5%A4%8D-redis-check-aof-%E2%80%93fix-appendonly-aof"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">aof文件修复    redis-check-aof –fix appendonly.aof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E6%88%90%E5%8A%9F"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">修复成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-aof%E6%9C%89%E7%82%B9%E5%92%8C%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. aof有点和缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">2.3.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-number">3.</span> <span class="nav-text">Redis发布订阅</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">Redis主从复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="nav-number">4.1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">2. 环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B63%E4%BB%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E7%84%B6%E5%90%8E%E4%BF%AE%E6%94%B9%E5%AF%B9%E5%BA%94%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="nav-number">4.2.1.</span> <span class="nav-text">复制3份配置文件，然后修改对应的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E6%AC%A1%E4%BE%9D%E9%9D%A0%E4%B8%89%E4%B8%AA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%AF%E5%8A%A8%E4%B8%89%E4%B8%AAredis%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.2.2.</span> <span class="nav-text">依次依靠三个配置文件启动三个redis服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9C%8D%E5%8A%A1%E4%B8%BA%E4%BB%8E%E6%9C%BA"><span class="nav-number">4.2.3.</span> <span class="nav-text">修改服务为从机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%96%B9%E5%BC%8F%E8%AE%BE%E7%BD%AE%EF%BC%9A%E5%85%B3%E6%9C%BA%E5%8D%B3%E6%97%A0"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">命令方式设置：关机即无</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%9A%E6%B0%B8%E4%B9%85%E6%80%A7%E7%9A%84"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">修改配置文件的配置：永久性的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%86%E8%8A%82"><span class="nav-number">4.3.</span> <span class="nav-text">3. 细节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">哨兵模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AF%B4%E6%98%8E"><span class="nav-number">5.1.</span> <span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8"><span class="nav-number">5.2.</span> <span class="nav-text">2. 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95"><span class="nav-number">5.3.</span> <span class="nav-text">3. 测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BC%98%E7%BC%BA%E7%82%B9-1"><span class="nav-number">5.4.</span> <span class="nav-text">4. 优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%A8%E9%83%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">5.5.</span> <span class="nav-text">5. 哨兵模式的全部配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E5%87%BB%E7%A9%BF%E5%92%8C%E9%9B%AA%E5%B4%A9"><span class="nav-number">6.</span> <span class="nav-text">Redis缓存穿透、击穿和雪崩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%EF%BC%88%E6%9F%A5%E4%B8%8D%E5%88%B0%E5%AF%BC%E8%87%B4%E7%9A%84%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">1. 缓存穿透（查不到导致的）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">6.1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">6.1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF%EF%BC%88%E6%9F%A5%E8%AF%A2%E9%87%8F%E8%BF%87%E5%A4%A7%EF%BC%8C%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%E5%AF%BC%E8%87%B4%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">2. 缓存击穿（查询量过大，缓存过期导致）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%A6%82%E5%BF%B5"><span class="nav-number">6.2.1.</span> <span class="nav-text">2.1 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">6.2.2.</span> <span class="nav-text">2.2 解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="nav-number">6.3.</span> <span class="nav-text">3. 缓存雪崩</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoga</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoga</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
